@@ -218,3 +218,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data and artifacts: retain directory documentation
+/data/raw/*
+!/data/raw/README.md
+/data/processed/*
+!/data/processed/README.md
+/models/*
+!/models/README.md
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+

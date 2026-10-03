@@ -1,0 +1,3 @@
+# Pin tested runtime and notebook dependencies as implementation begins.
+# No application dependencies are selected or verified yet.
+
