@@ -1,51 +1,61 @@
 # Prediction tool: hand-off to the agent
 
-**Owner:** models & evaluation (Idan) · **Consumer:** agent module (Adir) · **Code:** `src/models/predict.py` · **Design:** §19.1
+**Owner:** models & evaluation (Idan) · **Consumer:** agent (Adir) · **Code:** `src/models/predict.py` · **Design:** §19.1
 
 The agent gets price predictions through **one read-only function**. It never loads model files or data itself.
+
+## One model per city
+
+Each city has its own model, trained on that city's listings, with prices in that city's currency (README: one city, one currency per model). `PredictionService` loads every city that has a trained model and routes each call to the right one. The agent uses one tool for all cities.
 
 ## Load once, call many times
 
 ```python
-from src.models.predict import PredictionTool, TOOL_SCHEMA
+from src.models.predict import PredictionService, TOOL_SCHEMA
 
-tool = PredictionTool.load(".")          # run from the repository root
-result = tool.handle_tool_call({"listing_id": 28871})
+service = PredictionService.load(".")    # run from the repository root; all trained cities
+print(service.cities)                    # e.g. ['Amsterdam', 'Barcelona']
+result = service.handle_tool_call({"listing_id": 28871})
 ```
 
-`load()` does three things:
-- **Picks the model.** It uses the model selected in notebook 04 (`reports/model_card_metrics.json`). Until 04 has run, it uses notebook 03's development pick and warns that predictions are provisional.
+`load()` does four things for each city:
+- **Picks the model.** It uses the model notebook 04 selected for that city (`reports/<city>/model_card_metrics.json`). Until 04 has run for a city, it uses notebook 03's development pick and warns that predictions are provisional.
 - **Checks the artifact.** It refuses to load a model file whose hash differs from the one recorded by notebook 03.
-- **Loads the interval model** that matches the model's split and features.
+- **Loads the interval model** that matches the city, split and features.
+- **Checks the data.** If that city's listings changed since training, it warns. Changes to *other* cities don't trigger the warning.
+
+The listings file is read once and shared by all cities. For a single city, `PredictionTool.load(".", city="Amsterdam")` returns that city's tool alone.
 
 Command line, for a quick check:
 ```
 python -m src.models.predict --listing-id 28871
-python -m src.models.predict --features "{\"neighbourhood_cleansed\": \"Zuid\", \"room_type\": \"Entire home/apt\", \"accommodates\": 4}"
+python -m src.models.predict --city Amsterdam --features "{\"neighbourhood_cleansed\": \"Zuid\", \"room_type\": \"Entire home/apt\", \"accommodates\": 4}"
 ```
 
 ## Input
 
-Exactly one of:
+Exactly one of `listing_id` or `features`, plus `city` when needed:
 
 | Field | Meaning |
 |---|---|
-| `listing_id` (+ optional `snapshot_date`) | An existing listing. Uses the latest snapshot if no date is given. |
-| `features` | A hypothetical listing. Required: `neighbourhood_cleansed`, `room_type`, `accommodates`. Optional: `bedrooms`, `beds`, `bathrooms_text`, `property_type`, `latitude`/`longitude`, … |
+| `listing_id` (+ optional `snapshot_date`) | An existing listing. Uses the latest snapshot if no date is given. The city is found from the id; pass `city` only if the id exists in two cities (the tool says so). |
+| `features` + `city` | A hypothetical listing. `city` is required when several cities are loaded. Required features: `neighbourhood_cleansed`, `room_type`, `accommodates`. Optional: `bedrooms`, `beds`, `bathrooms_text`, `property_type`, `latitude`/`longitude`, … |
 
 ## Output (always the same keys)
 
 | Field | Meaning |
 |---|---|
+| `city` | Which city's model answered. |
 | `status` | One of the four statuses in the next section. |
 | `status_reason` | Why, when `status` is not `ok`. |
+| `currency` | The city's local currency (EUR, GBP, CHF, CZK, DKK, NOK). **Never compare or average prices across currencies.** |
 | `predicted_median_price`, `interval_80` | The typical **listing** price per night, and its 80% range. Both are `null` unless `status` is `ok`. |
 | `observed_price`, `position` | The listing's own asking price, and whether it is `below_interval`, `within_interval` or `above_interval`. Both are `null` if the price is unknown. |
 | `in_training_data` | `true` means the model saw this listing in training. Its error there is optimistic, and the 80% guarantee does not apply. |
 | `top_drivers` | Up to 3 features that raise the prediction and 3 that lower it, each with a ready-made `statement`, e.g. `"+22% for accommodates = 6 (typical: 5)"`. |
 | `assumptions` | Values the tool filled in for a hypothetical listing. |
 | `model_version`, `split_version`, `data_snapshot_date` | Exactly which model and data produced the answer. |
-| `evidence_id` | **Cite this for every claim**, e.g. `pred:hist_gbm_20261018_1406:28871:2026-06-15`. |
+| `evidence_id` | **Cite this for every claim**, e.g. `pred:hist_gbm_amsterdam_20261018_1406:28871:2026-06-15`. |
 
 ## Statuses
 
@@ -53,8 +63,8 @@ Exactly one of:
 |---|---|---|
 | `ok` | The listing is within the model's experience. | Use the numbers; cite `evidence_id`. |
 | `insufficient_evidence` | Any of the cases listed below. | **State no price.** Report `status_reason` instead. |
-| `not_found` | Unknown listing id for this city or snapshot. | Say so. |
-| `invalid_input` | The call itself was malformed. | Fix the call. |
+| `not_found` | Unknown listing id (in any modelled city), or not in that snapshot. | Say so. |
+| `invalid_input` | The call itself was malformed, a city has no model, or a hypothetical listing lacks `city`. | Fix the call; `status_reason` lists the available cities. |
 
 `insufficient_evidence` is returned in any of these cases:
 - the neighbourhood has fewer than 20 training listings;
@@ -70,7 +80,7 @@ The tool never raises an exception at the agent. Errors come back as data.
 ## Guardrails (put these in the agent's prompt as well; the tool already enforces the first)
 
 1. No price is ever shown unless `status` is `ok`.
-2. The prediction is a nightly **listing** price. It is not a property value, a purchase price, revenue or occupancy.
+2. The prediction is a nightly **listing** price in the city's currency. It is not a property value, a purchase price, revenue or occupancy, and prices in different currencies are not comparable.
 3. `below_interval` means the asking price is low compared with similar listings. It does **not** mean the property is a good investment.
 4. Drivers describe the **model**, not causes in the market. They are computed by occlusion: the change in the prediction when a feature is set to its typical training value.
 
@@ -79,14 +89,14 @@ The tool never raises an exception at the agent. Errors come back as data.
 ```python
 import json, anthropic
 client = anthropic.Anthropic()
-tool = PredictionTool.load(".")
+service = PredictionService.load(".")
 
 messages = [{"role": "user", "content": "Is listing 28871 priced low for its area?"}]
 resp = client.messages.create(model="<model id>", max_tokens=1024,
                               tools=[TOOL_SCHEMA], messages=messages)
 for block in resp.content:
     if block.type == "tool_use" and block.name == TOOL_SCHEMA["name"]:
-        result = tool.handle_tool_call(block.input)
+        result = service.handle_tool_call(block.input)
         messages += [{"role": "assistant", "content": resp.content},
                      {"role": "user", "content": [{"type": "tool_result",
                                                    "tool_use_id": block.id,
@@ -97,7 +107,7 @@ for block in resp.content:
 ## For the groundedness harness (design §17.3)
 
 ```python
-tool = PredictionTool.load(".", evidence_log="evaluation/agent_evidence.jsonl")
+service = PredictionService.load(".", evidence_log="evaluation/agent_evidence.jsonl")
 ```
 
 Every response is appended to that file. A claim in the agent's report is **grounded** if the `evidence_id` it cites exists in the log and the number it quotes matches the logged value.
@@ -105,4 +115,4 @@ Every response is appended to that file. A claim in the agent's report is **grou
 ## Performance and tests
 
 - **Latency:** about 45 ms per call (median) on the stand-in data, of which about 25 ms is the model and interval. The README target is 200 ms.
-- **Tests:** `python -m pytest tests/test_predict.py -q`, or `python -m tests.test_predict` without pytest. They build a small synthetic repository, so no real data is needed.
+- **Tests:** `python -m pytest tests/test_predict.py -q`, or `python -m tests.test_predict` without pytest. They build a small synthetic two-city repository (Amsterdam in EUR, London in GBP), so no real data is needed.

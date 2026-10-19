@@ -5,9 +5,10 @@ features of a hypothetical listing) and receives a fixed JSON-serialisable recor
 
     {
       "listing_id": 28871,
+      "city": "Amsterdam",                 # one model per city; the answer says which
       "status": "ok",                      # ok | insufficient_evidence | not_found | invalid_input
       "status_reason": null,               # why, when status is not "ok"
-      "currency": "EUR",
+      "currency": "EUR",                   # the city's local currency
       "predicted_median_price": 182.0,     # null unless status == "ok"
       "interval_80": [141.0, 236.0],       # 80% conformal interval (null unless ok)
       "observed_price": 129.0,             # the listing's own asking price (null if unknown)
@@ -17,10 +18,10 @@ features of a hypothetical listing) and receives a fixed JSON-serialisable recor
                        "effect_pct": 21.4, "statement": "+21% for accommodates = 4 (typical: 2)"}],
       "drivers_method": "...",
       "assumptions": [],                   # values the tool filled in (hypothetical listings)
-      "model_version": "hist_gbm_20261018_1406",
+      "model_version": "hist_gbm_amsterdam_20261018_1406",
       "split_version": "2a418f50c8dc",
       "data_snapshot_date": "2026-06-15",
-      "evidence_id": "pred:hist_gbm_20261018_1406:28871:2026-06-15"
+      "evidence_id": "pred:hist_gbm_amsterdam_20261018_1406:28871:2026-06-15"
     }
 
 Guardrails enforced in code, not in prompts:
@@ -40,18 +41,27 @@ model-agnostic, exact for what it states ("the prediction is X% higher than if t
 were typical"), and has the same output shape, so SHAP can replace it later. Drivers describe
 the model, not the market: they are not causal effects.
 
+Several cities. There is one model per city (README). `PredictionService` loads a
+`PredictionTool` for every city that has a trained model and routes each call: by `city` when
+given, otherwise by looking the listing id up in each city's data. A hypothetical listing needs
+`city` when more than one city is loaded.
+
 Usage
 -----
-    from src.models.predict import PredictionTool
-    tool = PredictionTool.load()                        # from the repository root
-    tool.predict_listing(28871)
-    tool.predict_features({"neighbourhood_cleansed": "Zuid", "room_type": "Entire home/apt",
-                           "accommodates": 4, "bedrooms": 2})
-    tool.handle_tool_call({"listing_id": 28871})        # what the agent framework calls
+    from src.models.predict import PredictionService, TOOL_SCHEMA
+    service = PredictionService.load()                   # from the repository root; all cities
+    service.handle_tool_call({"listing_id": 28871})      # what the agent framework calls
+    service.handle_tool_call({"city": "Amsterdam",
+                              "features": {"neighbourhood_cleansed": "Zuid",
+                                           "room_type": "Entire home/apt", "accommodates": 4}})
     TOOL_SCHEMA                                          # tool definition for the LLM
+
+    from src.models.predict import PredictionTool        # one city only
+    tool = PredictionTool.load(city="Amsterdam")
 
 Command line (from the repository root):
     python -m src.models.predict --listing-id 28871
+    python -m src.models.predict --city Amsterdam --features "{...}"
 """
 from __future__ import annotations
 
@@ -68,6 +78,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
+from src.models.cities import city_data_sha256, city_slug
 from src.models.data import ID_COL, SNAPSHOT_COL, TARGET, derive_bathrooms, prepare_listings
 from src.models.feature_audit import apply_row_transforms, load_audit
 from src.models.intervals import load_cqr, predict_interval
@@ -99,7 +110,9 @@ TOOL_SCHEMA = {
         "Predicts the typical nightly LISTING price (local currency per night) for a short-term "
         "rental listing, with an 80% interval, and says whether the listing's own asking price "
         "is below, within or above that interval. Read-only. Use either listing_id for an "
-        "existing listing, or features for a hypothetical one. "
+        "existing listing, or features (plus city) for a hypothetical one. There is one model per "
+        "city; prices are in that city's local currency, given in `currency`: never compare or "
+        "average prices across currencies. "
         "If status is not 'ok', do not state any price: report status_reason instead. "
         "The prediction is not a property value, purchase price, revenue or occupancy estimate. "
         "'below_interval' means the asking price is low compared with similar listings, not "
@@ -109,6 +122,9 @@ TOOL_SCHEMA = {
     "input_schema": {
         "type": "object",
         "properties": {
+            "city": {"type": "string",
+                     "description": ("City, e.g. 'Amsterdam'. Optional with listing_id; required "
+                                     "with features when several cities are available.")},
             "listing_id": {"type": "integer",
                            "description": "Inside Airbnb listing id of an existing listing."},
             "snapshot_date": {"type": "string",
@@ -131,6 +147,35 @@ def _sha256_file(path: Path, chunk: int = 1 << 20) -> str:
         for block in iter(lambda: f.read(chunk), b""):
             h.update(block)
     return h.hexdigest()
+
+
+def _bare_result(status: str, reason: str, listing_id=None, city=None) -> dict:
+    """Contract-shaped answer for errors raised before a city's model is chosen."""
+    return {"listing_id": _clean(listing_id), "city": city, "status": status,
+            "status_reason": reason, "currency": None, "predicted_median_price": None,
+            "interval_80": None, "observed_price": None, "position": None,
+            "in_training_data": None, "top_drivers": [], "drivers_method": None,
+            "assumptions": [], "model_version": None, "split_version": None,
+            "data_snapshot_date": None,
+            "evidence_id": f"pred:none:{_clean(listing_id) if listing_id is not None else 'na'}:na"}
+
+
+def _real_metas(models_dir: Path) -> list[dict]:
+    metas = [json.loads(p.read_text()) | {"_path": str(p)} for p in models_dir.glob("*_*.json")]
+    return [m for m in metas if "model" in m and "split_version" in m and "city" in m
+            and not m.get("synthetic_data", False)]
+
+
+def _selected_model(root: Path, city: str) -> str | None:
+    """The model notebook 04 selected for this city (reports/<city>/model_card_metrics.json)."""
+    for card in [root / "reports" / city_slug(city) / "model_card_metrics.json",
+                 root / "reports" / "model_card_metrics.json"]:          # before multi-city
+        if card.exists():
+            info = json.loads(card.read_text())
+            if info.get("city") == city and not str(info.get("label", "")).startswith("SYNTHETIC"):
+                sel = info.get("selected_model")
+                return sel if sel and not sel.startswith("B") else None
+    return None
 
 
 def _clean(v):
@@ -165,36 +210,43 @@ class PredictionTool:
 
     # ------------------------------------------------------------------ loading
     @classmethod
-    def load(cls, repo_root: Path | str = ".", model: str | None = None,
-             data_file: Path | str | None = None, limits: SupportLimits | None = None,
-             evidence_log: Path | str | None = None, verbose: bool = True) -> "PredictionTool":
-        """Load the selected model, its interval model and the listings data.
+    def load(cls, repo_root: Path | str = ".", city: str | None = None, model: str | None = None,
+             data_file: Path | str | None = None, raw_listings: pd.DataFrame | None = None,
+             limits: SupportLimits | None = None, evidence_log: Path | str | None = None,
+             verbose: bool = True) -> "PredictionTool":
+        """Load one city's selected model, its interval model and its listings.
 
-        model: model name ("hist_gbm", "ridge"). Default: the model selected in notebook 04
-        (reports/model_card_metrics.json); otherwise notebook 03's development pick.
+        city: required when models exist for several cities (or use PredictionService).
+        model: model name ("hist_gbm", "ridge"). Default: the model notebook 04 selected for
+        this city (reports/<city>/model_card_metrics.json); otherwise 03's development pick.
         data_file: processed listings file; default data/processed/<data_source in metadata>.
+        raw_listings: the already-loaded listings file (all cities), to avoid re-reading it.
         evidence_log: optional .jsonl file; every response is appended (for groundedness checks).
         """
         root = Path(repo_root)
         models_dir = root / "models"
-        metas = [json.loads(p.read_text()) | {"_path": str(p)} for p in models_dir.glob("*_*.json")]
-        metas = [m for m in metas if "model" in m and "split_version" in m
-                 and not m.get("synthetic_data", False)]
+        metas = _real_metas(models_dir)
         if not metas:
             raise FileNotFoundError(f"no real-data model metadata in {models_dir}; run notebook 03")
+        cities = sorted({m["city"] for m in metas})
+        if city is None:
+            if len(cities) > 1:
+                raise ValueError(f"models exist for several cities {cities}: pass city=..., or "
+                                 "use PredictionService")
+            city = cities[0]
+        metas = [m for m in metas if m["city"] == city]
+        if not metas:
+            raise FileNotFoundError(f"no trained model for {city!r}; available: {cities}")
 
         if model is None:
-            card = root / "reports" / "model_card_metrics.json"
-            selected = json.loads(card.read_text()).get("selected_model") if card.exists() else None
-            if selected and not selected.startswith("B"):
-                model = selected
-            else:
+            model = _selected_model(root, city)
+            if model is None:
                 model = max(metas, key=lambda m: m["version"]).get("development_pick")
-                warnings.warn(f"No model selected by notebook 04 yet: using 03's development "
-                              f"pick {model!r}. Predictions are provisional.")
+                warnings.warn(f"{city}: no model selected by notebook 04 yet; using 03's "
+                              f"development pick {model!r}. Predictions are provisional.")
         candidates = [m for m in metas if m["model"] == model]
         if not candidates:
-            raise FileNotFoundError(f"no saved artifact for model {model!r} in {models_dir}")
+            raise FileNotFoundError(f"no saved artifact for model {model!r} for {city}")
         meta = max(candidates, key=lambda m: m["version"])
         art_path = Path(meta["_path"]).with_suffix(".joblib")
         if meta.get("artifact_sha256") and _sha256_file(art_path) != meta["artifact_sha256"]:
@@ -204,38 +256,44 @@ class PredictionTool:
         cqr = None
         for p in sorted(models_dir.glob("cqr_*.joblib"), reverse=True):
             c = load_cqr(p)
-            if c.get("split_version") == meta["split_version"] and c.get("features") == meta["features"]:
+            if (c.get("split_version") == meta["split_version"]
+                    and c.get("features") == meta["features"] and c.get("city", city) == city):
                 cqr = c
                 break
         if cqr is None:
-            raise FileNotFoundError("no interval model (cqr_*.joblib) for this split and feature "
-                                    "list; run notebook 03 section 9")
+            raise FileNotFoundError(f"no interval model (cqr_*.joblib) for {city}, this split and "
+                                    "feature list; run notebook 03 section 9")
 
         manifest = load_manifest(root / "evaluation" / "splits" / meta["split_file"])
         assert manifest["sha256"][:12] == meta["split_version"], "split file does not match model"
 
-        data_path = Path(data_file) if data_file else root / "data" / "processed" / meta["data_source"]
-        raw = select_city(ensure_snapshot_date(load_listings(data_path)), meta["city"], "location")
+        if raw_listings is None:
+            data_path = Path(data_file) if data_file else root / "data" / "processed" / meta["data_source"]
+            raw_listings = ensure_snapshot_date(load_listings(data_path))
+        raw = select_city(raw_listings, city, "location")
+        if meta.get("data_sha256") and city_data_sha256(raw) != meta["data_sha256"]:
+            warnings.warn(f"{city}: the listings differ from those the model was trained on "
+                          "(new or reprocessed data). Predictions still work; support statistics "
+                          "use the training listings found in the current data.")
         listings = prepare_listings(raw, verbose=False, drop_missing_price=False)
         listings = apply_row_transforms(listings, load_audit(root / "evaluation" / "feature_audit.csv"))
-        if meta.get("data_sha256") and _sha256_file(data_path) != meta["data_sha256"]:
-            warnings.warn(f"{data_path.name} differs from the file the model was trained on "
-                          "(new or reprocessed data). Predictions still work; support statistics "
-                          "use the training listings found in this file.")
 
         tool = cls(pipe=pipe, cqr=cqr, meta=meta, listings=listings,
                    train_ids=set(manifest["train"]), limits=limits or SupportLimits(),
                    evidence_log=Path(evidence_log) if evidence_log else None)
         if verbose:
-            print(f"{TOOL_NAME}: {tool.model_version}, split {meta['split_version']}, "
-                  f"{meta['city']}, {len(listings):,} listings, intervals "
+            print(f"{TOOL_NAME}: {city}: {tool.model_version}, split {meta['split_version']}, "
+                  f"{len(listings):,} listings, {tool.currency}, intervals "
                   f"{int(round(100 * (1 - cqr['alpha'])))}%")
         return tool
 
     def __post_init__(self):
         self.features = list(self.meta["features"])
+        self.city = self.meta["city"]
         self.currency = self.meta.get("currency")
-        self.model_version = f"{self.meta['model']}_{self.meta['version']}"
+        slug = self.meta.get("city_slug")
+        self.model_version = "_".join(p for p in [self.meta["model"], slug, self.meta["version"]] if p)
+        self.listing_ids = set(self.listings[ID_COL])
         train = self.listings[self.listings[ID_COL].isin(self.train_ids)]
         if train.empty:
             raise ValueError("no training listings found in the data file")
@@ -265,7 +323,7 @@ class PredictionTool:
             when = f" in snapshot {snapshot_date}" if snapshot_date else ""
             return self._finish(self._empty(listing_id, snapshot_date, "not_found",
                                             f"listing {listing_id} not found{when} "
-                                            f"for {self.meta['city']}"))
+                                            f"for {self.city}"))
         row = rows.sort_values(SNAPSHOT_COL).iloc[[-1]].reset_index(drop=True)
         return self._finish(self._predict_row(row, listing_id=int(listing_id),
                                               observed=row[TARGET].iloc[0],
@@ -304,6 +362,10 @@ class PredictionTool:
     def handle_tool_call(self, tool_input: dict) -> dict:
         """Entry point for the agent framework: validates input, never raises."""
         try:
+            if tool_input.get("city") not in (None, "", self.city):
+                return self._finish(self._empty(tool_input.get("listing_id"), None, "invalid_input",
+                                                f"this tool serves {self.city}, not "
+                                                f"{tool_input['city']!r}"))
             if tool_input.get("listing_id") is not None:
                 return self.predict_listing(int(tool_input["listing_id"]),
                                             tool_input.get("snapshot_date"))
@@ -411,7 +473,8 @@ class PredictionTool:
     def _empty(self, listing_id, snapshot, status, reason) -> dict:
         snap = _clean(snapshot)
         return {
-            "listing_id": _clean(listing_id), "status": status, "status_reason": reason,
+            "listing_id": _clean(listing_id), "city": self.city, "status": status,
+            "status_reason": reason,
             "currency": self.currency, "predicted_median_price": None, "interval_80": None,
             "observed_price": None, "position": None, "in_training_data": None,
             "top_drivers": [],
@@ -438,19 +501,91 @@ class PredictionTool:
         return out
 
 
+class PredictionService:
+    """All cities behind one tool: routes each call to that city's PredictionTool."""
+
+    def __init__(self, tools: dict[str, PredictionTool]):
+        if not tools:
+            raise ValueError("no city tools to serve")
+        self.tools = tools
+
+    @classmethod
+    def load(cls, repo_root: Path | str = ".", cities=None, data_file: Path | str | None = None,
+             limits: SupportLimits | None = None, evidence_log: Path | str | None = None,
+             verbose: bool = True) -> "PredictionService":
+        """One tool per city with a trained real-data model (or only `cities`). The listings
+        file is read once and shared."""
+        root = Path(repo_root)
+        metas = _real_metas(root / "models")
+        available = sorted({m["city"] for m in metas})
+        if not available:
+            raise FileNotFoundError(f"no real-data model metadata in {root / 'models'}; run notebook 03")
+        cities = list(cities) if cities else available
+        missing = sorted(set(cities) - set(available))
+        if missing:
+            raise FileNotFoundError(f"no trained model for {missing}; available: {available}")
+        sources = {m["data_source"] for m in metas if m["city"] in cities}
+        if data_file is None and len(sources) > 1:
+            raise ValueError(f"cities were trained on different files {sorted(sources)}: pass data_file")
+        data_path = Path(data_file) if data_file else root / "data" / "processed" / sources.pop()
+        raw = ensure_snapshot_date(load_listings(data_path))
+        return cls({c: PredictionTool.load(root, city=c, raw_listings=raw, limits=limits,
+                                           evidence_log=evidence_log, verbose=verbose)
+                    for c in cities})
+
+    @property
+    def cities(self) -> list[str]:
+        return sorted(self.tools)
+
+    def handle_tool_call(self, tool_input: dict) -> dict:
+        """Entry point for the agent framework: routes by city or listing id, never raises."""
+        if not isinstance(tool_input, dict):
+            return _bare_result("invalid_input", "tool input must be an object")
+        city = tool_input.get("city") or None
+        lid = tool_input.get("listing_id")
+        if city is not None:
+            if city not in self.tools:
+                return _bare_result("invalid_input", f"no model for city {city!r}; available: "
+                                    f"{self.cities}", lid, city)
+            return self.tools[city].handle_tool_call(tool_input)
+        if lid is not None:
+            try:
+                lid_int = int(lid)
+            except (TypeError, ValueError):
+                return _bare_result("invalid_input", f"listing_id must be an integer, got {lid!r}", lid)
+            hits = [c for c, t in self.tools.items() if lid_int in t.listing_ids]
+            if len(hits) == 1:
+                return self.tools[hits[0]].handle_tool_call(tool_input)
+            if not hits:
+                return _bare_result("not_found", f"listing {lid_int} not found in any modelled "
+                                    f"city ({', '.join(self.cities)})", lid_int)
+            return _bare_result("invalid_input", f"listing {lid_int} exists in several cities "
+                                f"{hits}: pass city", lid_int)
+        if len(self.tools) == 1:
+            return next(iter(self.tools.values())).handle_tool_call(tool_input)
+        return _bare_result("invalid_input", "pass city for a hypothetical listing "
+                            f"(available: {', '.join(self.cities)})")
+
+    def predict_listing(self, listing_id: int, city: str | None = None,
+                        snapshot_date: str | None = None) -> dict:
+        return self.handle_tool_call({"listing_id": listing_id, "city": city,
+                                      "snapshot_date": snapshot_date})
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Predict the nightly listing price of one listing.")
     ap.add_argument("--listing-id", type=int)
+    ap.add_argument("--city", help="e.g. Amsterdam; needed with --features if several cities exist")
     ap.add_argument("--features", type=str, help='JSON, e.g. \'{"neighbourhood_cleansed": "Zuid", '
                                                   '"room_type": "Entire home/apt", "accommodates": 4}\'')
     ap.add_argument("--snapshot-date")
-    ap.add_argument("--model", help="model name; default: selected in notebook 04")
     ap.add_argument("--repo-root", default=".")
     args = ap.parse_args()
-    tool = PredictionTool.load(args.repo_root, model=args.model)
-    call = ({"listing_id": args.listing_id, "snapshot_date": args.snapshot_date}
-            if args.listing_id is not None else {"features": json.loads(args.features or "{}")})
-    print(json.dumps(tool.handle_tool_call(call), indent=2, ensure_ascii=False))
+    service = PredictionService.load(args.repo_root, cities=[args.city] if args.city else None)
+    call = {"city": args.city}
+    call.update({"listing_id": args.listing_id, "snapshot_date": args.snapshot_date}
+                if args.listing_id is not None else {"features": json.loads(args.features or "{}")})
+    print(json.dumps(service.handle_tool_call(call), indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

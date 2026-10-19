@@ -14,6 +14,8 @@ Usage (from the repo root):
 
     python -m src.models.make_split --data data/processed/listings_master.parquet --city Amsterdam
 
+One split per city: this writes evaluation/splits/split_v1_amsterdam.json (see cities.py).
+
 Notebook 03 reads train and calibration ids. Only notebook 04 reads test rows.
 """
 from __future__ import annotations
@@ -229,7 +231,8 @@ def summarise(manifest: dict) -> pd.DataFrame:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--data", required=True, help="processed Listings file (.parquet or .csv)")
-    ap.add_argument("--out", default="evaluation/splits/split_v1.json")
+    ap.add_argument("--out", default=None,
+                    help="manifest path; default evaluation/splits/split_v1_<city>.json")
     ap.add_argument("--city", default=None, help="city to keep, e.g. Amsterdam")
     ap.add_argument("--city-col", default="location")
     ap.add_argument("--seed", type=int, default=42)
@@ -239,6 +242,11 @@ def main() -> None:
     ap.add_argument("--force", action="store_true", help="overwrite an existing manifest")
     args = ap.parse_args()
 
+    if args.out is None:
+        if args.city is None:
+            raise SystemExit("pass --city (one split per city), or --out for a single-city file")
+        from src.models.cities import split_filename
+        args.out = f"evaluation/splits/{split_filename(args.city)}"
     out = Path(args.out)
     if out.exists() and not args.force:
         raise SystemExit(f"{out} exists. The split is frozen; pass --force only on purpose.")
