@@ -45,26 +45,44 @@ def parse_bathrooms(text) -> float:
     return float(m.group()) if m else np.nan
 
 
-def prepare_listings(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
-    """Section 2 of notebook 03 as a function: check, parse, derive, drop rows without a label."""
+def derive_bathrooms(df: pd.DataFrame) -> pd.DataFrame:
+    """bathrooms and bathrooms_shared from bathrooms_text (in place on a copy)."""
+    df = df.copy()
+    df["bathrooms"] = df["bathrooms_text"].map(parse_bathrooms)
+    df["bathrooms_shared"] = (df["bathrooms_text"].astype(str).str.lower()
+                              .str.contains("shared").astype(int))
+    return df
+
+
+def prepare_listings(df: pd.DataFrame, verbose: bool = True,
+                     drop_missing_price: bool = True) -> pd.DataFrame:
+    """Section 2 of notebook 03 as a function: check, parse, derive, drop rows without a label.
+
+    drop_missing_price=False keeps listings without a usable price (the prediction tool can
+    still estimate their price; their observed price is NaN). Training and evaluation always
+    use the default.
+    """
     missing = [c for c in DICTIONARY_LISTING_FIELDS + [SNAPSHOT_COL] if c not in df.columns]
     assert not missing, (f"Columns missing from the Listings table: {missing}. "
                          "Check the output of 02_preprocessing against data/data_dictionary.md.")
     df = df.copy()
     df[TARGET] = parse_price(df[TARGET])
     df[SNAPSHOT_COL] = pd.to_datetime(df[SNAPSHOT_COL])
-    df["bathrooms"] = df["bathrooms_text"].map(parse_bathrooms)
-    df["bathrooms_shared"] = (df["bathrooms_text"].astype(str).str.lower()
-                              .str.contains("shared").astype(int))
+    df = derive_bathrooms(df)
 
     key = [c for c in ["city", SNAPSHOT_COL, ID_COL] if c in df.columns]
     dupes = df.duplicated(key)
     assert not dupes.any(), f"{dupes.sum()} duplicate rows on key {key}"
 
     bad_price = df[TARGET].isna() | (df[TARGET] <= 0)
-    df = df.loc[~bad_price].reset_index(drop=True)
+    if drop_missing_price:
+        df = df.loc[~bad_price].reset_index(drop=True)
+    else:
+        df.loc[bad_price, TARGET] = np.nan
+        df = df.reset_index(drop=True)
     if verbose:
-        print(f"Rows removed for missing/non-positive price: {int(bad_price.sum())}")
+        verb = "removed" if drop_missing_price else "kept with price = NaN"
+        print(f"Rows {verb} for missing/non-positive price: {int(bad_price.sum())}")
         print(f"rows: {len(df):,}  listings: {df[ID_COL].nunique():,}  "
               f"snapshots: {df[SNAPSHOT_COL].nunique()}")
     return df
