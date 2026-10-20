@@ -6,7 +6,7 @@ BIU DS23 final project by **Erin Schaverien, Ron Ness, Idan Gilad and Adir Libov
 
 Help short-term-rental investors identify listings and neighborhoods worth further investigation through predictive modelling, market analytics and evidence-grounded agent investigations.
 
-**Status: repository scaffold and planning documents.** No data pipeline, trained model, agent or dashboard is implemented yet. Notebooks are work templates with no results.
+**Status: pipeline implemented, final results pending.** Data preparation, EDA and feature engineering run on all cities in the Inside Airbnb extract. Modelling, evaluation and the agent's prediction tool are implemented per city (Amsterdam first). The held-out test set has not been scored yet, so the evaluation table below has no results.
 
 The uploaded Project Charter defines Inside Airbnb as the primary source and Zillow Research as Plan B. The working document also describes an earlier Zillow-led market scope. This repository follows the charter's Airbnb scope. Acquisition value and ROI cannot be inferred from nightly listing prices.
 
@@ -57,7 +57,32 @@ Everyone contributes code and presents.
 | `reports/` | Baseline comparisons, results and figures |
 | `presentation/` | Final presentation and demo backup |
 | `docs/` | Architecture decisions and delivery plan |
-| `tests/` | Future meaningful pipeline, calculation and tool-contract tests |
+| `tests/` | Tests for the prediction-tool contract, city handling and engineered features (`python -m pytest tests`) |
+
+## Notebooks and data flow
+
+Run the notebooks in order. Each reads the previous step's output from `data/processed/` (not in Git).
+
+| Notebook | Owner | Reads | Writes |
+| --- | --- | --- | --- |
+| `01_Data_Preparation` | Erin | raw CSVs in `data/listings/`, `data/reviews/` | `listings_master.parquet`, `reviews_clean.parquet` |
+| `02_EDA` | Erin | the files above | charts and maps in `reports/` |
+| `03_Feature_Engineering` | Erin | the files above | `listings_features.parquet` (listings + engineered columns) |
+| `04_modeling` | Idan | `listings_features.parquet`, `evaluation/splits/split_v1_<city>.json` | models in `models/` (not in Git) |
+| `05_model_evaluation` | Idan | the same data and split, the saved models | `reports/<city>/`, `evaluation/test_runs.jsonl` |
+| `06_experiments` | | | |
+
+**One model per city, one currency per model.** `04_modeling` and `05_model_evaluation` take a `CITY` parameter. Each city needs its own frozen split, created once from the repository root:
+
+```bash
+python -m src.models.make_split --data data/processed/listings_features.parquet --city Amsterdam
+```
+
+Which columns may become model features is decided in `evaluation/feature_audit.csv`. Price-derived columns are excluded as target leakage. `05_model_evaluation` scores each city's test set **once**: later runs are labelled exploratory.
+
+The agent gets predictions through a read-only tool, `src/models/predict.py`, described in [docs/prediction_tool.md](docs/prediction_tool.md).
+
+The *Modelling & Evaluation Design* document numbers its notebook blueprints differently: its "03_modeling" is `04_modeling` here, and its "04_model_evaluation" is `05_model_evaluation`.
 
 ## Environment and working order
 
@@ -73,7 +98,7 @@ python -m pip install -r requirements.txt
 
 On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1`.
 
-`requirements.txt` intentionally contains no dependencies yet: library versions must be chosen and pinned when implementation starts. Installing it does not make the application runnable. Start by acquiring one city snapshot, recording its provenance, completing the dictionary and then implementing notebooks 01–04 using reusable `src/` functions. Choose the dashboard and LLM provider later.
+`requirements.txt` intentionally contains no dependencies yet: library versions must be chosen and pinned when implementation starts. Installing it does not make the application runnable. Run the notebooks in the order above. Shared code lives in `src/` (`src/models/` for modelling, evaluation and the prediction tool). Choose the dashboard and LLM provider later.
 
 ## Data and reproducibility
 

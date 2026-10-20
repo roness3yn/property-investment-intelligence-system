@@ -65,7 +65,10 @@ def city_data_sha256(df: pd.DataFrame, id_col: str = "id",
     """
     keys = [c for c in [id_col, snapshot_col] if c in df.columns]
     d = df.sort_values(keys, kind="mergesort").reset_index(drop=True)
-    d = d[sorted(d.columns)].astype(str)          # one dtype for every column
+    d = d[sorted(d.columns)].copy()
+    floats = d.select_dtypes("floating").columns
+    d[floats] = d[floats].round(9)                # ignore last-digit noise (e.g. CSV round trips)
+    d = d.astype(str)                             # one dtype for every column
     h = hashlib.sha256()
     h.update("\x1f".join(d.columns).encode())
     h.update(pd.util.hash_pandas_object(d, index=False).values.tobytes())

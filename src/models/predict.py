@@ -80,6 +80,8 @@ import pandas as pd
 
 from src.models.cities import city_data_sha256, city_slug
 from src.models.data import ID_COL, SNAPSHOT_COL, TARGET, derive_bathrooms, prepare_listings
+from src.models.engineered import (AMENITY_FEATURES, COMPETITION_FEATURES, NEIGHBOURHOOD_FEATURES,
+                                   CompetitionIndex, amenity_features, neighbourhood_counts)
 from src.models.feature_audit import apply_row_transforms, load_audit
 from src.models.intervals import load_cqr, predict_interval
 from src.models.make_split import ensure_snapshot_date, load_listings, load_manifest, select_city
@@ -134,7 +136,9 @@ TOOL_SCHEMA = {
                 "description": ("Hypothetical listing. Required: neighbourhood_cleansed, "
                                 "room_type, accommodates. Optional: bedrooms, beds, "
                                 "bathrooms or bathrooms_text, property_type, latitude, "
-                                "longitude, minimum_nights and others."),
+                                "longitude, minimum_nights, amenities (list of strings, "
+                                "e.g. [\"Wifi\", \"Kitchen\"]) and others. Competitor and "
+                                "neighbourhood counts are computed by the tool."),
             },
         },
     },
@@ -167,7 +171,7 @@ def _real_metas(models_dir: Path) -> list[dict]:
 
 
 def _selected_model(root: Path, city: str) -> str | None:
-    """The model notebook 04 selected for this city (reports/<city>/model_card_metrics.json)."""
+    """The model 05_model_evaluation selected for this city (reports/<city>/model_card_metrics.json)."""
     for card in [root / "reports" / city_slug(city) / "model_card_metrics.json",
                  root / "reports" / "model_card_metrics.json"]:          # before multi-city
         if card.exists():
@@ -217,8 +221,8 @@ class PredictionTool:
         """Load one city's selected model, its interval model and its listings.
 
         city: required when models exist for several cities (or use PredictionService).
-        model: model name ("hist_gbm", "ridge"). Default: the model notebook 04 selected for
-        this city (reports/<city>/model_card_metrics.json); otherwise 03's development pick.
+        model: model name ("hist_gbm", "ridge"). Default: the model 05_model_evaluation selected for
+        this city (reports/<city>/model_card_metrics.json); otherwise 04_modeling's development pick.
         data_file: processed listings file; default data/processed/<data_source in metadata>.
         raw_listings: the already-loaded listings file (all cities), to avoid re-reading it.
         evidence_log: optional .jsonl file; every response is appended (for groundedness checks).
@@ -227,7 +231,7 @@ class PredictionTool:
         models_dir = root / "models"
         metas = _real_metas(models_dir)
         if not metas:
-            raise FileNotFoundError(f"no real-data model metadata in {models_dir}; run notebook 03")
+            raise FileNotFoundError(f"no real-data model metadata in {models_dir}; run 04_modeling")
         cities = sorted({m["city"] for m in metas})
         if city is None:
             if len(cities) > 1:
@@ -242,7 +246,7 @@ class PredictionTool:
             model = _selected_model(root, city)
             if model is None:
                 model = max(metas, key=lambda m: m["version"]).get("development_pick")
-                warnings.warn(f"{city}: no model selected by notebook 04 yet; using 03's "
+                warnings.warn(f"{city}: no model selected by 05_model_evaluation yet; using 04_modeling's "
                               f"development pick {model!r}. Predictions are provisional.")
         candidates = [m for m in metas if m["model"] == model]
         if not candidates:
@@ -250,7 +254,7 @@ class PredictionTool:
         meta = max(candidates, key=lambda m: m["version"])
         art_path = Path(meta["_path"]).with_suffix(".joblib")
         if meta.get("artifact_sha256") and _sha256_file(art_path) != meta["artifact_sha256"]:
-            raise ValueError(f"{art_path.name} does not match the hash recorded by notebook 03")
+            raise ValueError(f"{art_path.name} does not match the hash recorded by 04_modeling")
         pipe = joblib.load(art_path)
 
         cqr = None
@@ -262,7 +266,7 @@ class PredictionTool:
                 break
         if cqr is None:
             raise FileNotFoundError(f"no interval model (cqr_*.joblib) for {city}, this split and "
-                                    "feature list; run notebook 03 section 9")
+                                    "feature list; run 04_modeling section 9")
 
         manifest = load_manifest(root / "evaluation" / "splits" / meta["split_file"])
         assert manifest["sha256"][:12] == meta["split_version"], "split file does not match model"
@@ -305,6 +309,18 @@ class PredictionTool:
                       for c in ["room_type", "property_type"] if c in self.features}
         self._bounds = {c: (one[c].min(), one[c].max()) for c in ["latitude", "longitude"]}
         self._centroids = one.groupby("neighbourhood_cleansed")[["latitude", "longitude"]].median()
+        # Engineered features (03_Feature_Engineering) recomputed for hypothetical listings,
+        # over the city's current listings (latest snapshot), as that notebook defines them
+        latest = self.listings[self.listings[SNAPSHOT_COL] == self.listings[SNAPSHOT_COL].max()]
+        self._competition = (CompetitionIndex(latest)
+                             if set(COMPETITION_FEATURES) & set(self.features) else None)
+        hood_feats = [c for c in NEIGHBOURHOOD_FEATURES if c in self.features]
+        if not hood_feats:
+            self._hood_table = None
+        elif set(hood_feats) <= set(latest.columns):    # use the file's own values
+            self._hood_table = latest.groupby("neighbourhood_cleansed")[hood_feats].first()
+        else:
+            self._hood_table = neighbourhood_counts(latest)
         # Typical values for the occlusion drivers
         self._typical = {}
         for c in self.features:
@@ -337,7 +353,7 @@ class PredictionTool:
         if missing:
             return self._finish(self._empty(None, None, "invalid_input",
                                             f"missing required features: {missing}"))
-        unknown = sorted(set(features) - set(self.features) - {"bathrooms_text"})
+        unknown = sorted(set(features) - set(self.features) - {"bathrooms_text", "amenities"})
         row = pd.DataFrame([{c: features.get(c, np.nan) for c in self.features}])
         assumptions = []
         if unknown:
@@ -348,6 +364,7 @@ class PredictionTool:
         if (pd.isna(row["latitude"][0]) or pd.isna(row["longitude"][0])) and hood in self._centroids.index:
             row[["latitude", "longitude"]] = self._centroids.loc[hood].to_numpy()
             assumptions.append(f"coordinates set to the typical location in {hood}")
+        assumptions += self._fill_engineered(row, features)
         if "host_is_superhost" in row and isinstance(row["host_is_superhost"][0], str):
             row["host_is_superhost"] = row["host_is_superhost"].map({"t": 1.0, "f": 0.0})
         for c in self.features:
@@ -386,6 +403,32 @@ class PredictionTool:
         return df
 
     # ------------------------------------------------------------------ internals
+    def _fill_engineered(self, row: pd.DataFrame, features: dict) -> list[str]:
+        """Compute 03_Feature_Engineering's columns the model uses but the caller did not give."""
+        notes = []
+        wanted = lambda cols: [c for c in cols if c in self.features and features.get(c) is None]
+        amen = wanted(AMENITY_FEATURES)
+        if amen and features.get("amenities") is not None:
+            values = amenity_features(features["amenities"])
+            for c in amen:
+                row[c] = values[c]
+            notes.append("amenity features computed from the amenities list")
+        comp = wanted(COMPETITION_FEATURES)
+        lat, lon = row["latitude"][0], row["longitude"][0]
+        if comp and self._competition is not None and pd.notna(lat) and pd.notna(lon):
+            values = self._competition.counts(lat, lon, row["room_type"][0])
+            for c in comp:
+                row[c] = values[c]
+            notes.append(f"competitor counts computed from the coordinates over {self.city}'s "
+                         "current listings")
+        hood_cols = wanted(NEIGHBOURHOOD_FEATURES)
+        hood = row["neighbourhood_cleansed"][0]
+        if hood_cols and self._hood_table is not None and hood in self._hood_table.index:
+            for c in hood_cols:
+                row[c] = self._hood_table.loc[hood, c]
+            notes.append(f"neighbourhood counts taken from {hood}")
+        return notes
+
     def _support_problems(self, row: pd.DataFrame) -> list[str]:
         r = row.iloc[0]
         problems = []
@@ -519,7 +562,7 @@ class PredictionService:
         metas = _real_metas(root / "models")
         available = sorted({m["city"] for m in metas})
         if not available:
-            raise FileNotFoundError(f"no real-data model metadata in {root / 'models'}; run notebook 03")
+            raise FileNotFoundError(f"no real-data model metadata in {root / 'models'}; run 04_modeling")
         cities = list(cities) if cities else available
         missing = sorted(set(cities) - set(available))
         if missing:
