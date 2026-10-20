@@ -120,6 +120,16 @@ All alternatives must use the same held-out cases and split. Values are pending 
 | Deterministic analytical report without agent | N/A | N/A | Not measured | Not measured |
 | Agent investigation of the same opportunities | N/A | N/A | Not measured | Not measured |
 
+**Metrics.** The model predicts a number (the nightly listing price), so it is evaluated with regression metrics, all on the same held-out listings:
+
+- **MAE** in the city's currency per night is the primary metric (charter target: at least 10% below the baseline). It is easy to interpret and robust to the few very expensive listings.
+- **RMSE** shows whether there are large misses. **MedAE**, **typical relative error** (a percentage error based on log ratios) and **hit rate within ±20%** describe typical and relative accuracy. **R²** is computed on log price.
+- MAPE is not used, because it explodes on cheap listings.
+- Every metric is reported with a 95% cluster-bootstrap confidence interval, overall and per segment (room type, neighbourhood, price decile).
+- The 80% price interval is evaluated by **coverage** (target 77–83%), **width** and **interval score**.
+
+**Target transformation.** Prices are right-skewed, so models train on log(1 + price) and convert back with exp. This estimates the *median* listing price, which is what MAE rewards. RMSE, which rewards the mean, uses Duan's smearing correction from out-of-fold residuals. Interval bounds are quantiles and need no correction. Details: `notebooks/05_model_evaluation.ipynb` .
+
 Proposed targets and the evaluation design are in `CHARTER.md` and `evaluation/README.md`. Report model error, groundedness, failed tool calls, uncertainty, and whether the extra agent cost produces useful evidence.
 
 ## Guardrails
