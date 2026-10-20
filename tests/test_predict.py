@@ -6,6 +6,8 @@ Run from the repository root:   python -m pytest tests/test_predict.py -q
 Each test session builds a small temporary repository holding TWO cities (Amsterdam in EUR,
 London in GBP) with synthetic listings, a frozen split per city, a fitted ridge model and an
 interval model per city, laid out exactly as notebooks 03 and make_split.py write them.
+The listings carry 03_Feature_Engineering's columns (competitor counts, amenity flags,
+neighbourhood counts, and the price-derived columns the audit must exclude).
 No real data or saved models are needed.
 """
 from __future__ import annotations
@@ -24,6 +26,8 @@ from sklearn.ensemble import HistGradientBoostingRegressor
 
 from src.models.cities import (city_data_sha256, city_slug, currency_for, split_filename)
 from src.models.data import make_synthetic_listings, prepare_listings
+from src.models.engineered import (AMENITY_FEATURES, COMPETITION_FEATURES, EARTH_RADIUS_KM,
+                                   CompetitionIndex, amenity_features, neighbourhood_counts)
 from src.models.feature_audit import apply_row_transforms, load_audit, select_features
 from src.models.intervals import fit_cqr, save_cqr
 from src.models.make_split import (ensure_snapshot_date, load_listings, make_split, select_city,
@@ -44,6 +48,32 @@ def _sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+AMENITY_POOL = ["Wifi", "Kitchen", "Air conditioning", "Free parking on premises", "Pool table",
+                "Dedicated workspace", "Washer", "Hair dryer"]
+LEAKY = ["price_vs_neighbourhood_pct", "neighbourhood_median_price", "market_median_price",
+         "price_numeric"]
+
+
+def add_engineered(d: pd.DataFrame, seed: int) -> pd.DataFrame:
+    """03_Feature_Engineering's columns for one city (definitions from src/models/engineered)."""
+    rng = np.random.default_rng(seed)
+    d = d.copy()
+    d["host_id"] = rng.integers(1, 200, len(d))
+    d["amenities"] = [json.dumps(list(rng.choice(AMENITY_POOL, rng.integers(0, 6), replace=False)))
+                      for _ in range(len(d))]
+    d = d.join(pd.DataFrame([amenity_features(v) for v in d["amenities"]], index=d.index))
+    idx = CompetitionIndex(d)
+    d = d.join(pd.DataFrame([idx.counts(r.latitude, r.longitude, r.room_type, exclude_self=True)
+                             for r in d.itertuples()], index=d.index))
+    d = d.join(neighbourhood_counts(d), on="neighbourhood_cleansed")
+    price = pd.to_numeric(d["price"].str.replace(r"[$,]", "", regex=True))
+    d["price_numeric"] = price                                        # leaky: must be excluded
+    d["neighbourhood_median_price"] = price.groupby(d["neighbourhood_cleansed"]).transform("median")
+    d["market_median_price"] = price.median()
+    d["price_vs_neighbourhood_pct"] = 100 * (price / d["neighbourhood_median_price"] - 1)
+    return d
+
+
 def build_repo(root: Path) -> Path:
     """A miniature repository with two cities, trained as notebook 03 does it."""
     (root / "data" / "processed").mkdir(parents=True)
@@ -56,7 +86,7 @@ def build_repo(root: Path) -> Path:
         d = make_synthetic_listings(n_listings=500, seed=7 + i)
         d["id"] += offset
         d["location"] = city
-        frames.append(d)
+        frames.append(add_engineered(d, seed=11 + i))
     data_file = root / "data" / "processed" / "listings_master.csv"
     pd.concat(frames, ignore_index=True).to_csv(data_file, index=False)
 
@@ -139,6 +169,59 @@ def test_city_hash_ignores_row_and_column_order():
     changed = d.copy()
     changed.loc[0, "price"] = "$1.00"
     assert city_data_sha256(changed) != city_data_sha256(d)
+
+
+# ------------------------------------------------------------------------------ engineered features
+def test_audit_excludes_price_derived_columns_and_includes_engineered():
+    t = tool()
+    assert not set(LEAKY) & set(t.features), "price-derived columns must never be features"
+    assert set(COMPETITION_FEATURES) <= set(t.features)
+    assert set(AMENITY_FEATURES) <= set(t.features)
+
+
+def test_amenity_features():
+    f = amenity_features('["Wifi", "Pool table", "Kitchenette", "Free parking on premises"]')
+    assert f["amenities_count"] == 4 and f["has_wifi"] == 1 and f["has_kitchen"] == 1
+    assert f["has_parking"] == 1 and f["has_pool"] == 1 and f["has_air_conditioning"] == 0
+    assert amenity_features(None)["amenities_count"] == 0
+    assert amenity_features("not a list")["amenities_count"] == 0
+
+
+def test_competitor_counts_match_brute_force():
+    rng = np.random.default_rng(0)
+    pts = pd.DataFrame({"latitude": rng.uniform(52.30, 52.40, 400),
+                        "longitude": rng.uniform(4.80, 4.95, 400),
+                        "room_type": rng.choice(["Entire home/apt", "Private room"], 400)})
+    lat, lon = 52.35, 4.88
+    p1, p2 = np.radians([lat, lon]), np.radians(pts[["latitude", "longitude"]].to_numpy())
+    hav = (np.sin((p2[:, 0] - p1[0]) / 2) ** 2
+           + np.cos(p1[0]) * np.cos(p2[:, 0]) * np.sin((p2[:, 1] - p1[1]) / 2) ** 2)
+    km = 2 * EARTH_RADIUS_KM * np.arcsin(np.sqrt(hav))
+    got = CompetitionIndex(pts).counts(lat, lon, "Private room")
+    assert got["competitors_1km"] == int((km <= 1).sum())
+    assert got["competitors_2km"] == int((km <= 2).sum())
+    assert got["comparable_competitors_1km"] == int(((km <= 1) & (pts.room_type == "Private room")).sum())
+
+
+def test_hypothetical_listing_gets_engineered_features():
+    r = tool().predict_features({"neighbourhood_cleansed": "Downtown", "room_type": "Private room",
+                                 "accommodates": 2, "amenities": ["Wifi", "Kitchen"]})
+    assert r["status"] == "ok"
+    text = " ".join(r["assumptions"])
+    assert "competitor counts computed" in text and "amenity features computed" in text
+    assert "neighbourhood counts taken from Downtown" in text
+    assert "amenities" not in text.split("ignored unknown fields")[-1] if "ignored" in text else True
+    for c in COMPETITION_FEATURES + AMENITY_FEATURES:
+        assert c not in text.split("imputed by the model")[-1], f"{c} should not be imputed"
+
+
+def test_more_competitors_nearby_in_dense_area():
+    t = tool()
+    dense = t.listings[["latitude", "longitude"]].median()
+    far = t.listings[["latitude", "longitude"]].min()
+    n_dense = t._competition.counts(dense.latitude, dense.longitude)["competitors_2km"]
+    n_far = t._competition.counts(far.latitude, far.longitude)["competitors_2km"]
+    assert n_dense > n_far
 
 
 # ------------------------------------------------------------------------------ one city

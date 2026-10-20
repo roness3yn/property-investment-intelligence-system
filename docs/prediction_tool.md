@@ -2,6 +2,8 @@
 
 **Owner:** models & evaluation (Idan) · **Consumer:** agent (Adir) · **Code:** `src/models/predict.py` · **Design:** §19.1
 
+**Before first use:** run `04_modeling` for each city (it saves the models the tool loads), then `05_model_evaluation` (it selects the model per city). Both need `data/processed/listings_features.parquet` from `03_Feature_Engineering`.
+
 The agent gets price predictions through **one read-only function**. It never loads model files or data itself.
 
 ## One model per city
@@ -19,8 +21,8 @@ result = service.handle_tool_call({"listing_id": 28871})
 ```
 
 `load()` does four things for each city:
-- **Picks the model.** It uses the model notebook 04 selected for that city (`reports/<city>/model_card_metrics.json`). Until 04 has run for a city, it uses notebook 03's development pick and warns that predictions are provisional.
-- **Checks the artifact.** It refuses to load a model file whose hash differs from the one recorded by notebook 03.
+- **Picks the model.** It uses the model that `05_model_evaluation` selected for that city (`reports/<city>/model_card_metrics.json`). Until 05 has run for a city, it uses the development pick of `04_modeling` and warns that predictions are provisional.
+- **Checks the artifact.** It refuses to load a model file whose hash differs from the one recorded by `04_modeling`.
 - **Loads the interval model** that matches the city, split and features.
 - **Checks the data.** If that city's listings changed since training, it warns. Changes to *other* cities don't trigger the warning.
 
@@ -39,7 +41,13 @@ Exactly one of `listing_id` or `features`, plus `city` when needed:
 | Field | Meaning |
 |---|---|
 | `listing_id` (+ optional `snapshot_date`) | An existing listing. Uses the latest snapshot if no date is given. The city is found from the id; pass `city` only if the id exists in two cities (the tool says so). |
-| `features` + `city` | A hypothetical listing. `city` is required when several cities are loaded. Required features: `neighbourhood_cleansed`, `room_type`, `accommodates`. Optional: `bedrooms`, `beds`, `bathrooms_text`, `property_type`, `latitude`/`longitude`, … |
+| `features` + `city` | A hypothetical listing. `city` is required when several cities are loaded. Required features: `neighbourhood_cleansed`, `room_type`, `accommodates`. Optional: `bedrooms`, `beds`, `bathrooms_text`, `property_type`, `latitude`/`longitude`, `amenities` (a list such as `["Wifi", "Kitchen"]`), … |
+
+For a hypothetical listing the tool fills in what a caller cannot know, and lists each step in `assumptions`:
+- **missing coordinates:** the neighbourhood's typical location;
+- **competitor counts** (`competitors_500m/1km/2km`, `comparable_competitors_1km`): computed from the coordinates over the city's current listings, exactly as `03_Feature_Engineering` defines them (`src/models/engineered.py`);
+- **neighbourhood counts:** taken from the neighbourhood;
+- **amenity flags and count:** computed from `amenities` if given; otherwise imputed by the model.
 
 ## Output (always the same keys)
 
