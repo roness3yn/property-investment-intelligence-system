@@ -27,7 +27,8 @@ features of a hypothetical listing) and receives a fixed JSON-serialisable recor
 Guardrails enforced in code, not in prompts:
 * `insufficient_evidence` when the listing is outside the model's support: neighbourhood with
   too few training listings, room or property type never seen in training, coordinates outside
-  the training area, missing core features, or an interval wider than the agreed limit. Prices
+  the training area, a long-term rental excluded by the target policy (minimum nights above
+  the limit), missing core features, or an interval wider than the agreed limit. Prices
   are withheld in that case, so the agent cannot quote them.
 * The prediction is a *listing* price per night, not an acquisition value; `position` compares
   the asking price with similar listings, it does not say the property is a good investment.
@@ -84,6 +85,7 @@ from src.models.engineered import (AMENITY_FEATURES, COMPETITION_FEATURES, NEIGH
                                    CompetitionIndex, amenity_features, neighbourhood_counts)
 from src.models.feature_audit import apply_row_transforms, load_audit
 from src.models.intervals import load_cqr, predict_interval
+from src.models.target_policy import policy_scope_problem
 from src.models.make_split import ensure_snapshot_date, load_listings, load_manifest, select_city
 
 TOOL_NAME = "predict_listing_price"
@@ -443,6 +445,9 @@ class PredictionTool:
         for c, seen in self._seen.items():
             if pd.notna(r[c]) and str(r[c]) not in seen:
                 problems.append(f"{c} {r[c]!r} never seen in training")
+        scope = policy_scope_problem(r, self.meta.get("target_policy"))
+        if scope:
+            problems.append(scope)
         m = self.limits.coordinate_margin_deg
         for c, (lo, hi) in self._bounds.items():
             if pd.notna(r[c]) and not (lo - m <= r[c] <= hi + m):

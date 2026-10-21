@@ -78,6 +78,7 @@ For a hypothetical listing the tool fills in what a caller cannot know, and list
 - the neighbourhood has fewer than 20 training listings;
 - the room type or property type was never seen in training;
 - the coordinates are outside the training area;
+- it's a long-term rental (minimum nights above the target policy's limit, 30), a market the model wasn't trained on;
 - a core feature is missing;
 - the interval is wider than 2× the prediction.
 
