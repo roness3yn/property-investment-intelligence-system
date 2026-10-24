@@ -70,7 +70,7 @@ Run the notebooks in order. Each reads the previous step's output from `data/pro
 | `03_Feature_Engineering` | Erin | the files above | `listings_features.parquet` (listings + engineered columns) |
 | `04_modeling` | Idan | `listings_features.parquet`, `evaluation/splits/split_v1_<city>.json` | models in `models/` (not in Git) |
 | `05_model_evaluation` | Idan | the same data and split, the saved models | `reports/<city>/`, `evaluation/test_runs.jsonl` |
-| `06_experiments` | | | |
+| `06_experiments` | Idan | the same data and split, the saved models | |
 
 **One model per city, one currency per model.** `04_modeling` and `05_model_evaluation` take a `CITY` parameter. Each city needs its own frozen split, created once from the repository root:
 
@@ -113,6 +113,8 @@ Do not commit large datasets, credentials, host personal details or trained bina
 
 All alternatives must use the same held-out cases and split. Values are pending implementation.
 
+Amsterdam MAE's:
+
 | Approach | MAE in selected city's currency/night | RMSE | Response time | Cost/query |
 | --- | --- | --- | --- | --- |
 | Training-set median by neighborhood and room type, global-median fallback | Not measured | Not measured | Not measured | Not measured |
@@ -129,6 +131,8 @@ All alternatives must use the same held-out cases and split. Values are pending 
 - The 80% price interval is evaluated by **coverage** (target 77–83%), **width** and **interval score**.
 
 **Target transformation.** Prices are right-skewed, so models train on log(1 + price) and convert back with exp. This estimates the *median* listing price, which is what MAE rewards. RMSE, which rewards the mean, uses Duan's smearing correction from out-of-fold residuals. Interval bounds are quantiles and need no correction. Details: `notebooks/05_model_evaluation.ipynb` .
+
+**Tunning** Whether tuning pays off depends on the city; our pipeline tests it per city and keeps the simpler model unless the added complexity measurably helps.
 
 Proposed targets and the evaluation design are in `CHARTER.md` and `evaluation/README.md`. Report model error, groundedness, failed tool calls, uncertainty, and whether the extra agent cost produces useful evidence.
 

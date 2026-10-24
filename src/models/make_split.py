@@ -12,7 +12,7 @@ Design reference: Modelling & Evaluation Design v2, sections 4.1 and 4.2.
 
 Usage (from the repo root):
 
-    python -m src.models.make_split --data data/processed/listings_master.parquet --city Amsterdam
+    python -m src.models.make_split --data data/processed/listings_features.parquet --city Amsterdam
 
 One split per city: this writes evaluation/splits/split_v1_amsterdam.json (see cities.py).
 
@@ -86,6 +86,10 @@ def select_city(df: pd.DataFrame, city: str | None, city_col: str = "location") 
 
     If the city column is absent, the file is assumed to hold a single city.
     If it is present and holds several cities, `city` must name one of them.
+
+    Matching ignores case, spaces and punctuation ("amsterdam" in the data matches
+    CITY = "Amsterdam"), and the kept rows get the city column set to `city`, so every
+    notebook and the prediction tool see the same spelling whatever the source files used.
     """
     if city_col not in df.columns:
         return df
@@ -94,8 +98,13 @@ def select_city(df: pd.DataFrame, city: str | None, city_col: str = "location") 
         assert len(cities) == 1, (f"the file holds {len(cities)} cities {cities}: "
                                   f"pass the city to keep (--city / CITY)")
         return df
-    assert city in cities, f"city {city!r} not in the data; available: {cities}"
-    return df[df[city_col].astype(str) == city].reset_index(drop=True)
+    from src.models.cities import city_slug          # local import: cities.py imports nothing from here
+    slugs = df[city_col].astype(str).map(city_slug)
+    keep = slugs == city_slug(city)
+    assert keep.any(), f"city {city!r} not in the data; available: {cities}"
+    out = df[keep].reset_index(drop=True)
+    out[city_col] = city
+    return out
 
 
 def parse_price(s: pd.Series) -> pd.Series:

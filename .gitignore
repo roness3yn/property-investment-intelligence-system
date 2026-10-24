@@ -233,3 +233,17 @@ __marimo__/
 .DS_Store
 Thumbs.db
 
+# data and local databases
+data/listings/
+data/reviews/
+data/processed/
+*.duckdb
+*.duckdb.wal
+duckdb_temp/
+
+# trained models and generated reports
+/models/
+reports/amsterdam/
+reports/data_quality/
+reports/synthetic_demo/
+
