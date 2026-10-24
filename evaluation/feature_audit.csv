@@ -32,7 +32,7 @@ property_type,product,categorical,yes,no,include,collapse_rare,no,,Rare types gr
 latitude,location,numeric,yes,no,include,,yes,,Derived spatial features planned (design 7.1)
 longitude,location,numeric,yes,no,include,,yes,,
 neighbourhood_cleansed,location,categorical,yes,no,include,,yes,,
-amenities,amenities,list,yes,no,planned,,no,,Parse to curated binary flags and a count (design 7.3); not implemented yet
+amenities,amenities,list,yes,no,source,,no,,Raw amenity list; parsed into amenities_count and has_* flags by 03_Feature_Engineering (design 7.3)
 host_is_superhost,host,binary,yes,weakly,include,tf_to_binary,no,,Professional hosts price differently
 calculated_host_listings_count,host,numeric,yes,weakly,include,,no,,Professional hosts price differently
 minimum_nights,policy,numeric,yes,host policy set jointly with price,include,,no,,Document the caveat; target policy keeps <= 30 (design 3.2)
@@ -96,3 +96,32 @@ license,policy,text,yes,no,defer,,no,,Registration number; a has_license flag co
 calculated_host_listings_count_entire_homes,host,numeric,yes,weakly,defer,,no,,Breakdown of calculated_host_listings_count (used); ablation candidate
 calculated_host_listings_count_private_rooms,host,numeric,yes,weakly,defer,,no,,Breakdown of calculated_host_listings_count (used); ablation candidate
 calculated_host_listings_count_shared_rooms,host,numeric,yes,weakly,defer,,no,,Breakdown of calculated_host_listings_count (used); ablation candidate
+price_numeric,target,numeric,n/a,is the target,exclude,,no,price,Parsed copy of the target (03_Feature_Engineering); the target is parsed from price in src/models/data.py
+price_vs_neighbourhood_pct,activity,numeric,n/a,is the target,exclude,,no,price; neighbourhood_median_price,Listing's own price relative to its neighbourhood median (03_Feature_Engineering): contains the target. Analysis output only
+neighbourhood_median_price,activity,numeric,n/a,can contain price,exclude,,no,price,"Median price over ALL listings of the neighbourhood, test listings included (03_Feature_Engineering): target leakage. B1 computes this on training listings only"
+market_median_price,activity,numeric,n/a,can contain price,exclude,,no,price,"Median price over ALL listings of the city (03_Feature_Engineering): target leakage, and constant within a city"
+accommodates_clean,physical,numeric,yes,no,exclude,,no,accommodates,Duplicate of accommodates (03_Feature_Engineering)
+bedrooms_clean,physical,numeric,yes,no,exclude,,no,bedrooms,Duplicate of bedrooms (03_Feature_Engineering)
+beds_clean,physical,numeric,yes,no,exclude,,no,beds,Duplicate of beds (03_Feature_Engineering)
+minimum_nights_clean,policy,numeric,yes,host policy set jointly with price,exclude,,no,minimum_nights,Duplicate of minimum_nights (03_Feature_Engineering)
+bathrooms_numeric,physical,numeric,yes,no,exclude,,no,bathrooms_text,Duplicate of bathrooms (03_Feature_Engineering); turns 'Half-bath' into missing where src/models/data.py gives 0.5
+is_superhost,host,binary,yes,weakly,exclude,,no,host_is_superhost,Duplicate of host_is_superhost (03_Feature_Engineering)
+location_listing_count,competition,numeric,yes,no,exclude,,no,location,"Listings in the whole city (03_Feature_Engineering): constant within a city, so useless in a per-city model"
+availability_rate_365,activity,numeric,yes,partly,ablation,,no,availability_365,availability_365 / 365 (03_Feature_Engineering); endogenous like availability_365: test in ablation
+reviews_last_30d,reviews,numeric,yes,more than weakly,defer,,no,reviews_clean,"Counted up to the latest review in the whole file (2026-08-11), after the 2026-06-15 snapshot (03_Feature_Engineering): future information. Revisit as ablation once counted up to each city's snapshot date"
+reviews_last_90d,reviews,numeric,yes,more than weakly,defer,,no,reviews_clean,As reviews_last_30d
+reviews_last_365d,reviews,numeric,yes,more than weakly,defer,,no,reviews_clean,As reviews_last_30d
+days_since_last_review,reviews,numeric,not for new listings,weakly,defer,,no,reviews_clean,As reviews_last_30d (cutoff after the snapshot); missing for listings without reviews
+competitors_500m,competition,numeric,yes,no,include,,no,latitude; longitude,"Other listings within 500 m, same city (03_Feature_Engineering); uses no prices. Counted over all listings in the file, which is market context, not leakage"
+competitors_1km,competition,numeric,yes,no,include,,no,latitude; longitude,"As competitors_500m, 1 km"
+competitors_2km,competition,numeric,yes,no,include,,no,latitude; longitude,"As competitors_500m, 2 km"
+comparable_competitors_1km,competition,numeric,yes,no,include,,no,latitude; longitude; room_type,Listings of the same room type within 1 km; uses no prices
+neighbourhood_listing_count,competition,numeric,yes,no,include,,no,neighbourhood_cleansed,Listings in the neighbourhood (03_Feature_Engineering); uses no prices
+neighbourhood_host_count,competition,numeric,yes,no,include,,no,neighbourhood_cleansed; host_id,Distinct hosts in the neighbourhood (03_Feature_Engineering); uses no prices
+amenities_count,amenities,numeric,yes,no,include,,no,amenities,"Number of listed amenities (03_Feature_Engineering, design 7.3)"
+has_wifi,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering)
+has_air_conditioning,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering)
+has_kitchen,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering); also matches 'kitchenette'
+has_parking,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering)
+has_pool,amenities,binary,yes,no,include,,no,amenities,"Amenity keyword flag (03_Feature_Engineering); keyword 'pool' also matches 'pool table', so the flag is noisy"
+has_workspace,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering)

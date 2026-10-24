@@ -124,6 +124,19 @@ def test_random_search_is_reproducible_and_recorded():
     assert len(rough_importance(a)) == len(bp)
 
 
+# ------------------------------------------------------------------ city selection
+def test_select_city_ignores_case_and_normalises_the_name():
+    from src.models.make_split import select_city
+    d = pd.DataFrame({"location": ["amsterdam", "amsterdam", "london"], "id": [1, 2, 3]})
+    out = select_city(d, "Amsterdam")
+    assert len(out) == 2 and (out.location == "Amsterdam").all()
+    try:
+        select_city(d, "Paris")
+        raise AssertionError("an unknown city must fail")
+    except AssertionError as e:
+        assert "not in the data" in str(e)
+
+
 if __name__ == "__main__":                      # runner for machines without pytest
     import sys
     import traceback
