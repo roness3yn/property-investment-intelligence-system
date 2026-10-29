@@ -2,7 +2,7 @@
 
 BIU DS23 final project by **Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch**.
 
-> **Draft for team sign-off (28 Oct 2026).** This version answers the professor's two remarks: what the system ranks (**Opportunity definition and score**), and that the goals must be fixed before the results (**Data evidence** and **Success criteria**). Once the team agrees, remove this note and commit the README **together with the pre-registration commit, before `05_model_evaluation` is run on real data**. That commit is the record that the criteria came first.
+> **Updated 29 Oct 2026 with the first test results.** This version answers the professor's two remarks: what the system ranks (**Opportunity definition and score**), and that the goals must be fixed before the results (**Data evidence** and **Success criteria**). The price model's test results are now in **Success criteria** and **Evaluation**. Their run is labelled **exploratory**: the criteria were fixed before it, but the formal pre-registration commit was missed (see Evaluation).
 
 ## Purpose and status
 
@@ -10,11 +10,11 @@ Help short-term-rental investors decide **which type of property to investigate,
 
 The product estimates **rental revenue potential**, not return on investment: the data has no purchase prices or operating costs (see Guardrails).
 
-**Status: pipeline implemented, success criteria committed, test results pending.**
+**Status: pipeline implemented, success criteria committed, price-model test results available (exploratory run).**
 - Data preparation, EDA and feature engineering run on all cities in the Inside Airbnb extract.
 - The nightly-price model, its evaluation and the agent's prediction tool are implemented per city (Amsterdam first).
 - The opportunity score is implemented (`06_experiments`, `src/models/opportunities.py`), and its agent tool is `src/models/opportunity_tool.py` ([docs/opportunity_tool.md](docs/opportunity_tool.md)).
-- The held-out test set has not been scored yet. Results will be judged against the **Success criteria** below, which were fixed before any test result existed.
+- The price model was scored on the held-out Amsterdam test set on 29 Oct 2026. It meets criteria 1, 2 and 4 and part of criterion 3 (see **Success criteria**). The ranking (criteria 5–6) and the agent (criteria 7–8) are not evaluated yet.
 
 ## Data evidence (Amsterdam)
 
@@ -32,12 +32,14 @@ The product estimates **rental revenue potential**, not return on investment: th
 
 These thresholds are fixed **before** the test set is scored and the ranking is evaluated. A criterion that is not met is reported as **not met**; thresholds are not changed after the results are known. Criteria 1–4 are also coded in `05_model_evaluation`'s pre-registration (`PREREG`), so they are applied mechanically.
 
+Results for criteria 1–4 come from one run on the Amsterdam test set (1,266 listings, 29 Oct 2026). That run is labelled **exploratory**, not confirmatory: the thresholds below were fixed in the design document and in the notebook's code before the run, and nothing was changed after it, but the pre-registration commit hash was not recorded (see Evaluation).
+
 | # | Criterion | Committed threshold | Measured in | Result |
 | --- | --- | --- | --- | --- |
-| 1 | Price accuracy | test MAE **at least 10% below** the baseline (B1), **and** the 95% CI of the difference excludes 0 | `05_model_evaluation` (H1) | pending |
-| 2 | Interval calibration | the 80% price range covers **77–83%** of test prices | `05_model_evaluation` (H3) | pending |
-| 3 | Segment safety | no room type or neighbourhood with **at least 100** test listings is worse than B1; no segment's coverage is **below 70%** | `05_model_evaluation` | pending |
-| 4 | Speed | prediction tool **under 200 ms** per call | `05_model_evaluation` | pending |
+| 1 | Price accuracy | test MAE **at least 10% below** the baseline (B1), **and** the 95% CI of the difference excludes 0 | `05_model_evaluation` (H1) | ✅ **met**: 75.0 vs 112.0 EUR/night, **−33.0%**; difference CI [−42.1, −32.1] EUR |
+| 2 | Interval calibration | the 80% price range covers **77–83%** of test prices | `05_model_evaluation` (H3) | ✅ **met**: **80.8%** [78.7%, 82.9%] |
+| 3 | Segment safety | no room type or neighbourhood with **at least 100** test listings is worse than B1; no segment's coverage is **below 70%** | `05_model_evaluation` | ⚠️ **partly met**: no large room type or neighbourhood is worse than B1 ✅; coverage is below 70% in **2 segments** ❌, the cheapest 10% of listings (62.5%) and the most expensive 10% (49.6%) |
+| 4 | Speed | prediction tool **under 200 ms** per call | `05_model_evaluation` | ✅ **met**: **27.7 ms** (model + interval, median single call) |
 | 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | `06_experiments` §7.3 | pending |
 | 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under the alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | `06_experiments` §7.4 | pending |
 | 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log | agent harness (Adir) | pending |
@@ -165,7 +167,7 @@ Run the notebooks in order. Each reads the previous step's output from `data/pro
 | `05_model_evaluation` | Idan | the same data and split, the saved models | `reports/<city>/`, `evaluation/test_runs.jsonl` |
 | `06_experiments` | Idan | `listings_features.parquet`, the selected model and interval model, the split | `reports/<city>/opportunities.csv`, `opportunity_listings.csv`, `opportunities.json`; the ranking checks |
 
-Until `05_model_evaluation` has made its one confirmatory test run, `06_experiments` leaves the test listings out of the opportunity table and labels it `PROVISIONAL`.
+`06_experiments` adds the test listings to the opportunity table only after a **confirmatory** run of `05_model_evaluation`. The Amsterdam run was exploratory, so the table currently leaves the test listings out and is labelled `PROVISIONAL`.
 
 Raw files are named `<city>_listings.csv` and `<city>_reviews.csv`, with the same lowercase city name in both (e.g. `amsterdam_listings.csv`).
 
@@ -209,20 +211,32 @@ The product is evaluated at three levels, each tied to the **Success criteria** 
 
 | Component | Measure | Status |
 | --- | --- | --- |
-| 1. Expected nightly price | MAE (EUR/night) vs the baseline on held-out listings (criterion 1) | development result below; test pending |
-| 1/3. 80% price range | coverage (criterion 2: 77–83%), width, interval score | calibration coverage 80.3%; test pending |
+| 1. Expected nightly price | MAE (EUR/night) vs the baseline on held-out listings (criterion 1) | test: **75.0 vs 112.0 EUR/night (−33.0%)**, criterion met |
+| 1/3. 80% price range | coverage (criterion 2: 77–83%), width, interval score | test coverage **80.8%** (met); mean width 242 EUR, median 74% of the predicted price; interval score 369 EUR |
 | 2. Booked nights | agreement with Inside Airbnb's `estimated_occupancy_l365d`; sensitivity of the ranking to the assumptions (criterion 6) | implemented in `06_experiments` |
 
 All alternatives use the same held-out cases and split.
 
 | Approach | MAE in selected city's currency/night | RMSE | Response time | Cost/query |
 | --- | --- | --- | --- | --- |
-| Training-set median by neighbourhood and room type, room-type and global fallback | Not measured | Not measured | Not measured | Not measured |
-| Learned nightly-price model | Not measured | Not measured | Not measured | Not measured |
+| Training-set median by neighbourhood and room type, room-type and global fallback (B1) | 112.0 [104.7, 119.4] | 174.1 [159.5, 188.5] | 1.9 ms | ≈ 0 |
+| Learned nightly-price model (gradient boosting, `hist_gbm`) | **75.0** [70.4, 79.7] | **113.0** [104.6, 121.3] | 27.7 ms (with interval) | compute only (≈ 0) |
 | Deterministic opportunity table without agent | N/A | N/A | Not measured | Not measured |
 | Agent investigation of the same top-ranked opportunities | N/A | N/A | Not measured | Not measured |
 
-*Development result (Amsterdam, June 2026 snapshot, 5-fold grouped CV on the training partition only):* the baseline's MAE is 112.8 EUR/night and gradient boosting's is 77.3 EUR/night (31% lower, in all 5 folds). A shuffled-price check shows no sign of leakage. Tuning and a kNN price feature gave no further gain. These are not test results and do not count toward criterion 1.
+Values in brackets are 95% cluster-bootstrap confidence intervals (2,000 resamples of the test listings).
+
+#### Test results for the price model (Amsterdam, 29 Oct 2026)
+
+**Run label: exploratory.** The hypotheses, thresholds and selection rule were fixed in the *Modelling & Evaluation Design* document and in `05_model_evaluation`'s code (`PREREG`) before the run, and nothing was changed after it. The pre-registration commit hash was not recorded, so by the project's own one-shot rule the run is labelled exploratory, and the log in `evaluation/test_runs.jsonl` says so. The test set is not scored again. A confirmatory test needs data the models have never seen, such as a later Amsterdam snapshot, with the pre-registration committed first.
+
+- **Test set:** 1,266 listings (20% of the priced listings, never used for training or tuning). The frozen target policy removed 10 more (price cap 1,567 EUR, minimum stay over 30 nights). Without that filter, MAE is 87.5 vs 125.5 EUR/night, still **30% better** than B1.
+- **Selected model: default gradient boosting (`hist_gbm`)**, by the pre-registered rule. The tuned model with the kNN price feature scored 74.9 EUR/night, statistically indistinguishable (difference CI [−1.16, +1.33] EUR), so the simpler model is kept. Ridge regression (79.2) is clearly worse.
+- **Consistent with development:** 5-fold CV on the training partition gave 77.3 vs 112.8 EUR/night (31% lower, in all 5 folds), and a shuffled-price check showed no sign of leakage.
+- **Other accuracy measures (selected model):** median absolute error 47.0 EUR/night; 57% of listings predicted within ±20%; R² on log price 0.71. The model under-predicts on average (bias −19 EUR/night), mostly for the most expensive listings: it estimates the median price.
+- **Hypotheses:** H1 supported (above). **H2 not supported** (as computed for the tuned model): entire homes gain more than other room types (33.8% vs 29.3%), but dense neighbourhoods do not gain more than others (32.9% vs 33.7%). H3 supported (coverage above). H4 not testable with one snapshot. **H5 supported:** adding availability features would lower MAE by 3.8 EUR/night but change which listings look over- or under-priced (residual rank correlation 0.893, below 0.90), which supports excluding them.
+- **What drives accuracy (ablations):** removing the location features costs the most (+10.7 EUR/night), the review features +2.8. Removing the competitor counts (−0.1) or the amenity flags (+0.8) makes no significant difference.
+- **Limitation (criterion 3, not met):** the 80% ranges cover only 62.5% of the cheapest 10% of listings and 49.6% of the most expensive 10%. These groups are defined by the actual price, so unusually cheap or expensive listings fall outside ranges built from their features. Ranges, and flags based on them, are least reliable at the price extremes. Room types and neighbourhoods are covered as intended (entire homes 80.4%, private rooms 82.1%).
 
 ### 2. Ranking quality (criteria 5–6)
 
@@ -258,6 +272,7 @@ The success criteria above are binding. `CHARTER.md` and `evaluation/README.md` 
 - Booked nights are an **approximation from reviews** with stated assumptions, not observed bookings. Availability is not confirmed occupancy.
 - Nightly asking price is not realized revenue: guests may pay less after discounts.
 - Results describe **priced listings** only (61.5% of Amsterdam's listings).
+- Price ranges, and the below/above-market flags based on them, are least reliable for the cheapest and most expensive 10% of listings (test coverage 62.5% and 49.6%, against 80% overall).
 - An opportunity with fewer than 20 priced listings, or whose price estimate the tool refuses, is reported as insufficient evidence and not ranked.
 - Ground claims in tool outputs with source dates and evidence identifiers.
 - Return insufficient evidence when data is missing or contradictory.
