@@ -2,7 +2,7 @@
 
 BIU DS23 final project by **Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch**.
 
-> **Updated 31 Oct 2026.** This version answers the professor's remarks: what the system ranks (**Opportunity definition and score**), that the goals are fixed and approved before the results (**Data evidence** and **Success criteria**, matching `CHARTER.md`), and that the model and the baseline are compared on the same split, with no listing on both sides (**Evaluation**). The price model's test run is labelled **exploratory**: the criteria were fixed before it, but the formal pre-registration commit was missed (see Evaluation).
+> **Updated 31 Oct 2026.** This version answers the professor's remarks: what the system ranks (**Opportunity definition and score**), that the goals are fixed and approved before the results (**Data evidence** and **Success criteria**, matching `CHARTER.md`), that the model and the baseline are compared on the same split, with no listing on both sides, and how the model was improved and could be improved further (**Evaluation**). The price model's test run is labelled **exploratory**: the criteria were fixed before it, but the formal pre-registration commit was missed (see Evaluation).
 
 ## Purpose and status
 
@@ -270,7 +270,42 @@ The model predicts a number (the nightly listing price), so it is evaluated with
 
 **Target transformation.** Prices are right-skewed, so models train on log(1 + price) and convert back with exp. This estimates the *median* listing price, which is what MAE rewards. RMSE, which rewards the mean, uses Duan's smearing correction from out-of-fold residuals. Interval bounds are quantiles and need no correction. Details: `notebooks/05_model_evaluation.ipynb`.
 
-**Tuning.** Whether tuning pays off depends on the city. The pipeline tests it per city and keeps the simpler model unless the added complexity measurably helps.
+### Improving the price model
+
+#### What notebooks 04 and 05 already do
+
+The model was improved step by step, each step measured on the same grouped cross-validation folds of the training partition, and the outcome checked on the held-out test set.
+
+| Step | What it does | Result (Amsterdam) |
+| --- | --- | --- |
+| **Model ladder** (`04_modeling` §5–6) | each rung adds one ingredient, so its value is measured: global median → neighbourhood × room-type median (B1) → linear model (ridge) → gradient boosting with default settings (G1) → tuned gradient boosting with a kNN price feature (G2) | test MAE 132.6 → 112.0 → 79.2 → **75.0** → 74.9 EUR/night |
+| **Hyperparameter tuning** (`04_modeling` §6.2, `src/models/tuning.py`) | seeded random search, 30 trials over 6 settings (learning rate, tree size, leaf size, L2 regularisation, feature share, kNN *k*), each scored on the same 5 grouped CV folds, with early stopping | the best trial **equals the defaults** (CV MAE 77.30 vs 77.34) |
+| **Local-market feature** (`04_modeling` §6.2, `src/models/knn_features.py`) | median price of the *k* nearest listings, computed out-of-fold so a listing's own price never enters its own value | **no gain** (CV MAE 77.26 without it vs 77.30 with it) |
+| **Log target** (`04_modeling`) | trains on log(1 + price), suited to skewed prices and to MAE | built in |
+| **Target policy** (`04_modeling` §4.1) | removes placeholder prices and long-term rentals from training, with thresholds learned on training data only | built in |
+| **Feature audit** (`evaluation/feature_audit.csv`) | keeps target-leaking columns (price-derived, availability) out of the model | protects the model's use for judging prices |
+| **Ablations** (`05_model_evaluation` §9) | removes or adds feature groups and measures the change in test MAE | location features **+10.7 EUR/night** when removed, reviews **+2.8**; competitor counts and amenity flags **≈ 0** |
+| **Seed stability** (`05_model_evaluation` §9) | refits with 5 random seeds | stable (range under 1 EUR/night) |
+
+The gain came from the **type of model** (gradient boosting vs the baseline: −33%). Tuning and the extra feature did not add more, so the pre-registered selection rule kept the simpler model (G1). Whether tuning pays off can differ by city: the pipeline tests it per city and keeps the simpler model unless the added complexity measurably helps.
+
+#### Possible further improvements
+
+**Rule for any further improvement:** the Amsterdam test set has already been scored once, so improvements are developed and compared in `04_modeling` on the cross-validation folds only, against G1, and kept only if they win clearly and consistently across folds. A confirmatory check needs fresh data, such as a later Amsterdam snapshot with the pre-registration committed first; a new score on the current test set is reported as exploratory.
+
+| # | Idea | Why it might help | Expected gain | Effort |
+| --- | --- | --- | --- | --- |
+| 1 | **Recover missing prices** | 38.5% of listings have no `price`, but the data also has `price_quote_price_per_night`. If it measures the same quantity (to be confirmed with the data owner), it could add up to about 60% more training listings; more data usually helps most | potentially the largest | low |
+| 2 | **Text features** | the listing name and description carry what other columns miss ("canal view", "penthouse", "renovated"). Currently `defer` in the feature audit | medium–large | medium |
+| 3 | **Better location features** | location is the strongest signal (ablation: +10.7 EUR/night). Distance to the centre or to key areas can add to raw coordinates | small–medium | low |
+| 4 | **Train directly for MAE** | the model minimises squared error on log price; gradient boosting can minimise absolute error, the reported metric, directly | small | very low |
+| 5 | **More amenities** | only 6 amenity flags and a count today, adding ≈ 0. The 30–50 most common amenities as flags may carry more | small | low |
+| 6 | **Other boosting libraries** | CatBoost or LightGBM often do slightly better, especially with categories such as neighbourhood and property type | small (1–3% typical) | medium (new dependency) |
+| 7 | **Bigger tuning budget** | 60 trials as the design suggests, or Optuna | unlikely: 30 trials found nothing beyond the defaults | low |
+
+**Deliberately not used: availability features.** They would lower test MAE by 3.8 EUR/night (H5), but they are partly caused by the price (an overpriced listing stays empty), so they would make the below/above-market flags less trustworthy.
+
+**Realistic expectation:** R² on log price is already 0.71, in the typical range for Airbnb price models. Part of the remaining error is not predictable from the data (photos, a host's own pricing choices, finishes), so further gains are likely to be a few euros per night, not another −33%.
 
 The success criteria above are binding. `CHARTER.md` and `evaluation/README.md` must state the same thresholds.
 
