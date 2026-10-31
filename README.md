@@ -2,7 +2,7 @@
 
 BIU DS23 final project by **Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch**.
 
-> **Updated 29 Oct 2026 with the first test results.** This version answers the professor's two remarks: what the system ranks (**Opportunity definition and score**), and that the goals must be fixed before the results (**Data evidence** and **Success criteria**). The price model's test results are now in **Success criteria** and **Evaluation**. Their run is labelled **exploratory**: the criteria were fixed before it, but the formal pre-registration commit was missed (see Evaluation).
+> **Updated 31 Oct 2026.** This version answers the professor's remarks: what the system ranks (**Opportunity definition and score**), that the goals are fixed and approved before the results (**Data evidence** and **Success criteria**, matching `CHARTER.md`), and that the model and the baseline are compared on the same split, with no listing on both sides (**Evaluation**). The price model's test run is labelled **exploratory**: the criteria were fixed before it, but the formal pre-registration commit was missed (see Evaluation).
 
 ## Purpose and status
 
@@ -32,18 +32,20 @@ The product estimates **rental revenue potential**, not return on investment: th
 
 These thresholds are fixed **before** the test set is scored and the ranking is evaluated. A criterion that is not met is reported as **not met**; thresholds are not changed after the results are known. Criteria 1–4 are also coded in `05_model_evaluation`'s pre-registration (`PREREG`), so they are applied mechanically.
 
+**Approved by the team:** Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch, on ____ (pull request #____). The same thresholds are stated in [CHARTER.md](CHARTER.md), whose **Checkpoint updates** section, at its end, tracks progress against them.
+
 Results for criteria 1–4 come from one run on the Amsterdam test set (1,266 listings, 29 Oct 2026). That run is labelled **exploratory**, not confirmatory: the thresholds below were fixed in the design document and in the notebook's code before the run, and nothing was changed after it, but the pre-registration commit hash was not recorded (see Evaluation).
 
 | # | Criterion | Committed threshold | Measured in | Result |
 | --- | --- | --- | --- | --- |
-| 1 | Price accuracy | test MAE **at least 10% below** the baseline (B1), **and** the 95% CI of the difference excludes 0 | `05_model_evaluation` (H1) | ✅ **met**: 75.0 vs 112.0 EUR/night, **−33.0%**; difference CI [−42.1, −32.1] EUR |
+| 1 | Price accuracy | test MAE **at least 10% below** the baseline (B1), **and** the 95% CI of the difference excludes 0 | `05_model_evaluation` (H1) | ✅ **met**: 75.0 vs 112.0 EUR/night on the **same 1,266 test listings**, **−33.0%**; difference CI [−42.1, −32.1] EUR |
 | 2 | Interval calibration | the 80% price range covers **77–83%** of test prices | `05_model_evaluation` (H3) | ✅ **met**: **80.8%** [78.7%, 82.9%] |
 | 3 | Segment safety | no room type or neighbourhood with **at least 100** test listings is worse than B1; no segment's coverage is **below 70%** | `05_model_evaluation` | ⚠️ **partly met**: no large room type or neighbourhood is worse than B1 ✅; coverage is below 70% in **2 segments** ❌, the cheapest 10% of listings (62.5%) and the most expensive 10% (49.6%) |
 | 4 | Speed | prediction tool **under 200 ms** per call | `05_model_evaluation` | ✅ **met**: **27.7 ms** (model + interval, median single call) |
 | 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | `06_experiments` §7.3 | pending |
 | 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under the alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | `06_experiments` §7.4 | pending |
-| 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log | agent harness (Adir) | pending |
-| 8 | Time saved | the agent's evidence brief is **faster than the manual reference**, at no more than an agreed cost per brief | agent harness (Adir, Ron) | pending |
+| 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | agent harness (Adir) | pending |
+| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | agent harness (Adir, Ron) | pending |
 
 ## Architecture
 
@@ -140,7 +142,7 @@ Everyone contributes code and presents.
 
 | Path | Contents |
 | --- | --- |
-| `CHARTER.md` | Business problem, scope, metrics, risks and milestones |
+| `CHARTER.md` | Business problem, committed success criteria, data evidence, Plan B, risks, milestones and checkpoint updates |
 | `data/raw/`, `data/processed/` | Local datasets, excluded from Git |
 | `data/data_dictionary.md` | Planned schema; replace with inspected source schema |
 | `data/sources.md` | Source provenance per city: URL, download date, snapshot, rows, price coverage, license, checksum |
@@ -216,6 +218,13 @@ The product is evaluated at three levels, each tied to the **Success criteria** 
 | 2. Booked nights | agreement with Inside Airbnb's `estimated_occupancy_l365d`; sensitivity of the ranking to the assumptions (criterion 6) | implemented in `06_experiments` |
 
 All alternatives use the same held-out cases and split.
+
+**Same split, no listing on both sides.** The model and the baseline are scored on exactly the same 1,266 test listings. The split is **grouped by listing id**: every listing belongs to exactly one partition (train 7,257, calibration 1,037, test 2,075 listings before the price filter). No listing is used both to train and to test:
+- `make_split` assigns whole listings, not rows, to partitions;
+- `04_modeling` and `05_model_evaluation` verify the split's fingerprint and that the partitions are disjoint when they load it;
+- `04_modeling` also asserts that no test listing reaches training or calibration.
+
+The split is frozen in `evaluation/splits/split_v1_amsterdam.json` (version `2a418f50c8dc`). Amsterdam has one snapshot, so each listing is also a single row. With later snapshots, all rows of a listing stay in the same partition.
 
 | Approach | MAE in selected city's currency/night | RMSE | Response time | Cost/query |
 | --- | --- | --- | --- | --- |
