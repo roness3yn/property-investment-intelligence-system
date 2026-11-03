@@ -125,3 +125,5 @@ has_kitchen,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (
 has_parking,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering)
 has_pool,amenities,binary,yes,no,include,,no,amenities,"Amenity keyword flag (03_Feature_Engineering); keyword 'pool' also matches 'pool table', so the flag is noisy"
 has_workspace,amenities,binary,yes,no,include,,no,amenities,Amenity keyword flag (03_Feature_Engineering)
+exclude_from_price_modelling,identifier,binary,yes,no,identifier,,no,,Data owner's flag (03_Feature_Engineering): True where prices are not usable (Switzerland: Geneva/Vaud price scale unresolved). 04_modeling refuses to model a city with flagged rows. Never a feature
+exclusion_reason,identifier,text,yes,no,identifier,,no,,Why exclude_from_price_modelling is set (03_Feature_Engineering). Never a feature
