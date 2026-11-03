@@ -1,9 +1,0 @@
-﻿check,passed,detail
-Row count matches master,True,756312 vs 756312
-"Unique (location,id)",True,
-No missing listing ID,True,
-No invalid non-null coordinates,True,
-Competition counts monotone across radii,True,
-Availability rate between 0 and 1,True,
-Review counts nonnegative and monotone,True,
-Price units manually verified,False,Analyst signoff required
