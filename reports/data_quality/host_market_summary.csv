@@ -1,0 +1,46 @@
+country,location,listings,hosts
+Austria,Vienna,13283,5838
+Belgium,Antwerp,2535,1298
+Belgium,Brussels,5078,3061
+Belgium,Ghent,1383,874
+Czech Republic,Prague,11615,3656
+Denmark,Copenhagen,23144,21094
+France,Bordeaux,12217,9227
+France,Lyon,9317,6813
+France,Paris,77679,55059
+Germany,Berlin,12776,8182
+Germany,Munich,6865,5225
+Greece,Athens,14337,5505
+Greece,Crete,27333,11333
+Greece,South Aegean,36680,15075
+Greece,Thessaloniki,4965,2140
+Ireland,Dublin,6966,4058
+Italy,Bergamo,4237,2305
+Italy,Bologna,4948,2260
+Italy,Florence,13472,5871
+Italy,Milan,25750,11745
+Italy,Naples,11575,5697
+Italy,Puglia,48683,22204
+Italy,Rome,37084,19781
+Italy,Sicily,56873,29047
+Italy,Venice,8766,3843
+Latvia,Riga,3471,1401
+Netherlands,Amsterdam,10369,9104
+Netherlands,Rotterdam,1357,908
+Netherlands,The Hague,1492,1057
+Norway,Oslo,13391,11692
+Portugal,Lisbon,24876,9521
+Portugal,Porto,15278,5437
+Spain,Barcelona,15293,4595
+Spain,Euskadi,6248,3125
+Spain,Girona,21257,7836
+Spain,Madrid,22708,8638
+Spain,Mallorca,14817,3907
+Spain,Menorca,3620,1372
+Spain,Valencia,7851,3206
+Switzerland,Geneva,2593,1669
+Switzerland,Vaud,5295,3570
+United Kingdom,Bristol,3023,1773
+United Kingdom,Edinburgh,6244,3669
+United Kingdom,Greater Manchester,6930,3332
+United Kingdom,London,92638,52125

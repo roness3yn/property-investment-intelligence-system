@@ -1,0 +1,2 @@
+listings,locations,countries,missing_listing_keys,duplicate_location_listing_keys,reviews_parquet_present,raw_csvs_available
+756312,45,16,0,0,True,False
