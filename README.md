@@ -161,14 +161,13 @@ Everyone contributes code and presents.
 | `data/sources.md` | Source provenance per city: URL, download date, snapshot, rows, price coverage, license, checksum |
 | `notebooks/` | Ordered EDA, preprocessing, modelling, evaluation and experiments |
 | `src/` | Reusable ingestion, features, models, analytics and application code |
-| `agents/` | The agents, their tools, prompts and guardrails, the evaluation harness ([docs/agents.md](docs/agents.md)) |
-| `src/app/` | The investor chat (Streamlit, Hebrew) |
+| `agents/` | Decision loop, tools, prompts and guardrails |
 | `evaluation/` | Frozen evaluation cases, groundedness and error analysis |
 | `models/` | Local model artifacts and version metadata |
 | `reports/` | Baseline comparisons, results, figures and the opportunity table |
 | `presentation/` | Final presentation and demo backup |
 | `docs/` | Architecture decisions and delivery plan |
-| `tests/` | Tests for the prediction-tool contract, city handling, engineered features, the opportunity score, and the agents and guardrails (`python -m pytest tests`) |
+| `tests/` | Tests for the prediction-tool contract, city handling, engineered features and the opportunity score (`python -m pytest tests`) |
 
 ## Notebooks and data flow
 
@@ -240,14 +239,14 @@ All alternatives use the same held-out cases and split.
 
 The split is frozen in `evaluation/splits/split_v1_amsterdam.json` (version `2a418f50c8dc`). Amsterdam has one snapshot, so each listing is also a single row. With later snapshots, all rows of a listing stay in the same partition.
 
-| Approach | MAE in selected city's currency/night | RMSE | Response time | Cost/query |
-| --- | --- | --- | --- | --- |
-| Training-set median by neighbourhood and room type, room-type and global fallback (B1) | 112.0 [104.7, 119.4] | 174.1 [159.5, 188.5] | 1.9 ms | ≈ 0 |
-| Learned nightly-price model (gradient boosting, `hist_gbm`) | **75.0** [70.4, 79.7] | **113.0** [104.6, 121.3] | 27.7 ms (with interval) | compute only (≈ 0) |
-| Deterministic opportunity table without agent | N/A | N/A | Not measured | Not measured |
-| Agent investigation of the same top-ranked opportunities | N/A | N/A | Not measured | Not measured |
+| Approach | MAE in selected city's currency/night | Typical relative error | Within ±20% of the actual price | RMSE | Response time | Cost/query |
+| --- | --- | --- | --- | --- | --- | --- |
+| Training-set median by neighbourhood and room type, room-type and global fallback (B1) | 112.0 [104.7, 119.4] | 39.5% | 38.5% of listings | 174.1 [159.5, 188.5] | 1.9 ms | ≈ 0 |
+| Learned nightly-price model (gradient boosting, `hist_gbm`) | **75.0** [70.4, 79.7] | **24.6%** | **56.6%** of listings | **113.0** [104.6, 121.3] | 27.7 ms (with interval) | compute only (≈ 0) |
+| Deterministic opportunity table without agent | N/A | N/A | N/A | N/A | Not measured | Not measured |
+| Agent investigation of the same top-ranked opportunities | N/A | N/A | N/A | N/A | Not measured | Not measured |
 
-Values in brackets are 95% cluster-bootstrap confidence intervals (2,000 resamples of the test listings).
+Values in brackets are 95% cluster-bootstrap confidence intervals (2,000 resamples of the test listings). The **relative** columns put the euro error in proportion to the price: a typical prediction is about **25% off** the actual price (40% for the baseline), and 57% of listings are predicted within 20%. MAPE and median absolute percentage error on the test set: model 22.4% and 17.2%, baseline 33.8% and 26.4% (from `python -m src.models.relative_metrics`, see *Relative measures* below).
 
 #### Test results for the price model (Amsterdam, 29 Oct 2026)
 
@@ -256,7 +255,7 @@ Values in brackets are 95% cluster-bootstrap confidence intervals (2,000 resampl
 - **Test set:** 1,266 listings (20% of the priced listings, never used for training or tuning). The frozen target policy removed 10 more (price cap 1,567 EUR, minimum stay over 30 nights). Without that filter, MAE is 87.5 vs 125.5 EUR/night, still **30% better** than B1.
 - **Selected model: default gradient boosting (`hist_gbm`)**, by the pre-registered rule. The tuned model with the kNN price feature scored 74.9 EUR/night, statistically indistinguishable (difference CI [−1.16, +1.33] EUR), so the simpler model is kept. Ridge regression (79.2) is clearly worse.
 - **Consistent with development:** 5-fold CV on the training partition gave 77.3 vs 112.8 EUR/night (31% lower, in all 5 folds), and a shuffled-price check showed no sign of leakage.
-- **Other accuracy measures (selected model):** median absolute error 47.0 EUR/night; 57% of listings predicted within ±20%; R² on log price 0.71. The model under-predicts on average (bias −19 EUR/night), mostly for the most expensive listings: it estimates the median price.
+- **Other accuracy measures (selected model):** median absolute error 47.0 EUR/night; typical relative error 24.6% (baseline 39.5%); 57% of listings predicted within ±20% (baseline 38.5%); R² on log price 0.71. The model under-predicts on average (bias −19 EUR/night), mostly for the most expensive listings: it estimates the median price.
 - **Hypotheses:** H1 supported (above). **H2 not supported** (as computed for the tuned model): entire homes gain more than other room types (33.8% vs 29.3%), but dense neighbourhoods do not gain more than others (32.9% vs 33.7%). H3 supported (coverage above). H4 not testable with one snapshot. **H5 supported:** adding availability features would lower MAE by 3.8 EUR/night but change which listings look over- or under-priced (residual rank correlation 0.893, below 0.90), which supports excluding them.
 - **What drives accuracy (ablations):** removing the location features costs the most (+10.7 EUR/night), the review features +2.8. Removing the competitor counts (−0.1) or the amenity flags (+0.8) makes no significant difference.
 - **Limitation (criterion 3, not met):** the 80% ranges cover only 62.5% of the cheapest 10% of listings and 49.6% of the most expensive 10%. These groups are defined by the actual price, so unusually cheap or expensive listings fall outside ranges built from their features. Ranges, and flags based on them, are least reliable at the price extremes. Room types and neighbourhoods are covered as intended (entire homes 80.4%, private rooms 82.1%).
@@ -278,9 +277,22 @@ The task is done three ways: by the agent, by the deterministic table alone, and
 The model predicts a number (the nightly listing price), so it is evaluated with regression metrics, all on the same held-out listings:
 
 - **MAE** in the city's currency per night is the primary metric. It is easy to interpret and robust to the few very expensive listings.
-- **RMSE** shows whether there are large misses. **MedAE**, **typical relative error** (a percentage error based on log ratios) and **hit rate within ±20%** describe typical and relative accuracy. **R²** is computed on log price.
-- MAPE is not used, because it explodes on cheap listings.
+- **RMSE** shows whether there are large misses. **MedAE** gives the typical error in euros. **R²** is computed on log price.
+- **Relative measures** put the error in proportion to the price, so "75 EUR off" can be read against a 100 EUR room or a 500 EUR flat:
+  - **typical relative error** = exp(mean |ln(predicted / actual)|) − 1, the headline relative measure: symmetric, so being 20% too high and 20% too low count the same;
+  - **within ±20%**: the share of listings predicted within 20% of their actual price;
+  - **median absolute percentage error (median APE)**: the typical percentage error;
+  - **MAPE** is reported as a supplementary measure, with a caveat: it explodes on cheap listings (a 40 EUR room predicted at 100 EUR counts as a 150% error) and punishes over-prediction more than under-prediction, so no model is tuned or selected on it.
 - Every metric is reported with a 95% cluster-bootstrap confidence interval, overall and per segment (room type, neighbourhood, price decile).
+
+**Relative measures: where they are computed.** `src/models/relative_metrics.py` (tested in `tests/test_relative_metrics.py`) is used in three places:
+- `04_modeling`, section 7: in the CV comparison for every approach, and in a **training (in-sample) vs CV (out-of-fold)** table. A large gap between the two would mean the model memorises its training listings; CV is the honest development estimate.
+- `04_modeling`, section 8: the out-of-fold error per room type, neighbourhood and price band, in euros and in percent.
+- **The test set**, from the predictions `05_model_evaluation` already saved, without re-scoring anything:
+  ```bash
+  python -m src.models.relative_metrics --predictions models/predictions_test_amsterdam_2a418f50c8dc.csv
+  ```
+  This prints the measures for the model and the baseline, overall and **per band of the actual price** (cheapest 10% to most expensive 10%), and saves `reports/amsterdam/05_relative_metrics.csv` and `05_relative_by_price_band.csv`.
 
 **Target transformation.** Prices are right-skewed, so models train on log(1 + price) and convert back with exp. This estimates the *median* listing price, which is what MAE rewards. RMSE, which rewards the mean, uses Duan's smearing correction from out-of-fold residuals. Interval bounds are quantiles and need no correction. Details: `notebooks/05_model_evaluation.ipynb`.
 
