@@ -109,6 +109,40 @@ def test_review_signals_quarantine_injected_reviews_and_drop_names():
     assert "IGNORE ALL" not in flat and "Mallory" not in flat and "reviewer_name" not in flat
 
 
+def test_evidence_tools_on_demo_data():
+    reg = build_registry(ToolContext(config()))
+    card = reg["model_card"].handler({"segment_type": "room_type", "segment_value": "Private room"})
+    assert card["status"] == "ok" and card["run_label"] == "SYNTHETIC" and card["segment"]["test_listings"] > 0
+    assert card["test"]["model_MAE"] > 0 and card["evidence_id"].startswith("card:")
+    seg = reg["segment_profile"].handler({"city": "Amsterdam", "room_type": "entire"})
+    p = seg["results"][0]
+    assert seg["status"] == "ok" and set(p["registration"]) == {"registered", "exempt", "missing"}
+    assert "inside_airbnb_estimated_occupied_nights_median" in p["occupancy_signals"]
+    tiny = reg["segment_profile"].handler({"city": "Amsterdam", "neighbourhood": "IJburg",
+                                           "room_type": "shared"})
+    assert tiny["status"] in ("insufficient_evidence", "not_found") and "registration" not in json.dumps(tiny)
+    lst = pd.read_csv(demo_root() / "data/processed/listings_master.csv", usecols=["id", "name"])
+    injected = int(lst[lst["name"].str.contains("IGNORE ALL", na=False)]["id"].iloc[0])
+    prof = reg["listing_profile"].handler({"listing_ids": [injected, 99999999]})
+    assert prof["quarantined_titles"] == 1 and "IGNORE ALL" not in json.dumps(prof)
+    assert prof["results"][1] == {"listing_id": 99999999, "found": False}
+    assert "host_name" not in json.dumps(prof)
+
+
+def test_capability_aware_agents_get_only_tools_with_data():
+    import shutil
+    root = Path(tempfile.mkdtemp())
+    shutil.copytree(demo_root(), root, dirs_exist_ok=True)
+    (root / "data/processed/reviews_clean.parquet").unlink()
+    (root / "reports/amsterdam/model_card_metrics.json").unlink()
+    o = Orchestrator(AgentConfig(data_root=root, evidence_log=None), llm=None)
+    assert o.capabilities["review_signals"] and o.capabilities["model_card"]
+    assert "review_signals" not in o.specs["investigator"].tools
+    assert "model_card" not in o.specs["price_analyst"].tools
+    assert "rank_opportunities" in o.specs["investigator"].tools
+    assert "Guest review TEXT was not analysed" in o.specs["investigator"].system
+
+
 # ---------------------------------------------------------------------- tool guardrail
 def guard_and_state(user_text=""):
     cfg = config(max_tool_calls_per_agent=3)
@@ -209,8 +243,10 @@ def test_investigator_flow_is_grounded_and_traced():
     assert r.usage["llm_calls"] == 6
     # the specialist got only its own tools, plus the enrichment agent as a tool
     names = {t["name"] for t in llm.requests[1]["tools"]}
-    assert names == {"rank_opportunities", "neighbourhood_stats", "review_signals",
-                     "predict_listing_price", "ask_data_enrichment_agent"}
+    assert names == {"rank_opportunities", "segment_profile", "listing_profile", "model_card",
+                     "neighbourhood_stats", "review_signals", "predict_listing_price",
+                     "ask_data_enrichment_agent"}
+    assert "This deployment" in llm.requests[1]["system"] and "SYNTHETIC" in llm.requests[1]["system"]
 
 
 def test_ungrounded_draft_is_revised_and_rechecked():

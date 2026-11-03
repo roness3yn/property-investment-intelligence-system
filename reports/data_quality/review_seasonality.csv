@@ -1,0 +1,2845 @@
+location,country,year,season,reviews
+Amsterdam,Netherlands,2015,Winter,1898
+Amsterdam,Netherlands,2016,Autumn,5902
+Amsterdam,Netherlands,2018,Winter,6576
+Amsterdam,Netherlands,2022,Winter,7231
+Amsterdam,Netherlands,2012,Winter,104
+Amsterdam,Netherlands,2023,Winter,13712
+Amsterdam,Netherlands,2025,Spring,24126
+Amsterdam,Netherlands,2025,Summer,25536
+Amsterdam,Netherlands,2011,Spring,29
+Amsterdam,Netherlands,2011,Summer,57
+Amsterdam,Netherlands,2014,Spring,1390
+Amsterdam,Netherlands,2014,Summer,1935
+Amsterdam,Netherlands,2010,Autumn,15
+Antwerp,Belgium,2015,Spring,178
+Antwerp,Belgium,2022,Spring,3254
+Antwerp,Belgium,2014,Winter,48
+Antwerp,Belgium,2015,Summer,257
+Antwerp,Belgium,2017,Autumn,733
+Antwerp,Belgium,2021,Spring,984
+Antwerp,Belgium,2021,Summer,2148
+Antwerp,Belgium,2022,Summer,4118
+Antwerp,Belgium,2024,Autumn,6110
+Antwerp,Belgium,2025,Spring,6987
+Antwerp,Belgium,2025,Summer,9140
+Antwerp,Belgium,2012,Winter,2
+Antwerp,Belgium,2016,Autumn,575
+Athens,Greece,2024,Winter,21697
+Athens,Greece,2025,Autumn,58126
+Athens,Greece,2020,Spring,2990
+Athens,Greece,2020,Summer,7539
+Athens,Greece,2021,Spring,5317
+Athens,Greece,2021,Summer,21459
+Athens,Greece,2022,Winter,12254
+Athens,Greece,2016,Summer,3844
+Athens,Greece,2018,Autumn,13287
+Barcelona,Spain,2018,Autumn,17071
+Barcelona,Spain,2019,Autumn,21896
+Barcelona,Spain,2022,Winter,19690
+Barcelona,Spain,2023,Spring,37843
+Barcelona,Spain,2023,Summer,39075
+Barcelona,Spain,2024,Winter,32911
+Barcelona,Spain,2025,Spring,47331
+Barcelona,Spain,2025,Summer,51692
+Barcelona,Spain,2026,Spring,60083
+Barcelona,Spain,2026,Summer,12586
+Barcelona,Spain,2017,Autumn,11643
+Barcelona,Spain,2016,Winter,5028
+Barcelona,Spain,2013,Spring,691
+Barcelona,Spain,2013,Summer,1116
+Barcelona,Spain,2014,Winter,1223
+Barcelona,Spain,2012,Winter,61
+Bergamo,Italy,2014,Autumn,120
+Bergamo,Italy,2018,Summer,1970
+Bergamo,Italy,2020,Summer,1119
+Bergamo,Italy,2022,Summer,5416
+Bergamo,Italy,2018,Spring,1518
+Bergamo,Italy,2023,Spring,5839
+Bergamo,Italy,2023,Summer,7464
+Bergamo,Italy,2024,Winter,4214
+Bergamo,Italy,2019,Winter,1385
+Bergamo,Italy,2022,Spring,3848
+Bergamo,Italy,2020,Spring,112
+Bergamo,Italy,2013,Winter,17
+Bergamo,Italy,2012,Winter,4
+Berlin,Germany,2020,Winter,8844
+Berlin,Germany,2021,Spring,4103
+Berlin,Germany,2021,Summer,11495
+Berlin,Germany,2022,Spring,16866
+Berlin,Germany,2022,Summer,21592
+Berlin,Germany,2023,Winter,16496
+Berlin,Germany,2024,Spring,26854
+Berlin,Germany,2024,Summer,33792
+Berlin,Germany,2025,Autumn,36181
+Berlin,Germany,2026,Winter,15956
+Berlin,Germany,2014,Autumn,1712
+Berlin,Germany,2016,Summer,4973
+Berlin,Germany,2017,Winter,4790
+Berlin,Germany,2018,Spring,8673
+Berlin,Germany,2018,Summer,11192
+Berlin,Germany,2016,Spring,4067
+Berlin,Germany,2015,Winter,1791
+Bologna,Italy,2019,Spring,5750
+Bologna,Italy,2019,Summer,5134
+Bologna,Italy,2020,Winter,3119
+Bologna,Italy,2023,Winter,6844
+Bologna,Italy,2024,Spring,16579
+Bologna,Italy,2018,Winter,2343
+Bologna,Italy,2022,Winter,4501
+Bologna,Italy,2024,Summer,14694
+Bordeaux,France,2024,Winter,13570
+Bordeaux,France,2025,Spring,21922
+Bordeaux,France,2025,Summer,31175
+Bordeaux,France,2022,Winter,8953
+Bordeaux,France,2016,Autumn,2729
+Bordeaux,France,2017,Autumn,4792
+Bordeaux,France,2020,Autumn,5869
+Bordeaux,France,2019,Autumn,9971
+Bristol,United Kingdom,2019,Winter,2246
+Bristol,United Kingdom,2020,Summer,1472
+Bristol,United Kingdom,2022,Spring,4494
+Bristol,United Kingdom,2022,Summer,5307
+Bristol,United Kingdom,2025,Spring,7531
+Bristol,United Kingdom,2025,Summer,10360
+Bristol,United Kingdom,2023,Winter,4088
+Bristol,United Kingdom,2020,Spring,783
+Brussels,Belgium,2020,Autumn,1189
+Brussels,Belgium,2021,Spring,1482
+Brussels,Belgium,2021,Summer,3100
+Brussels,Belgium,2023,Summer,11827
+Brussels,Belgium,2025,Winter,18286
+Brussels,Belgium,2026,Spring,27737
+Brussels,Belgium,2023,Spring,11318
+Brussels,Belgium,2019,Spring,4042
+Brussels,Belgium,2019,Summer,4101
+Brussels,Belgium,2026,Summer,6142
+Brussels,Belgium,2018,Autumn,3576
+Copenhagen,Denmark,2025,Autumn,22798
+Copenhagen,Denmark,2024,Spring,19257
+Copenhagen,Denmark,2013,Spring,307
+Copenhagen,Denmark,2013,Summer,644
+Copenhagen,Denmark,2014,Winter,462
+Copenhagen,Denmark,2015,Spring,1668
+Copenhagen,Denmark,2015,Summer,3195
+Copenhagen,Denmark,2017,Autumn,4313
+Copenhagen,Denmark,2021,Summer,6796
+Copenhagen,Denmark,2024,Summer,35447
+Copenhagen,Denmark,2012,Winter,46
+Copenhagen,Denmark,2020,Summer,2719
+Copenhagen,Denmark,2019,Winter,4239
+Copenhagen,Denmark,2020,Spring,903
+Copenhagen,Denmark,2021,Spring,979
+Crete,Greece,2022,Summer,40174
+Crete,Greece,2017,Autumn,6129
+Crete,Greece,2022,Spring,11780
+Crete,Greece,2016,Winter,173
+Crete,Greece,2020,Winter,851
+Crete,Greece,2024,Winter,3022
+Crete,Greece,2026,Winter,2516
+Dublin,Ireland,2011,Winter,6
+Dublin,Ireland,2012,Autumn,116
+Dublin,Ireland,2014,Winter,147
+Dublin,Ireland,2015,Winter,503
+Dublin,Ireland,2016,Winter,1145
+Dublin,Ireland,2017,Winter,1825
+Dublin,Ireland,2018,Winter,2721
+Dublin,Ireland,2019,Autumn,6850
+Dublin,Ireland,2020,Winter,3119
+Dublin,Ireland,2023,Summer,16292
+Dublin,Ireland,2023,Spring,12422
+Dublin,Ireland,2021,Summer,3183
+Dublin,Ireland,2024,Winter,8105
+Dublin,Ireland,2025,Spring,19204
+Dublin,Ireland,2025,Summer,29045
+Dublin,Ireland,2026,Winter,8204
+Dublin,Ireland,2021,Spring,1431
+Edinburgh,United Kingdom,2022,Autumn,20558
+Edinburgh,United Kingdom,2024,Winter,18268
+Edinburgh,United Kingdom,2014,Winter,498
+Edinburgh,United Kingdom,2017,Spring,6292
+Edinburgh,United Kingdom,2017,Summer,8759
+Edinburgh,United Kingdom,2018,Autumn,10213
+Edinburgh,United Kingdom,2019,Autumn,11951
+Edinburgh,United Kingdom,2020,Winter,6019
+Euskadi,Spain,2023,Autumn,16064
+Euskadi,Spain,2019,Spring,7419
+Euskadi,Spain,2019,Summer,11351
+Euskadi,Spain,2020,Winter,3474
+Euskadi,Spain,2025,Autumn,20589
+Euskadi,Spain,2015,Autumn,1292
+Florence,Italy,2016,Autumn,10565
+Florence,Italy,2019,Summer,25477
+Florence,Italy,2023,Spring,41995
+Florence,Italy,2023,Summer,50862
+Florence,Italy,2024,Autumn,58081
+Florence,Italy,2025,Spring,59702
+Florence,Italy,2018,Autumn,18355
+Florence,Italy,2025,Summer,61726
+Florence,Italy,2026,Spring,70077
+Florence,Italy,2026,Summer,18414
+Florence,Italy,2014,Autumn,3106
+Florence,Italy,2015,Autumn,6445
+Florence,Italy,2019,Spring,20969
+Ghent,Belgium,2018,Autumn,1183
+Ghent,Belgium,2019,Autumn,1647
+Ghent,Belgium,2020,Spring,260
+Ghent,Belgium,2021,Winter,1155
+Ghent,Belgium,2022,Winter,2085
+Ghent,Belgium,2023,Winter,2730
+Ghent,Belgium,2024,Winter,3677
+Ghent,Belgium,2025,Winter,4528
+Ghent,Belgium,2020,Summer,998
+Girona,Spain,2025,Autumn,21378
+Girona,Spain,2023,Spring,16191
+Girona,Spain,2024,Spring,20161
+Girona,Spain,2018,Summer,9336
+Girona,Spain,2023,Summer,31530
+Girona,Spain,2024,Summer,38484
+Girona,Spain,2021,Autumn,10734
+Girona,Spain,2020,Summer,10565
+Girona,Spain,2020,Spring,853
+Girona,Spain,2022,Winter,7077
+Girona,Spain,2017,Autumn,3423
+Girona,Spain,2018,Spring,4614
+Greater Manchester,United Kingdom,2021,Summer,3641
+Greater Manchester,United Kingdom,2022,Autumn,7051
+Greater Manchester,United Kingdom,2023,Winter,7102
+Greater Manchester,United Kingdom,2024,Spring,11655
+Greater Manchester,United Kingdom,2024,Summer,14073
+Greater Manchester,United Kingdom,2020,Autumn,1404
+Greater Manchester,United Kingdom,2021,Spring,1980
+Lisbon,Portugal,2016,Autumn,17080
+Lisbon,Portugal,2017,Spring,21978
+Lisbon,Portugal,2017,Summer,28995
+Lisbon,Portugal,2019,Autumn,45547
+Lisbon,Portugal,2021,Autumn,37588
+Lisbon,Portugal,2020,Autumn,11664
+Lisbon,Portugal,2022,Winter,29127
+Lisbon,Portugal,2023,Spring,69945
+Lisbon,Portugal,2023,Summer,81162
+Lisbon,Portugal,2013,Autumn,1478
+Lisbon,Portugal,2014,Autumn,4645
+Lisbon,Portugal,2015,Winter,4047
+Lisbon,Portugal,2025,Winter,48408
+Lisbon,Portugal,2026,Winter,34307
+London,United Kingdom,2017,Winter,16500
+London,United Kingdom,2019,Autumn,40276
+London,United Kingdom,2020,Winter,22456
+London,United Kingdom,2021,Winter,11664
+London,United Kingdom,2026,Spring,157048
+London,United Kingdom,2013,Autumn,2904
+London,United Kingdom,2016,Spring,13086
+London,United Kingdom,2016,Summer,18446
+London,United Kingdom,2022,Autumn,59983
+London,United Kingdom,2023,Spring,72551
+London,United Kingdom,2023,Summer,89020
+London,United Kingdom,2025,Autumn,139882
+London,United Kingdom,2014,Summer,5095
+London,United Kingdom,2026,Summer,39481
+London,United Kingdom,2014,Spring,3379
+Lyon,France,2017,Autumn,4903
+Lyon,France,2019,Winter,7236
+Lyon,France,2018,Autumn,6926
+Lyon,France,2021,Spring,5930
+Lyon,France,2021,Summer,9898
+Lyon,France,2023,Spring,15994
+Lyon,France,2023,Summer,16057
+Lyon,France,2024,Winter,15004
+Lyon,France,2022,Spring,13200
+Lyon,France,2022,Summer,14214
+Lyon,France,2026,Winter,12096
+Lyon,France,2020,Autumn,5472
+Lyon,France,2016,Winter,2303
+Madrid,Spain,2015,Autumn,4084
+Madrid,Spain,2016,Autumn,7152
+Madrid,Spain,2022,Autumn,41564
+Madrid,Spain,2017,Autumn,11797
+Madrid,Spain,2018,Spring,14747
+Madrid,Spain,2018,Summer,14204
+Madrid,Spain,2023,Spring,48255
+Madrid,Spain,2023,Summer,46221
+Madrid,Spain,2019,Winter,17201
+Madrid,Spain,2020,Autumn,3783
+Madrid,Spain,2021,Spring,8587
+Madrid,Spain,2021,Summer,15624
+Madrid,Spain,2012,Autumn,251
+Madrid,Spain,2013,Autumn,671
+Madrid,Spain,2014,Autumn,1836
+Mallorca,Spain,2013,Autumn,231
+Mallorca,Spain,2014,Autumn,597
+Mallorca,Spain,2016,Spring,1540
+Mallorca,Spain,2016,Summer,2857
+Mallorca,Spain,2020,Winter,1537
+Mallorca,Spain,2021,Autumn,10831
+Mallorca,Spain,2022,Winter,2869
+Mallorca,Spain,2024,Spring,19055
+Mallorca,Spain,2025,Autumn,24217
+Mallorca,Spain,2024,Summer,28833
+Mallorca,Spain,2018,Winter,1208
+Mallorca,Spain,2019,Autumn,7001
+Mallorca,Spain,2017,Winter,649
+Mallorca,Spain,2011,Summer,1
+Menorca,Spain,2012,Summer,13
+Menorca,Spain,2021,Summer,3418
+Menorca,Spain,2023,Summer,6495
+Menorca,Spain,2025,Autumn,5572
+Menorca,Spain,2011,Autumn,1
+Menorca,Spain,2020,Autumn,713
+Menorca,Spain,2024,Autumn,4528
+Menorca,Spain,2023,Spring,2396
+Menorca,Spain,2021,Spring,477
+Menorca,Spain,2012,Spring,2
+Menorca,Spain,2014,Winter,4
+Menorca,Spain,2017,Winter,33
+Menorca,Spain,2016,Winter,28
+Milan,Italy,2023,Spring,42868
+Milan,Italy,2023,Summer,46597
+Milan,Italy,2024,Spring,56921
+Milan,Italy,2024,Summer,59833
+Milan,Italy,2025,Autumn,86273
+Milan,Italy,2026,Spring,92998
+Milan,Italy,2026,Summer,19573
+Milan,Italy,2017,Spring,7235
+Milan,Italy,2017,Summer,7160
+Milan,Italy,2018,Spring,10048
+Milan,Italy,2018,Summer,9251
+Milan,Italy,2019,Winter,10168
+Milan,Italy,2015,Spring,2886
+Milan,Italy,2015,Summer,3898
+Munich,Germany,2025,Winter,8480
+Munich,Germany,2026,Winter,5369
+Munich,Germany,2024,Winter,6720
+Naples,Italy,2017,Spring,3359
+Naples,Italy,2022,Autumn,16446
+Naples,Italy,2023,Winter,9982
+Naples,Italy,2017,Summer,4586
+Naples,Italy,2019,Spring,8307
+Naples,Italy,2019,Summer,10342
+Naples,Italy,2024,Winter,11043
+Naples,Italy,2020,Winter,3887
+Naples,Italy,2025,Winter,13129
+Naples,Italy,2026,Spring,32434
+Naples,Italy,2026,Summer,8304
+Oslo,Norway,2023,Spring,6780
+Oslo,Norway,2023,Summer,15801
+Oslo,Norway,2025,Autumn,17078
+Oslo,Norway,2026,Winter,6944
+Oslo,Norway,2015,Winter,325
+Oslo,Norway,2019,Winter,1613
+Oslo,Norway,2021,Winter,888
+Oslo,Norway,2018,Winter,1336
+Oslo,Norway,2020,Spring,572
+Oslo,Norway,2020,Summer,1272
+Oslo,Norway,2017,Autumn,1662
+Paris,France,2016,Spring,13654
+Paris,France,2016,Summer,19132
+Paris,France,2017,Winter,17070
+Paris,France,2018,Autumn,37444
+Paris,France,2021,Winter,20833
+Paris,France,2022,Spring,58466
+Paris,France,2013,Spring,1654
+Paris,France,2013,Summer,2369
+Paris,France,2014,Spring,3629
+Paris,France,2022,Summer,72447
+Paris,France,2026,Winter,74064
+Paris,France,2011,Winter,134
+Paris,France,2012,Winter,492
+Paris,France,2014,Summer,5498
+Paris,France,2015,Spring,8561
+Paris,France,2015,Summer,13107
+Porto,Portugal,2020,Spring,3240
+Porto,Portugal,2018,Autumn,18205
+Porto,Portugal,2020,Summer,8050
+Porto,Portugal,2021,Summer,18673
+Porto,Portugal,2022,Winter,16703
+Porto,Portugal,2023,Winter,24790
+Porto,Portugal,2025,Spring,56640
+Porto,Portugal,2025,Summer,69769
+Porto,Portugal,2026,Winter,21367
+Porto,Portugal,2016,Winter,3360
+Porto,Portugal,2017,Spring,9362
+Porto,Portugal,2017,Summer,13692
+Porto,Portugal,2021,Spring,3651
+Prague,Czech Republic,2016,Autumn,6215
+Prague,Czech Republic,2017,Autumn,9204
+Prague,Czech Republic,2019,Winter,13082
+Prague,Czech Republic,2021,Winter,5396
+Prague,Czech Republic,2023,Autumn,35131
+Prague,Czech Republic,2024,Spring,42966
+Prague,Czech Republic,2024,Summer,48207
+Prague,Czech Republic,2018,Summer,13976
+Prague,Czech Republic,2018,Spring,10980
+Prague,Czech Republic,2013,Autumn,591
+Puglia,Italy,2025,Spring,28517
+Puglia,Italy,2025,Summer,71016
+Puglia,Italy,2020,Autumn,7496
+Puglia,Italy,2016,Autumn,3010
+Puglia,Italy,2017,Autumn,4554
+Puglia,Italy,2018,Summer,13733
+Puglia,Italy,2018,Spring,4070
+Puglia,Italy,2022,Winter,3176
+Puglia,Italy,2021,Winter,1246
+Puglia,Italy,2015,Autumn,1469
+Riga,Latvia,2026,Spring,10445
+Riga,Latvia,2026,Summer,3488
+Riga,Latvia,2019,Summer,4544
+Riga,Latvia,2017,Autumn,1083
+Riga,Latvia,2018,Spring,1421
+Riga,Latvia,2018,Summer,2845
+Riga,Latvia,2019,Spring,2245
+Riga,Latvia,2021,Winter,1388
+Riga,Latvia,2022,Winter,3018
+Riga,Latvia,2023,Winter,4840
+Riga,Latvia,2024,Winter,6278
+Riga,Latvia,2016,Spring,442
+Riga,Latvia,2016,Summer,785
+Rome,Italy,2026,Winter,61585
+Rome,Italy,2015,Winter,4706
+Rome,Italy,2016,Autumn,21741
+Rome,Italy,2019,Winter,25937
+Rome,Italy,2022,Spring,59188
+Rome,Italy,2022,Summer,75449
+Rome,Italy,2023,Spring,92060
+Rome,Italy,2023,Summer,103631
+Rome,Italy,2013,Summer,1947
+Rome,Italy,2024,Autumn,128210
+Sicily,Italy,2022,Summer,57295
+Sicily,Italy,2016,Autumn,9643
+Sicily,Italy,2021,Summer,39954
+Sicily,Italy,2022,Spring,29376
+Sicily,Italy,2025,Summer,101851
+Sicily,Italy,2017,Winter,2881
+Sicily,Italy,2020,Winter,6423
+Sicily,Italy,2023,Winter,13713
+Sicily,Italy,2025,Spring,60396
+Sicily,Italy,2024,Winter,16511
+Sicily,Italy,2026,Winter,14860
+Sicily,Italy,2021,Spring,2169
+Sicily,Italy,2018,Winter,4640
+South Aegean,Greece,2016,Autumn,5076
+South Aegean,Greece,2017,Autumn,8771
+South Aegean,Greece,2024,Autumn,44205
+South Aegean,Greece,2026,Spring,27233
+South Aegean,Greece,2013,Spring,124
+South Aegean,Greece,2013,Summer,650
+South Aegean,Greece,2014,Spring,449
+South Aegean,Greece,2014,Summer,1985
+South Aegean,Greece,2022,Autumn,34491
+South Aegean,Greece,2023,Summer,74218
+South Aegean,Greece,2015,Winter,106
+South Aegean,Greece,2023,Spring,21916
+South Aegean,Greece,2026,Summer,21611
+South Aegean,Greece,2019,Winter,917
+South Aegean,Greece,2020,Winter,725
+Thessaloniki,Greece,2012,Autumn,14
+Thessaloniki,Greece,2013,Spring,18
+Thessaloniki,Greece,2013,Summer,37
+Thessaloniki,Greece,2014,Autumn,147
+Thessaloniki,Greece,2015,Winter,143
+Thessaloniki,Greece,2018,Autumn,3306
+Thessaloniki,Greece,2019,Winter,3310
+Thessaloniki,Greece,2020,Winter,3161
+Thessaloniki,Greece,2023,Winter,6424
+Thessaloniki,Greece,2025,Winter,10139
+Valencia,Spain,2022,Winter,7039
+Valencia,Spain,2021,Winter,2937
+Valencia,Spain,2023,Winter,10526
+Valencia,Spain,2024,Spring,22450
+Valencia,Spain,2024,Summer,23945
+Valencia,Spain,2025,Summer,29833
+Valencia,Spain,2025,Spring,26407
+Vaud,Switzerland,2018,Winter,1108
+Vaud,Switzerland,2019,Winter,1580
+Vaud,Switzerland,2020,Spring,795
+Vaud,Switzerland,2020,Summer,2970
+Vaud,Switzerland,2021,Winter,2228
+Venice,Italy,2021,Summer,17763
+Venice,Italy,2022,Winter,10986
+Venice,Italy,2017,Winter,5341
+Venice,Italy,2023,Autumn,37491
+Venice,Italy,2019,Winter,8378
+Venice,Italy,2020,Summer,8998
+Venice,Italy,2020,Spring,280
+Venice,Italy,2012,Spring,249
+Venice,Italy,2021,Spring,2581
+Venice,Italy,2012,Summer,314
+Venice,Italy,2014,Winter,658
+Venice,Italy,2013,Winter,279
+Vienna,Austria,2024,Winter,22986
+Vienna,Austria,2026,Winter,18269
+Vienna,Austria,2016,Summer,4441
+Vienna,Austria,2017,Spring,5267
+Vienna,Austria,2017,Summer,6964
+Vienna,Austria,2025,Autumn,38628
+Vienna,Austria,2018,Spring,7624
+Vienna,Austria,2018,Summer,9704
+Vienna,Austria,2019,Winter,10248
+Vienna,Austria,2022,Spring,13691
+Vienna,Austria,2022,Summer,18784
+Vienna,Austria,2020,Spring,2159
+Vienna,Austria,2016,Spring,3075
+Vienna,Austria,2020,Summer,5131
+Vienna,Austria,2023,Autumn,23563
+Athens,Greece,2015,Winter,478
+Athens,Greece,2016,Spring,2130
+Athens,Greece,2014,Spring,332
+Athens,Greece,2014,Summer,754
+Athens,Greece,2012,Winter,10
+Barcelona,Spain,2011,Spring,6
+Barcelona,Spain,2011,Summer,26
+Berlin,Germany,2009,Summer,1
+Berlin,Germany,2010,Winter,6
+Berlin,Germany,2013,Spring,400
+Berlin,Germany,2013,Summer,627
+Bologna,Italy,2015,Winter,427
+Bologna,Italy,2016,Spring,1487
+Bologna,Italy,2016,Summer,1478
+Bologna,Italy,2017,Winter,1609
+Bristol,United Kingdom,2015,Winter,229
+Bristol,United Kingdom,2016,Autumn,962
+Bristol,United Kingdom,2013,Winter,34
+Bristol,United Kingdom,2012,Winter,7
+Edinburgh,United Kingdom,2011,Winter,19
+Edinburgh,United Kingdom,2012,Autumn,178
+Euskadi,Spain,2014,Autumn,511
+Euskadi,Spain,2013,Winter,34
+Florence,Italy,2011,Winter,31
+Florence,Italy,2012,Spring,235
+Florence,Italy,2012,Summer,430
+London,United Kingdom,2012,Summer,675
+London,United Kingdom,2012,Spring,630
+Milan,Italy,2013,Winter,192
+Munich,Germany,2011,Winter,6
+Munich,Germany,2013,Autumn,374
+Munich,Germany,2014,Autumn,852
+Munich,Germany,2015,Spring,771
+Munich,Germany,2015,Summer,1198
+Munich,Germany,2016,Autumn,2172
+Munich,Germany,2017,Spring,2020
+Munich,Germany,2017,Summer,2521
+Munich,Germany,2020,Winter,2524
+Munich,Germany,2021,Winter,1310
+Munich,Germany,2022,Winter,3273
+Porto,Portugal,2014,Autumn,1560
+Porto,Portugal,2015,Winter,1561
+Porto,Portugal,2011,Spring,4
+Porto,Portugal,2011,Summer,16
+Prague,Czech Republic,2010,Winter,2
+Prague,Czech Republic,2011,Spring,13
+Prague,Czech Republic,2011,Summer,54
+Prague,Czech Republic,2012,Winter,116
+Puglia,Italy,2011,Spring,1
+Puglia,Italy,2011,Summer,7
+Puglia,Italy,2012,Autumn,58
+Puglia,Italy,2014,Winter,73
+Riga,Latvia,2011,Summer,2
+Riga,Latvia,2013,Autumn,33
+Riga,Latvia,2015,Autumn,280
+Riga,Latvia,2012,Summer,18
+Riga,Latvia,2012,Spring,1
+Rome,Italy,2013,Spring,1580
+Rotterdam,Netherlands,2011,Spring,1
+Rotterdam,Netherlands,2013,Winter,3
+Rotterdam,Netherlands,2011,Summer,1
+Rotterdam,Netherlands,2012,Spring,1
+Rotterdam,Netherlands,2024,Autumn,2623
+Rotterdam,Netherlands,2025,Autumn,3112
+Rotterdam,Netherlands,2015,Summer,168
+Rotterdam,Netherlands,2017,Autumn,791
+Rotterdam,Netherlands,2018,Autumn,993
+Rotterdam,Netherlands,2015,Spring,131
+Rotterdam,Netherlands,2016,Winter,305
+Rotterdam,Netherlands,2020,Autumn,513
+Rotterdam,Netherlands,2023,Autumn,2142
+Rotterdam,Netherlands,2026,Spring,4303
+Rotterdam,Netherlands,2026,Summer,1135
+The Hague,Netherlands,2015,Autumn,418
+The Hague,Netherlands,2018,Spring,777
+The Hague,Netherlands,2018,Summer,1102
+The Hague,Netherlands,2019,Winter,553
+The Hague,Netherlands,2025,Summer,4032
+The Hague,Netherlands,2013,Autumn,86
+The Hague,Netherlands,2014,Autumn,213
+The Hague,Netherlands,2016,Summer,635
+The Hague,Netherlands,2016,Spring,519
+The Hague,Netherlands,2017,Autumn,481
+The Hague,Netherlands,2022,Winter,784
+The Hague,Netherlands,2023,Winter,1194
+The Hague,Netherlands,2024,Winter,1281
+The Hague,Netherlands,2025,Spring,2899
+The Hague,Netherlands,2026,Winter,1137
+Valencia,Spain,2019,Winter,4904
+Valencia,Spain,2020,Autumn,1809
+Vaud,Switzerland,2016,Spring,298
+Vaud,Switzerland,2016,Summer,704
+Venice,Italy,2011,Spring,21
+Venice,Italy,2011,Summer,71
+Bordeaux,France,2014,Summer,399
+Bordeaux,France,2012,Spring,7
+Bordeaux,France,2012,Summer,22
+Bordeaux,France,2014,Spring,235
+Bordeaux,France,2015,Winter,580
+Brussels,Belgium,2014,Autumn,510
+Brussels,Belgium,2017,Spring,2155
+Brussels,Belgium,2017,Summer,2027
+Brussels,Belgium,2015,Summer,1063
+Brussels,Belgium,2016,Autumn,1587
+Brussels,Belgium,2015,Spring,755
+Brussels,Belgium,2012,Spring,21
+Brussels,Belgium,2012,Summer,27
+Brussels,Belgium,2013,Winter,98
+Crete,Greece,2013,Spring,102
+Crete,Greece,2013,Summer,316
+Crete,Greece,2015,Spring,694
+Crete,Greece,2015,Summer,2336
+Crete,Greece,2010,Autumn,1
+Geneva,Switzerland,2012,Spring,12
+Geneva,Switzerland,2013,Winter,46
+Geneva,Switzerland,2015,Winter,208
+Geneva,Switzerland,2016,Spring,508
+Geneva,Switzerland,2016,Summer,619
+Geneva,Switzerland,2017,Spring,898
+Geneva,Switzerland,2017,Summer,903
+Geneva,Switzerland,2018,Spring,1280
+Geneva,Switzerland,2018,Summer,1212
+Geneva,Switzerland,2022,Winter,1104
+Geneva,Switzerland,2024,Autumn,2719
+Geneva,Switzerland,2025,Autumn,3624
+Geneva,Switzerland,2012,Summer,8
+Geneva,Switzerland,2020,Winter,917
+Geneva,Switzerland,2021,Winter,587
+Geneva,Switzerland,2014,Winter,80
+Ghent,Belgium,2013,Spring,24
+Ghent,Belgium,2013,Summer,23
+Ghent,Belgium,2014,Spring,97
+Ghent,Belgium,2014,Summer,128
+Ghent,Belgium,2015,Spring,286
+Ghent,Belgium,2015,Summer,300
+Girona,Spain,2013,Spring,51
+Girona,Spain,2013,Summer,265
+Girona,Spain,2015,Autumn,1070
+Girona,Spain,2016,Winter,812
+Girona,Spain,2011,Autumn,1
+Girona,Spain,2012,Autumn,26
+Girona,Spain,2014,Winter,118
+Lisbon,Portugal,2011,Winter,16
+Lisbon,Portugal,2010,Summer,1
+Lyon,France,2012,Autumn,27
+Lyon,France,2015,Winter,1085
+Madrid,Spain,2010,Summer,1
+Milan,Italy,2010,Winter,1
+Milan,Italy,2011,Spring,3
+Milan,Italy,2011,Summer,10
+Naples,Italy,2010,Summer,1
+Naples,Italy,2011,Autumn,17
+Naples,Italy,2013,Spring,143
+Naples,Italy,2013,Summer,189
+Naples,Italy,2014,Winter,221
+Naples,Italy,2015,Autumn,1311
+Oslo,Norway,2013,Autumn,114
+Oslo,Norway,2011,Winter,3
+Oslo,Norway,2012,Winter,18
+Rome,Italy,2011,Autumn,218
+Rome,Italy,2010,Summer,5
+Rome,Italy,2010,Spring,2
+Valencia,Spain,2014,Autumn,441
+Bologna,Italy,2011,Spring,1
+Bologna,Italy,2011,Summer,4
+Bologna,Italy,2014,Autumn,505
+Bologna,Italy,2013,Winter,43
+Brussels,Belgium,2011,Autumn,28
+Greater Manchester,United Kingdom,2012,Autumn,17
+Greater Manchester,United Kingdom,2015,Winter,175
+Greater Manchester,United Kingdom,2017,Autumn,1403
+Greater Manchester,United Kingdom,2018,Spring,1588
+Greater Manchester,United Kingdom,2018,Summer,1967
+Greater Manchester,United Kingdom,2019,Autumn,3482
+Greater Manchester,United Kingdom,2014,Winter,69
+Sicily,Italy,2013,Spring,438
+Sicily,Italy,2013,Summer,1121
+Sicily,Italy,2012,Autumn,235
+Sicily,Italy,2010,Summer,1
+Sicily,Italy,2011,Winter,6
+Valencia,Spain,2011,Autumn,15
+Valencia,Spain,2012,Spring,18
+Valencia,Spain,2012,Summer,64
+Vaud,Switzerland,2012,Summer,26
+Vaud,Switzerland,2014,Summer,205
+Vaud,Switzerland,2010,Autumn,3
+Vaud,Switzerland,2012,Spring,12
+Vaud,Switzerland,2013,Spring,20
+Vaud,Switzerland,2013,Summer,54
+Vaud,Switzerland,2014,Spring,80
+Vaud,Switzerland,2015,Spring,178
+Vaud,Switzerland,2015,Summer,321
+Vienna,Austria,2014,Autumn,1188
+Vienna,Austria,2012,Spring,148
+Vienna,Austria,2012,Summer,179
+Vienna,Austria,2010,Summer,1
+Amsterdam,Netherlands,2015,Autumn,3712
+Amsterdam,Netherlands,2016,Winter,3245
+Amsterdam,Netherlands,2017,Spring,7986
+Amsterdam,Netherlands,2017,Summer,8268
+Amsterdam,Netherlands,2018,Autumn,10266
+Amsterdam,Netherlands,2019,Spring,12660
+Amsterdam,Netherlands,2019,Summer,13675
+Amsterdam,Netherlands,2020,Spring,1956
+Amsterdam,Netherlands,2020,Summer,5669
+Amsterdam,Netherlands,2021,Summer,7994
+Amsterdam,Netherlands,2022,Autumn,17266
+Amsterdam,Netherlands,2012,Autumn,306
+Amsterdam,Netherlands,2013,Spring,633
+Amsterdam,Netherlands,2013,Summer,783
+Amsterdam,Netherlands,2023,Autumn,19461
+Amsterdam,Netherlands,2024,Spring,22155
+Amsterdam,Netherlands,2024,Summer,24152
+Amsterdam,Netherlands,2026,Spring,28803
+Amsterdam,Netherlands,2026,Summer,3409
+Amsterdam,Netherlands,2010,Winter,2
+Amsterdam,Netherlands,2021,Spring,1988
+Antwerp,Belgium,2013,Spring,18
+Antwerp,Belgium,2014,Autumn,95
+Antwerp,Belgium,2016,Winter,381
+Antwerp,Belgium,2017,Winter,649
+Antwerp,Belgium,2018,Spring,1022
+Antwerp,Belgium,2018,Summer,1128
+Antwerp,Belgium,2019,Spring,1552
+Antwerp,Belgium,2019,Summer,1766
+Antwerp,Belgium,2023,Spring,5016
+Antwerp,Belgium,2023,Summer,4922
+Antwerp,Belgium,2024,Winter,4860
+Antwerp,Belgium,2026,Spring,10789
+Antwerp,Belgium,2026,Summer,2460
+Antwerp,Belgium,2012,Autumn,19
+Antwerp,Belgium,2013,Summer,19
+Antwerp,Belgium,2020,Summer,752
+Antwerp,Belgium,2020,Spring,329
+Athens,Greece,2024,Autumn,49122
+Athens,Greece,2025,Winter,26006
+Athens,Greece,2026,Spring,56436
+Athens,Greece,2026,Summer,16848
+Athens,Greece,2017,Spring,5170
+Athens,Greece,2022,Autumn,31092
+Athens,Greece,2023,Spring,31197
+Athens,Greece,2023,Summer,44166
+Athens,Greece,2017,Summer,8636
+Athens,Greece,2018,Winter,5314
+Athens,Greece,2019,Spring,15218
+Athens,Greece,2019,Summer,21895
+Barcelona,Spain,2018,Winter,9703
+Barcelona,Spain,2019,Winter,14176
+Barcelona,Spain,2020,Summer,3671
+Barcelona,Spain,2021,Summer,15492
+Barcelona,Spain,2022,Autumn,34245
+Barcelona,Spain,2024,Autumn,42622
+Barcelona,Spain,2017,Winter,6584
+Barcelona,Spain,2020,Spring,3637
+Barcelona,Spain,2021,Spring,4790
+Barcelona,Spain,2016,Autumn,9758
+Barcelona,Spain,2014,Autumn,3523
+Barcelona,Spain,2015,Spring,5188
+Barcelona,Spain,2015,Summer,6285
+Barcelona,Spain,2012,Autumn,207
+Bergamo,Italy,2012,Autumn,16
+Bergamo,Italy,2015,Spring,194
+Bergamo,Italy,2015,Summer,306
+Bergamo,Italy,2016,Spring,393
+Bergamo,Italy,2016,Summer,933
+Bergamo,Italy,2017,Spring,896
+Bergamo,Italy,2017,Summer,1459
+Bergamo,Italy,2021,Summer,2854
+Bergamo,Italy,2024,Autumn,8348
+Bergamo,Italy,2025,Summer,12049
+Bergamo,Italy,2025,Spring,8655
+Bergamo,Italy,2019,Autumn,2609
+Bergamo,Italy,2026,Winter,4561
+Bergamo,Italy,2013,Autumn,85
+Bergamo,Italy,2021,Spring,543
+Bergamo,Italy,2014,Winter,39
+Berlin,Germany,2020,Autumn,6275
+Berlin,Germany,2023,Autumn,24226
+Berlin,Germany,2025,Winter,24110
+Berlin,Germany,2015,Autumn,3345
+Berlin,Germany,2017,Autumn,7641
+Berlin,Germany,2019,Spring,13221
+Berlin,Germany,2019,Summer,14983
+Berlin,Germany,2014,Winter,842
+Bologna,Italy,2026,Winter,7477
+Bologna,Italy,2023,Autumn,13746
+Bologna,Italy,2025,Spring,18771
+Bologna,Italy,2018,Autumn,4295
+Bologna,Italy,2021,Summer,4799
+Bologna,Italy,2022,Autumn,10250
+Bologna,Italy,2025,Summer,16542
+Bologna,Italy,2020,Autumn,2672
+Bologna,Italy,2021,Spring,1220
+Bordeaux,France,2023,Spring,16099
+Bordeaux,France,2023,Summer,23177
+Bordeaux,France,2021,Spring,6188
+Bordeaux,France,2024,Autumn,21751
+Bordeaux,France,2021,Summer,13396
+Bordeaux,France,2026,Winter,11688
+Bordeaux,France,2018,Summer,8402
+Bordeaux,France,2022,Autumn,14600
+Bordeaux,France,2016,Winter,1471
+Bordeaux,France,2017,Winter,2396
+Bordeaux,France,2018,Spring,5918
+Bordeaux,France,2019,Winter,5534
+Bordeaux,France,2020,Winter,6194
+Bristol,United Kingdom,2019,Autumn,3160
+Bristol,United Kingdom,2021,Summer,4024
+Bristol,United Kingdom,2021,Spring,1608
+Bristol,United Kingdom,2024,Summer,8439
+Bristol,United Kingdom,2026,Spring,10241
+Bristol,United Kingdom,2024,Spring,6698
+Bristol,United Kingdom,2026,Summer,2724
+Bristol,United Kingdom,2023,Autumn,6061
+Brussels,Belgium,2020,Winter,3172
+Brussels,Belgium,2024,Spring,15043
+Brussels,Belgium,2024,Summer,15671
+Brussels,Belgium,2022,Spring,6749
+Brussels,Belgium,2022,Summer,8679
+Brussels,Belgium,2025,Autumn,23191
+Brussels,Belgium,2018,Winter,2526
+Copenhagen,Denmark,2010,Summer,21
+Copenhagen,Denmark,2026,Spring,27033
+Copenhagen,Denmark,2011,Spring,16
+Copenhagen,Denmark,2011,Summer,52
+Copenhagen,Denmark,2016,Summer,5683
+Copenhagen,Denmark,2018,Spring,5858
+Copenhagen,Denmark,2018,Summer,9969
+Copenhagen,Denmark,2022,Summer,19563
+Copenhagen,Denmark,2023,Summer,27681
+Copenhagen,Denmark,2014,Autumn,837
+Copenhagen,Denmark,2016,Spring,3149
+Copenhagen,Denmark,2023,Spring,14472
+Copenhagen,Denmark,2017,Winter,2696
+Copenhagen,Denmark,2019,Autumn,6842
+Copenhagen,Denmark,2012,Autumn,164
+Copenhagen,Denmark,2026,Summer,13892
+Copenhagen,Denmark,2022,Spring,9541
+Copenhagen,Denmark,2025,Winter,13039
+Crete,Greece,2025,Summer,60932
+Crete,Greece,2020,Autumn,9066
+Crete,Greece,2021,Summer,28213
+Crete,Greece,2023,Summer,45041
+Crete,Greece,2024,Autumn,32832
+Crete,Greece,2018,Summer,15608
+Crete,Greece,2016,Autumn,3592
+Crete,Greece,2019,Summer,21692
+Crete,Greece,2023,Spring,13848
+Crete,Greece,2018,Spring,5021
+Crete,Greece,2019,Spring,6415
+Crete,Greece,2017,Winter,392
+Crete,Greece,2025,Spring,19652
+Crete,Greece,2021,Spring,1829
+Dublin,Ireland,2011,Autumn,16
+Dublin,Ireland,2012,Winter,25
+Dublin,Ireland,2013,Spring,171
+Dublin,Ireland,2013,Summer,192
+Dublin,Ireland,2014,Autumn,425
+Dublin,Ireland,2015,Autumn,1361
+Dublin,Ireland,2016,Autumn,2667
+Dublin,Ireland,2017,Autumn,3884
+Dublin,Ireland,2018,Autumn,6137
+Dublin,Ireland,2019,Winter,3616
+Dublin,Ireland,2022,Spring,8877
+Dublin,Ireland,2022,Summer,11814
+Dublin,Ireland,2020,Autumn,1134
+Dublin,Ireland,2024,Autumn,17593
+Edinburgh,United Kingdom,2026,Spring,38498
+Edinburgh,United Kingdom,2026,Summer,9594
+Edinburgh,United Kingdom,2022,Winter,11544
+Edinburgh,United Kingdom,2023,Spring,24187
+Edinburgh,United Kingdom,2023,Summer,33193
+Edinburgh,United Kingdom,2024,Autumn,30133
+Edinburgh,United Kingdom,2025,Spring,30442
+Edinburgh,United Kingdom,2025,Summer,47272
+Edinburgh,United Kingdom,2014,Autumn,1130
+Edinburgh,United Kingdom,2015,Spring,1379
+Edinburgh,United Kingdom,2015,Summer,2927
+Edinburgh,United Kingdom,2016,Spring,3412
+Edinburgh,United Kingdom,2016,Summer,5839
+Edinburgh,United Kingdom,2018,Winter,6369
+Edinburgh,United Kingdom,2019,Winter,8240
+Edinburgh,United Kingdom,2021,Summer,12041
+Edinburgh,United Kingdom,2020,Autumn,4109
+Edinburgh,United Kingdom,2021,Spring,2980
+Euskadi,Spain,2022,Spring,10167
+Euskadi,Spain,2022,Summer,16772
+Euskadi,Spain,2023,Winter,7248
+Euskadi,Spain,2024,Spring,17087
+Euskadi,Spain,2024,Summer,24281
+Euskadi,Spain,2025,Winter,9618
+Euskadi,Spain,2026,Winter,6553
+Euskadi,Spain,2015,Winter,475
+Euskadi,Spain,2016,Spring,1549
+Euskadi,Spain,2016,Summer,2853
+Euskadi,Spain,2020,Autumn,2552
+Euskadi,Spain,2021,Spring,2421
+Euskadi,Spain,2021,Summer,10080
+Euskadi,Spain,2017,Spring,3197
+Euskadi,Spain,2017,Summer,5477
+Euskadi,Spain,2018,Spring,4926
+Euskadi,Spain,2018,Summer,8046
+Florence,Italy,2016,Winter,4444
+Florence,Italy,2017,Spring,13002
+Florence,Italy,2017,Summer,16663
+Florence,Italy,2022,Spring,26494
+Florence,Italy,2022,Summer,39651
+Florence,Italy,2018,Winter,8318
+Florence,Italy,2024,Winter,22798
+Florence,Italy,2014,Winter,1087
+Florence,Italy,2015,Winter,2445
+Florence,Italy,2021,Summer,15251
+Florence,Italy,2020,Spring,782
+Florence,Italy,2020,Summer,5229
+Florence,Italy,2021,Spring,2187
+Ghent,Belgium,2016,Summer,513
+Ghent,Belgium,2017,Spring,643
+Ghent,Belgium,2017,Summer,781
+Ghent,Belgium,2018,Winter,775
+Ghent,Belgium,2019,Winter,1114
+Ghent,Belgium,2021,Autumn,1780
+Ghent,Belgium,2022,Autumn,2901
+Ghent,Belgium,2023,Autumn,3613
+Ghent,Belgium,2024,Autumn,4490
+Ghent,Belgium,2016,Spring,431
+Ghent,Belgium,2025,Autumn,6262
+Ghent,Belgium,2026,Spring,7786
+Ghent,Belgium,2026,Summer,1656
+Girona,Spain,2025,Winter,10289
+Girona,Spain,2019,Spring,6365
+Girona,Spain,2026,Winter,8091
+Girona,Spain,2022,Autumn,13715
+Girona,Spain,2019,Summer,13886
+Girona,Spain,2017,Winter,1379
+Girona,Spain,2021,Winter,3161
+Greater Manchester,United Kingdom,2022,Winter,4085
+Greater Manchester,United Kingdom,2023,Autumn,10374
+Greater Manchester,United Kingdom,2025,Spring,15700
+Greater Manchester,United Kingdom,2025,Summer,20870
+Greater Manchester,United Kingdom,2026,Winter,11265
+Greater Manchester,United Kingdom,2020,Winter,2329
+Lisbon,Portugal,2018,Spring,30985
+Lisbon,Portugal,2018,Summer,39636
+Lisbon,Portugal,2020,Winter,20494
+Lisbon,Portugal,2019,Winter,23914
+Lisbon,Portugal,2021,Winter,11105
+Lisbon,Portugal,2022,Autumn,64632
+Lisbon,Portugal,2024,Spring,81073
+Lisbon,Portugal,2024,Summer,91826
+Lisbon,Portugal,2025,Autumn,94057
+Lisbon,Portugal,2012,Summer,402
+Lisbon,Portugal,2015,Autumn,9042
+Lisbon,Portugal,2016,Winter,7077
+Lisbon,Portugal,2014,Winter,1564
+Lisbon,Portugal,2013,Winter,515
+London,United Kingdom,2024,Spring,88233
+London,United Kingdom,2024,Summer,113871
+London,United Kingdom,2017,Autumn,22574
+London,United Kingdom,2018,Spring,27434
+London,United Kingdom,2018,Summer,35973
+London,United Kingdom,2019,Winter,28981
+London,United Kingdom,2020,Autumn,8316
+London,United Kingdom,2021,Autumn,28893
+London,United Kingdom,2013,Winter,1355
+London,United Kingdom,2015,Spring,6778
+London,United Kingdom,2015,Summer,10375
+London,United Kingdom,2022,Winter,32453
+London,United Kingdom,2025,Winter,99342
+Lyon,France,2017,Winter,4125
+Lyon,France,2018,Winter,5203
+Lyon,France,2019,Autumn,8977
+Lyon,France,2020,Winter,6663
+Lyon,France,2024,Autumn,21246
+Lyon,France,2025,Spring,19871
+Lyon,France,2025,Summer,21389
+Madrid,Spain,2025,Spring,86514
+Madrid,Spain,2025,Summer,82058
+Madrid,Spain,2026,Winter,54251
+Madrid,Spain,2015,Winter,2175
+Madrid,Spain,2016,Winter,4168
+Madrid,Spain,2017,Winter,7501
+Madrid,Spain,2019,Autumn,24950
+Madrid,Spain,2022,Winter,25782
+Madrid,Spain,2024,Spring,66764
+Madrid,Spain,2024,Summer,65404
+Madrid,Spain,2020,Winter,14895
+Madrid,Spain,2012,Winter,94
+Madrid,Spain,2013,Winter,281
+Madrid,Spain,2014,Winter,963
+Mallorca,Spain,2014,Winter,101
+Mallorca,Spain,2015,Spring,731
+Mallorca,Spain,2015,Summer,1450
+Mallorca,Spain,2017,Autumn,3662
+Mallorca,Spain,2019,Winter,1788
+Mallorca,Spain,2021,Winter,1300
+Mallorca,Spain,2022,Autumn,14386
+Mallorca,Spain,2023,Spring,15250
+Mallorca,Spain,2023,Summer,22864
+Mallorca,Spain,2012,Summer,76
+Mallorca,Spain,2012,Spring,28
+Mallorca,Spain,2018,Autumn,5315
+Mallorca,Spain,2020,Autumn,2248
+Mallorca,Spain,2025,Winter,5011
+Mallorca,Spain,2026,Spring,26952
+Mallorca,Spain,2013,Winter,31
+Mallorca,Spain,2026,Summer,7619
+Menorca,Spain,2015,Summer,382
+Menorca,Spain,2018,Summer,1567
+Menorca,Spain,2022,Summer,5465
+Menorca,Spain,2014,Autumn,67
+Menorca,Spain,2016,Autumn,376
+Menorca,Spain,2017,Autumn,540
+Menorca,Spain,2019,Summer,2218
+Menorca,Spain,2026,Summer,3092
+Menorca,Spain,2022,Spring,2044
+Menorca,Spain,2026,Spring,4562
+Menorca,Spain,2015,Spring,77
+Menorca,Spain,2018,Spring,347
+Menorca,Spain,2019,Spring,505
+Menorca,Spain,2025,Winter,262
+Menorca,Spain,2013,Autumn,17
+Menorca,Spain,2024,Winter,219
+Menorca,Spain,2020,Winter,75
+Milan,Italy,2019,Autumn,16455
+Milan,Italy,2020,Summer,3325
+Milan,Italy,2021,Spring,3402
+Milan,Italy,2021,Summer,10862
+Milan,Italy,2022,Spring,23834
+Milan,Italy,2022,Summer,30838
+Milan,Italy,2025,Winter,47109
+Milan,Italy,2016,Spring,4865
+Milan,Italy,2016,Summer,4618
+Milan,Italy,2020,Spring,591
+Munich,Germany,2025,Autumn,14937
+Munich,Germany,2024,Autumn,12280
+Naples,Italy,2016,Summer,2864
+Naples,Italy,2021,Summer,9261
+Naples,Italy,2022,Winter,6890
+Naples,Italy,2018,Spring,5323
+Naples,Italy,2018,Summer,6646
+Naples,Italy,2023,Autumn,21542
+Naples,Italy,2016,Spring,1979
+Naples,Italy,2024,Autumn,24943
+Naples,Italy,2025,Autumn,30534
+Naples,Italy,2021,Spring,878
+Naples,Italy,2020,Autumn,2870
+Oslo,Norway,2024,Summer,21146
+Oslo,Norway,2025,Winter,9532
+Oslo,Norway,2022,Spring,3656
+Oslo,Norway,2022,Summer,8733
+Oslo,Norway,2024,Spring,10141
+Oslo,Norway,2015,Autumn,627
+Oslo,Norway,2016,Spring,867
+Oslo,Norway,2016,Summer,1493
+Oslo,Norway,2021,Autumn,2440
+Oslo,Norway,2018,Autumn,2028
+Oslo,Norway,2019,Autumn,2671
+Oslo,Norway,2017,Winter,942
+Paris,France,2017,Autumn,24686
+Paris,France,2018,Winter,23592
+Paris,France,2019,Spring,39020
+Paris,France,2019,Summer,45607
+Paris,France,2020,Spring,6959
+Paris,France,2021,Autumn,43014
+Paris,France,2012,Autumn,1077
+Paris,France,2023,Spring,81803
+Paris,France,2023,Summer,93553
+Paris,France,2024,Spring,99083
+Paris,France,2024,Summer,106696
+Paris,France,2025,Summer,148422
+Paris,France,2025,Spring,133265
+Paris,France,2011,Autumn,364
+Paris,France,2020,Summer,12027
+Paris,France,2010,Spring,15
+Paris,France,2010,Summer,42
+Porto,Portugal,2019,Summer,27407
+Porto,Portugal,2022,Autumn,40451
+Porto,Portugal,2023,Autumn,47011
+Porto,Portugal,2024,Spring,51613
+Porto,Portugal,2024,Summer,61700
+Porto,Portugal,2019,Spring,20938
+Porto,Portugal,2016,Autumn,7390
+Porto,Portugal,2018,Winter,8417
+Prague,Czech Republic,2016,Winter,4106
+Prague,Czech Republic,2017,Winter,6287
+Prague,Czech Republic,2019,Autumn,17825
+Prague,Czech Republic,2020,Spring,2657
+Prague,Czech Republic,2020,Summer,7798
+Prague,Czech Republic,2021,Autumn,14415
+Prague,Czech Republic,2022,Spring,19531
+Prague,Czech Republic,2022,Summer,27735
+Prague,Czech Republic,2023,Winter,27146
+Prague,Czech Republic,2025,Spring,51393
+Prague,Czech Republic,2025,Summer,62298
+Prague,Czech Republic,2026,Spring,65984
+Prague,Czech Republic,2026,Summer,14389
+Prague,Czech Republic,2014,Spring,960
+Prague,Czech Republic,2015,Spring,2430
+Prague,Czech Republic,2013,Winter,341
+Prague,Czech Republic,2014,Summer,1605
+Prague,Czech Republic,2015,Summer,3884
+Puglia,Italy,2019,Summer,19511
+Puglia,Italy,2020,Winter,1861
+Puglia,Italy,2021,Autumn,14243
+Puglia,Italy,2022,Autumn,19505
+Puglia,Italy,2023,Summer,46233
+Puglia,Italy,2024,Summer,55960
+Puglia,Italy,2026,Summer,20237
+Puglia,Italy,2023,Spring,16528
+Puglia,Italy,2024,Spring,21481
+Puglia,Italy,2026,Spring,35673
+Puglia,Italy,2019,Spring,6412
+Puglia,Italy,2017,Winter,736
+Puglia,Italy,2016,Winter,405
+Puglia,Italy,2015,Winter,176
+Riga,Latvia,2017,Winter,707
+Riga,Latvia,2025,Summer,15666
+Riga,Latvia,2020,Spring,861
+Riga,Latvia,2020,Summer,2399
+Riga,Latvia,2021,Autumn,2453
+Riga,Latvia,2022,Autumn,4722
+Riga,Latvia,2024,Autumn,8036
+Riga,Latvia,2025,Spring,8638
+Riga,Latvia,2023,Autumn,6269
+Rome,Italy,2024,Winter,62462
+Rome,Italy,2025,Spring,144225
+Rome,Italy,2025,Summer,145705
+Rome,Italy,2015,Autumn,12169
+Rome,Italy,2016,Winter,9507
+Rome,Italy,2017,Spring,26263
+Rome,Italy,2017,Summer,29233
+Rome,Italy,2018,Spring,33385
+Rome,Italy,2018,Summer,37249
+Rome,Italy,2019,Autumn,47313
+Rome,Italy,2020,Summer,10006
+Rome,Italy,2021,Spring,5378
+Rome,Italy,2021,Summer,28200
+Rome,Italy,2014,Spring,3639
+Rome,Italy,2014,Summer,4577
+Rome,Italy,2020,Spring,2862
+Sicily,Italy,2023,Autumn,55648
+Sicily,Italy,2024,Autumn,69716
+Sicily,Italy,2014,Summer,3054
+Sicily,Italy,2015,Summer,7338
+Sicily,Italy,2017,Autumn,13699
+Sicily,Italy,2018,Autumn,19916
+Sicily,Italy,2019,Spring,18420
+Sicily,Italy,2019,Summer,37726
+Sicily,Italy,2020,Autumn,15966
+Sicily,Italy,2015,Spring,2875
+Sicily,Italy,2014,Spring,1222
+Sicily,Italy,2016,Winter,1790
+South Aegean,Greece,2018,Spring,7457
+South Aegean,Greece,2025,Spring,23996
+South Aegean,Greece,2025,Summer,89268
+South Aegean,Greece,2015,Autumn,2671
+South Aegean,Greece,2011,Summer,8
+South Aegean,Greece,2012,Spring,22
+South Aegean,Greece,2018,Summer,26417
+South Aegean,Greece,2021,Summer,42397
+South Aegean,Greece,2019,Autumn,19395
+South Aegean,Greece,2020,Autumn,10372
+South Aegean,Greece,2021,Spring,1937
+South Aegean,Greece,2012,Summer,121
+South Aegean,Greece,2017,Winter,593
+South Aegean,Greece,2022,Winter,1202
+South Aegean,Greece,2024,Winter,1763
+Thessaloniki,Greece,2012,Winter,4
+Thessaloniki,Greece,2015,Autumn,263
+Thessaloniki,Greece,2016,Spring,432
+Thessaloniki,Greece,2016,Summer,635
+Thessaloniki,Greece,2014,Winter,54
+Thessaloniki,Greece,2017,Spring,1236
+Thessaloniki,Greece,2017,Summer,1676
+Thessaloniki,Greece,2018,Winter,2155
+Thessaloniki,Greece,2019,Autumn,4773
+Thessaloniki,Greece,2020,Autumn,2733
+Thessaloniki,Greece,2021,Spring,2400
+Thessaloniki,Greece,2021,Summer,5284
+Thessaloniki,Greece,2022,Spring,5702
+Thessaloniki,Greece,2022,Summer,7233
+Thessaloniki,Greece,2023,Autumn,8910
+Thessaloniki,Greece,2024,Spring,9139
+Thessaloniki,Greece,2024,Summer,11072
+Thessaloniki,Greece,2025,Autumn,14095
+Thessaloniki,Greece,2026,Spring,14902
+Thessaloniki,Greece,2026,Summer,3120
+Valencia,Spain,2021,Autumn,8438
+Valencia,Spain,2022,Autumn,12208
+Valencia,Spain,2023,Autumn,17733
+Valencia,Spain,2026,Spring,35239
+Valencia,Spain,2026,Summer,7738
+Vaud,Switzerland,2025,Summer,9554
+Vaud,Switzerland,2026,Winter,3513
+Vaud,Switzerland,2017,Summer,1376
+Vaud,Switzerland,2018,Autumn,1773
+Vaud,Switzerland,2019,Autumn,2238
+Vaud,Switzerland,2021,Autumn,3123
+Vaud,Switzerland,2022,Spring,3189
+Vaud,Switzerland,2022,Summer,5302
+Vaud,Switzerland,2024,Summer,7300
+Vaud,Switzerland,2023,Spring,3922
+Vaud,Switzerland,2023,Summer,6088
+Vaud,Switzerland,2024,Spring,4660
+Vaud,Switzerland,2025,Spring,5166
+Venice,Italy,2022,Autumn,32731
+Venice,Italy,2017,Autumn,13302
+Venice,Italy,2018,Spring,14461
+Venice,Italy,2018,Summer,17763
+Venice,Italy,2019,Autumn,22906
+Venice,Italy,2024,Spring,39962
+Venice,Italy,2024,Summer,45806
+Venice,Italy,2025,Spring,41123
+Venice,Italy,2025,Summer,46131
+Venice,Italy,2026,Spring,48719
+Venice,Italy,2016,Spring,6951
+Venice,Italy,2016,Summer,9523
+Venice,Italy,2023,Winter,16774
+Venice,Italy,2015,Summer,5885
+Venice,Italy,2026,Summer,5475
+Venice,Italy,2014,Autumn,2625
+Venice,Italy,2015,Spring,3679
+Venice,Italy,2013,Autumn,1019
+Vienna,Austria,2023,Winter,19393
+Vienna,Austria,2024,Autumn,25905
+Vienna,Austria,2025,Winter,30189
+Vienna,Austria,2021,Summer,8943
+Vienna,Austria,2019,Autumn,12818
+Vienna,Austria,2021,Spring,1969
+Athens,Greece,2015,Autumn,1537
+Athens,Greece,2012,Autumn,53
+Athens,Greece,2013,Spring,119
+Athens,Greece,2013,Summer,199
+Athens,Greece,2011,Summer,6
+Berlin,Germany,2010,Autumn,29
+Berlin,Germany,2011,Spring,32
+Berlin,Germany,2011,Summer,49
+Berlin,Germany,2012,Spring,121
+Berlin,Germany,2012,Summer,208
+Bologna,Italy,2015,Autumn,1177
+Bologna,Italy,2017,Autumn,2901
+Bristol,United Kingdom,2013,Autumn,60
+Bristol,United Kingdom,2014,Spring,105
+Bristol,United Kingdom,2014,Summer,149
+Bristol,United Kingdom,2015,Autumn,499
+Bristol,United Kingdom,2016,Winter,508
+Bristol,United Kingdom,2017,Spring,1276
+Bristol,United Kingdom,2017,Summer,1729
+Bristol,United Kingdom,2018,Spring,1883
+Bristol,United Kingdom,2018,Summer,2557
+Bristol,United Kingdom,2012,Autumn,21
+Edinburgh,United Kingdom,2011,Autumn,66
+Edinburgh,United Kingdom,2012,Winter,71
+Edinburgh,United Kingdom,2013,Spring,297
+Edinburgh,United Kingdom,2013,Summer,531
+Euskadi,Spain,2014,Winter,141
+Euskadi,Spain,2011,Autumn,1
+Euskadi,Spain,2012,Spring,3
+Euskadi,Spain,2012,Summer,45
+Euskadi,Spain,2013,Autumn,147
+Florence,Italy,2010,Summer,4
+Florence,Italy,2013,Summer,1253
+Florence,Italy,2013,Spring,754
+Florence,Italy,2011,Autumn,120
+London,United Kingdom,2010,Spring,3
+London,United Kingdom,2010,Summer,5
+London,United Kingdom,2011,Spring,132
+London,United Kingdom,2011,Summer,201
+London,United Kingdom,2009,Winter,1
+Lyon,France,2016,Autumn,3183
+Milan,Italy,2014,Spring,869
+Milan,Italy,2014,Summer,892
+Milan,Italy,2012,Summer,95
+Milan,Italy,2013,Autumn,506
+Milan,Italy,2012,Spring,82
+Munich,Germany,2011,Autumn,32
+Munich,Germany,2012,Spring,62
+Munich,Germany,2012,Summer,107
+Munich,Germany,2014,Winter,294
+Munich,Germany,2018,Spring,2551
+Munich,Germany,2018,Summer,3429
+Munich,Germany,2019,Spring,3878
+Munich,Germany,2019,Summer,4588
+Munich,Germany,2022,Autumn,8130
+Munich,Germany,2023,Spring,7099
+Munich,Germany,2023,Summer,9392
+Munich,Germany,2013,Winter,149
+Munich,Germany,2016,Winter,1051
+Munich,Germany,2020,Autumn,2061
+Munich,Germany,2021,Autumn,4158
+Porto,Portugal,2013,Spring,250
+Porto,Portugal,2013,Summer,512
+Porto,Portugal,2014,Winter,580
+Porto,Portugal,2012,Spring,58
+Porto,Portugal,2012,Summer,110
+Porto,Portugal,2015,Autumn,3968
+Prague,Czech Republic,2010,Autumn,7
+Prague,Czech Republic,2012,Autumn,253
+Puglia,Italy,2013,Spring,108
+Puglia,Italy,2013,Summer,340
+Puglia,Italy,2014,Autumn,569
+Puglia,Italy,2012,Winter,5
+Riga,Latvia,2014,Spring,71
+Riga,Latvia,2014,Summer,143
+Riga,Latvia,2013,Winter,24
+Riga,Latvia,2015,Winter,159
+Rotterdam,Netherlands,2022,Summer,2458
+Rotterdam,Netherlands,2017,Winter,445
+Rotterdam,Netherlands,2023,Winter,1472
+Rotterdam,Netherlands,2013,Autumn,5
+Rotterdam,Netherlands,2014,Summer,51
+Rotterdam,Netherlands,2019,Summer,1492
+Rotterdam,Netherlands,2022,Spring,1958
+Rotterdam,Netherlands,2016,Autumn,460
+Rotterdam,Netherlands,2018,Winter,740
+Rotterdam,Netherlands,2019,Spring,1356
+Rotterdam,Netherlands,2020,Winter,865
+Rotterdam,Netherlands,2021,Spring,640
+Rotterdam,Netherlands,2021,Summer,1285
+Rotterdam,Netherlands,2024,Winter,1864
+Rotterdam,Netherlands,2025,Winter,2219
+Rotterdam,Netherlands,2014,Spring,25
+South Aegean,Greece,2016,Winter,302
+The Hague,Netherlands,2012,Spring,1
+The Hague,Netherlands,2015,Winter,250
+The Hague,Netherlands,2017,Winter,307
+The Hague,Netherlands,2020,Summer,1480
+The Hague,Netherlands,2021,Summer,1673
+The Hague,Netherlands,2023,Autumn,1915
+The Hague,Netherlands,2012,Summer,25
+The Hague,Netherlands,2013,Winter,49
+The Hague,Netherlands,2014,Winter,110
+The Hague,Netherlands,2022,Autumn,1676
+The Hague,Netherlands,2019,Autumn,1095
+The Hague,Netherlands,2020,Spring,243
+The Hague,Netherlands,2024,Autumn,1957
+The Hague,Netherlands,2021,Spring,674
+Valencia,Spain,2020,Winter,3944
+Valencia,Spain,2019,Autumn,8093
+Valencia,Spain,2017,Spring,3174
+Valencia,Spain,2017,Summer,4053
+Valencia,Spain,2018,Spring,5414
+Valencia,Spain,2018,Summer,6561
+Vaud,Switzerland,2017,Spring,728
+Venice,Italy,2010,Spring,2
+Venice,Italy,2010,Summer,1
+Bordeaux,France,2013,Spring,45
+Bordeaux,France,2015,Autumn,1418
+Bordeaux,France,2013,Summer,179
+Brussels,Belgium,2014,Winter,287
+Brussels,Belgium,2016,Winter,1261
+Brussels,Belgium,2013,Autumn,186
+Crete,Greece,2012,Spring,8
+Crete,Greece,2012,Summer,48
+Crete,Greece,2014,Spring,282
+Crete,Greece,2014,Summer,1008
+Crete,Greece,2011,Summer,5
+Geneva,Switzerland,2013,Autumn,83
+Geneva,Switzerland,2015,Autumn,375
+Geneva,Switzerland,2019,Spring,1771
+Geneva,Switzerland,2019,Summer,1725
+Geneva,Switzerland,2021,Autumn,1157
+Geneva,Switzerland,2022,Autumn,1904
+Geneva,Switzerland,2023,Summer,3055
+Geneva,Switzerland,2024,Winter,1960
+Geneva,Switzerland,2023,Spring,2615
+Geneva,Switzerland,2025,Winter,2522
+Geneva,Switzerland,2026,Spring,4597
+Geneva,Switzerland,2026,Summer,1408
+Geneva,Switzerland,2020,Autumn,479
+Geneva,Switzerland,2014,Autumn,173
+Ghent,Belgium,2012,Spring,12
+Ghent,Belgium,2012,Summer,10
+Girona,Spain,2015,Winter,379
+Girona,Spain,2016,Autumn,2242
+Girona,Spain,2014,Autumn,497
+Girona,Spain,2011,Winter,1
+Girona,Spain,2012,Winter,6
+Lisbon,Portugal,2011,Autumn,61
+Lisbon,Portugal,2012,Spring,187
+Lyon,France,2011,Spring,5
+Lyon,France,2011,Summer,16
+Lyon,France,2012,Winter,21
+Lyon,France,2014,Summer,389
+Lyon,France,2015,Autumn,1566
+Lyon,France,2013,Spring,51
+Lyon,France,2013,Summer,98
+Lyon,France,2014,Spring,230
+Madrid,Spain,2011,Spring,11
+Madrid,Spain,2011,Summer,38
+Naples,Italy,2012,Spring,31
+Naples,Italy,2012,Summer,36
+Naples,Italy,2014,Autumn,626
+Naples,Italy,2015,Winter,552
+Naples,Italy,2011,Winter,5
+Oslo,Norway,2014,Summer,315
+Oslo,Norway,2011,Autumn,9
+Oslo,Norway,2012,Autumn,18
+Oslo,Norway,2013,Winter,58
+Oslo,Norway,2014,Spring,152
+Rome,Italy,2012,Spring,468
+Rome,Italy,2012,Summer,616
+Rome,Italy,2011,Winter,47
+Valencia,Spain,2015,Summer,1023
+Valencia,Spain,2015,Spring,675
+Valencia,Spain,2016,Spring,1674
+Valencia,Spain,2016,Summer,2298
+Valencia,Spain,2014,Winter,186
+Valencia,Spain,2013,Spring,149
+Valencia,Spain,2013,Summer,215
+Bologna,Italy,2010,Autumn,2
+Bologna,Italy,2013,Autumn,193
+Bologna,Italy,2014,Winter,184
+Bologna,Italy,2012,Spring,16
+Bologna,Italy,2012,Summer,14
+Brussels,Belgium,2011,Winter,3
+Greater Manchester,United Kingdom,2012,Winter,9
+Greater Manchester,United Kingdom,2013,Spring,22
+Greater Manchester,United Kingdom,2013,Summer,23
+Greater Manchester,United Kingdom,2016,Spring,531
+Greater Manchester,United Kingdom,2016,Summer,758
+Greater Manchester,United Kingdom,2017,Winter,1014
+Greater Manchester,United Kingdom,2019,Winter,2494
+Greater Manchester,United Kingdom,2014,Autumn,154
+Greater Manchester,United Kingdom,2015,Autumn,370
+Sicily,Italy,2009,Summer,1
+Sicily,Italy,2011,Autumn,23
+Sicily,Italy,2012,Winter,20
+Valencia,Spain,2010,Autumn,2
+Valencia,Spain,2011,Winter,4
+Vaud,Switzerland,2010,Winter,1
+Vaud,Switzerland,2011,Summer,6
+Vienna,Austria,2011,Spring,5
+Vienna,Austria,2011,Summer,19
+Vienna,Austria,2014,Winter,687
+Vienna,Austria,2015,Spring,1803
+Vienna,Austria,2015,Summer,2517
+Vienna,Austria,2013,Spring,275
+Vienna,Austria,2013,Summer,407
+Amsterdam,Netherlands,2010,Summer,4
+Amsterdam,Netherlands,2014,Autumn,2171
+Amsterdam,Netherlands,2016,Spring,4906
+Amsterdam,Netherlands,2016,Summer,5561
+Amsterdam,Netherlands,2017,Winter,4895
+Amsterdam,Netherlands,2019,Winter,8464
+Amsterdam,Netherlands,2020,Winter,6856
+Amsterdam,Netherlands,2021,Winter,2413
+Amsterdam,Netherlands,2013,Winter,303
+Amsterdam,Netherlands,2024,Winter,14162
+Amsterdam,Netherlands,2025,Autumn,23882
+Amsterdam,Netherlands,2026,Winter,11118
+Amsterdam,Netherlands,2011,Autumn,83
+Antwerp,Belgium,2021,Autumn,2466
+Antwerp,Belgium,2013,Winter,25
+Antwerp,Belgium,2015,Autumn,299
+Antwerp,Belgium,2016,Spring,442
+Antwerp,Belgium,2016,Summer,495
+Antwerp,Belgium,2017,Summer,685
+Antwerp,Belgium,2018,Winter,859
+Antwerp,Belgium,2019,Winter,1324
+Antwerp,Belgium,2020,Winter,1170
+Antwerp,Belgium,2022,Autumn,3926
+Antwerp,Belgium,2023,Winter,3820
+Antwerp,Belgium,2024,Spring,5760
+Antwerp,Belgium,2024,Summer,6549
+Antwerp,Belgium,2025,Autumn,8431
+Antwerp,Belgium,2026,Winter,4406
+Antwerp,Belgium,2017,Spring,685
+Athens,Greece,2023,Winter,17273
+Athens,Greece,2025,Summer,61246
+Athens,Greece,2025,Spring,47497
+Athens,Greece,2020,Autumn,8830
+Athens,Greece,2026,Winter,19402
+Athens,Greece,2021,Autumn,21248
+Athens,Greece,2018,Spring,9469
+Athens,Greece,2018,Summer,14282
+Athens,Greece,2019,Winter,8805
+Athens,Greece,2016,Autumn,4023
+Athens,Greece,2017,Winter,2877
+Barcelona,Spain,2018,Summer,16784
+Barcelona,Spain,2019,Spring,20393
+Barcelona,Spain,2019,Summer,22114
+Barcelona,Spain,2023,Autumn,38769
+Barcelona,Spain,2025,Autumn,50647
+Barcelona,Spain,2020,Winter,12392
+Barcelona,Spain,2018,Spring,14806
+Barcelona,Spain,2021,Winter,7434
+Barcelona,Spain,2017,Spring,12627
+Barcelona,Spain,2017,Summer,13986
+Barcelona,Spain,2013,Autumn,1178
+Barcelona,Spain,2015,Winter,2527
+Bergamo,Italy,2011,Summer,2
+Bergamo,Italy,2014,Summer,142
+Bergamo,Italy,2016,Winter,243
+Bergamo,Italy,2018,Autumn,1721
+Bergamo,Italy,2026,Summer,3573
+Bergamo,Italy,2017,Winter,499
+Bergamo,Italy,2022,Autumn,4313
+Bergamo,Italy,2023,Autumn,6338
+Bergamo,Italy,2026,Spring,11290
+Bergamo,Italy,2015,Winter,93
+Bergamo,Italy,2020,Autumn,1017
+Bergamo,Italy,2025,Winter,5128
+Bergamo,Italy,2021,Winter,1082
+Bergamo,Italy,2014,Spring,65
+Berlin,Germany,2019,Winter,10502
+Berlin,Germany,2021,Autumn,14786
+Berlin,Germany,2022,Autumn,20580
+Berlin,Germany,2024,Autumn,30653
+Berlin,Germany,2025,Spring,31687
+Berlin,Germany,2025,Summer,38379
+Berlin,Germany,2014,Spring,933
+Berlin,Germany,2014,Summer,1443
+Berlin,Germany,2018,Autumn,12286
+Berlin,Germany,2016,Autumn,5461
+Bologna,Italy,2025,Winter,9559
+Bologna,Italy,2026,Spring,22030
+Bologna,Italy,2026,Summer,5468
+Bologna,Italy,2021,Winter,2264
+Bologna,Italy,2024,Autumn,16092
+Bologna,Italy,2019,Autumn,6184
+Bordeaux,France,2023,Winter,11178
+Bordeaux,France,2021,Winter,6472
+Bordeaux,France,2025,Autumn,25472
+Bordeaux,France,2026,Spring,28585
+Bordeaux,France,2026,Summer,6313
+Bordeaux,France,2016,Summer,3899
+Bordeaux,France,2020,Summer,10200
+Bordeaux,France,2017,Spring,3745
+Bordeaux,France,2017,Summer,5848
+Bordeaux,France,2018,Winter,3788
+Bordeaux,France,2019,Summer,11753
+Bordeaux,France,2019,Spring,8282
+Bordeaux,France,2016,Spring,1817
+Bordeaux,France,2020,Spring,1819
+Bristol,United Kingdom,2020,Autumn,1802
+Bristol,United Kingdom,2022,Autumn,5030
+Bristol,United Kingdom,2024,Winter,4956
+Bristol,United Kingdom,2025,Autumn,9127
+Bristol,United Kingdom,2026,Winter,4359
+Bristol,United Kingdom,2021,Winter,1197
+Brussels,Belgium,2019,Autumn,4798
+Brussels,Belgium,2023,Autumn,12306
+Brussels,Belgium,2024,Winter,12996
+Brussels,Belgium,2020,Spring,843
+Brussels,Belgium,2020,Summer,1598
+Brussels,Belgium,2021,Autumn,4574
+Brussels,Belgium,2022,Winter,5683
+Copenhagen,Denmark,2025,Summer,44701
+Copenhagen,Denmark,2010,Winter,2
+Copenhagen,Denmark,2011,Winter,13
+Copenhagen,Denmark,2013,Autumn,463
+Copenhagen,Denmark,2015,Autumn,2035
+Copenhagen,Denmark,2016,Winter,2032
+Copenhagen,Denmark,2017,Spring,4543
+Copenhagen,Denmark,2017,Summer,7812
+Copenhagen,Denmark,2021,Autumn,6881
+Copenhagen,Denmark,2024,Autumn,18201
+Copenhagen,Denmark,2018,Winter,3321
+Copenhagen,Denmark,2025,Spring,21201
+Copenhagen,Denmark,2022,Winter,4852
+Copenhagen,Denmark,2023,Winter,8005
+Copenhagen,Denmark,2026,Winter,8005
+Copenhagen,Denmark,2020,Autumn,1567
+Crete,Greece,2022,Autumn,23004
+Crete,Greece,2017,Summer,9864
+Crete,Greece,2017,Spring,2641
+Crete,Greece,2018,Winter,708
+Crete,Greece,2019,Winter,1024
+Crete,Greece,2023,Winter,2389
+Crete,Greece,2021,Winter,787
+Crete,Greece,2025,Winter,3332
+Dublin,Ireland,2012,Spring,35
+Dublin,Ireland,2012,Summer,68
+Dublin,Ireland,2019,Spring,6751
+Dublin,Ireland,2019,Summer,8382
+Dublin,Ireland,2022,Winter,4663
+Dublin,Ireland,2021,Autumn,5480
+Dublin,Ireland,2023,Autumn,13645
+Dublin,Ireland,2025,Autumn,24727
+Dublin,Ireland,2013,Winter,88
+Edinburgh,United Kingdom,2025,Winter,20073
+Edinburgh,United Kingdom,2015,Winter,1201
+Edinburgh,United Kingdom,2021,Winter,5037
+Edinburgh,United Kingdom,2022,Spring,16174
+Edinburgh,United Kingdom,2022,Summer,25251
+Edinburgh,United Kingdom,2023,Winter,15633
+Edinburgh,United Kingdom,2026,Winter,12674
+Edinburgh,United Kingdom,2016,Winter,2751
+Edinburgh,United Kingdom,2017,Autumn,7074
+Edinburgh,United Kingdom,2018,Spring,8120
+Edinburgh,United Kingdom,2018,Summer,12256
+Edinburgh,United Kingdom,2019,Spring,11432
+Edinburgh,United Kingdom,2019,Summer,15947
+Euskadi,Spain,2021,Winter,2592
+Euskadi,Spain,2022,Winter,5593
+Euskadi,Spain,2023,Spring,13324
+Euskadi,Spain,2023,Summer,21142
+Euskadi,Spain,2018,Winter,2642
+Euskadi,Spain,2024,Winter,8621
+Euskadi,Spain,2025,Spring,19243
+Euskadi,Spain,2025,Summer,28665
+Euskadi,Spain,2019,Autumn,9082
+Euskadi,Spain,2026,Spring,22139
+Euskadi,Spain,2026,Summer,6826
+Euskadi,Spain,2015,Summer,1536
+Euskadi,Spain,2016,Winter,1082
+Euskadi,Spain,2017,Winter,1728
+Florence,Italy,2017,Winter,6556
+Florence,Italy,2019,Autumn,23639
+Florence,Italy,2020,Winter,8496
+Florence,Italy,2022,Winter,12230
+Florence,Italy,2023,Autumn,47684
+Florence,Italy,2018,Spring,15963
+Florence,Italy,2024,Spring,53245
+Florence,Italy,2024,Summer,57722
+Florence,Italy,2018,Summer,19922
+Florence,Italy,2025,Autumn,64281
+Florence,Italy,2014,Spring,1871
+Florence,Italy,2014,Summer,2873
+Florence,Italy,2015,Spring,4667
+Florence,Italy,2015,Summer,6951
+Florence,Italy,2016,Spring,7943
+Florence,Italy,2016,Summer,10787
+Florence,Italy,2021,Winter,4401
+Ghent,Belgium,2016,Winter,412
+Ghent,Belgium,2017,Winter,598
+Ghent,Belgium,2018,Spring,982
+Ghent,Belgium,2018,Summer,1174
+Ghent,Belgium,2019,Spring,1380
+Ghent,Belgium,2026,Winter,3173
+Ghent,Belgium,2019,Summer,1591
+Ghent,Belgium,2020,Autumn,619
+Girona,Spain,2023,Autumn,17208
+Girona,Spain,2025,Spring,20811
+Girona,Spain,2025,Summer,45809
+Girona,Spain,2026,Spring,26758
+Girona,Spain,2021,Summer,17505
+Girona,Spain,2024,Autumn,19625
+Girona,Spain,2021,Spring,5970
+Girona,Spain,2026,Summer,10172
+Girona,Spain,2017,Spring,3176
+Girona,Spain,2017,Summer,6666
+Girona,Spain,2018,Autumn,5785
+Girona,Spain,2020,Autumn,4461
+Girona,Spain,2019,Winter,3308
+Greater Manchester,United Kingdom,2021,Autumn,5006
+Greater Manchester,United Kingdom,2022,Spring,5273
+Greater Manchester,United Kingdom,2022,Summer,6745
+Greater Manchester,United Kingdom,2024,Autumn,14384
+Greater Manchester,United Kingdom,2025,Winter,14207
+Greater Manchester,United Kingdom,2026,Spring,24170
+Greater Manchester,United Kingdom,2026,Summer,6149
+Lisbon,Portugal,2016,Summer,17039
+Lisbon,Portugal,2017,Autumn,26259
+Lisbon,Portugal,2019,Summer,51472
+Lisbon,Portugal,2020,Spring,7326
+Lisbon,Portugal,2021,Summer,27788
+Lisbon,Portugal,2018,Winter,17542
+Lisbon,Portugal,2019,Spring,41916
+Lisbon,Portugal,2020,Summer,11843
+Lisbon,Portugal,2021,Spring,6671
+Lisbon,Portugal,2023,Autumn,74399
+Lisbon,Portugal,2013,Spring,864
+Lisbon,Portugal,2013,Summer,1379
+Lisbon,Portugal,2014,Spring,2413
+Lisbon,Portugal,2014,Summer,3992
+Lisbon,Portugal,2016,Spring,11709
+Lisbon,Portugal,2024,Winter,45032
+Lisbon,Portugal,2012,Winter,118
+London,United Kingdom,2024,Winter,74733
+London,United Kingdom,2018,Winter,22223
+London,United Kingdom,2019,Spring,36692
+London,United Kingdom,2019,Summer,45644
+London,United Kingdom,2025,Spring,108713
+London,United Kingdom,2025,Summer,154036
+London,United Kingdom,2014,Autumn,5851
+London,United Kingdom,2015,Winter,5590
+London,United Kingdom,2016,Autumn,19830
+London,United Kingdom,2022,Spring,43896
+London,United Kingdom,2022,Summer,65171
+London,United Kingdom,2023,Autumn,78341
+London,United Kingdom,2013,Summer,2586
+Lyon,France,2017,Spring,3938
+Lyon,France,2017,Summer,4193
+Lyon,France,2018,Summer,5781
+Lyon,France,2020,Spring,2068
+Lyon,France,2023,Autumn,19796
+Lyon,France,2025,Winter,18716
+Lyon,France,2018,Spring,5791
+Lyon,France,2021,Autumn,11696
+Lyon,France,2022,Autumn,14899
+Lyon,France,2020,Summer,7095
+Madrid,Spain,2025,Winter,68981
+Madrid,Spain,2026,Spring,112698
+Madrid,Spain,2026,Summer,19194
+Madrid,Spain,2016,Spring,5246
+Madrid,Spain,2017,Spring,9691
+Madrid,Spain,2022,Summer,35404
+Madrid,Spain,2017,Summer,9491
+Madrid,Spain,2018,Autumn,17901
+Madrid,Spain,2020,Spring,3966
+Madrid,Spain,2021,Autumn,23528
+Madrid,Spain,2022,Spring,33834
+Madrid,Spain,2023,Autumn,55465
+Madrid,Spain,2024,Winter,53037
+Madrid,Spain,2016,Summer,5377
+Madrid,Spain,2020,Summer,3662
+Madrid,Spain,2012,Summer,158
+Madrid,Spain,2013,Spring,369
+Madrid,Spain,2013,Summer,437
+Madrid,Spain,2014,Spring,1060
+Madrid,Spain,2014,Summer,1184
+Madrid,Spain,2015,Spring,2625
+Madrid,Spain,2015,Summer,2979
+Mallorca,Spain,2012,Winter,7
+Mallorca,Spain,2013,Spring,111
+Mallorca,Spain,2013,Summer,225
+Mallorca,Spain,2014,Spring,314
+Mallorca,Spain,2014,Summer,625
+Mallorca,Spain,2015,Winter,198
+Mallorca,Spain,2016,Autumn,2323
+Mallorca,Spain,2021,Spring,5303
+Mallorca,Spain,2021,Summer,14029
+Mallorca,Spain,2023,Winter,3608
+Mallorca,Spain,2024,Autumn,20629
+Mallorca,Spain,2025,Summer,33836
+Mallorca,Spain,2026,Winter,3824
+Mallorca,Spain,2011,Autumn,8
+Mallorca,Spain,2019,Spring,5837
+Mallorca,Spain,2019,Summer,9571
+Mallorca,Spain,2025,Spring,21803
+Menorca,Spain,2024,Summer,8160
+Menorca,Spain,2025,Summer,9967
+Menorca,Spain,2011,Summer,1
+Menorca,Spain,2020,Summer,1465
+Menorca,Spain,2021,Autumn,1932
+Menorca,Spain,2023,Autumn,3598
+Menorca,Spain,2025,Spring,3948
+Menorca,Spain,2024,Spring,2981
+Menorca,Spain,2022,Winter,169
+Menorca,Spain,2026,Winter,167
+Menorca,Spain,2012,Autumn,9
+Menorca,Spain,2018,Winter,42
+Menorca,Spain,2015,Winter,8
+Menorca,Spain,2019,Winter,78
+Menorca,Spain,2020,Spring,34
+Milan,Italy,2020,Winter,8917
+Milan,Italy,2021,Winter,6620
+Milan,Italy,2022,Winter,15047
+Milan,Italy,2023,Autumn,49629
+Milan,Italy,2024,Autumn,67550
+Milan,Italy,2025,Spring,73648
+Milan,Italy,2025,Summer,76862
+Milan,Italy,2016,Winter,3193
+Milan,Italy,2017,Autumn,8983
+Milan,Italy,2018,Autumn,11591
+Milan,Italy,2015,Autumn,6177
+Naples,Italy,2016,Winter,1108
+Naples,Italy,2021,Winter,2479
+Naples,Italy,2022,Spring,14010
+Naples,Italy,2022,Summer,19068
+Naples,Italy,2017,Autumn,4100
+Naples,Italy,2018,Winter,3231
+Naples,Italy,2019,Autumn,8999
+Oslo,Norway,2022,Winter,2406
+Oslo,Norway,2024,Winter,7748
+Oslo,Norway,2025,Summer,32853
+Oslo,Norway,2023,Autumn,9572
+Oslo,Norway,2025,Spring,13637
+Oslo,Norway,2016,Winter,628
+Oslo,Norway,2017,Summer,2432
+Oslo,Norway,2020,Autumn,559
+Oslo,Norway,2017,Spring,1259
+Paris,France,2016,Autumn,18330
+Paris,France,2019,Winter,29265
+Paris,France,2020,Winter,25625
+Paris,France,2013,Autumn,2466
+Paris,France,2014,Autumn,6465
+Paris,France,2022,Autumn,65724
+Paris,France,2023,Winter,57735
+Paris,France,2018,Summer,36835
+Paris,France,2015,Autumn,13133
+Paris,France,2018,Spring,30194
+Paris,France,2024,Winter,72180
+Paris,France,2025,Winter,96455
+Paris,France,2010,Winter,25
+Porto,Portugal,2019,Winter,12034
+Porto,Portugal,2020,Autumn,7193
+Porto,Portugal,2021,Autumn,22023
+Porto,Portugal,2024,Winter,27774
+Porto,Portugal,2025,Autumn,61438
+Porto,Portugal,2017,Autumn,12281
+Porto,Portugal,2018,Spring,14343
+Porto,Portugal,2018,Summer,19916
+Prague,Czech Republic,2017,Spring,7629
+Prague,Czech Republic,2017,Summer,9990
+Prague,Czech Republic,2020,Winter,10194
+Prague,Czech Republic,2022,Winter,15347
+Prague,Czech Republic,2023,Spring,30058
+Prague,Czech Republic,2023,Summer,37358
+Prague,Czech Republic,2024,Autumn,44991
+Prague,Czech Republic,2025,Winter,46990
+Prague,Czech Republic,2026,Winter,30502
+Prague,Czech Republic,2018,Autumn,13672
+Prague,Czech Republic,2013,Spring,505
+Prague,Czech Republic,2013,Summer,599
+Prague,Czech Republic,2014,Winter,892
+Prague,Czech Republic,2015,Winter,2218
+Prague,Czech Republic,2016,Spring,4931
+Prague,Czech Republic,2016,Summer,6310
+Puglia,Italy,2020,Summer,13578
+Puglia,Italy,2025,Autumn,41188
+Puglia,Italy,2016,Summer,5739
+Puglia,Italy,2023,Winter,4285
+Puglia,Italy,2026,Winter,6290
+Puglia,Italy,2017,Summer,9124
+Puglia,Italy,2018,Autumn,7638
+Puglia,Italy,2024,Winter,5377
+Puglia,Italy,2017,Spring,2493
+Puglia,Italy,2019,Winter,1750
+Puglia,Italy,2020,Spring,306
+Puglia,Italy,2015,Spring,641
+Puglia,Italy,2015,Summer,2889
+Puglia,Italy,2016,Spring,1394
+Riga,Latvia,2016,Autumn,529
+Riga,Latvia,2017,Spring,839
+Riga,Latvia,2025,Winter,7543
+Riga,Latvia,2019,Autumn,3026
+Riga,Latvia,2020,Winter,2110
+Riga,Latvia,2017,Summer,1637
+Riga,Latvia,2018,Autumn,1952
+Rome,Italy,2025,Winter,79199
+Rome,Italy,2013,Autumn,2314
+Rome,Italy,2016,Spring,17044
+Rome,Italy,2016,Summer,20599
+Rome,Italy,2017,Winter,14800
+Rome,Italy,2018,Winter,19859
+Rome,Italy,2020,Winter,21718
+Rome,Italy,2021,Winter,11240
+Rome,Italy,2022,Autumn,75157
+Rome,Italy,2023,Autumn,103807
+Rome,Italy,2024,Spring,119803
+Rome,Italy,2024,Summer,124609
+Rome,Italy,2014,Winter,1961
+Sicily,Italy,2021,Autumn,28339
+Sicily,Italy,2022,Autumn,41499
+Sicily,Italy,2025,Autumn,79818
+Sicily,Italy,2016,Summer,13160
+Sicily,Italy,2016,Spring,5359
+Sicily,Italy,2014,Winter,421
+Sicily,Italy,2015,Winter,859
+Sicily,Italy,2019,Winter,6251
+South Aegean,Greece,2016,Summer,9171
+South Aegean,Greece,2022,Spring,18314
+South Aegean,Greece,2024,Spring,25605
+South Aegean,Greece,2014,Autumn,1202
+South Aegean,Greece,2017,Spring,4162
+South Aegean,Greece,2017,Summer,16724
+South Aegean,Greece,2023,Autumn,37214
+South Aegean,Greece,2012,Winter,2
+South Aegean,Greece,2013,Autumn,412
+South Aegean,Greece,2022,Summer,67119
+South Aegean,Greece,2024,Summer,84470
+South Aegean,Greece,2021,Winter,526
+South Aegean,Greece,2025,Winter,1528
+South Aegean,Greece,2016,Spring,2247
+South Aegean,Greece,2018,Winter,704
+Thessaloniki,Greece,2012,Summer,5
+Thessaloniki,Greece,2016,Winter,429
+Thessaloniki,Greece,2017,Winter,1153
+Thessaloniki,Greece,2013,Autumn,28
+Thessaloniki,Greece,2014,Spring,82
+Thessaloniki,Greece,2014,Summer,119
+Thessaloniki,Greece,2018,Spring,2395
+Thessaloniki,Greece,2018,Summer,3030
+Thessaloniki,Greece,2021,Winter,2741
+Thessaloniki,Greece,2022,Winter,4578
+Thessaloniki,Greece,2024,Winter,7999
+Thessaloniki,Greece,2026,Winter,7325
+Valencia,Spain,2025,Autumn,28933
+Valencia,Spain,2026,Winter,14314
+Valencia,Spain,2024,Autumn,21414
+Vaud,Switzerland,2025,Winter,4590
+Vaud,Switzerland,2026,Spring,6205
+Vaud,Switzerland,2026,Summer,7462
+Vaud,Switzerland,2017,Winter,613
+Vaud,Switzerland,2020,Autumn,1742
+Vaud,Switzerland,2022,Winter,2886
+Vaud,Switzerland,2023,Winter,3266
+Vaud,Switzerland,2024,Winter,3857
+Venice,Italy,2021,Autumn,19613
+Venice,Italy,2023,Summer,42532
+Venice,Italy,2023,Spring,35460
+Venice,Italy,2018,Winter,6901
+Venice,Italy,2024,Winter,18271
+Venice,Italy,2025,Winter,19414
+Venice,Italy,2026,Winter,16345
+Venice,Italy,2015,Winter,1776
+Venice,Italy,2016,Winter,3493
+Venice,Italy,2020,Autumn,7050
+Venice,Italy,2011,Autumn,117
+Venice,Italy,2012,Autumn,459
+Vienna,Austria,2025,Spring,30359
+Vienna,Austria,2025,Summer,37236
+Vienna,Austria,2016,Autumn,4176
+Vienna,Austria,2017,Autumn,5791
+Vienna,Austria,2018,Autumn,9967
+Vienna,Austria,2022,Autumn,18309
+Vienna,Austria,2023,Spring,21474
+Vienna,Austria,2023,Summer,25756
+Vienna,Austria,2020,Autumn,2899
+Vienna,Austria,2021,Winter,2681
+Athens,Greece,2010,Autumn,1
+Athens,Greece,2013,Winter,58
+Athens,Greece,2014,Autumn,694
+Athens,Greece,2011,Winter,1
+Barcelona,Spain,2010,Autumn,2
+Barcelona,Spain,2011,Autumn,31
+Berlin,Germany,2011,Winter,36
+Berlin,Germany,2012,Winter,123
+Berlin,Germany,2013,Autumn,641
+Bologna,Italy,2016,Autumn,2341
+Bristol,United Kingdom,2014,Winter,89
+Bristol,United Kingdom,2016,Spring,548
+Bristol,United Kingdom,2016,Summer,858
+Bristol,United Kingdom,2017,Winter,985
+Bristol,United Kingdom,2018,Winter,1599
+Edinburgh,United Kingdom,2012,Spring,148
+Edinburgh,United Kingdom,2012,Summer,260
+Edinburgh,United Kingdom,2013,Winter,203
+Euskadi,Spain,2014,Spring,224
+Euskadi,Spain,2014,Summer,573
+Euskadi,Spain,2015,Spring,595
+Euskadi,Spain,2012,Winter,3
+Florence,Italy,2013,Winter,405
+Florence,Italy,2012,Autumn,484
+Florence,Italy,2010,Winter,2
+Ghent,Belgium,2015,Autumn,323
+London,United Kingdom,2012,Autumn,1086
+London,United Kingdom,2013,Spring,1728
+London,United Kingdom,2011,Winter,109
+London,United Kingdom,2010,Winter,16
+Milan,Italy,2012,Winter,59
+Milan,Italy,2014,Winter,554
+Munich,Germany,2013,Spring,168
+Munich,Germany,2013,Summer,246
+Munich,Germany,2014,Spring,376
+Munich,Germany,2014,Summer,584
+Munich,Germany,2015,Autumn,1429
+Munich,Germany,2016,Spring,1304
+Munich,Germany,2016,Summer,1643
+Munich,Germany,2017,Autumn,3181
+Munich,Germany,2018,Winter,2027
+Munich,Germany,2019,Winter,3276
+Munich,Germany,2012,Winter,37
+Munich,Germany,2023,Winter,5178
+Porto,Portugal,2014,Summer,1416
+Porto,Portugal,2012,Winter,52
+Porto,Portugal,2013,Winter,228
+Porto,Portugal,2014,Spring,809
+Porto,Portugal,2011,Autumn,21
+Prague,Czech Republic,2011,Autumn,57
+Puglia,Italy,2012,Summer,73
+Puglia,Italy,2013,Winter,29
+Puglia,Italy,2012,Spring,21
+Puglia,Italy,2011,Autumn,7
+Riga,Latvia,2011,Autumn,6
+Riga,Latvia,2013,Summer,52
+Riga,Latvia,2015,Spring,221
+Riga,Latvia,2015,Summer,388
+Riga,Latvia,2013,Spring,38
+Riga,Latvia,2014,Winter,60
+Riga,Latvia,2012,Autumn,15
+Rome,Italy,2012,Winter,243
+Rotterdam,Netherlands,2015,Autumn,211
+Rotterdam,Netherlands,2011,Autumn,1
+Rotterdam,Netherlands,2017,Spring,672
+Rotterdam,Netherlands,2017,Summer,813
+Rotterdam,Netherlands,2018,Summer,1073
+Rotterdam,Netherlands,2019,Winter,932
+Rotterdam,Netherlands,2022,Winter,942
+Rotterdam,Netherlands,2023,Spring,2396
+Rotterdam,Netherlands,2024,Spring,2780
+Rotterdam,Netherlands,2024,Summer,3127
+Rotterdam,Netherlands,2025,Spring,3330
+Rotterdam,Netherlands,2025,Summer,4030
+Rotterdam,Netherlands,2012,Autumn,1
+Rotterdam,Netherlands,2018,Spring,1041
+Rotterdam,Netherlands,2020,Spring,297
+Rotterdam,Netherlands,2020,Summer,1160
+Rotterdam,Netherlands,2021,Winter,496
+Rotterdam,Netherlands,2023,Summer,3068
+Rotterdam,Netherlands,2014,Winter,32
+The Hague,Netherlands,2013,Summer,102
+The Hague,Netherlands,2014,Spring,138
+The Hague,Netherlands,2015,Spring,263
+The Hague,Netherlands,2017,Summer,788
+The Hague,Netherlands,2012,Winter,6
+The Hague,Netherlands,2013,Spring,49
+The Hague,Netherlands,2014,Summer,204
+The Hague,Netherlands,2015,Summer,394
+The Hague,Netherlands,2025,Autumn,2340
+The Hague,Netherlands,2016,Autumn,421
+The Hague,Netherlands,2017,Spring,622
+The Hague,Netherlands,2018,Autumn,768
+The Hague,Netherlands,2020,Winter,566
+The Hague,Netherlands,2021,Winter,411
+Valencia,Spain,2020,Spring,1293
+Valencia,Spain,2020,Summer,3148
+Valencia,Spain,2018,Winter,3475
+Valencia,Spain,2017,Winter,1746
+Vaud,Switzerland,2016,Autumn,502
+Vaud,Switzerland,2015,Autumn,224
+Venice,Italy,2010,Winter,1
+Bordeaux,France,2012,Autumn,34
+Bordeaux,France,2013,Winter,51
+Bordeaux,France,2014,Autumn,469
+Brussels,Belgium,2017,Autumn,2213
+Brussels,Belgium,2018,Summer,3061
+Brussels,Belgium,2015,Autumn,1227
+Brussels,Belgium,2016,Spring,1031
+Brussels,Belgium,2016,Summer,1145
+Brussels,Belgium,2018,Spring,2854
+Brussels,Belgium,2014,Spring,325
+Brussels,Belgium,2012,Autumn,70
+Brussels,Belgium,2014,Summer,340
+Crete,Greece,2013,Autumn,240
+Crete,Greece,2014,Winter,33
+Crete,Greece,2015,Autumn,1605
+Crete,Greece,2012,Winter,3
+Geneva,Switzerland,2011,Autumn,1
+Geneva,Switzerland,2012,Autumn,13
+Geneva,Switzerland,2017,Autumn,946
+Geneva,Switzerland,2018,Autumn,1376
+Geneva,Switzerland,2019,Winter,1092
+Geneva,Switzerland,2024,Spring,3140
+Geneva,Switzerland,2024,Summer,3421
+Geneva,Switzerland,2025,Spring,3608
+Geneva,Switzerland,2025,Summer,4864
+Geneva,Switzerland,2016,Autumn,612
+Geneva,Switzerland,2026,Winter,1744
+Geneva,Switzerland,2023,Winter,1573
+Ghent,Belgium,2012,Winter,5
+Ghent,Belgium,2013,Autumn,25
+Ghent,Belgium,2014,Autumn,143
+Girona,Spain,2010,Autumn,1
+Girona,Spain,2013,Autumn,161
+Girona,Spain,2015,Spring,717
+Girona,Spain,2015,Summer,1817
+Girona,Spain,2011,Spring,1
+Girona,Spain,2011,Summer,2
+Girona,Spain,2012,Spring,4
+Girona,Spain,2012,Summer,31
+Lisbon,Portugal,2010,Autumn,2
+Lyon,France,2010,Winter,1
+Lyon,France,2011,Winter,4
+Lyon,France,2012,Spring,16
+Lyon,France,2012,Summer,33
+Lyon,France,2014,Winter,397
+Lyon,France,2013,Winter,111
+Madrid,Spain,2011,Winter,26
+Madrid,Spain,2012,Spring,151
+Madrid,Spain,2010,Autumn,1
+Milan,Italy,2011,Autumn,46
+Naples,Italy,2011,Spring,1
+Naples,Italy,2012,Winter,19
+Naples,Italy,2013,Autumn,168
+Naples,Italy,2015,Spring,1042
+Naples,Italy,2015,Summer,1527
+Naples,Italy,2011,Summer,6
+Oslo,Norway,2014,Winter,132
+Oslo,Norway,2013,Summer,152
+Oslo,Norway,2013,Spring,69
+Rome,Italy,2011,Spring,84
+Rome,Italy,2011,Summer,135
+Rome,Italy,2010,Autumn,22
+Valencia,Spain,2014,Summer,434
+Valencia,Spain,2015,Winter,433
+Valencia,Spain,2016,Winter,980
+Valencia,Spain,2014,Spring,335
+Valencia,Spain,2012,Autumn,55
+Valencia,Spain,2013,Winter,86
+Bologna,Italy,2014,Summer,319
+Bologna,Italy,2012,Winter,5
+Bologna,Italy,2014,Spring,311
+Bologna,Italy,2011,Autumn,2
+Brussels,Belgium,2010,Autumn,2
+Brussels,Belgium,2011,Spring,14
+Brussels,Belgium,2011,Summer,17
+Greater Manchester,United Kingdom,2012,Spring,5
+Greater Manchester,United Kingdom,2012,Summer,28
+Greater Manchester,United Kingdom,2016,Winter,507
+Greater Manchester,United Kingdom,2017,Spring,1165
+Greater Manchester,United Kingdom,2017,Summer,1332
+Greater Manchester,United Kingdom,2018,Autumn,2235
+Greater Manchester,United Kingdom,2019,Spring,2589
+Greater Manchester,United Kingdom,2019,Summer,3125
+Greater Manchester,United Kingdom,2020,Spring,893
+Greater Manchester,United Kingdom,2013,Winter,13
+Greater Manchester,United Kingdom,2020,Summer,1472
+Sicily,Italy,2012,Summer,190
+Sicily,Italy,2012,Spring,50
+Sicily,Italy,2013,Autumn,1038
+Sicily,Italy,2010,Autumn,2
+Valencia,Spain,2011,Spring,4
+Valencia,Spain,2011,Summer,4
+Vaud,Switzerland,2010,Summer,1
+Vaud,Switzerland,2011,Winter,2
+Vaud,Switzerland,2012,Autumn,24
+Vaud,Switzerland,2013,Autumn,64
+Vaud,Switzerland,2014,Autumn,160
+Vienna,Austria,2011,Winter,33
+Vienna,Austria,2013,Winter,291
+Vienna,Austria,2014,Spring,745
+Vienna,Austria,2014,Summer,1037
+Vienna,Austria,2015,Winter,1548
+Vienna,Austria,2012,Autumn,188
+Vienna,Austria,2010,Autumn,1
+Amsterdam,Netherlands,2015,Spring,3114
+Amsterdam,Netherlands,2015,Summer,3912
+Amsterdam,Netherlands,2017,Autumn,7290
+Amsterdam,Netherlands,2018,Spring,10063
+Amsterdam,Netherlands,2018,Summer,11197
+Amsterdam,Netherlands,2019,Autumn,12215
+Amsterdam,Netherlands,2020,Autumn,2593
+Amsterdam,Netherlands,2021,Autumn,11193
+Amsterdam,Netherlands,2022,Spring,15758
+Amsterdam,Netherlands,2022,Summer,18823
+Amsterdam,Netherlands,2012,Spring,172
+Amsterdam,Netherlands,2012,Summer,214
+Amsterdam,Netherlands,2013,Autumn,1070
+Amsterdam,Netherlands,2023,Spring,20137
+Amsterdam,Netherlands,2023,Summer,21959
+Amsterdam,Netherlands,2024,Autumn,20942
+Amsterdam,Netherlands,2025,Winter,15877
+Amsterdam,Netherlands,2014,Winter,895
+Amsterdam,Netherlands,2011,Winter,20
+Antwerp,Belgium,2012,Spring,15
+Antwerp,Belgium,2012,Summer,8
+Antwerp,Belgium,2013,Autumn,23
+Antwerp,Belgium,2014,Spring,67
+Antwerp,Belgium,2014,Summer,98
+Antwerp,Belgium,2015,Winter,169
+Antwerp,Belgium,2018,Autumn,1023
+Antwerp,Belgium,2019,Autumn,1779
+Antwerp,Belgium,2020,Autumn,507
+Antwerp,Belgium,2021,Winter,1392
+Antwerp,Belgium,2022,Winter,2823
+Antwerp,Belgium,2023,Autumn,4724
+Antwerp,Belgium,2025,Winter,6321
+Athens,Greece,2023,Autumn,39840
+Athens,Greece,2024,Spring,39743
+Athens,Greece,2024,Summer,53283
+Athens,Greece,2020,Winter,8517
+Athens,Greece,2021,Winter,6417
+Athens,Greece,2022,Spring,23171
+Athens,Greece,2022,Summer,35924
+Athens,Greece,2017,Autumn,7418
+Athens,Greece,2019,Autumn,19704
+Athens,Greece,2016,Winter,1265
+Barcelona,Spain,2021,Autumn,19622
+Barcelona,Spain,2022,Spring,29662
+Barcelona,Spain,2022,Summer,34260
+Barcelona,Spain,2023,Winter,28622
+Barcelona,Spain,2024,Spring,42703
+Barcelona,Spain,2025,Winter,38140
+Barcelona,Spain,2026,Winter,29973
+Barcelona,Spain,2024,Summer,44283
+Barcelona,Spain,2016,Spring,8116
+Barcelona,Spain,2016,Summer,9961
+Barcelona,Spain,2015,Autumn,6007
+Barcelona,Spain,2020,Autumn,2689
+Barcelona,Spain,2013,Winter,329
+Barcelona,Spain,2014,Summer,3260
+Barcelona,Spain,2014,Spring,2057
+Bergamo,Italy,2013,Summer,38
+Bergamo,Italy,2016,Autumn,615
+Bergamo,Italy,2017,Autumn,1192
+Bergamo,Italy,2019,Summer,2748
+Bergamo,Italy,2024,Summer,9894
+Bergamo,Italy,2012,Spring,8
+Bergamo,Italy,2015,Autumn,280
+Bergamo,Italy,2018,Winter,853
+Bergamo,Italy,2019,Spring,2064
+Bergamo,Italy,2021,Autumn,3001
+Bergamo,Italy,2022,Winter,2146
+Bergamo,Italy,2023,Winter,3391
+Bergamo,Italy,2024,Spring,7685
+Bergamo,Italy,2020,Winter,1437
+Bergamo,Italy,2025,Autumn,9293
+Bergamo,Italy,2013,Spring,17
+Bergamo,Italy,2012,Summer,14
+Berlin,Germany,2020,Spring,3409
+Berlin,Germany,2020,Summer,7971
+Berlin,Germany,2021,Winter,5063
+Berlin,Germany,2022,Winter,11433
+Berlin,Germany,2023,Spring,21121
+Berlin,Germany,2023,Summer,25208
+Berlin,Germany,2024,Winter,19477
+Berlin,Germany,2026,Spring,37499
+Berlin,Germany,2026,Summer,9990
+Berlin,Germany,2015,Summer,3200
+Berlin,Germany,2017,Summer,8085
+Berlin,Germany,2018,Winter,7174
+Berlin,Germany,2019,Autumn,15259
+Berlin,Germany,2015,Spring,2195
+Berlin,Germany,2016,Winter,3328
+Berlin,Germany,2017,Spring,6500
+Bologna,Italy,2022,Spring,8917
+Bologna,Italy,2023,Spring,12890
+Bologna,Italy,2024,Winter,8087
+Bologna,Italy,2019,Winter,3354
+Bologna,Italy,2020,Spring,346
+Bologna,Italy,2020,Summer,2273
+Bologna,Italy,2021,Autumn,6634
+Bologna,Italy,2022,Summer,10269
+Bologna,Italy,2025,Autumn,19435
+Bologna,Italy,2023,Summer,12798
+Bordeaux,France,2023,Autumn,19665
+Bordeaux,France,2024,Spring,19835
+Bordeaux,France,2024,Summer,26880
+Bordeaux,France,2025,Winter,16331
+Bordeaux,France,2021,Autumn,11349
+Bordeaux,France,2022,Spring,12545
+Bordeaux,France,2022,Summer,18622
+Bordeaux,France,2018,Autumn,6974
+Bristol,United Kingdom,2019,Summer,3387
+Bristol,United Kingdom,2021,Autumn,4062
+Bristol,United Kingdom,2022,Winter,3116
+Bristol,United Kingdom,2020,Winter,1875
+Bristol,United Kingdom,2024,Autumn,7589
+Bristol,United Kingdom,2025,Winter,5850
+Bristol,United Kingdom,2023,Spring,5386
+Bristol,United Kingdom,2023,Summer,6538
+Brussels,Belgium,2021,Winter,2361
+Brussels,Belgium,2019,Winter,3737
+Brussels,Belgium,2023,Winter,9076
+Brussels,Belgium,2024,Autumn,16630
+Brussels,Belgium,2025,Spring,21199
+Brussels,Belgium,2025,Summer,21835
+Brussels,Belgium,2026,Winter,12215
+Brussels,Belgium,2022,Autumn,8688
+Copenhagen,Denmark,2010,Autumn,10
+Copenhagen,Denmark,2011,Autumn,46
+Copenhagen,Denmark,2019,Summer,13129
+Copenhagen,Denmark,2022,Autumn,10405
+Copenhagen,Denmark,2012,Summer,173
+Copenhagen,Denmark,2013,Winter,177
+Copenhagen,Denmark,2014,Spring,741
+Copenhagen,Denmark,2014,Summer,1325
+Copenhagen,Denmark,2015,Winter,1000
+Copenhagen,Denmark,2016,Autumn,3644
+Copenhagen,Denmark,2018,Autumn,5817
+Copenhagen,Denmark,2019,Spring,7156
+Copenhagen,Denmark,2023,Autumn,14508
+Copenhagen,Denmark,2020,Winter,3314
+Copenhagen,Denmark,2012,Spring,72
+Copenhagen,Denmark,2024,Winter,10405
+Copenhagen,Denmark,2021,Winter,1944
+Crete,Greece,2025,Autumn,37233
+Crete,Greece,2026,Spring,23187
+Crete,Greece,2026,Summer,14256
+Crete,Greece,2020,Summer,11218
+Crete,Greece,2021,Autumn,18980
+Crete,Greece,2024,Summer,53095
+Crete,Greece,2024,Spring,16757
+Crete,Greece,2023,Autumn,26134
+Crete,Greece,2016,Summer,5086
+Crete,Greece,2018,Autumn,10007
+Crete,Greece,2019,Autumn,13116
+Crete,Greece,2020,Spring,452
+Crete,Greece,2022,Winter,1630
+Dublin,Ireland,2011,Spring,9
+Dublin,Ireland,2011,Summer,21
+Dublin,Ireland,2013,Autumn,195
+Dublin,Ireland,2014,Spring,315
+Dublin,Ireland,2014,Summer,441
+Dublin,Ireland,2015,Spring,792
+Dublin,Ireland,2015,Summer,1369
+Dublin,Ireland,2016,Spring,1925
+Dublin,Ireland,2016,Summer,2622
+Dublin,Ireland,2017,Spring,3175
+Dublin,Ireland,2017,Summer,4350
+Dublin,Ireland,2018,Spring,5266
+Dublin,Ireland,2018,Summer,7246
+Dublin,Ireland,2020,Spring,1346
+Dublin,Ireland,2022,Autumn,10254
+Dublin,Ireland,2023,Winter,6921
+Dublin,Ireland,2021,Winter,2002
+Dublin,Ireland,2024,Spring,16429
+Dublin,Ireland,2024,Summer,22737
+Dublin,Ireland,2025,Winter,10336
+Dublin,Ireland,2026,Spring,27966
+Dublin,Ireland,2026,Summer,5312
+Dublin,Ireland,2020,Summer,1331
+Edinburgh,United Kingdom,2025,Autumn,38045
+Edinburgh,United Kingdom,2023,Autumn,25706
+Edinburgh,United Kingdom,2024,Spring,27828
+Edinburgh,United Kingdom,2024,Summer,39716
+Edinburgh,United Kingdom,2014,Summer,1165
+Edinburgh,United Kingdom,2015,Autumn,2533
+Edinburgh,United Kingdom,2016,Autumn,5111
+Edinburgh,United Kingdom,2017,Winter,4443
+Edinburgh,United Kingdom,2020,Spring,2059
+Edinburgh,United Kingdom,2021,Autumn,13667
+Edinburgh,United Kingdom,2020,Summer,3685
+Euskadi,Spain,2018,Autumn,6957
+Euskadi,Spain,2021,Autumn,8863
+Euskadi,Spain,2022,Autumn,12042
+Euskadi,Spain,2019,Winter,4081
+Euskadi,Spain,2024,Autumn,17867
+Euskadi,Spain,2016,Autumn,2426
+Euskadi,Spain,2020,Spring,972
+Euskadi,Spain,2017,Autumn,3996
+Euskadi,Spain,2020,Summer,5600
+Florence,Italy,2017,Autumn,13932
+Florence,Italy,2019,Winter,10543
+Florence,Italy,2022,Autumn,34922
+Florence,Italy,2023,Winter,19377
+Florence,Italy,2025,Winter,27411
+Florence,Italy,2026,Winter,20703
+Florence,Italy,2020,Autumn,5082
+Florence,Italy,2021,Autumn,17752
+Ghent,Belgium,2016,Autumn,596
+Ghent,Belgium,2017,Autumn,770
+Ghent,Belgium,2020,Winter,1074
+Ghent,Belgium,2022,Spring,2486
+Ghent,Belgium,2022,Summer,3132
+Ghent,Belgium,2023,Summer,4115
+Ghent,Belgium,2024,Spring,4465
+Ghent,Belgium,2024,Summer,5166
+Ghent,Belgium,2025,Summer,7153
+Ghent,Belgium,2023,Spring,3461
+Ghent,Belgium,2025,Spring,5614
+Ghent,Belgium,2021,Spring,1000
+Ghent,Belgium,2021,Summer,1721
+Girona,Spain,2022,Spring,12319
+Girona,Spain,2022,Summer,26163
+Girona,Spain,2024,Winter,9426
+Girona,Spain,2019,Autumn,7523
+Girona,Spain,2018,Winter,2312
+Girona,Spain,2023,Winter,8039
+Girona,Spain,2020,Winter,3802
+Greater Manchester,United Kingdom,2021,Winter,1899
+Greater Manchester,United Kingdom,2023,Spring,8318
+Greater Manchester,United Kingdom,2023,Summer,10084
+Greater Manchester,United Kingdom,2024,Winter,9931
+Greater Manchester,United Kingdom,2025,Autumn,20777
+Lisbon,Portugal,2018,Autumn,36323
+Lisbon,Portugal,2022,Spring,54407
+Lisbon,Portugal,2022,Summer,72102
+Lisbon,Portugal,2024,Autumn,85973
+Lisbon,Portugal,2025,Spring,87789
+Lisbon,Portugal,2025,Summer,102917
+Lisbon,Portugal,2026,Spring,96486
+Lisbon,Portugal,2012,Autumn,432
+Lisbon,Portugal,2015,Spring,6593
+Lisbon,Portugal,2015,Summer,9606
+Lisbon,Portugal,2017,Winter,12536
+Lisbon,Portugal,2023,Winter,41204
+Lisbon,Portugal,2026,Summer,20199
+London,United Kingdom,2023,Winter,57323
+London,United Kingdom,2017,Spring,22475
+London,United Kingdom,2017,Summer,27004
+London,United Kingdom,2018,Autumn,34312
+London,United Kingdom,2020,Spring,7288
+London,United Kingdom,2021,Summer,19398
+London,United Kingdom,2024,Autumn,98249
+London,United Kingdom,2014,Winter,2823
+London,United Kingdom,2015,Autumn,11677
+London,United Kingdom,2016,Winter,11378
+London,United Kingdom,2020,Summer,5837
+London,United Kingdom,2021,Spring,8984
+London,United Kingdom,2026,Winter,69622
+Lyon,France,2019,Spring,7797
+Lyon,France,2019,Summer,8226
+Lyon,France,2023,Winter,14655
+Lyon,France,2024,Spring,18038
+Lyon,France,2024,Summer,20206
+Lyon,France,2025,Autumn,25082
+Lyon,France,2022,Winter,10546
+Lyon,France,2026,Spring,25693
+Lyon,France,2026,Summer,5219
+Lyon,France,2021,Winter,7628
+Madrid,Spain,2025,Autumn,100477
+Madrid,Spain,2023,Winter,38963
+Madrid,Spain,2018,Winter,11941
+Madrid,Spain,2019,Spring,21348
+Madrid,Spain,2019,Summer,20797
+Madrid,Spain,2021,Winter,11809
+Madrid,Spain,2024,Autumn,75663
+Mallorca,Spain,2015,Autumn,1184
+Mallorca,Spain,2016,Winter,423
+Mallorca,Spain,2017,Spring,2618
+Mallorca,Spain,2017,Summer,4657
+Mallorca,Spain,2020,Spring,659
+Mallorca,Spain,2022,Spring,12843
+Mallorca,Spain,2022,Summer,19743
+Mallorca,Spain,2023,Autumn,16310
+Mallorca,Spain,2012,Autumn,54
+Mallorca,Spain,2018,Spring,3772
+Mallorca,Spain,2018,Summer,6601
+Mallorca,Spain,2011,Winter,2
+Mallorca,Spain,2020,Summer,5080
+Mallorca,Spain,2024,Winter,4421
+Menorca,Spain,2013,Spring,7
+Menorca,Spain,2013,Summer,40
+Menorca,Spain,2015,Autumn,205
+Menorca,Spain,2016,Summer,770
+Menorca,Spain,2017,Summer,1223
+Menorca,Spain,2022,Autumn,3222
+Menorca,Spain,2014,Summer,117
+Menorca,Spain,2018,Autumn,831
+Menorca,Spain,2019,Autumn,1189
+Menorca,Spain,2017,Spring,260
+Menorca,Spain,2016,Spring,151
+Menorca,Spain,2014,Spring,13
+Menorca,Spain,2023,Winter,215
+Menorca,Spain,2012,Winter,1
+Menorca,Spain,2021,Winter,89
+Milan,Italy,2020,Autumn,4746
+Milan,Italy,2021,Autumn,17035
+Milan,Italy,2022,Autumn,34002
+Milan,Italy,2023,Winter,26987
+Milan,Italy,2024,Winter,36629
+Milan,Italy,2026,Winter,45831
+Milan,Italy,2016,Autumn,6126
+Milan,Italy,2017,Winter,5332
+Milan,Italy,2018,Winter,7498
+Milan,Italy,2019,Spring,14042
+Milan,Italy,2019,Summer,13275
+Milan,Italy,2015,Winter,1431
+Munich,Germany,2025,Summer,13523
+Munich,Germany,2026,Spring,12599
+Munich,Germany,2026,Summer,3875
+Munich,Germany,2024,Summer,14595
+Munich,Germany,2024,Spring,8337
+Munich,Germany,2025,Spring,10979
+Naples,Italy,2016,Autumn,2473
+Naples,Italy,2017,Winter,1958
+Naples,Italy,2021,Autumn,10322
+Naples,Italy,2023,Spring,20029
+Naples,Italy,2023,Summer,24409
+Naples,Italy,2018,Autumn,6199
+Naples,Italy,2019,Winter,4341
+Naples,Italy,2024,Spring,24413
+Naples,Italy,2020,Summer,3977
+Naples,Italy,2024,Summer,27989
+Naples,Italy,2025,Spring,27951
+Naples,Italy,2025,Summer,32455
+Naples,Italy,2026,Winter,9830
+Naples,Italy,2020,Spring,568
+Oslo,Norway,2022,Autumn,5840
+Oslo,Norway,2023,Winter,4889
+Oslo,Norway,2024,Autumn,12715
+Oslo,Norway,2026,Spring,18509
+Oslo,Norway,2026,Summer,10562
+Oslo,Norway,2015,Spring,454
+Oslo,Norway,2015,Summer,872
+Oslo,Norway,2018,Spring,1895
+Oslo,Norway,2018,Summer,3484
+Oslo,Norway,2019,Spring,2199
+Oslo,Norway,2019,Summer,4226
+Oslo,Norway,2016,Autumn,1176
+Oslo,Norway,2021,Summer,2289
+Oslo,Norway,2020,Winter,1351
+Oslo,Norway,2021,Spring,377
+Paris,France,2017,Spring,22130
+Paris,France,2017,Summer,26718
+Paris,France,2019,Autumn,42731
+Paris,France,2021,Summer,29484
+Paris,France,2022,Winter,40656
+Paris,France,2012,Summer,865
+Paris,France,2013,Winter,1273
+Paris,France,2014,Winter,3124
+Paris,France,2023,Autumn,89681
+Paris,France,2025,Autumn,136823
+Paris,France,2026,Spring,166611
+Paris,France,2011,Spring,170
+Paris,France,2011,Summer,285
+Paris,France,2012,Spring,561
+Paris,France,2015,Winter,6711
+Paris,France,2016,Winter,11124
+Paris,France,2024,Autumn,112900
+Paris,France,2026,Summer,30383
+Paris,France,2021,Spring,9498
+Paris,France,2020,Autumn,10337
+Paris,France,2010,Autumn,93
+Porto,Portugal,2019,Autumn,23606
+Porto,Portugal,2020,Winter,10774
+Porto,Portugal,2021,Winter,6105
+Porto,Portugal,2022,Spring,33732
+Porto,Portugal,2022,Summer,46405
+Porto,Portugal,2023,Spring,46065
+Porto,Portugal,2023,Summer,54287
+Porto,Portugal,2024,Autumn,54011
+Porto,Portugal,2025,Winter,30990
+Porto,Portugal,2026,Spring,64647
+Porto,Portugal,2026,Summer,14205
+Porto,Portugal,2016,Summer,7743
+Porto,Portugal,2017,Winter,5830
+Prague,Czech Republic,2019,Spring,15635
+Prague,Czech Republic,2019,Summer,19315
+Prague,Czech Republic,2020,Autumn,3412
+Prague,Czech Republic,2021,Spring,2397
+Prague,Czech Republic,2021,Summer,11436
+Prague,Czech Republic,2022,Autumn,25468
+Prague,Czech Republic,2024,Winter,36955
+Prague,Czech Republic,2025,Autumn,57708
+Prague,Czech Republic,2018,Winter,9298
+Prague,Czech Republic,2014,Autumn,1685
+Prague,Czech Republic,2015,Autumn,3704
+Puglia,Italy,2024,Autumn,32847
+Puglia,Italy,2019,Autumn,10923
+Puglia,Italy,2021,Summer,23518
+Puglia,Italy,2022,Spring,11521
+Puglia,Italy,2023,Autumn,26127
+Puglia,Italy,2022,Summer,36617
+Puglia,Italy,2018,Winter,1301
+Puglia,Italy,2025,Winter,7661
+Puglia,Italy,2021,Spring,967
+Riga,Latvia,2016,Winter,345
+Riga,Latvia,2025,Autumn,10230
+Riga,Latvia,2026,Winter,4920
+Riga,Latvia,2019,Winter,2011
+Riga,Latvia,2018,Winter,1226
+Riga,Latvia,2020,Autumn,1032
+Riga,Latvia,2021,Spring,947
+Riga,Latvia,2021,Summer,2575
+Riga,Latvia,2022,Spring,3397
+Riga,Latvia,2022,Summer,5926
+Riga,Latvia,2023,Spring,6077
+Riga,Latvia,2023,Summer,9287
+Riga,Latvia,2024,Spring,6516
+Riga,Latvia,2024,Summer,11845
+Rome,Italy,2025,Autumn,159754
+Rome,Italy,2026,Spring,176674
+Rome,Italy,2026,Summer,34019
+Rome,Italy,2015,Spring,8946
+Rome,Italy,2015,Summer,11458
+Rome,Italy,2017,Autumn,27380
+Rome,Italy,2018,Autumn,36614
+Rome,Italy,2019,Spring,44035
+Rome,Italy,2019,Summer,48091
+Rome,Italy,2020,Autumn,9806
+Rome,Italy,2021,Autumn,38706
+Rome,Italy,2022,Winter,31721
+Rome,Italy,2023,Winter,51245
+Rome,Italy,2014,Autumn,5513
+Rome,Italy,2013,Winter,705
+Sicily,Italy,2019,Autumn,26280
+Sicily,Italy,2022,Winter,9493
+Sicily,Italy,2023,Spring,41233
+Sicily,Italy,2023,Summer,72842
+Sicily,Italy,2024,Spring,52781
+Sicily,Italy,2024,Summer,89095
+Sicily,Italy,2014,Autumn,2781
+Sicily,Italy,2017,Summer,20007
+Sicily,Italy,2018,Summer,27274
+Sicily,Italy,2020,Summer,19958
+Sicily,Italy,2026,Spring,70510
+Sicily,Italy,2026,Summer,31502
+Sicily,Italy,2017,Spring,9127
+Sicily,Italy,2018,Spring,13400
+Sicily,Italy,2015,Autumn,5335
+Sicily,Italy,2021,Winter,3397
+Sicily,Italy,2025,Winter,18876
+Sicily,Italy,2020,Spring,1090
+South Aegean,Greece,2015,Spring,1462
+South Aegean,Greece,2019,Summer,37339
+South Aegean,Greece,2015,Summer,5181
+South Aegean,Greece,2012,Autumn,65
+South Aegean,Greece,2013,Winter,12
+South Aegean,Greece,2014,Winter,30
+South Aegean,Greece,2018,Autumn,13895
+South Aegean,Greece,2019,Spring,10247
+South Aegean,Greece,2020,Spring,481
+South Aegean,Greece,2021,Autumn,24830
+South Aegean,Greece,2020,Summer,15247
+South Aegean,Greece,2023,Winter,1619
+South Aegean,Greece,2025,Autumn,45439
+South Aegean,Greece,2026,Winter,1072
+South Aegean,Greece,2011,Autumn,13
+Thessaloniki,Greece,2013,Winter,8
+Thessaloniki,Greece,2016,Autumn,986
+Thessaloniki,Greece,2017,Autumn,1985
+Thessaloniki,Greece,2015,Spring,177
+Thessaloniki,Greece,2015,Summer,221
+Thessaloniki,Greece,2019,Spring,3942
+Thessaloniki,Greece,2019,Summer,4563
+Thessaloniki,Greece,2020,Spring,1088
+Thessaloniki,Greece,2020,Summer,2510
+Thessaloniki,Greece,2022,Autumn,7270
+Thessaloniki,Greece,2023,Spring,7537
+Thessaloniki,Greece,2023,Summer,9424
+Thessaloniki,Greece,2021,Autumn,5416
+Thessaloniki,Greece,2024,Autumn,11236
+Thessaloniki,Greece,2025,Summer,14463
+Thessaloniki,Greece,2025,Spring,11887
+Valencia,Spain,2022,Spring,10938
+Valencia,Spain,2021,Summer,7851
+Valencia,Spain,2022,Summer,13046
+Valencia,Spain,2023,Spring,15976
+Valencia,Spain,2023,Summer,17697
+Valencia,Spain,2024,Winter,13444
+Valencia,Spain,2021,Spring,2505
+Valencia,Spain,2025,Winter,16694
+Vaud,Switzerland,2025,Autumn,5342
+Vaud,Switzerland,2017,Autumn,978
+Vaud,Switzerland,2018,Spring,1265
+Vaud,Switzerland,2018,Summer,2213
+Vaud,Switzerland,2019,Spring,1993
+Vaud,Switzerland,2019,Summer,3501
+Vaud,Switzerland,2020,Winter,1874
+Vaud,Switzerland,2021,Spring,2569
+Vaud,Switzerland,2021,Summer,3746
+Vaud,Switzerland,2022,Autumn,3272
+Vaud,Switzerland,2023,Autumn,3941
+Vaud,Switzerland,2024,Autumn,4609
+Venice,Italy,2021,Winter,3465
+Venice,Italy,2022,Spring,26923
+Venice,Italy,2022,Summer,37765
+Venice,Italy,2016,Autumn,9500
+Venice,Italy,2017,Spring,11620
+Venice,Italy,2017,Summer,15028
+Venice,Italy,2018,Autumn,17127
+Venice,Italy,2019,Spring,19819
+Venice,Italy,2019,Summer,24730
+Venice,Italy,2024,Autumn,42557
+Venice,Italy,2025,Autumn,43245
+Venice,Italy,2015,Autumn,5472
+Venice,Italy,2020,Winter,7132
+Venice,Italy,2013,Summer,912
+Venice,Italy,2011,Winter,16
+Venice,Italy,2012,Winter,120
+Venice,Italy,2013,Spring,629
+Venice,Italy,2014,Spring,1297
+Venice,Italy,2014,Summer,2147
+Vienna,Austria,2024,Spring,26142
+Vienna,Austria,2026,Spring,43159
+Vienna,Austria,2026,Summer,7178
+Vienna,Austria,2016,Winter,2703
+Vienna,Austria,2024,Summer,31653
+Vienna,Austria,2017,Winter,4259
+Vienna,Austria,2018,Winter,7131
+Vienna,Austria,2019,Spring,12025
+Vienna,Austria,2019,Summer,14664
+Vienna,Austria,2020,Winter,7552
+Vienna,Austria,2021,Autumn,10974
+Vienna,Austria,2022,Winter,11120
+Athens,Greece,2015,Summer,2013
+Athens,Greece,2015,Spring,1089
+Athens,Greece,2013,Autumn,228
+Athens,Greece,2014,Winter,168
+Athens,Greece,2011,Autumn,14
+Athens,Greece,2012,Spring,15
+Athens,Greece,2012,Summer,39
+Barcelona,Spain,2011,Winter,7
+Barcelona,Spain,2012,Spring,106
+Barcelona,Spain,2012,Summer,183
+Berlin,Germany,2011,Autumn,64
+Berlin,Germany,2012,Autumn,258
+Berlin,Germany,2013,Winter,295
+Berlin,Germany,2010,Summer,11
+Bologna,Italy,2016,Winter,992
+Bologna,Italy,2017,Spring,2886
+Bologna,Italy,2017,Summer,2529
+Bologna,Italy,2018,Spring,3801
+Bologna,Italy,2018,Summer,3405
+Bristol,United Kingdom,2014,Autumn,218
+Bristol,United Kingdom,2015,Summer,344
+Bristol,United Kingdom,2017,Autumn,1650
+Bristol,United Kingdom,2018,Autumn,2684
+Bristol,United Kingdom,2019,Spring,2934
+Bristol,United Kingdom,2013,Summer,67
+Bristol,United Kingdom,2015,Spring,271
+Bristol,United Kingdom,2012,Spring,9
+Bristol,United Kingdom,2012,Summer,28
+Bristol,United Kingdom,2013,Spring,25
+Edinburgh,United Kingdom,2011,Spring,22
+Edinburgh,United Kingdom,2011,Summer,67
+Edinburgh,United Kingdom,2013,Autumn,395
+Edinburgh,United Kingdom,2014,Spring,575
+Edinburgh,United Kingdom,2010,Autumn,3
+Euskadi,Spain,2011,Summer,1
+Euskadi,Spain,2012,Autumn,42
+Euskadi,Spain,2013,Spring,62
+Euskadi,Spain,2013,Summer,164
+Florence,Italy,2010,Autumn,28
+Florence,Italy,2011,Spring,67
+Florence,Italy,2011,Summer,87
+Florence,Italy,2013,Autumn,1362
+Florence,Italy,2012,Winter,81
+Ghent,Belgium,2015,Winter,241
+London,United Kingdom,2010,Autumn,79
+London,United Kingdom,2011,Autumn,247
+London,United Kingdom,2012,Winter,416
+Lyon,France,2016,Spring,2083
+Lyon,France,2016,Summer,3526
+Milan,Italy,2014,Autumn,1317
+Milan,Italy,2012,Autumn,183
+Milan,Italy,2013,Spring,290
+Milan,Italy,2013,Summer,298
+Munich,Germany,2012,Autumn,231
+Munich,Germany,2015,Winter,657
+Munich,Germany,2017,Winter,1766
+Munich,Germany,2018,Autumn,4485
+Munich,Germany,2019,Autumn,5167
+Munich,Germany,2011,Summer,5
+Munich,Germany,2022,Spring,4457
+Munich,Germany,2023,Autumn,9788
+Munich,Germany,2020,Spring,915
+Munich,Germany,2020,Summer,2547
+Munich,Germany,2021,Summer,3871
+Munich,Germany,2022,Summer,6984
+Munich,Germany,2021,Spring,1183
+Porto,Portugal,2016,Spring,5078
+Porto,Portugal,2015,Summer,4039
+Porto,Portugal,2015,Spring,2338
+Porto,Portugal,2012,Autumn,142
+Porto,Portugal,2013,Autumn,569
+Porto,Portugal,2011,Winter,1
+Prague,Czech Republic,2012,Summer,184
+Prague,Czech Republic,2010,Spring,1
+Prague,Czech Republic,2010,Summer,1
+Prague,Czech Republic,2011,Winter,15
+Prague,Czech Republic,2012,Spring,104
+Puglia,Italy,2014,Spring,198
+Puglia,Italy,2014,Summer,951
+Puglia,Italy,2013,Autumn,232
+Riga,Latvia,2014,Autumn,97
+Riga,Latvia,2012,Winter,5
+Rome,Italy,2012,Autumn,846
+Rotterdam,Netherlands,2013,Spring,3
+Rotterdam,Netherlands,2015,Winter,120
+Rotterdam,Netherlands,2016,Spring,472
+Rotterdam,Netherlands,2016,Summer,452
+Rotterdam,Netherlands,2022,Autumn,1902
+Rotterdam,Netherlands,2014,Autumn,61
+Rotterdam,Netherlands,2013,Summer,2
+Rotterdam,Netherlands,2021,Autumn,1437
+Rotterdam,Netherlands,2019,Autumn,1363
+Rotterdam,Netherlands,2026,Winter,1651
+The Hague,Netherlands,2018,Winter,385
+The Hague,Netherlands,2021,Autumn,1304
+The Hague,Netherlands,2026,Spring,3291
+The Hague,Netherlands,2019,Spring,1056
+The Hague,Netherlands,2019,Summer,1610
+The Hague,Netherlands,2022,Spring,1757
+The Hague,Netherlands,2022,Summer,2361
+The Hague,Netherlands,2023,Spring,2212
+The Hague,Netherlands,2023,Summer,2853
+The Hague,Netherlands,2024,Spring,2243
+The Hague,Netherlands,2024,Summer,3108
+The Hague,Netherlands,2026,Summer,803
+The Hague,Netherlands,2012,Autumn,44
+The Hague,Netherlands,2016,Winter,365
+The Hague,Netherlands,2020,Autumn,533
+The Hague,Netherlands,2025,Winter,1589
+Valencia,Spain,2019,Spring,7723
+Valencia,Spain,2019,Summer,8769
+Valencia,Spain,2017,Autumn,3984
+Valencia,Spain,2018,Autumn,6360
+Vaud,Switzerland,2016,Winter,335
+Vaud,Switzerland,2015,Winter,124
+Venice,Italy,2009,Autumn,1
+Venice,Italy,2010,Autumn,6
+Bordeaux,France,2012,Winter,8
+Bordeaux,France,2015,Spring,803
+Bordeaux,France,2015,Summer,1696
+Bordeaux,France,2013,Autumn,130
+Bordeaux,France,2014,Winter,204
+Brussels,Belgium,2017,Winter,1943
+Brussels,Belgium,2015,Winter,587
+Brussels,Belgium,2013,Spring,101
+Brussels,Belgium,2013,Summer,85
+Brussels,Belgium,2012,Winter,29
+Crete,Greece,2011,Autumn,2
+Crete,Greece,2012,Autumn,52
+Crete,Greece,2013,Winter,17
+Crete,Greece,2014,Autumn,781
+Crete,Greece,2016,Spring,1421
+Crete,Greece,2015,Winter,87
+Geneva,Switzerland,2014,Spring,153
+Geneva,Switzerland,2014,Summer,188
+Geneva,Switzerland,2015,Summer,346
+Geneva,Switzerland,2016,Winter,379
+Geneva,Switzerland,2018,Winter,799
+Geneva,Switzerland,2019,Autumn,1705
+Geneva,Switzerland,2020,Spring,384
+Geneva,Switzerland,2021,Summer,1020
+Geneva,Switzerland,2022,Spring,1595
+Geneva,Switzerland,2022,Summer,2280
+Geneva,Switzerland,2023,Autumn,2350
+Geneva,Switzerland,2013,Spring,34
+Geneva,Switzerland,2013,Summer,62
+Geneva,Switzerland,2017,Winter,513
+Geneva,Switzerland,2012,Winter,2
+Geneva,Switzerland,2015,Spring,265
+Geneva,Switzerland,2020,Summer,743
+Geneva,Switzerland,2021,Spring,502
+Ghent,Belgium,2011,Autumn,3
+Ghent,Belgium,2012,Autumn,13
+Ghent,Belgium,2013,Winter,14
+Ghent,Belgium,2014,Winter,96
+Girona,Spain,2014,Spring,220
+Girona,Spain,2016,Spring,1535
+Girona,Spain,2010,Winter,1
+Girona,Spain,2014,Summer,761
+Girona,Spain,2016,Summer,3801
+Girona,Spain,2013,Winter,32
+Lisbon,Portugal,2011,Summer,35
+Lisbon,Portugal,2011,Spring,7
+Lisbon,Portugal,2010,Winter,1
+Lyon,France,2010,Autumn,2
+Lyon,France,2014,Autumn,499
+Lyon,France,2015,Spring,864
+Lyon,France,2015,Summer,1226
+Lyon,France,2011,Autumn,9
+Lyon,France,2013,Autumn,166
+Madrid,Spain,2010,Winter,1
+Madrid,Spain,2011,Autumn,69
+Milan,Italy,2011,Winter,13
+Naples,Italy,2012,Autumn,58
+Naples,Italy,2013,Winter,48
+Naples,Italy,2014,Spring,314
+Naples,Italy,2014,Summer,585
+Oslo,Norway,2011,Spring,16
+Oslo,Norway,2011,Summer,6
+Oslo,Norway,2012,Spring,30
+Oslo,Norway,2012,Summer,37
+Oslo,Norway,2014,Autumn,242
+Rome,Italy,2010,Winter,1
+Valencia,Spain,2015,Autumn,1126
+Valencia,Spain,2016,Autumn,2387
+Valencia,Spain,2013,Autumn,222
+Valencia,Spain,2012,Winter,21
+Bologna,Italy,2011,Winter,1
+Bologna,Italy,2013,Spring,127
+Bologna,Italy,2013,Summer,117
+Bologna,Italy,2015,Spring,713
+Bologna,Italy,2015,Summer,911
+Bologna,Italy,2012,Autumn,15
+Greater Manchester,United Kingdom,2016,Autumn,932
+Greater Manchester,United Kingdom,2018,Winter,1480
+Greater Manchester,United Kingdom,2014,Spring,64
+Greater Manchester,United Kingdom,2014,Summer,72
+Greater Manchester,United Kingdom,2015,Spring,178
+Greater Manchester,United Kingdom,2015,Summer,228
+Greater Manchester,United Kingdom,2013,Autumn,43
+Sicily,Italy,2011,Spring,4
+Sicily,Italy,2011,Summer,20
+Sicily,Italy,2013,Winter,124
+Vaud,Switzerland,2011,Autumn,5
+Vaud,Switzerland,2012,Winter,6
+Vaud,Switzerland,2013,Winter,23
+Vaud,Switzerland,2014,Winter,63
+Vienna,Austria,2011,Autumn,64
+Vienna,Austria,2012,Winter,114
+Vienna,Austria,2015,Autumn,2290
+Vienna,Austria,2013,Autumn,446

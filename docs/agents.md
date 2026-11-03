@@ -21,10 +21,12 @@ flowchart TD
     R -->|data| EN["Data Enrichment Agent"]
     INV -. "agent as a tool" .-> EN
     PA -. "agent as a tool" .-> EN
+    CAP["Capability check at start-up:<br/>which files exist → which tools each agent gets,<br/>and a 'this deployment' note in every prompt"] -.-> INV & PA & EN
     INV & PA & EN --> TG["Tool guardrail<br/>allow-list, schema, budget, policy, timeout"]
-    TG --> T1["rank_opportunities"] & T2["predict_listing_price"] & T3["neighbourhood_stats"] & T4["review_signals"] & T5["data_availability"] & T6["roi_calculator"]
+    TG --> M["Model tools (src/models)<br/>rank_opportunities · predict_listing_price"]
+    TG --> E["Evidence tools (agents/tools)<br/>model_card · segment_profile · listing_profile<br/>neighbourhood_stats · data_availability · roi_calculator<br/>review_signals (only if review text is present)"]
     EN --> W["web_search (Anthropic server tool)<br/>external context only"]
-    T1 & T2 & T3 & T4 & T5 & T6 & W --> EV["Evidence store E1, E2, ...<br/>+ evaluation/agent_evidence.jsonl"]
+    M & E & W --> EV["Evidence store E1, E2, ...<br/>+ evaluation/agent_evidence.jsonl"]
     INV & PA & EN --> D["Draft answer citing [E#]"]
     D --> OG["Output guardrail: every number vs evidence,<br/>citations, policy"]
     OG -->|fails| RV["Reviser agent"] --> OG2["Checked again; leftovers marked ⚠️"]
@@ -43,9 +45,9 @@ the round limit is reached (then one last call with tools disabled).
 | Agent | Model | Job | Tools |
 | --- | --- | --- | --- |
 | Router | fast (`claude-haiku-5-5`) | classify the message: investigate, price, data, help, out of scope; extract the city | `route_request` (forced) |
-| Opportunity Investigator | strong (`claude-sonnet-5-5`) | evidence briefs: why an opportunity ranks where it does, evidence for and against, contradictions, what to check next | `rank_opportunities`, `review_signals`, `neighbourhood_stats`, `predict_listing_price`, Enrichment agent |
-| Price Analyst | strong | what-if prices for hypothetical properties, existing listings, ROI only from the user's own numbers | `predict_listing_price`, `rank_opportunities`, `neighbourhood_stats`, `roi_calculator`, Enrichment agent |
-| Data Enrichment Agent | strong | fills gaps: which data exists, cities without a model, review signals, outside context from the web | `data_availability`, `neighbourhood_stats`, `review_signals`, `web_search` |
+| Opportunity Investigator | strong (`claude-sonnet-5-5`) | evidence briefs: why an opportunity ranks where it does, evidence for and against, cross-checks and contradictions, what to check next | `rank_opportunities`, `segment_profile`, `listing_profile`, `model_card`, `neighbourhood_stats`, `predict_listing_price`, (`review_signals`), Enrichment agent |
+| Price Analyst | strong | what-if prices for hypothetical properties and existing listings, with the model's reliability for that segment; ROI only from the user's own numbers | `predict_listing_price`, `rank_opportunities`, `model_card`, `segment_profile`, `neighbourhood_stats`, `roi_calculator`, Enrichment agent |
+| Data Enrichment Agent | strong | fills gaps: which data exists, model reliability, segment facts, outside context from the web | `data_availability`, `neighbourhood_stats`, `segment_profile`, `model_card`, (`review_signals`), `web_search` |
 | Evidence Reviser | fast | fixes a draft the output guardrail rejected | none |
 
 Prompts are versioned files in `agents/prompts/` (`version: 1.0`); every answer's trace records
@@ -61,11 +63,22 @@ All tools are read-only, never raise (errors come back as data with a `status`) 
 | --- | --- | --- |
 | `rank_opportunities` | `src/models/opportunity_tool.py` (Idan) | top opportunities, one opportunity's score breakdown, the listings behind it |
 | `predict_listing_price` | `src/models/predict.py` (Idan) | expected nightly price, 80% range and drivers for an existing or hypothetical listing |
+| `model_card` | `agents/tools/evidence_tools.py` | how reliable the price model is: test MAE vs the baseline with CIs, range coverage, hypotheses, the run label, weak segments; per segment on request |
+| `segment_profile` | `agents/tools/evidence_tools.py` | structured facts about an opportunity's listings: superhosts and professional hosts, registration status, activity, review scores, **Inside Airbnb's own occupancy estimate (an independent cross-check of booked nights)**, long-stay share, competition, amenities |
+| `listing_profile` | `agents/tools/evidence_tools.py` | whitelisted facts about specific listings; the title is sanitised untrusted text; no host names or contact details |
 | `neighbourhood_stats` | `agents/tools/data_tools.py` | observed asking prices and review activity per neighbourhood, for **any** city in the processed data (also cities without a model) |
-| `review_signals` | `agents/tools/data_tools.py` | guest review themes and recent comments for listing ids; names removed, injections quarantined |
+| `review_signals` | `agents/tools/data_tools.py` | guest review themes and recent comments for listing ids; names removed, injections quarantined. **Enabled only when** `data/processed/reviews_clean.parquet` (or `reviews_amsterdam.parquet`) is present |
 | `data_availability` | `agents/tools/data_tools.py` | cities, price coverage, the data-quality gate, which cities have a table and a model |
 | `roi_calculator` | `agents/tools/roi.py` | gross/net yield and payback, **only** from a purchase price and costs the user supplied |
 | `web_search` | Anthropic server tool | outside context (regulation, licences, taxes); cited, labelled external, never used in the score |
+
+**Capability-aware.** At start-up the orchestrator checks which files exist and gives each
+agent only the tools that can answer. Every specialist's prompt ends with a generated "this
+deployment" note: the cities, the table's label (e.g. PROVISIONAL), the model, and what is
+missing and why. Today the repository ships the Amsterdam models, the opportunity table, the model
+card and the 122-column feature file, but not the guest review text (too large for Git), so
+`review_signals` is off and the agents use review scores and activity instead, and say that the
+review text was not analysed. Adding the reviews file switches it on without code changes.
 
 **Data enrichment.** When the opportunity table cannot answer (another city, a neighbourhood's
 context, what guests say, regulation), the Investigator and the Price Analyst call the Data
@@ -93,9 +106,10 @@ streamlit run src/app/streamlit_app.py
 
 Or double-click `run_app.bat` (Windows) / run `./run_app.sh` (macOS, Linux).
 
-**Data.** The app reads the same files as the model tools: `models/`, `reports/<city>/` and
-`data/processed/` at the repository root (the team's data bundle, see
-`outputs_of_the_model_component.md` §4). Without them, the sidebar offers to build a small
+**Data.** The app reads the files the repository ships: `models/`, `reports/amsterdam/` and
+`data/processed/listings_features.parquet`. Nothing has to be downloaded. Optional: guest reviews
+(`data/processed/reviews_clean.parquet`, or a trimmed `reviews_amsterdam.parquet`) switch on
+`review_signals`. Without any artifacts, the sidebar offers to build a small
 **synthetic** demo repository (`python -m agents.demo_data --out demo_repo`), clearly
 labelled as synthetic in the app. Set `PIIS_DATA_ROOT` to point at another folder.
 
@@ -108,7 +122,7 @@ python -m agents.cli "מהן ההזדמנויות המובילות באמסטר�
 ## Evaluation (criteria 7 and 8)
 
 ```bash
-python -m agents.harness              # 20 frozen cases: evaluation/eval_sets/agent_cases_v1.jsonl
+python -m agents.harness              # 22 frozen cases: evaluation/eval_sets/agent_cases_v1.jsonl
 ```
 
 It writes `evaluation/agent_results/run_<time>.json` with, per case and overall: groundedness

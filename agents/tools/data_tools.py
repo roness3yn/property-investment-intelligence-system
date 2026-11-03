@@ -72,7 +72,7 @@ def _match_city(df: pd.DataFrame, city: str | None):
 
 def _snapshot(df: pd.DataFrame) -> str | None:
     if "snapshot_date" in df.columns and df["snapshot_date"].notna().any():
-        return str(pd.to_datetime(df["snapshot_date"]).max().date())
+        return str(pd.to_datetime(df["snapshot_date"], errors="coerce").max().date())
     return None
 
 

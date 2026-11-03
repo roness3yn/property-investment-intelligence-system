@@ -1,8 +1,13 @@
 [theme]
-primaryColor = "#24566B"
-backgroundColor = "#F5F6F3"
+primaryColor = "#1D3A8A"
+backgroundColor = "#F5F6F8"
 secondaryBackgroundColor = "#FFFFFF"
-textColor = "#1C2430"
+textColor = "#101828"
+borderColor = "#E4E7EC"
+baseRadius = "8px"
+
+[client]
+toolbarMode = "minimal"
 
 [browser]
 gatherUsageStats = false

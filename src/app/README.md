@@ -1,17 +1,22 @@
 # src/app
 
-`streamlit_app.py`: the investor chat, in Hebrew (right to left).
+`streamlit_app.py`: the investor workspace, "Investment Intelligence", in Hebrew (right to left).
 
 ```bash
 streamlit run src/app/streamlit_app.py      # or ./run_app.sh / run_app.bat
 ```
 
-- **שיחה**: the chat with the agents. Under every answer: the work rail (router, agent, each
-  tool call with its evidence reference, the verifier), the number of figures checked and how
-  many are grounded, and the evidence behind each [E#].
-- **הזדמנויות**: the deterministic opportunity table with filters. It works without the agents,
-  as the charter requires.
-- **יומן ראיות**: every tool result of the session and the running groundedness (criterion 7).
+**סוכן המחקר** (main tab): the conversation fills the screen height, with the input pinned under it.
+- A welcome screen with suggested questions. While the agents work, a live status shows the pipeline
+  stage (input, router, agent, tools, verification) and each tool call with its evidence reference.
+- Under every answer: the path it took, how many numbers were checked, and the evidence behind each [E#].
+- A context panel beside the chat: the ranked opportunities (each with an "investigate" button that
+  hands it to the agents), a map of Amsterdam (Plotly dot-density; click a neighbourhood to filter),
+  and the price model's test results and known weak segments.
 
-Without an API key the chat answers in fallback mode (the opportunity table). Without the data
-bundle, the sidebar builds a synthetic demo repository, labelled as such.
+**טבלת הזדמנויות**: the full deterministic table with filters; works without the agents.
+**יומן ראיות**: every tool result of the session and the running groundedness (criterion 7).
+
+Settings (API key, models) and data status are in the sidebar. The theme is in `.streamlit/config.toml`.
+`requirements.txt` here is the dependency file Streamlit Community Cloud reads for this app.
+The API key comes from the sidebar, a `.env` file, or the app's Secrets (`ANTHROPIC_API_KEY`).

@@ -1,0 +1,176 @@
+country,location,room_type,n,market_total,share_pct
+Austria,Vienna,Entire home/apt,11079,13283,83.40736279454943
+Austria,Vienna,Hotel room,25,13283,0.18821049461717984
+Austria,Vienna,Private room,2130,13283,16.035534141383724
+Austria,Vienna,Shared room,49,13283,0.3688925694496725
+Belgium,Antwerp,Entire home/apt,2103,2535,82.9585798816568
+Belgium,Antwerp,Hotel room,9,2535,0.35502958579881655
+Belgium,Antwerp,Private room,421,2535,16.60749506903353
+Belgium,Antwerp,Shared room,2,2535,0.07889546351084813
+Belgium,Brussels,Entire home/apt,3688,5078,72.62701851122489
+Belgium,Brussels,Hotel room,22,5078,0.4332414336352895
+Belgium,Brussels,Private room,1349,5078,26.565576998818432
+Belgium,Brussels,Shared room,19,5078,0.37416305632138636
+Belgium,Ghent,Entire home/apt,982,1383,71.00506146059291
+Belgium,Ghent,Hotel room,7,1383,0.5061460592913956
+Belgium,Ghent,Private room,391,1383,28.27187274041938
+Belgium,Ghent,Shared room,3,1383,0.21691973969631237
+Czech Republic,Prague,Entire home/apt,9671,11615,83.26302195436935
+Czech Republic,Prague,Hotel room,77,11615,0.6629358588032717
+Czech Republic,Prague,Private room,1785,11615,15.368058544984933
+Czech Republic,Prague,Shared room,82,11615,0.7059836418424451
+Denmark,Copenhagen,Entire home/apt,21368,23144,92.3263048738334
+Denmark,Copenhagen,Private room,1756,23144,7.587279640511579
+Denmark,Copenhagen,Shared room,20,23144,0.08641548565502938
+France,Bordeaux,Entire home/apt,9522,12217,77.94057460915118
+France,Bordeaux,Hotel room,15,12217,0.12277973315871327
+France,Bordeaux,Private room,2651,12217,21.699271506916592
+France,Bordeaux,Shared room,29,12217,0.23737415077351232
+France,Lyon,Entire home/apt,7476,9317,80.2404207362885
+France,Lyon,Hotel room,17,9317,0.1824621659332403
+France,Lyon,Private room,1796,9317,19.276591177417625
+France,Lyon,Shared room,28,9317,0.3005259203606311
+France,Paris,Entire home/apt,69265,77679,89.16824366946021
+France,Paris,Hotel room,410,77679,0.5278131798813064
+France,Paris,Private room,7858,77679,10.115990164651965
+France,Paris,Shared room,146,77679,0.187952986006514
+Germany,Berlin,Entire home/apt,8846,12776,69.23919849718222
+Germany,Berlin,Hotel room,89,12776,0.6966186599874765
+Germany,Berlin,Private room,3754,12776,29.38321853475266
+Germany,Berlin,Shared room,87,12776,0.6809643080776456
+Germany,Munich,Entire home/apt,4586,6865,66.80262199563
+Germany,Munich,Hotel room,54,6865,0.786598689002185
+Germany,Munich,Private room,2200,6865,32.04661325564457
+Germany,Munich,Shared room,25,6865,0.3641660597232338
+Greece,Athens,Entire home/apt,13304,14337,92.79486642951802
+Greece,Athens,Hotel room,94,14337,0.6556462300341773
+Greece,Athens,Private room,909,14337,6.340238543628375
+Greece,Athens,Shared room,30,14337,0.2092487968194183
+Greece,Crete,Entire home/apt,24815,27333,90.78769253283576
+Greece,Crete,Hotel room,181,27333,0.6622031975999707
+Greece,Crete,Private room,2319,27333,8.484249807924487
+Greece,Crete,Shared room,18,27333,0.0658544616397761
+Greece,South Aegean,Entire home/apt,31118,36680,84.83642311886587
+Greece,South Aegean,Hotel room,404,36680,1.1014176663031625
+Greece,South Aegean,Private room,5140,36680,14.01308615049073
+Greece,South Aegean,Shared room,18,36680,0.04907306434023991
+Greece,Thessaloniki,Entire home/apt,4814,4965,96.95871097683786
+Greece,Thessaloniki,Private room,148,4965,2.9808660624370593
+Greece,Thessaloniki,Shared room,3,4965,0.06042296072507553
+Ireland,Dublin,Entire home/apt,4019,6966,57.694516221648
+Ireland,Dublin,Hotel room,16,6966,0.22968705139247775
+Ireland,Dublin,Private room,2863,6966,41.09962675854149
+Ireland,Dublin,Shared room,68,6966,0.9761699684180304
+Italy,Bergamo,Entire home/apt,3504,4237,82.70002360160491
+Italy,Bergamo,Hotel room,26,4237,0.6136417276374794
+Italy,Bergamo,Private room,703,4237,16.591928251121075
+Italy,Bergamo,Shared room,4,4237,0.09440641963653529
+Italy,Bologna,Entire home/apt,3901,4948,78.83993532740502
+Italy,Bologna,Hotel room,6,4948,0.12126111560226355
+Italy,Bologna,Private room,1024,4948,20.695230396119644
+Italy,Bologna,Shared room,17,4948,0.34357316087308004
+Italy,Florence,Entire home/apt,11229,13472,83.35065320665083
+Italy,Florence,Hotel room,54,13472,0.4008313539192399
+Italy,Florence,Private room,2177,13472,16.159441805225654
+Italy,Florence,Shared room,12,13472,0.08907363420427554
+Italy,Milan,Entire home/apt,22820,25750,88.62135922330097
+Italy,Milan,Hotel room,36,25750,0.13980582524271845
+Italy,Milan,Private room,2831,25750,10.994174757281554
+Italy,Milan,Shared room,63,25750,0.2446601941747573
+Italy,Naples,Entire home/apt,6908,11575,59.68034557235421
+Italy,Naples,Hotel room,98,11575,0.8466522678185745
+Italy,Naples,Private room,4506,11575,38.92872570194385
+Italy,Naples,Shared room,63,11575,0.5442764578833693
+Italy,Puglia,Entire home/apt,39509,48683,81.15563954563194
+Italy,Puglia,Hotel room,195,48683,0.4005505001745989
+Italy,Puglia,Private room,8954,48683,18.392457325965943
+Italy,Puglia,Shared room,25,48683,0.05135262822751269
+Italy,Rome,Entire home/apt,27797,37084,74.95685470822997
+Italy,Rome,Hotel room,303,37084,0.8170639628950491
+Italy,Rome,Private room,8885,37084,23.95911983604789
+Italy,Rome,Shared room,99,37084,0.26696149282709525
+Italy,Sicily,Entire home/apt,45363,56873,79.76192569409034
+Italy,Sicily,Hotel room,207,56873,0.36396884286040826
+Italy,Sicily,Private room,11233,56873,19.751024211840416
+Italy,Sicily,Shared room,70,56873,0.12308125120883372
+Italy,Venice,Entire home/apt,6785,8766,77.40132329454711
+Italy,Venice,Hotel room,71,8766,0.8099475245265799
+Italy,Venice,Private room,1898,8766,21.6518366415697
+Italy,Venice,Shared room,12,8766,0.13689253935660506
+Latvia,Riga,Entire home/apt,3193,3471,91.99078075482569
+Latvia,Riga,Hotel room,1,3471,0.02881014116969173
+Latvia,Riga,Private room,264,3471,7.605877268798617
+Latvia,Riga,Shared room,13,3471,0.37453183520599254
+Netherlands,Amsterdam,Entire home/apt,8489,10369,81.86903269360594
+Netherlands,Amsterdam,Hotel room,26,10369,0.25074742019481144
+Netherlands,Amsterdam,Private room,1833,10369,17.67769312373421
+Netherlands,Amsterdam,Shared room,21,10369,0.20252676246504003
+Netherlands,Rotterdam,Entire home/apt,1000,1357,73.69196757553426
+Netherlands,Rotterdam,Hotel room,32,1357,2.3581429624170966
+Netherlands,Rotterdam,Private room,316,1357,23.286661753868827
+Netherlands,Rotterdam,Shared room,9,1357,0.6632277081798084
+Netherlands,The Hague,Entire home/apt,1246,1492,83.51206434316354
+Netherlands,The Hague,Hotel room,20,1492,1.3404825737265416
+Netherlands,The Hague,Private room,225,1492,15.080428954423592
+Netherlands,The Hague,Shared room,1,1492,0.06702412868632708
+Norway,Oslo,Entire home/apt,11929,13391,89.08221940109028
+Norway,Oslo,Private room,1398,13391,10.439847658875363
+Norway,Oslo,Shared room,64,13391,0.47793294003435144
+Portugal,Lisbon,Entire home/apt,18444,24876,74.14375301495417
+Portugal,Lisbon,Hotel room,153,24876,0.6150506512301013
+Portugal,Lisbon,Private room,6131,24876,24.64624537707027
+Portugal,Lisbon,Shared room,148,24876,0.5949509567454575
+Portugal,Porto,Entire home/apt,12800,15278,83.78059955491557
+Portugal,Porto,Hotel room,79,15278,0.5170833878779945
+Portugal,Porto,Private room,2268,15278,14.844874983636602
+Portugal,Porto,Shared room,131,15278,0.857442073569839
+Spain,Barcelona,Entire home/apt,10844,15293,70.90825868044203
+Spain,Barcelona,Hotel room,68,15293,0.4446478781141699
+Spain,Barcelona,Private room,4262,15293,27.868959654744
+Spain,Barcelona,Shared room,119,15293,0.7781337866997973
+Spain,Euskadi,Entire home/apt,4555,6248,72.9033290653009
+Spain,Euskadi,Hotel room,61,6248,0.9763124199743918
+Spain,Euskadi,Private room,1587,6248,25.40012804097311
+Spain,Euskadi,Shared room,45,6248,0.7202304737516005
+Spain,Girona,Entire home/apt,20086,21257,94.4912264195324
+Spain,Girona,Hotel room,18,21257,0.08467798842734159
+Spain,Girona,Private room,1140,21257,5.3629392670649665
+Spain,Girona,Shared room,13,21257,0.061156324975302254
+Spain,Madrid,Entire home/apt,15899,22708,70.01497269684693
+Spain,Madrid,Hotel room,39,22708,0.17174564030297693
+Spain,Madrid,Private room,6611,22708,29.11308789853796
+Spain,Madrid,Shared room,159,22708,0.7001937643121366
+Spain,Mallorca,Entire home/apt,14053,14817,94.84376054531957
+Spain,Mallorca,Hotel room,40,14817,0.2699601808733212
+Spain,Mallorca,Private room,724,14817,4.886279273807113
+Spain,Menorca,Entire home/apt,3486,3620,96.29834254143647
+Spain,Menorca,Hotel room,11,3620,0.30386740331491713
+Spain,Menorca,Private room,123,3620,3.3977900552486187
+Spain,Valencia,Entire home/apt,6138,7851,78.18112342376767
+Spain,Valencia,Hotel room,13,7851,0.16558400203795695
+Spain,Valencia,Private room,1681,7851,21.411285186600434
+Spain,Valencia,Shared room,19,7851,0.24200738759393708
+Switzerland,Geneva,Entire home/apt,1827,2593,70.45892788276129
+Switzerland,Geneva,Hotel room,2,2593,0.07713073659853452
+Switzerland,Geneva,Private room,755,2593,29.11685306594678
+Switzerland,Geneva,Shared room,9,2593,0.34708831469340534
+Switzerland,Vaud,Entire home/apt,3839,5295,72.50236071765816
+Switzerland,Vaud,Hotel room,10,5295,0.18885741265344666
+Switzerland,Vaud,Private room,1429,5295,26.987724268177526
+Switzerland,Vaud,Shared room,17,5295,0.3210576015108593
+United Kingdom,Bristol,Entire home/apt,2156,3023,71.31988091300033
+United Kingdom,Bristol,Hotel room,7,3023,0.23155805491233875
+United Kingdom,Bristol,Private room,855,3023,28.28316242143566
+United Kingdom,Bristol,Shared room,5,3023,0.16539861065167052
+United Kingdom,Edinburgh,Entire home/apt,4445,6244,71.18834080717488
+United Kingdom,Edinburgh,Hotel room,26,6244,0.41639974375400385
+United Kingdom,Edinburgh,Private room,1752,6244,28.05893657911595
+United Kingdom,Edinburgh,Shared room,21,6244,0.336322869955157
+United Kingdom,Greater Manchester,Entire home/apt,4732,6930,68.28282828282828
+United Kingdom,Greater Manchester,Hotel room,38,6930,0.5483405483405484
+United Kingdom,Greater Manchester,Private room,2146,6930,30.966810966810968
+United Kingdom,Greater Manchester,Shared room,14,6930,0.20202020202020202
+United Kingdom,London,Entire home/apt,61377,92638,66.25466871046439
+United Kingdom,London,Hotel room,180,92638,0.19430471296876012
+United Kingdom,London,Private room,30878,92638,33.331894039163195
+United Kingdom,London,Shared room,203,92638,0.21913253740365723

@@ -1,6 +1,6 @@
 """Agent evaluation harness (README criteria 7 and 8).
 
-Runs the frozen investigation cases in evaluation/eval_sets/agent_cases_v1.jsonl through the
+Runs the frozen investigation cases (22) in evaluation/eval_sets/agent_cases_v1.jsonl through the
 full system (router, specialists, tools, guardrails) and reports, per case and overall:
 
 * groundedness: share of the numbers in the answers that match the tool evidence log

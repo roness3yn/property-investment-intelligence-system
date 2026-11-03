@@ -85,6 +85,12 @@ def make_listings(n: int = 1800, seed: int = 7) -> pd.DataFrame:
     d["reviews_last_365d"] = d["number_of_reviews_ltm"].astype(int)
     d["location"], d["country"] = CITY, "Netherlands"
     d["host_id"] = rng.integers(1, 600, len(d))
+    d["calculated_host_listings_count"] = rng.choice([1, 1, 1, 2, 3, 8], len(d))
+    d["license"] = rng.choice(["0363 ABCD 1234 5678", "Exempt", None], len(d), p=[0.75, 0.1, 0.15])
+    d["availability_365"] = rng.integers(0, 366, len(d))
+    d["estimated_occupancy_l365d"] = np.minimum(255, d["number_of_reviews_ltm"] * 6).astype(int)
+    d["days_since_last_review"] = np.where(d["number_of_reviews_ltm"] > 0, rng.integers(1, 120, len(d)), 400)
+    d.loc[d.index[0], "name"] = INJECTION                     # the guardrail demo, in a title
     d["amenities"] = [json.dumps(list(rng.choice(AMENITY_POOL, rng.integers(0, 7), replace=False)))
                       for _ in range(len(d))]
     d = d.join(pd.DataFrame([amenity_features(v) for v in d["amenities"]], index=d.index))
@@ -183,7 +189,8 @@ def build(out: Path, n_listings: int = 1800, verbose: bool = True) -> Path:
     settings = OpportunitySettings()
     lf = listing_components(priced, oof, settings)
 
-    say("5/5 opportunity table")
+    say("5/5 opportunity table and model card")
+    write_model_card(lf, out / "reports" / slug, f"ridge_{slug}_{VERSION}")
     save_opportunities(opportunity_table(lf, settings), lf,
                        {"city": CITY, "currency": currency_for(CITY), "label": "SYNTHETIC",
                         "snapshot_date": "2026-06-15", "model_version": f"ridge_{slug}_{VERSION}",
@@ -191,6 +198,31 @@ def build(out: Path, n_listings: int = 1800, verbose: bool = True) -> Path:
                        out / "reports" / slug)
     say(f"demo repository ready: {out}")
     return out
+
+
+def write_model_card(lf: pd.DataFrame, d: Path, model: str) -> None:
+    """A model card in 05_model_evaluation's format, from the out-of-fold predictions (synthetic)."""
+    d.mkdir(parents=True, exist_ok=True)
+    err = (lf["expected_price"] - lf["asking_price"]).abs()
+    b1 = lf.groupby(["neighbourhood_cleansed", "room_type"])["asking_price"].transform("median")
+    cov = ((lf["asking_price"] >= lf["price_low"]) & (lf["asking_price"] <= lf["price_high"]))
+    card = {"label": "SYNTHETIC", "city": CITY, "unit": "EUR/night", "selected_model": "ridge",
+            "selection_reason": "demo fixture", "test_listings": int(len(lf)),
+            "metrics": {"ridge": {"MAE": float(err.mean()), "MedAE": float(err.median())},
+                        "B1_group_median": {"MAE": float((b1 - lf["asking_price"]).abs().mean())}},
+            "intervals": {"coverage": {"estimate": float(cov.mean())},
+                          "mean_width": {"estimate": float((lf["price_high"] - lf["price_low"]).mean())}},
+            "hypotheses": {"H1": {"verdict": "supported"}}, "data_sha256": "synthetic"}
+    (d / "model_card_metrics.json").write_text(json.dumps(card, indent=2))
+    rows = []
+    for room, g in lf.groupby("room_type"):
+        c = ((g["asking_price"] >= g["price_low"]) & (g["asking_price"] <= g["price_high"]))
+        rows.append({"room_type": room, "n": len(g), "listings": len(g),
+                     "MAE_model": (g["expected_price"] - g["asking_price"]).abs().mean(),
+                     "MAE_B1": (b1[g.index] - g["asking_price"]).abs().mean(),
+                     "bias": (g["expected_price"] - g["asking_price"]).mean(), "coverage": c.mean(),
+                     "width": (g["price_high"] - g["price_low"]).mean(), "reliable": len(g) >= 30})
+    pd.DataFrame(rows).to_csv(d / "04_segments_room_type.csv", index=False)
 
 
 def main() -> None:

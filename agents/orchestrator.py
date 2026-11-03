@@ -39,10 +39,13 @@ ROUTE_TOOL = {
         "reason": {"type": "string", "description": "One short sentence."}},
         "required": ["intent", "city", "reason"]},
 }
-AGENT_TOOLS = {
-    "investigator": ["rank_opportunities", "neighbourhood_stats", "review_signals", "predict_listing_price"],
-    "price_analyst": ["predict_listing_price", "rank_opportunities", "neighbourhood_stats", "roi_calculator"],
-    "enrichment": ["data_availability", "neighbourhood_stats", "review_signals", "web_search"],
+AGENT_TOOLS = {   # what each specialist may use; tools whose data is missing are removed at start-up
+    "investigator": ["rank_opportunities", "segment_profile", "listing_profile", "model_card",
+                     "neighbourhood_stats", "review_signals", "predict_listing_price"],
+    "price_analyst": ["predict_listing_price", "rank_opportunities", "model_card", "segment_profile",
+                      "neighbourhood_stats", "roi_calculator"],
+    "enrichment": ["data_availability", "neighbourhood_stats", "segment_profile", "model_card",
+                   "review_signals", "web_search"],
 }
 TITLES = {"router": "נתב", "investigator": "חוקר הזדמנויות", "price_analyst": "אנליסט מחירים",
           "enrichment": "סוכן העשרת נתונים", "verifier": "מאמת ראיות", "reviser": "מתקן ראיות",
@@ -94,15 +97,43 @@ class Orchestrator:
                 self.llm = AnthropicLLM(api_key)
             except Exception:
                 self.llm = None
+        self.capabilities = self.ctx.capabilities()
+        self.deployment = self._deployment_note()
         self.specs = self._build_specs()
 
     # ------------------------------------------------------------------ agents
+    def available_tools(self, agent: str) -> list[str]:
+        return [t for t in AGENT_TOOLS[agent] if self.capabilities.get(t) is None]
+
+    def _deployment_note(self) -> str:
+        """What this deployment can and cannot answer, appended to every specialist's prompt, so
+        the agents plan with the tools that exist and state what is missing."""
+        st = self.ctx.status()
+        lines = ["## This deployment (generated at start-up from the files present)"]
+        for city, t in st["opportunity_tables"].items():
+            lines.append(f"- Opportunity table: {city}, {t['ranked']} ranked opportunities, snapshot "
+                         f"{t['snapshot_date']}, currency {t['currency']}, label {t['label']}"
+                         + (" (test listings not included; the model's test run was exploratory)"
+                            if t["label"] == "PROVISIONAL" else "")
+                         + (" (SYNTHETIC demo data: numbers are not real)" if t["label"] == "SYNTHETIC" else ""))
+        if st["price_models"]:
+            lines.append(f"- Price model: {', '.join(st['price_models'])}")
+        missing = {t: why for t, why in self.capabilities.items() if why}
+        for t, why in missing.items():
+            lines.append(f"- Not available: `{t}`: {why}.")
+        if "review_signals" in missing:
+            lines.append("- Guest review TEXT was not analysed. For guest experience use the structured "
+                         "signals (review scores, recent review counts) from segment_profile and "
+                         "listing_profile, and say that review text was not analysed.")
+        return "\n".join(lines)
+
     def _build_specs(self) -> dict[str, AgentSpec]:
         specs = {}
         for name in ["investigator", "price_analyst", "enrichment"]:
             system, version = prompts.system_prompt(name)
-            specs[name] = AgentSpec(name=name, title_he=TITLES[name], system=system,
-                                    prompt_version=version, tools=AGENT_TOOLS[name])
+            specs[name] = AgentSpec(name=name, title_he=TITLES[name],
+                                    system=f"{system}\n\n{self.deployment}",
+                                    prompt_version=version, tools=self.available_tools(name))
         delegate = make_delegate(
             "ask_data_enrichment_agent",
             "Ask the Data Enrichment Agent for data you do not have: which cities and data exist, "

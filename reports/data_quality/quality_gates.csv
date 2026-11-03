@@ -1,0 +1,9 @@
+gate,passed,detail
+row_count_preserved,True,
+source_keys_unique,True,
+row_ids_unique,True,
+review_count_monotone,True,
+competition_monotone,True,
+availability_0_to_1,True,
+cross_country_price_currency_verified,False,Not independently source-verified / normalized
+swiss_price_scale_resolved,False,Geneva/Vaud scale 0–0.99 requires source evidence

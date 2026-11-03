@@ -27,11 +27,18 @@ from agents.config import AgentConfig
 LISTING_FILES = ["data/processed/listings_features.parquet",
                  "data/processed/listings_master.parquet",
                  "data/processed/listings_master.csv"]
-REVIEW_FILES = ["data/processed/reviews_clean.parquet"]
-DESCRIPTIVE_COLUMNS = ["location", "country", "id", "snapshot_date", "neighbourhood_cleansed",
-                       "room_type", "bedrooms", "accommodates", "price", "price_numeric",
-                       "number_of_reviews_ltm", "reviews_last_365d", "review_scores_rating",
-                       "minimum_nights"]
+REVIEW_FILES = ["data/processed/reviews_clean.parquet", "data/processed/reviews_amsterdam.parquet"]
+# Only these columns are ever loaded: no host names, URLs, photos or free text except the title
+DESCRIPTIVE_COLUMNS = [
+    "location", "country", "id", "snapshot_date", "last_scraped", "name", "neighbourhood_cleansed",
+    "latitude", "longitude",
+    "property_type", "room_type", "bedrooms", "accommodates", "bathrooms_text", "price",
+    "price_numeric", "minimum_nights", "availability_365", "number_of_reviews_ltm",
+    "reviews_last_365d", "days_since_last_review", "review_scores_rating", "review_scores_location",
+    "review_scores_cleanliness", "review_scores_value", "host_is_superhost",
+    "calculated_host_listings_count", "license", "estimated_occupancy_l365d", "amenities_count",
+    "has_wifi", "has_kitchen", "has_air_conditioning", "has_workspace", "has_parking",
+    "comparable_competitors_1km"]
 
 
 @dataclass
@@ -81,7 +88,19 @@ class ToolContext:
 
     def prediction_service(self):
         from src.models.predict import PredictionService
-        return self._load("predictions", lambda: PredictionService.load(self.root, verbose=False))
+
+        def load():
+            try:
+                return PredictionService.load(self.root, verbose=False)
+            except ValueError as e:
+                # Older artifacts in models/ were trained on another listings file (e.g.
+                # listings_master.parquet). The selected models use 03's feature file, so load
+                # every city from it; PredictionTool still picks the model 05 selected.
+                features = self.root / "data" / "processed" / "listings_features.parquet"
+                if "different files" not in str(e) or not features.exists():
+                    raise
+                return PredictionService.load(self.root, data_file=features, verbose=False)
+        return self._load("predictions", load)
 
     # ------------------------------------------------------------------ descriptive data
     def listings_file(self) -> Path | None:
@@ -116,13 +135,37 @@ class ToolContext:
             df["price_value"] = price.where(price > 0)
             if "location" not in df.columns:
                 df["location"] = "unknown"
+            # one spelling per city ("amsterdam" -> "Amsterdam"), matching the model and table names
+            from src.models.cities import CITY_CURRENCY, city_slug
+            canonical = {city_slug(c): c for c in CITY_CURRENCY}
+            df["location"] = df["location"].astype(str).map(
+                lambda c: canonical.get(city_slug(c), c.strip().title()) if c.strip() else "unknown")
             if "number_of_reviews_ltm" not in df.columns and "reviews_last_365d" in df.columns:
                 df["number_of_reviews_ltm"] = df["reviews_last_365d"]
+            if "snapshot_date" not in df.columns and "last_scraped" in df.columns:
+                df["snapshot_date"] = df["last_scraped"]
             if "snapshot_date" in df.columns:          # one row per listing: its latest snapshot
                 df["snapshot_date"] = pd.to_datetime(df["snapshot_date"], errors="coerce")
                 df = df.sort_values("snapshot_date").groupby(["location", "id"], as_index=False).tail(1)
             return df.reset_index(drop=True)
         return self._load("listings", load)
+
+    def capabilities(self) -> dict[str, str | None]:
+        """For each tool: None if its data is present, otherwise why it is unavailable. The
+        orchestrator gives the agents only the tools that can answer, and tells them what is missing."""
+        opp, pred, lst = self.opportunity_tool(), self.prediction_service(), self.listings()
+        no_listings = None if lst is not None else "no processed listings in data/processed/"
+        card = next(iter(Path(self.root, "reports").glob("*/model_card_metrics.json")), None)
+        return {
+            "rank_opportunities": None if opp else "no opportunity table in reports/<city>/ (run 06_experiments)",
+            "predict_listing_price": None if pred else "no price model in models/ (run 04 and 05)",
+            "model_card": None if card else "no model card in reports/<city>/ (run 05_model_evaluation)",
+            "neighbourhood_stats": no_listings, "segment_profile": no_listings,
+            "listing_profile": no_listings, "data_availability": None,
+            "review_signals": None if self.reviews_file() else
+                "guest review text is not in the repository (reviews_clean.parquet is too large for Git)",
+            "roi_calculator": None, "web_search": None,
+        }
 
     def status(self) -> dict:
         """What is loaded and what is missing (for the UI's side panel and data_availability)."""

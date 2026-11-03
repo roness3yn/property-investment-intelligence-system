@@ -1,0 +1,2189 @@
+country,location,neighbourhood_cleansed,listing_count,median_price,price_observations
+Austria,Vienna,Alsergrund,648,114.725,450
+Austria,Vienna,Brigittenau,548,107.5,420
+Austria,Vienna,Donaustadt,485,120.9,388
+Austria,Vienna,Dbling,252,110.5,192
+Austria,Vienna,Favoriten,1302,105.00999999999999,1136
+Austria,Vienna,Floridsdorf,229,117.65,194
+Austria,Vienna,Hernals,437,103.95,360
+Austria,Vienna,Hietzing,130,123.0,107
+Austria,Vienna,Innere Stadt,551,207.0,461
+Austria,Vienna,Josefstadt,289,141.6,197
+Austria,Vienna,Landstra§e,1088,125.57,859
+Austria,Vienna,Leopoldstadt,1497,121.9,1186
+Austria,Vienna,Liesing,218,99.5,203
+Austria,Vienna,Margareten,623,114.0,476
+Austria,Vienna,Mariahilf,518,138.0,374
+Austria,Vienna,Meidling,621,103.0,525
+Austria,Vienna,Neubau,628,140.19,429
+Austria,Vienna,Ottakring,779,111.92,626
+Austria,Vienna,Penzing,421,108.39,325
+Austria,Vienna,Rudolfsheim-Fnfhaus,1013,110.0,834
+Austria,Vienna,Simmering,222,109.0,193
+Austria,Vienna,Wieden,417,137.0,285
+Austria,Vienna,Whring,367,121.66499999999999,272
+Belgium,Antwerp,Amandus - Atheneum,224,102.0,164
+Belgium,Antwerp,Borgerhout Extra Muros,38,101.75,24
+Belgium,Antwerp,Borgerhout Intra Muros Noord,62,117.8,46
+Belgium,Antwerp,Borgerhout Intra Muros Zuid,78,102.25,54
+Belgium,Antwerp,Brederode,95,154.5,81
+Belgium,Antwerp,Centraal Station,145,149.0,133
+Belgium,Antwerp,Dam,12,106.83500000000001,10
+Belgium,Antwerp,Deurne Dorp - Gallifort,13,135.2,10
+Belgium,Antwerp,Deurne Noord,16,130.0,12
+Belgium,Antwerp,Deurne Oost,11,109.5,10
+Belgium,Antwerp,Deurne Zuid Oost,20,133.025,12
+Belgium,Antwerp,Deurne Zuid West,24,111.71000000000001,16
+Belgium,Antwerp,Eilandje,63,153.775,54
+Belgium,Antwerp,Groenenhoek,23,124.5,19
+Belgium,Antwerp,Haringrode,43,120.0,35
+Belgium,Antwerp,Harmonie,60,138.25,42
+Belgium,Antwerp,Historisch Centrum,382,152.0,321
+Belgium,Antwerp,Hoboken - Centrum,15,103.83500000000001,14
+Belgium,Antwerp,Hoogte,20,140.0,19
+Belgium,Antwerp,Kiel,17,123.0,17
+Belgium,Antwerp,Linkeroever,25,114.7,20
+Belgium,Antwerp,Markgrave,12,121.055,10
+Belgium,Antwerp,Nieuw - Kwartier West,14,149.0,11
+Belgium,Antwerp,Nieuwdreef,10,217.0,10
+Belgium,Antwerp,Oud - Berchem,64,116.97,47
+Belgium,Antwerp,Sint-Andries,175,147.5,144
+Belgium,Antwerp,Stadspark,112,164.15,96
+Belgium,Antwerp,Stuivenberg,64,85.0,49
+Belgium,Antwerp,Theaterbuurt-Meir,189,154.33499999999998,162
+Belgium,Antwerp,Universiteitsbuurt,212,130.95,164
+Belgium,Antwerp,Wilrijk Centrum,14,78.74,13
+Belgium,Antwerp,Zuid,151,162.5,140
+Belgium,Antwerp,Zurenborg,36,130.5,27
+Belgium,Brussels,Anderlecht,334,120.455,300
+Belgium,Brussels,Auderghem,68,86.22,54
+Belgium,Brussels,Berchem-Sainte-Agathe,38,134.0,34
+Belgium,Brussels,Bruxelles,1580,135.58499999999998,1406
+Belgium,Brussels,Etterbeek,237,114.75,194
+Belgium,Brussels,Evere,62,102.7,52
+Belgium,Brussels,Forest,264,115.0,199
+Belgium,Brussels,Ganshoren,13,135.33499999999998,12
+Belgium,Brussels,Ixelles,692,123.0,582
+Belgium,Brussels,Jette,73,108.75,62
+Belgium,Brussels,Koekelberg,60,120.0,53
+Belgium,Brussels,Molenbeek-Saint-Jean,161,120.0,140
+Belgium,Brussels,Saint-Gilles,556,112.0,475
+Belgium,Brussels,Saint-Josse-ten-Noode,198,103.375,176
+Belgium,Brussels,Schaerbeek,301,117.0,258
+Belgium,Brussels,Uccle,210,132.0,179
+Belgium,Brussels,Watermael-Boitsfort,46,137.0,38
+Belgium,Brussels,Woluwe-Saint-Lambert,120,124.0,105
+Belgium,Brussels,Woluwe-Saint-Pierre,65,133.5,59
+Belgium,Ghent,Binnenstad,402,159.5,381
+Belgium,Ghent,Bloemekenswijk,29,104.5,27
+Belgium,Ghent,Brugse Poort - Rooigem,71,113.625,56
+Belgium,Ghent,Dampoort,53,134.0,45
+Belgium,Ghent,Drongen,23,130.5,20
+Belgium,Ghent,Elisabethbegijnhof - Papegaai,143,163.0,133
+Belgium,Ghent,Ledeberg,38,120.0,27
+Belgium,Ghent,Macharius - Heirnis,46,166.09,42
+Belgium,Ghent,Mariakerke,22,119.42500000000001,20
+Belgium,Ghent,Muide - Meulestede - Afrikalaan,37,133.08499999999998,28
+Belgium,Ghent,Oud Gentbrugge,31,121.955,22
+Belgium,Ghent,Rabot  - Blaisantvest,49,130.5,43
+Belgium,Ghent,Sint Amandsberg,41,141.0,35
+Belgium,Ghent,Sint Denijs Westrem,24,184.17,19
+Belgium,Ghent,Sluizeken - Tolhuis - Ham,98,147.88,83
+Belgium,Ghent,Stationsbuurt Noord,108,165.5,90
+Belgium,Ghent,Stationsbuurt Zuid,48,165.0,45
+Belgium,Ghent,Watersportbaan - Ekkergem,35,157.66500000000002,22
+Belgium,Ghent,Wondelgem,31,142.66500000000002,28
+Belgium,Ghent,Zwijnaarde,13,122.165,12
+Czech Republic,Prague,Dolní Chabry,11,2293.0,10
+Czech Republic,Prague,Libuš,30,3069.165,30
+Czech Republic,Prague,Praha 1,4139,2843.5,3880
+Czech Republic,Prague,Praha 10,384,2282.9700000000003,318
+Czech Republic,Prague,Praha 11,52,1905.36,37
+Czech Republic,Prague,Praha 12,31,2200.995,28
+Czech Republic,Prague,Praha 13,66,2627.25,60
+Czech Republic,Prague,Praha 14,35,2168.5,29
+Czech Republic,Prague,Praha 15,34,2120.67,31
+Czech Republic,Prague,Praha 17,12,2631.745,12
+Czech Republic,Prague,Praha 18,12,3377.2,12
+Czech Republic,Prague,Praha 2,2225,2244.005,2068
+Czech Republic,Prague,Praha 3,1305,2170.71,1126
+Czech Republic,Prague,Praha 4,385,2062.0,325
+Czech Republic,Prague,Praha 5,1019,2511.0,949
+Czech Republic,Prague,Praha 6,378,2292.0,343
+Czech Republic,Prague,Praha 7,527,2402.0,455
+Czech Republic,Prague,Praha 8,604,2451.5150000000003,536
+Czech Republic,Prague,Praha 9,150,2529.4300000000003,138
+Czech Republic,Prague,Velká Chuchle,30,2372.0,30
+Czech Republic,Prague,Zbraslav,18,2095.5,16
+Czech Republic,Prague,Zličín,10,2738.925,10
+Czech Republic,Prague,Řeporyje,11,2469.5,10
+Denmark,Copenhagen,Amager Vest,2055,1700.325,1234
+Denmark,Copenhagen,Amager st,1803,1511.7,1100
+Denmark,Copenhagen,Bispebjerg,1075,1263.7,632
+Denmark,Copenhagen,Brnshj-Husum,418,1333.0,269
+Denmark,Copenhagen,Frederiksberg,2500,1712.0,1423
+Denmark,Copenhagen,Indre By,3116,2336.0,2114
+Denmark,Copenhagen,Nrrebro,4209,1540.59,2333
+Denmark,Copenhagen,Valby,959,1392.665,560
+Denmark,Copenhagen,Vanlse,546,1369.585,328
+Denmark,Copenhagen,Vesterbro-Kongens Enghave,4008,1718.5,2359
+Denmark,Copenhagen,sterbro,2455,1694.835,1508
+France,Bordeaux,Ambars-et-Lagrave,81,87.0,62
+France,Bordeaux,Ambs,14,67.0,12
+France,Bordeaux,Arago-La Chataigneraie,92,94.0,69
+France,Bordeaux,Arlac,108,80.0,79
+France,Bordeaux,Artigues-Prs-Bordeaux,65,105.25,48
+France,Bordeaux,Bassens,30,131.5,19
+France,Bordeaux,Beaudsert,37,97.0,35
+France,Bordeaux,Beutre,35,122.0,27
+France,Bordeaux,Bgles,513,91.5,347
+France,Bordeaux,Blanquefort,122,97.0,91
+France,Bordeaux,Bordeaux Maritime,584,113.0,375
+France,Bordeaux,Bordeaux Sud,1380,113.0,884
+France,Bordeaux,Bouliac,56,191.5,39
+France,Bordeaux,Bourran,46,82.25,40
+France,Bordeaux,Brivazac-Candau,38,83.0,29
+France,Bordeaux,Bruges,231,108.25,158
+France,Bordeaux,Cap de Bos,17,78.25,14
+France,Bordeaux,Capeyron,124,94.0,87
+France,Bordeaux,Carbon-Blanc,63,102.75,50
+France,Bordeaux,Caudran,456,126.0,311
+France,Bordeaux,Centre ville (Bordeaux),1695,137.75,1117
+France,Bordeaux,Centre ville (Merignac),146,87.0,113
+France,Bordeaux,Chartrons - Grand Parc - Jardin Public,887,134.82999999999998,598
+France,Bordeaux,Chemin Long,53,112.67,41
+France,Bordeaux,Chiquet-Fontaudin,35,57.0,24
+France,Bordeaux,Eysines,198,92.25,142
+France,Bordeaux,Floirac,174,86.5,134
+France,Bordeaux,France Alouette,103,93.25,76
+France,Bordeaux,Gambetta-Mairie-Lissandre,135,85.795,104
+France,Bordeaux,Gradignan,188,90.33,125
+France,Bordeaux,La Bastide,476,98.4,321
+France,Bordeaux,La Glacire,146,118.5,102
+France,Bordeaux,La Paillre-Compostelle,25,80.0,18
+France,Bordeaux,Le Bourg,51,88.33,39
+France,Bordeaux,Le Bouscat,365,125.21000000000001,244
+France,Bordeaux,Le Burck,24,102.8,15
+France,Bordeaux,Le Haillan,49,113.36500000000001,34
+France,Bordeaux,Le Monteil,58,79.5,40
+France,Bordeaux,Le Taillan-Mdoc,99,126.0,77
+France,Bordeaux,Le Vallon-Les Echoppes,28,86.0,18
+France,Bordeaux,Les Eyquems,34,80.725,26
+France,Bordeaux,Lormont,227,74.34,174
+France,Bordeaux,Magonty,45,141.0,34
+France,Bordeaux,Martignas-sur-Jalle,51,135.75,39
+France,Bordeaux,Nansouty - Saint Gens,508,96.5,329
+France,Bordeaux,Nos,30,78.0,21
+France,Bordeaux,Palmer-Gravires-Cavailles,98,81.0,74
+France,Bordeaux,Parempuyre,37,86.0,27
+France,Bordeaux,Plaisance-Loret-Maregue,66,65.0,46
+France,Bordeaux,Saige,22,48.85,16
+France,Bordeaux,Saint Augustin - Tauzin - Alphonse Dupeux,590,103.0,387
+France,Bordeaux,Saint-Aubin-de-Mdoc,87,183.0,61
+France,Bordeaux,Saint-Mdard-en-Jalles,274,93.5,208
+France,Bordeaux,Saint-Vincent-de-Paul,17,129.66500000000002,16
+France,Bordeaux,Sardine,27,86.0,21
+France,Bordeaux,Talence,653,85.875,448
+France,Bordeaux,Toctoucau,16,186.87,16
+France,Bordeaux,Verthamon,36,93.58500000000001,30
+France,Bordeaux,Villenave-d'Ornon,340,84.75,262
+France,Lyon,1er Arrondissement,1397,115.5,801
+France,Lyon,2e Arrondissement,1156,124.83500000000001,688
+France,Lyon,3e Arrondissement,1613,97.5,923
+France,Lyon,4e Arrondissement,706,111.5,397
+France,Lyon,5e Arrondissement,894,110.065,576
+France,Lyon,6e Arrondissement,815,108.83500000000001,482
+France,Lyon,7e Arrondissement,1412,95.5,719
+France,Lyon,8e Arrondissement,742,77.5,471
+France,Lyon,9e Arrondissement,582,93.5,370
+France,Paris,Batignolles-Monceau,5128,190.21,3097
+France,Paris,Bourse,2894,273.0,2159
+France,Paris,Buttes-Chaumont,4211,152.33,2309
+France,Paris,Buttes-Montmartre,8131,166.595,4516
+France,Paris,Entrepôt,5330,198.0,3163
+France,Paris,Gobelins,2505,157.41500000000002,1462
+France,Paris,Hôtel-de-Ville,2520,260.0,1736
+France,Paris,Louvre,1862,314.0,1375
+France,Paris,Luxembourg,2400,273.375,1716
+France,Paris,Ménilmontant,4124,142.67,2220
+France,Paris,Observatoire,2803,170.425,1706
+France,Paris,Opéra,3651,233.58499999999998,2364
+France,Paris,Palais-Bourbon,2320,274.375,1586
+France,Paris,Panthéon,2619,231.67,1719
+France,Paris,Passy,4817,249.66500000000002,3272
+France,Paris,Popincourt,6899,185.0,3966
+France,Paris,Reuilly,3161,167.67,1822
+France,Paris,Temple,3511,269.0,2498
+France,Paris,Vaugirard,6224,197.48,3815
+France,Paris,Élysée,2569,327.5,1901
+Germany,Berlin,Adlershof,23,66.5,18
+Germany,Berlin,Albrechtstr.,70,88.67,49
+Germany,Berlin,Alexanderplatz,884,163.0,691
+Germany,Berlin,Alt  Treptow,100,111.5,54
+Germany,Berlin,Alt-Hohenschönhausen Süd,20,160.0,14
+Germany,Berlin,Alt-Lichtenberg,48,143.0,25
+Germany,Berlin,Altglienicke,30,74.0,25
+Germany,Berlin,Barstraße,37,98.225,28
+Germany,Berlin,Baumschulenweg,34,75.0,17
+Germany,Berlin,Biesdorf,37,77.33,27
+Germany,Berlin,Blankenburg/Heinersdorf/Märchenland,21,97.0,19
+Germany,Berlin,Blankenfelde/Niederschönhausen,48,109.0,37
+Germany,Berlin,Bohnsdorf,26,75.0,21
+Germany,Berlin,Britz,45,114.29,27
+Germany,Berlin,Brunnenstr. Nord,220,169.475,170
+Germany,Berlin,Brunnenstr. Süd,514,185.5,373
+Germany,Berlin,Buch,12,81.0,10
+Germany,Berlin,Buchholz,23,102.67,17
+Germany,Berlin,Buckow,23,139.5,22
+Germany,Berlin,Drakestr.,54,125.0,42
+Germany,Berlin,Düsseldorfer Straße,221,122.0,146
+Germany,Berlin,Frankfurter Allee Nord,247,131.0,131
+Germany,Berlin,Frankfurter Allee Süd FK,675,145.0,417
+Germany,Berlin,Friedenau,92,138.08499999999998,62
+Germany,Berlin,Friedrichsfelde Nord,34,124.0,29
+Germany,Berlin,Friedrichshagen,38,127.335,30
+Germany,Berlin,Gatow / Kladow,17,119.2,15
+Germany,Berlin,Grunewald,58,82.455,34
+Germany,Berlin,Grünau,15,158.0,13
+Germany,Berlin,Hakenfelde,13,104.25,12
+Germany,Berlin,Halensee,88,127.0,70
+Germany,Berlin,Heerstrasse,48,100.33,45
+Germany,Berlin,Heerstraße Nord,20,95.0,18
+Germany,Berlin,Helmholtzplatz,233,161.89,148
+Germany,Berlin,Johannisthal,23,102.0,16
+Germany,Berlin,Kantstraße,126,123.59,72
+Germany,Berlin,Karl-Marx-Allee-Nord,154,153.0,91
+Germany,Berlin,Karl-Marx-Allee-Süd,226,136.91,160
+Germany,Berlin,Karlshorst,67,114.81,54
+Germany,Berlin,Kaulsdorf,16,82.0,11
+Germany,Berlin,Kurfürstendamm,174,146.26,133
+Germany,Berlin,Köllnische Heide,18,118.0,12
+Germany,Berlin,Köpenick-Nord,16,88.25,14
+Germany,Berlin,Lichtenrade,20,86.33500000000001,16
+Germany,Berlin,Mahlsdorf,27,113.0,20
+Germany,Berlin,Mariendorf,32,161.6,23
+Germany,Berlin,Marienfelde,18,204.4,12
+Germany,Berlin,Marzahn-Süd,19,131.0,17
+Germany,Berlin,Mierendorffplatz,46,108.21000000000001,34
+Germany,Berlin,Moabit Ost,227,129.33,147
+Germany,Berlin,Moabit West,230,119.4,151
+Germany,Berlin,Müggelheim,22,159.75,17
+Germany,Berlin,Neu Lichtenberg,109,125.0,63
+Germany,Berlin,Neue Kantstraße,130,130.0,94
+Germany,Berlin,Neuköllner Mitte/Zentrum,296,123.0,153
+Germany,Berlin,Niederschöneweide,26,126.5,20
+Germany,Berlin,Nord 1,20,74.7,12
+Germany,Berlin,Nord 2,17,94.5,13
+Germany,Berlin,Oberschöneweide,65,88.93,41
+Germany,Berlin,Osloer Straße,135,89.0,78
+Germany,Berlin,Ost 1,28,80.75,14
+Germany,Berlin,Ost 2,40,70.83500000000001,30
+Germany,Berlin,Ostpreußendamm,32,78.33500000000001,22
+Germany,Berlin,Otto-Suhr-Allee,182,105.0,132
+Germany,Berlin,Pankow Süd,95,130.25,56
+Germany,Berlin,Pankow Zentrum,79,150.5,50
+Germany,Berlin,Parkviertel,154,82.33,83
+Germany,Berlin,Plänterwald,41,139.0,25
+Germany,Berlin,Prenzlauer Berg Nord,179,171.5,100
+Germany,Berlin,Prenzlauer Berg Nordwest,268,144.455,166
+Germany,Berlin,Prenzlauer Berg Ost,131,145.75,76
+Germany,Berlin,Prenzlauer Berg Süd,296,149.91500000000002,180
+Germany,Berlin,Prenzlauer Berg Südwest,378,192.41500000000002,260
+Germany,Berlin,Rahnsdorf/Hessenwinkel,40,123.125,38
+Germany,Berlin,Regierungsviertel,127,195.25,94
+Germany,Berlin,Reuterstraße,361,117.485,172
+Germany,Berlin,Rixdorf,272,107.0,113
+Germany,Berlin,Rudow,47,83.0,41
+Germany,Berlin,Rummelsburger Bucht,48,140.0,33
+Germany,Berlin,Schillerpromenade,235,123.5,124
+Germany,Berlin,Schloß Charlottenburg,93,76.0,75
+Germany,Berlin,Schloßstr.,47,99.5,28
+Germany,Berlin,Schmöckwitz/Karolinenhof/Rauchfangswerder,33,155.43,26
+Germany,Berlin,Schöneberg-Nord,284,112.0,201
+Germany,Berlin,Schöneberg-Süd,216,134.57,138
+Germany,Berlin,Schönholz/Wilhelmsruh/Rosenthal,24,165.65,16
+Germany,Berlin,Spandau Mitte,22,182.75,18
+Germany,Berlin,Südliche Friedrichstadt,256,148.5,177
+Germany,Berlin,Teltower Damm,34,86.0,23
+Germany,Berlin,Tempelhof,192,94.045,136
+Germany,Berlin,Tempelhofer Vorstadt,568,136.0,362
+Germany,Berlin,Tiergarten Süd,140,161.1,94
+Germany,Berlin,Volkspark Wilmersdorf,104,98.21000000000001,76
+Germany,Berlin,Wedding Zentrum,195,127.85,120
+Germany,Berlin,Weißensee,137,121.125,88
+Germany,Berlin,Weißensee Ost,16,126.5,15
+Germany,Berlin,West 2,16,113.755,14
+Germany,Berlin,West 4,15,88.5,12
+Germany,Berlin,Westend,74,121.5,57
+Germany,Berlin,Wiesbadener Straße,29,167.0,21
+Germany,Berlin,Wilhelmstadt,28,130.0,25
+Germany,Berlin,Zehlendorf  Nord,63,98.67500000000001,48
+Germany,Berlin,Zehlendorf  Südwest,40,118.4,31
+Germany,Berlin,nördliche Luisenstadt,185,123.7,112
+Germany,Berlin,südliche Luisenstadt,341,134.75,206
+Germany,Munich,Allach-Untermenzing,73,119.5,61
+Germany,Munich,Altstadt-Lehel,247,293.0,172
+Germany,Munich,Au-Haidhausen,417,170.0,209
+Germany,Munich,Aubing-Lochhausen-Langwied,160,109.8,136
+Germany,Munich,Berg am Laim,125,135.0,97
+Germany,Munich,Bogenhausen,337,150.0,211
+Germany,Munich,Feldmoching-Hasenbergl,107,114.0,74
+Germany,Munich,Hadern,72,115.0,43
+Germany,Munich,Laim,208,126.5,135
+Germany,Munich,Ludwigsvorstadt-Isarvorstadt,869,189.0,586
+Germany,Munich,Maxvorstadt,529,207.75,304
+Germany,Munich,Milbertshofen-Am Hart,236,116.0,141
+Germany,Munich,Moosach,144,121.5,100
+Germany,Munich,Neuhausen-Nymphenburg,396,142.0,244
+Germany,Munich,Obergiesing,250,126.0,147
+Germany,Munich,Pasing-Obermenzing,220,111.2,147
+Germany,Munich,Ramersdorf-Perlach,282,113.18,202
+Germany,Munich,Schwabing-Freimann,309,142.5,177
+Germany,Munich,Schwabing-West,398,150.0,233
+Germany,Munich,Schwanthalerhöhe,234,232.5,142
+Germany,Munich,Sendling,227,166.0,142
+Germany,Munich,Sendling-Westpark,234,122.5,154
+Germany,Munich,Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln,273,127.75,206
+Germany,Munich,Tudering-Riem,303,118.72,246
+Germany,Munich,Untergiesing-Harlaching,215,136.0,131
+Greece,Athens,1Ο ΝΕΚΡΟΤΑΦΕΙΟ,33,105.5,33
+Greece,Athens,ΑΓΙΟΣ ΕΛΕΥΘΕΡΙΟΣ,30,66.8,30
+Greece,Athens,ΑΓΙΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ-ΠΛΑΤΕΙΑ ΒΑΘΗΣ,967,87.0,961
+Greece,Athens,ΑΓΙΟΣ ΝΙΚΟΛΑΟΣ,71,74.0,71
+Greece,Athens,ΑΚΑΔΗΜΙΑ ΠΛΑΤΩΝΟΣ,110,82.75,109
+Greece,Athens,ΑΚΡΟΠΟΛΗ,426,143.5,424
+Greece,Athens,ΑΜΠΕΛΟΚΗΠΟΙ,446,91.0,427
+Greece,Athens,ΑΝΩ ΚΥΨΕΛΗ,133,74.5,133
+Greece,Athens,ΑΝΩ ΠΑΤΗΣΙΑ,49,82.2,49
+Greece,Athens,ΒΟΤΑΝΙΚΟΣ,109,99.07,109
+Greece,Athens,ΓΚΑΖΙ,97,119.5,96
+Greece,Athens,ΓΚΥΖΗ,101,75.25,101
+Greece,Athens,ΓΟΥΒΑ,95,101.0,95
+Greece,Athens,ΓΟΥΔΙ,265,97.5,258
+Greece,Athens,ΕΛΛΗΝΟΡΩΣΩΝ,66,93.67,61
+Greece,Athens,ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ,3074,126.0,3067
+Greece,Athens,ΖΑΠΠΕΙΟ,203,145.0,202
+Greece,Athens,ΘΗΣΕΙΟ,456,118.69999999999999,456
+Greece,Athens,ΙΛΙΣΙΑ,207,110.41499999999999,204
+Greece,Athens,ΚΕΡΑΜΕΙΚΟΣ,435,105.56,435
+Greece,Athens,ΚΟΛΟΚΥΝΘΟΥ,15,68.67,15
+Greece,Athens,ΚΟΛΩΝΑΚΙ,468,138.08,459
+Greece,Athens,ΚΟΛΩΝΟΣ,112,79.0,111
+Greece,Athens,ΚΟΥΚΑΚΙ-ΜΑΚΡΥΓΙΑΝΝΗ,1332,129.0,1318
+Greece,Athens,ΚΥΨΕΛΗ,267,80.0,265
+Greece,Athens,ΛΥΚΑΒΗΤΤΟΣ,169,119.05,164
+Greece,Athens,ΜΟΥΣΕΙΟ-ΕΞΑΡΧΕΙΑ-ΝΕΑΠΟΛΗ,1036,98.0,1021
+Greece,Athens,ΝΕΑ ΚΥΨΕΛΗ,55,69.49,55
+Greece,Athens,ΝΕΟΣ ΚΟΣΜΟΣ,1028,103.0,1021
+Greece,Athens,ΝΙΡΒΑΝΑ,170,71.0,167
+Greece,Athens,ΠΑΓΚΡΑΤΙ,546,98.47,534
+Greece,Athens,ΠΑΤΗΣΙΑ,137,68.5,136
+Greece,Athens,ΠΕΔΙΟ ΑΡΕΩΣ,103,92.64,103
+Greece,Athens,ΠΕΤΡΑΛΩΝΑ,448,93.0,446
+Greece,Athens,ΠΛΑΤΕΙΑ ΑΜΕΡΙΚΗΣ,154,76.16499999999999,152
+Greece,Athens,ΠΛΑΤΕΙΑ ΑΤΤΙΚΗΣ,520,82.75,519
+Greece,Athens,ΠΟΛΥΓΩΝΟ,22,79.43,21
+Greece,Athens,ΣΕΠΟΛΙΑ,50,78.78,50
+Greece,Athens,ΣΤΑΔΙΟ,246,105.0,235
+Greece,Athens,ΣΤΑΘΜΟΣ ΛΑΡΙΣΗΣ,65,77.6,65
+Greece,Crete,Αγίου Βασιλείου,1187,166.0,1124
+Greece,Crete,Αγίου Νικολάου,1586,158.0,1471
+Greece,Crete,Αμάριου,51,103.75,50
+Greece,Crete,Ανωγείων,34,81.0,32
+Greece,Crete,Αποκορώνου,1838,243.8,1685
+Greece,Crete,Αρχανών - Αστερουσίων,231,127.81,216
+Greece,Crete,Βιάννου,217,102.75,207
+Greece,Crete,Γαύδου,24,71.0,24
+Greece,Crete,Γόρτυνας,172,91.41499999999999,162
+Greece,Crete,Ηρακλείου,2110,100.0,1929
+Greece,Crete,Ιεράπετρας,995,119.66,946
+Greece,Crete,Καντάνου - Σέλινου,387,112.73,371
+Greece,Crete,Κισσάμου,1517,165.67,1431
+Greece,Crete,Μαλεβιζίου,1253,154.0,1173
+Greece,Crete,Μινώα Πεδιάδας,122,115.16499999999999,116
+Greece,Crete,Μυλοποτάμου,766,273.31,715
+Greece,Crete,Οροπεδίου Λασιθίου,28,104.0,24
+Greece,Crete,Πλατανιά,1390,208.0,1281
+Greece,Crete,Ρεθύμνης,3101,183.2,2885
+Greece,Crete,Σητείας,659,112.375,614
+Greece,Crete,Σφακίων,163,126.67,142
+Greece,Crete,Φαιστού,1068,146.035,1014
+Greece,Crete,Χανίων,6132,152.0,5730
+Greece,Crete,Χερσονήσου,2302,156.535,2176
+Greece,South Aegean,Άνδρου (Andros),984,166.25,896
+Greece,South Aegean,Αμοργού (Amorgos),426,126.0,396
+Greece,South Aegean,Ανάφης (Anafi),67,148.67,59
+Greece,South Aegean,Αντιπάρου (Antiparos),286,464.0,267
+Greece,South Aegean,Αστυπαλαίας (Astypalea),224,154.0,219
+Greece,South Aegean,Θήρας (Santorini),6198,200.0,5899
+Greece,South Aegean,Ιητών (Ios),436,187.0,401
+Greece,South Aegean,Κάσου (Kasos),14,102.3,14
+Greece,South Aegean,Κέας (Kea),493,296.78999999999996,464
+Greece,South Aegean,Καλυμνίων (Kalymnos),633,111.53,584
+Greece,South Aegean,Καρπάθου (Karpathos),561,152.0,519
+Greece,South Aegean,Κιμώλου (Kimolos),171,171.0,155
+Greece,South Aegean,Κω (Kos),1442,159.67,1339
+Greece,South Aegean,Κύθνου (Kythnos),470,181.815,420
+Greece,South Aegean,Λέρου (Leros),207,172.0,193
+Greece,South Aegean,Λειψών (Lipsi),51,203.5,50
+Greece,South Aegean,Μήλου (Milos),1359,258.4,1297
+Greece,South Aegean,Μεγίστης (Kastellorizo),68,194.0,65
+Greece,South Aegean,Μυκόνου (Μykonos),4014,371.0,3745
+Greece,South Aegean,Νάξου & Μικρών Κυκλάδων (Naxos & Small Cyclades),3792,185.0,3603
+Greece,South Aegean,Νισύρου (Nisyros),99,145.0,97
+Greece,South Aegean,Πάρου (Paros),3887,279.0,3626
+Greece,South Aegean,Πάτμου (Patmos),369,240.67,335
+Greece,South Aegean,Ρόδου (Rhodes),5980,187.04000000000002,5594
+Greece,South Aegean,Σίφνου (Sifnos),797,239.67,735
+Greece,South Aegean,Σερίφου (Seriphos),422,193.0,388
+Greece,South Aegean,Σικίνου (Sikinos),35,169.1,30
+Greece,South Aegean,Σύμης (Symi),287,151.11,275
+Greece,South Aegean,Σύρου - Ερμούπολης (Syros),1153,152.0,1060
+Greece,South Aegean,Τήλου (Tilos),50,132.0,41
+Greece,South Aegean,Τήνου (Tinos),1457,183.16500000000002,1348
+Greece,South Aegean,Φολεγάνδρου (Folegandros),172,193.5,164
+Greece,South Aegean,Χάλκης (Halki),72,157.58499999999998,68
+Greece,Thessaloniki,Ampelokipon – Menemeni,66,59.0,61
+Greece,Thessaloniki,Kalamaria,172,97.0,166
+Greece,Thessaloniki,Kordelio – Evosmos,45,75.5,43
+Greece,Thessaloniki,Neapolis – Sykeon,128,78.0,121
+Greece,Thessaloniki,Pavlou Mela,70,74.0,68
+Greece,Thessaloniki,Pilea – Chortiatis,76,97.5,68
+Greece,Thessaloniki,Thessaloniki,4408,74.55,4191
+Ireland,Dublin,Dn Laoghaire-Rathdown,837,193.5,662
+Ireland,Dublin,Dublin City,4786,194.0,3792
+Ireland,Dublin,Fingal,844,150.0,699
+Ireland,Dublin,South Dublin,499,110.0,425
+Italy,Bergamo,Almenno San Bartolomeo,12,149.1,10
+Italy,Bergamo,Almenno San Salvatore,18,168.34,17
+Italy,Bergamo,Alzano Lombardo,31,77.5,26
+Italy,Bergamo,Ardesio,15,116.08,15
+Italy,Bergamo,Aviatico,17,134.89,17
+Italy,Bergamo,Azzano San Paolo,38,94.25,36
+Italy,Bergamo,Bergamo,1695,120.0,1575
+Italy,Bergamo,Bossico,27,130.5,27
+Italy,Bergamo,Branzi,27,138.0,22
+Italy,Bergamo,Capriate San Gervasio,17,117.0,17
+Italy,Bergamo,Castione della Presolana,56,137.5,49
+Italy,Bergamo,Castro,26,140.25,24
+Italy,Bergamo,Cerete,12,131.5,11
+Italy,Bergamo,Clusone,57,115.36500000000001,44
+Italy,Bergamo,Colere,32,130.0,32
+Italy,Bergamo,Costa Volpino,66,136.0,62
+Italy,Bergamo,Dalmine,23,105.0,21
+Italy,Bergamo,Endine Gaiano,21,152.0,17
+Italy,Bergamo,Fonteno,40,163.5,37
+Italy,Bergamo,Foppolo,32,116.0,29
+Italy,Bergamo,Fuipiano Valle Imagna,15,114.5,15
+Italy,Bergamo,Grassobbio,34,117.0,30
+Italy,Bergamo,Gromo,18,133.0,17
+Italy,Bergamo,Lovere,128,151.58499999999998,118
+Italy,Bergamo,Monasterolo del Castello,20,115.83,19
+Italy,Bergamo,Oltre il Colle,25,83.16499999999999,22
+Italy,Bergamo,Onore,14,96.695,14
+Italy,Bergamo,Orio al Serio,38,100.5,38
+Italy,Bergamo,Osio Sotto,25,85.0,25
+Italy,Bergamo,Palazzago,18,113.29,17
+Italy,Bergamo,Parzanica,72,201.67,61
+Italy,Bergamo,Piazzatorre,11,100.1,10
+Italy,Bergamo,Ponte San Pietro,19,104.0,17
+Italy,Bergamo,Ponteranica,19,127.69,18
+Italy,Bergamo,Predore,60,206.25,55
+Italy,Bergamo,Ranzanico,35,171.5,33
+Italy,Bergamo,Riva di Solto,144,200.0,121
+Italy,Bergamo,Rogno,11,136.0,11
+Italy,Bergamo,Roncola,25,111.235,24
+Italy,Bergamo,Rota d'Imagna,30,124.835,28
+Italy,Bergamo,San Pellegrino Terme,39,111.45,38
+Italy,Bergamo,Sant'Omobono Terme,14,180.0,13
+Italy,Bergamo,Santa Brigida,12,94.125,12
+Italy,Bergamo,Sarnico,60,167.9,58
+Italy,Bergamo,Schilpario,29,131.5,28
+Italy,Bergamo,Selvino,24,146.0,21
+Italy,Bergamo,Seriate,74,107.0,73
+Italy,Bergamo,Serina,39,103.875,36
+Italy,Bergamo,Solto Collina,70,172.405,62
+Italy,Bergamo,Sorisole,13,123.5,13
+Italy,Bergamo,Sovere,14,107.75,12
+Italy,Bergamo,Spinone al Lago,11,143.0,11
+Italy,Bergamo,Stezzano,31,88.75,30
+Italy,Bergamo,Tavernola Bergamasca,42,144.0,39
+Italy,Bergamo,Trescore Balneario,16,105.0,13
+Italy,Bergamo,Treviglio,26,106.5,21
+Italy,Bergamo,Treviolo,10,95.965,10
+Italy,Bergamo,Valbondione,24,116.60499999999999,22
+Italy,Bergamo,Villa d'Alm�,11,84.55,11
+Italy,Bergamo,Villongo,12,176.16500000000002,12
+Italy,Bergamo,Vilminore di Scalve,21,123.965,20
+Italy,Bergamo,Zanica,28,91.22,22
+Italy,Bergamo,Zogno,26,89.8,25
+Italy,Bologna,Borgo Panigale - Reno,253,103.0,223
+Italy,Bologna,Navile,607,111.0,545
+Italy,Bologna,Porto - Saragozza,1620,134.0,1510
+Italy,Bologna,San Donato - San Vitale,542,113.37,495
+Italy,Bologna,Santo Stefano,1767,141.755,1626
+Italy,Bologna,Savena,159,103.0,145
+Italy,Florence,Campo di Marte,1323,137.2,1186
+Italy,Florence,Centro Storico,9873,179.64499999999998,9162
+Italy,Florence,Gavinana Galluzzo,490,134.25,443
+Italy,Florence,Isolotto Legnaia,594,131.67,553
+Italy,Florence,Rifredi,1192,127.0,1104
+Italy,Milan,ADRIANO,84,105.28,70
+Italy,Milan,AFFORI,226,108.0,205
+Italy,Milan,BAGGIO,70,105.0,66
+Italy,Milan,BANDE NERE,480,118.0,416
+Italy,Milan,BARONA,62,106.045,58
+Italy,Milan,BICOCCA,79,120.0,71
+Italy,Milan,BOVISA,202,110.5,173
+Italy,Milan,BOVISASCA,12,98.0,11
+Italy,Milan,BRERA,1069,187.0,973
+Italy,Milan,BRUZZANO,47,83.43,41
+Italy,Milan,BUENOS AIRES - VENEZIA,2081,144.0,1873
+Italy,Milan,CENTRALE,1128,140.0,1022
+Italy,Milan,CITTA' STUDI,528,123.0,451
+Italy,Milan,COMASINA,34,94.5,32
+Italy,Milan,CORSICA,277,123.8,229
+Italy,Milan,DE ANGELI - MONTE ROSA,455,138.0,398
+Italy,Milan,DERGANO,316,120.0,282
+Italy,Milan,DUOMO,1779,205.5,1630
+Italy,Milan,EX OM - MORIVIONE,172,128.0,152
+Italy,Milan,FARINI,127,126.08,113
+Italy,Milan,FIGINO,10,45.795,10
+Italy,Milan,FORZE ARMATE,88,109.0,72
+Italy,Milan,GALLARATESE,175,128.5,157
+Italy,Milan,GARIBALDI REPUBBLICA,394,168.66500000000002,348
+Italy,Milan,GHISOLFA,274,120.5,255
+Italy,Milan,GIAMBELLINO,429,112.805,374
+Italy,Milan,GRATOSOGLIO - TICINELLO,32,88.5,30
+Italy,Milan,GRECO,201,121.05,180
+Italy,Milan,GUASTALLA,620,164.0,541
+Italy,Milan,ISOLA,817,130.0,745
+Italy,Milan,LAMBRATE,115,104.25,100
+Italy,Milan,LODI - CORVETTO,572,110.0,508
+Italy,Milan,LORENTEGGIO,106,118.85,96
+Italy,Milan,LORETO,986,117.52000000000001,858
+Italy,Milan,MACIACHINI - MAGGIOLINA,386,130.0,353
+Italy,Milan,MAGENTA - S. VITTORE,528,151.95,474
+Italy,Milan,MAGGIORE - MUSOCCO,128,125.265,112
+Italy,Milan,MECENATE,163,114.0,145
+Italy,Milan,NAVIGLI,1011,137.0,922
+Italy,Milan,NIGUARDA - CA' GRANDA,161,111.2,143
+Italy,Milan,ORTOMERCATO,57,101.0,49
+Italy,Milan,PADOVA,432,106.27,359
+Italy,Milan,PAGANO,307,154.0,268
+Italy,Milan,PARCO FORLANINI - ORTICA,30,112.5,30
+Italy,Milan,PARCO LAMBRO - CIMIANO,149,108.0,115
+Italy,Milan,PARCO MONLUE' - PONTE LAMBRO,24,109.0,23
+Italy,Milan,PARCO SEMPIONE,30,171.18,27
+Italy,Milan,PORTA ROMANA,605,138.0,529
+Italy,Milan,PORTELLO,136,147.85,120
+Italy,Milan,QT 8,45,104.0,43
+Italy,Milan,QUARTO CAGNINO,66,154.5,56
+Italy,Milan,QUARTO OGGIARO,64,101.35499999999999,58
+Italy,Milan,QUINTO ROMANO,16,149.0,14
+Italy,Milan,QUINTOSOLE,14,97.67,13
+Italy,Milan,RIPAMONTI,183,112.74000000000001,166
+Italy,Milan,ROGOREDO,97,134.0,89
+Italy,Milan,RONCHETTO SUL NAVIGLIO,134,112.0,117
+Italy,Milan,S. CRISTOFORO,327,112.5,293
+Italy,Milan,S. SIRO,141,143.0,123
+Italy,Milan,SARPI,1118,135.0,1002
+Italy,Milan,SCALO ROMANA,270,111.0,233
+Italy,Milan,SELINUNTE,300,130.1,267
+Italy,Milan,STADERA,303,108.42,271
+Italy,Milan,TIBALDI,248,112.33,227
+Italy,Milan,TICINESE,961,141.1,844
+Italy,Milan,TORTONA,443,140.0,394
+Italy,Milan,TRE TORRI,20,155.5,18
+Italy,Milan,TRENNO,12,110.0,12
+Italy,Milan,TRIULZO SUPERIORE,16,97.0,14
+Italy,Milan,UMBRIA - MOLISE,340,112.0,303
+Italy,Milan,VIALE MONZA,332,109.0,293
+Italy,Milan,VIGENTINA,376,146.765,344
+Italy,Milan,VILLAPIZZONE,475,110.62,431
+Italy,Milan,WASHINGTON,447,136.5,395
+Italy,Milan,XXII MARZO,736,148.36,643
+Italy,Naples,Arenella,218,100.0,199
+Italy,Naples,Avvocata,709,100.67,673
+Italy,Naples,Bagnoli,82,100.0,75
+Italy,Naples,Barra,23,85.75999999999999,22
+Italy,Naples,Chiaia,856,131.37,786
+Italy,Naples,Chiaiano,21,92.0,21
+Italy,Naples,Fuorigrotta,238,113.4,227
+Italy,Naples,Mercato,245,98.4,237
+Italy,Naples,Montecalvario,845,110.69,785
+Italy,Naples,Pendino,1118,110.7,1061
+Italy,Naples,Pianura,10,91.5,10
+Italy,Naples,Piscinola,17,99.0,16
+Italy,Naples,Poggioreale,90,112.5,86
+Italy,Naples,Ponticelli,34,82.0,27
+Italy,Naples,Porto,666,115.0,642
+Italy,Naples,Posillipo,160,186.33499999999998,144
+Italy,Naples,San Carlo all'Arena,518,84.445,468
+Italy,Naples,San Ferdinando,1032,131.64,960
+Italy,Naples,San Giovanni a Teduccio,39,90.0,37
+Italy,Naples,San Giuseppe,668,118.84,632
+Italy,Naples,San Lorenzo,2227,97.0,2106
+Italy,Naples,San Pietro a Patierno,34,101.0,33
+Italy,Naples,Secondigliano,61,86.36500000000001,58
+Italy,Naples,Soccavo,21,95.0,21
+Italy,Naples,Stella,555,93.26,533
+Italy,Naples,Vicaria,392,88.0,383
+Italy,Naples,Vomero,443,114.4,419
+Italy,Naples,Zona Industriale,243,92.0,227
+Italy,Puglia,Acquarica del Capo,47,99.57,44
+Italy,Puglia,Acquaviva delle Fonti,35,70.0,35
+Italy,Puglia,Adelfia,36,83.0,33
+Italy,Puglia,Alberobello,493,152.0,448
+Italy,Puglia,Alessano,134,117.2,120
+Italy,Puglia,Alezio,145,122.035,138
+Italy,Puglia,Alliste,446,127.27000000000001,394
+Italy,Puglia,Altamura,170,79.64,159
+Italy,Puglia,Andrano,86,136.0,78
+Italy,Puglia,Andria,122,95.0,111
+Italy,Puglia,Apricena,13,90.0,12
+Italy,Puglia,Aradeo,72,102.16499999999999,64
+Italy,Puglia,Arnesano,27,112.74,25
+Italy,Puglia,Ascoli Satriano,15,64.0,15
+Italy,Puglia,Avetrana,75,132.215,70
+Italy,Puglia,Bari,3833,133.14,3587
+Italy,Puglia,Barletta,256,92.0,240
+Italy,Puglia,Bisceglie,267,108.67,251
+Italy,Puglia,Bitetto,26,80.0,24
+Italy,Puglia,Bitonto,101,93.935,98
+Italy,Puglia,Bitritto,17,88.0,10
+Italy,Puglia,Botrugno,15,95.18,13
+Italy,Puglia,Brindisi,526,104.0,488
+Italy,Puglia,Cagnano Varano,21,85.95,20
+Italy,Puglia,Calimera,37,105.5,33
+Italy,Puglia,Campi Salentina,36,100.71,29
+Italy,Puglia,Candela,16,145.0,15
+Italy,Puglia,Cannole,64,128.0,61
+Italy,Puglia,Canosa di Puglia,43,64.675,42
+Italy,Puglia,Caprarica di Lecce,12,144.83499999999998,12
+Italy,Puglia,Capurso,23,117.0,21
+Italy,Puglia,Carmiano,49,91.33,41
+Italy,Puglia,Carovigno,788,217.57,713
+Italy,Puglia,Carpignano Salentino,104,125.0,99
+Italy,Puglia,Casamassima,40,109.5,36
+Italy,Puglia,Casarano,144,117.0,127
+Italy,Puglia,Cassano delle Murge,65,86.73,63
+Italy,Puglia,Castellana Grotte,370,160.0,345
+Italy,Puglia,Castellaneta,131,109.52,101
+Italy,Puglia,Castri di Lecce,13,163.355,10
+Italy,Puglia,Castrignano de' Greci,25,79.5,25
+Italy,Puglia,Castrignano del Capo,586,148.75,510
+Italy,Puglia,Castro,267,134.2,236
+Italy,Puglia,Cavallino,60,109.0,55
+Italy,Puglia,Ceglie Messapica,664,183.0,607
+Italy,Puglia,Cellino San Marco,13,152.33,11
+Italy,Puglia,Cerignola,17,76.595,14
+Italy,Puglia,Cisternino,519,177.5,456
+Italy,Puglia,Collepasso,23,95.0,19
+Italy,Puglia,Conversano,334,115.225,304
+Italy,Puglia,Copertino,68,115.61,61
+Italy,Puglia,Corato,92,87.0,90
+Italy,Puglia,Corigliano d'Otranto,62,102.83500000000001,58
+Italy,Puglia,Corsano,140,149.75,129
+Italy,Puglia,Crispiano,63,99.75,60
+Italy,Puglia,Cursi,39,92.2,34
+Italy,Puglia,Cutrofiano,123,114.75,117
+Italy,Puglia,Diso,198,164.0,188
+Italy,Puglia,Fasano,826,180.0,747
+Italy,Puglia,Foggia,203,65.0,193
+Italy,Puglia,Francavilla Fontana,123,197.5,108
+Italy,Puglia,Gagliano del Capo,226,161.025,204
+Italy,Puglia,Galatina,237,114.225,214
+Italy,Puglia,Galatone,245,110.0,213
+Italy,Puglia,Gallipoli,2331,156.7,2033
+Italy,Puglia,Ginosa,127,127.33,115
+Italy,Puglia,Gioia del Colle,81,94.39,75
+Italy,Puglia,Giovinazzo,176,118.5,162
+Italy,Puglia,Giuggianello,29,103.0,27
+Italy,Puglia,Giurdignano,61,120.4,60
+Italy,Puglia,Gravina in Puglia,137,81.0,129
+Italy,Puglia,Grottaglie,101,98.44,97
+Italy,Puglia,Grumo Appula,16,80.87,15
+Italy,Puglia,Guagnano,19,159.735,18
+Italy,Puglia,Ischitella,56,86.68,48
+Italy,Puglia,Isole Tremiti,38,182.235,36
+Italy,Puglia,Laterza,27,86.0,25
+Italy,Puglia,Latiano,52,200.0,46
+Italy,Puglia,Lecce,2228,115.64,2067
+Italy,Puglia,Leporano,152,168.16,143
+Italy,Puglia,Lequile,53,102.71,51
+Italy,Puglia,Lesina,54,107.6,49
+Italy,Puglia,Leverano,131,107.0,115
+Italy,Puglia,Lizzanello,82,123.0,65
+Italy,Puglia,Lizzano,92,164.015,86
+Italy,Puglia,Locorotondo,586,172.75,538
+Italy,Puglia,Lucera,38,79.88,37
+Italy,Puglia,Maglie,114,116.0,107
+Italy,Puglia,Manduria,732,177.0,636
+Italy,Puglia,Manfredonia,208,98.33500000000001,190
+Italy,Puglia,Margherita di Savoia,136,133.595,130
+Italy,Puglia,Martano,106,116.0,94
+Italy,Puglia,Martina Franca,1050,172.215,950
+Italy,Puglia,Maruggio,403,154.75,356
+Italy,Puglia,Massafra,52,98.12,48
+Italy,Puglia,Matino,271,123.0,248
+Italy,Puglia,Mattinata,274,132.0,239
+Italy,Puglia,Melendugno,1113,134.0,917
+Italy,Puglia,Melissano,48,131.575,40
+Italy,Puglia,Melpignano,12,92.0,11
+Italy,Puglia,Mesagne,148,99.5,130
+Italy,Puglia,Miggiano,27,157.66500000000002,26
+Italy,Puglia,Minervino Murge,10,110.66499999999999,10
+Italy,Puglia,Minervino di Lecce,81,106.75,62
+Italy,Puglia,Modugno,72,91.14500000000001,68
+Italy,Puglia,Mola di Bari,238,117.0,215
+Italy,Puglia,Molfetta,183,103.0,170
+Italy,Puglia,Monopoli,1902,207.0,1713
+Italy,Puglia,Monte Sant'Angelo,140,91.5,131
+Italy,Puglia,Monteroni di Lecce,65,113.0,59
+Italy,Puglia,Montesano Salentino,18,141.6,18
+Italy,Puglia,Morciano di Leuca,393,155.1,342
+Italy,Puglia,Mottola,50,93.67,46
+Italy,Puglia,Muro Leccese,63,142.75,57
+Italy,Puglia,Nard,1428,146.0,1253
+Italy,Puglia,Neviano,46,144.0,43
+Italy,Puglia,Noci,189,135.8,173
+Italy,Puglia,Nociglia,20,125.0,19
+Italy,Puglia,Noicattaro,41,108.5,40
+Italy,Puglia,Novoli,37,80.0,29
+Italy,Puglia,Oria,90,100.33,81
+Italy,Puglia,Ortelle,77,98.875,62
+Italy,Puglia,Ostuni,2727,215.29,2401
+Italy,Puglia,Otranto,1140,157.445,926
+Italy,Puglia,Palagiano,20,91.0,20
+Italy,Puglia,Palo del Colle,25,70.0,23
+Italy,Puglia,Parabita,167,129.67,157
+Italy,Puglia,Pat,225,141.235,202
+Italy,Puglia,Peschici,387,120.0,349
+Italy,Puglia,Pietramontecorvino,21,51.35,21
+Italy,Puglia,Poggiardo,91,115.0,83
+Italy,Puglia,Polignano a Mare,1153,185.07,1071
+Italy,Puglia,Porto Cesareo,2108,166.0,1765
+Italy,Puglia,Presicce,126,117.5,115
+Italy,Puglia,Pulsano,226,139.64499999999998,200
+Italy,Puglia,Putignano,205,131.33,177
+Italy,Puglia,Racale,654,141.25,533
+Italy,Puglia,Roccaforzata,10,66.5,10
+Italy,Puglia,Rodi Garganico,101,109.73,89
+Italy,Puglia,Roseto Valfortore,16,81.64500000000001,16
+Italy,Puglia,Ruffano,80,136.135,76
+Italy,Puglia,Rutigliano,41,106.75,40
+Italy,Puglia,Ruvo di Puglia,61,80.0,61
+Italy,Puglia,Salice Salentino,35,117.0,29
+Italy,Puglia,Salve,1049,162.0,866
+Italy,Puglia,Sammichele di Bari,18,96.5,17
+Italy,Puglia,San Cassiano,22,113.715,18
+Italy,Puglia,San Cesario di Lecce,66,134.0,61
+Italy,Puglia,San Donato di Lecce,44,100.75,38
+Italy,Puglia,San Giorgio Ionico,17,120.5,16
+Italy,Puglia,San Giovanni Rotondo,71,80.5,65
+Italy,Puglia,San Michele Salentino,136,327.75,123
+Italy,Puglia,San Nicandro Garganico,24,92.11,24
+Italy,Puglia,San Pancrazio Salentino,28,92.0,26
+Italy,Puglia,San Pietro Vernotico,25,129.0,25
+Italy,Puglia,San Pietro in Lama,33,134.5,31
+Italy,Puglia,San Severo,60,81.0,57
+Italy,Puglia,San Vito dei Normanni,288,240.64499999999998,252
+Italy,Puglia,Sanarica,21,125.66499999999999,20
+Italy,Puglia,Sannicandro di Bari,49,89.65,45
+Italy,Puglia,Sannicola,257,130.0,230
+Italy,Puglia,Santa Cesarea Terme,265,120.0,224
+Italy,Puglia,Santeramo in Colle,60,95.5,58
+Italy,Puglia,Sava,48,154.2,42
+Italy,Puglia,Scorrano,36,89.52,27
+Italy,Puglia,Secl,20,121.67,19
+Italy,Puglia,Serracapriola,11,109.0,11
+Italy,Puglia,Sogliano Cavour,32,74.18,32
+Italy,Puglia,Soleto,35,88.14,31
+Italy,Puglia,Specchia,88,130.33,71
+Italy,Puglia,Spongano,73,153.5,64
+Italy,Puglia,Squinzano,107,122.14500000000001,96
+Italy,Puglia,Statte,10,99.5,10
+Italy,Puglia,Sternatia,16,97.0,15
+Italy,Puglia,Supersano,17,83.33,15
+Italy,Puglia,Surano,25,176.88,25
+Italy,Puglia,Surbo,39,94.065,36
+Italy,Puglia,Taranto,611,99.5,570
+Italy,Puglia,Taurisano,40,91.4,29
+Italy,Puglia,Taviano,637,127.0,517
+Italy,Puglia,Terlizzi,66,85.0,61
+Italy,Puglia,Tiggiano,66,162.0,59
+Italy,Puglia,Torchiarolo,98,168.0,95
+Italy,Puglia,Toritto,18,82.3,16
+Italy,Puglia,Torre Santa Susanna,19,82.5,18
+Italy,Puglia,Torremaggiore,14,75.0,11
+Italy,Puglia,Torricella,105,141.6,101
+Italy,Puglia,Trani,477,99.74000000000001,438
+Italy,Puglia,Trepuzzi,53,110.65,49
+Italy,Puglia,Tricase,287,137.0,261
+Italy,Puglia,Triggiano,23,107.0,23
+Italy,Puglia,Trinitapoli,11,74.0,11
+Italy,Puglia,Troia,12,62.5,12
+Italy,Puglia,Tuglie,143,110.0,131
+Italy,Puglia,Turi,42,115.5,40
+Italy,Puglia,Ugento,1094,146.07,869
+Italy,Puglia,Uggiano la Chiesa,205,104.3,192
+Italy,Puglia,Valenzano,22,104.35,22
+Italy,Puglia,Veglie,81,108.66499999999999,74
+Italy,Puglia,Vernole,107,107.0,97
+Italy,Puglia,Vico del Gargano,146,112.0,135
+Italy,Puglia,Vieste,736,137.0,607
+Italy,Puglia,Villa Castelli,49,120.0,46
+Italy,Puglia,Zollino,17,80.0,15
+Italy,Rome,I Centro Storico,18730,199.71,17564
+Italy,Rome,II Parioli/Nomentano,2515,149.0,2267
+Italy,Rome,III Monte Sacro,597,120.0,531
+Italy,Rome,IV Tiburtina,644,114.33,583
+Italy,Rome,IX Eur,394,122.975,364
+Italy,Rome,V Prenestino/Centocelle,1781,108.67,1599
+Italy,Rome,VI Roma delle Torri,330,103.0,298
+Italy,Rome,VII San Giovanni/Cinecittà,3151,132.0,2914
+Italy,Rome,VIII Appia Antica,1189,128.5,1081
+Italy,Rome,X Ostia/Acilia,978,128.96,903
+Italy,Rome,XI Arvalia/Portuense,751,122.22,684
+Italy,Rome,XII Monte Verde,2016,140.0,1843
+Italy,Rome,XIII Aurelia,2640,153.445,2440
+Italy,Rome,XIV Monte Mario,791,127.905,728
+Italy,Rome,XV Cassia/Flaminia,577,134.77,525
+Italy,Sicily,Acate,16,63.81,13
+Italy,Sicily,Aci Bonaccorsi,13,83.52,13
+Italy,Sicily,Aci Castello,302,121.125,284
+Italy,Sicily,Aci Catena,63,103.61500000000001,54
+Italy,Sicily,Aci Sant'Antonio,54,131.0,47
+Italy,Sicily,Acireale,557,130.0,519
+Italy,Sicily,Acquaviva Platani,14,45.45,12
+Italy,Sicily,Acquedolci,52,167.925,48
+Italy,Sicily,Adrano,33,79.88,32
+Italy,Sicily,Agira,33,86.0,32
+Italy,Sicily,Agrigento,1126,92.44,1047
+Italy,Sicily,Aidone,18,148.84,15
+Italy,Sicily,Al Terme,11,109.8,10
+Italy,Sicily,Alcamo,551,152.0,485
+Italy,Sicily,Alia,13,159.0,12
+Italy,Sicily,Altavilla Milicia,153,181.805,138
+Italy,Sicily,Aragona,29,107.5,28
+Italy,Sicily,Augusta,456,148.70999999999998,412
+Italy,Sicily,Avola,987,137.0,912
+Italy,Sicily,Bagheria,222,103.095,204
+Italy,Sicily,Balestrate,312,136.94,273
+Italy,Sicily,Barcellona Pozzo di Gotto,53,79.88,49
+Italy,Sicily,Barrafranca,12,101.5,12
+Italy,Sicily,Belpasso,70,101.0,64
+Italy,Sicily,Biancavilla,20,88.0,19
+Italy,Sicily,Bompietro,10,94.0,10
+Italy,Sicily,Borgetto,20,213.99,19
+Italy,Sicily,Brolo,29,100.97,27
+Italy,Sicily,Bronte,40,102.5,34
+Italy,Sicily,Buseto Palizzolo,51,214.25,46
+Italy,Sicily,Butera,37,82.0,35
+Italy,Sicily,Caccamo,43,82.45,40
+Italy,Sicily,Calatabiano,98,127.675,90
+Italy,Sicily,Calatafimi-Segesta,53,80.0,49
+Italy,Sicily,Caltabellotta,28,88.25999999999999,28
+Italy,Sicily,Caltagirone,177,86.0,167
+Italy,Sicily,Caltanissetta,81,68.42,71
+Italy,Sicily,Cammarata,22,76.0,22
+Italy,Sicily,Campobello di Licata,24,82.0,23
+Italy,Sicily,Campobello di Mazara,59,150.325,52
+Italy,Sicily,Campofelice di Roccella,328,167.0,299
+Italy,Sicily,Canicatt,54,58.0,52
+Italy,Sicily,Canicattini Bagni,31,92.0,28
+Italy,Sicily,Capaci,115,125.67,111
+Italy,Sicily,Capo d'Orlando,364,165.14499999999998,328
+Italy,Sicily,Capri Leone,23,92.5,21
+Italy,Sicily,Carini,371,137.0,351
+Italy,Sicily,Carlentini,48,150.5,45
+Italy,Sicily,Caronia,59,115.33,56
+Italy,Sicily,Castelbuono,116,87.15,106
+Italy,Sicily,Casteldaccia,90,126.67,85
+Italy,Sicily,Castellammare del Golfo,1723,151.75,1568
+Italy,Sicily,Castellana Sicula,12,104.0,11
+Italy,Sicily,Castelmola,97,134.55,87
+Italy,Sicily,Castelvetrano,331,151.67,285
+Italy,Sicily,Castiglione di Sicilia,84,95.67,72
+Italy,Sicily,Castronovo di Sicilia,18,56.5,18
+Italy,Sicily,Catania,4666,96.0,4367
+Italy,Sicily,Cattolica Eraclea,52,143.0,41
+Italy,Sicily,Cefal,1017,188.0,907
+Italy,Sicily,Chiaramonte Gulfi,93,138.0,78
+Italy,Sicily,Cinisi,268,120.0,235
+Italy,Sicily,Collesano,70,149.9,67
+Italy,Sicily,Comiso,62,84.025,54
+Italy,Sicily,Corleone,25,62.394999999999996,24
+Italy,Sicily,Custonaci,282,133.67,249
+Italy,Sicily,Enna,107,67.5,92
+Italy,Sicily,Erice,296,114.0,269
+Italy,Sicily,Falcone,40,114.75,36
+Italy,Sicily,Favara,93,81.0,90
+Italy,Sicily,Favignana,648,197.0,603
+Italy,Sicily,Ficarazzi,32,130.5,30
+Italy,Sicily,Ficarra,40,189.0,35
+Italy,Sicily,Fiumefreddo di Sicilia,98,109.825,88
+Italy,Sicily,Floridia,78,147.5,54
+Italy,Sicily,Forza d'Agr,46,103.61500000000001,46
+Italy,Sicily,Francavilla di Sicilia,41,80.0,33
+Italy,Sicily,Furci Siculo,24,135.0,23
+Italy,Sicily,Furnari,102,135.48,85
+Italy,Sicily,Gaggi,41,138.83499999999998,28
+Italy,Sicily,Gallodoro,12,75.0,11
+Italy,Sicily,Gangi,38,68.5,37
+Italy,Sicily,Gela,158,101.5,152
+Italy,Sicily,Giardini-Naxos,888,139.0,801
+Italy,Sicily,Giarratana,15,270.0,14
+Italy,Sicily,Giarre,203,139.0,183
+Italy,Sicily,Gibellina,10,74.86,10
+Italy,Sicily,Gioiosa Marea,157,123.13,141
+Italy,Sicily,Grammichele,22,58.25,22
+Italy,Sicily,Graniti,25,82.5,22
+Italy,Sicily,Gratteri,31,163.0,26
+Italy,Sicily,Gravina di Catania,25,64.25,20
+Italy,Sicily,Grotte,12,57.5,11
+Italy,Sicily,Isnello,17,134.0,15
+Italy,Sicily,Isola delle Femmine,219,115.83500000000001,204
+Italy,Sicily,Ispica,506,199.83499999999998,432
+Italy,Sicily,Joppolo Giancaxio,17,76.0,17
+Italy,Sicily,Lampedusa e Linosa,393,167.725,354
+Italy,Sicily,Lascari,130,138.57,120
+Italy,Sicily,Leni,50,139.35,48
+Italy,Sicily,Lentini,35,92.5,27
+Italy,Sicily,Leonforte,17,82.0,15
+Italy,Sicily,Letojanni,274,140.9,239
+Italy,Sicily,Licata,148,87.83,133
+Italy,Sicily,Linguaglossa,97,102.12,88
+Italy,Sicily,Lipari,1193,158.67,1113
+Italy,Sicily,Maletto,15,126.0,14
+Italy,Sicily,Malfa,144,189.33,135
+Italy,Sicily,Marsala,1247,109.0,1093
+Italy,Sicily,Mascali,481,123.5,425
+Italy,Sicily,Mascalucia,109,139.5,98
+Italy,Sicily,Mazara del Vallo,378,110.0,317
+Italy,Sicily,Mazzarino,49,105.5,44
+Italy,Sicily,Melilli,35,109.25,30
+Italy,Sicily,Menfi,272,176.67,245
+Italy,Sicily,Messina,485,98.64500000000001,442
+Italy,Sicily,Milazzo,435,119.82,398
+Italy,Sicily,Milo,48,103.0,47
+Italy,Sicily,Mirabella Imbaccari,14,86.1,14
+Italy,Sicily,Mirto,10,102.0,10
+Italy,Sicily,Misilmeri,14,114.17,11
+Italy,Sicily,Misterbianco,64,102.75,56
+Italy,Sicily,Mistretta,17,82.0,17
+Italy,Sicily,Modica,805,125.0,731
+Italy,Sicily,Monforte San Giorgio,13,87.5,13
+Italy,Sicily,Monreale,165,109.55,145
+Italy,Sicily,Montalbano Elicona,18,81.0,18
+Italy,Sicily,Montallegro,47,160.0,41
+Italy,Sicily,Montelepre,14,73.745,10
+Italy,Sicily,Motta Camastra,50,125.0,49
+Italy,Sicily,Motta Sant'Anastasia,11,73.0,10
+Italy,Sicily,Motta d'Affermo,10,196.5,10
+Italy,Sicily,Mussomeli,23,90.0,22
+Italy,Sicily,Naro,33,68.0,29
+Italy,Sicily,Naso,46,134.46,40
+Italy,Sicily,Nicolosi,122,102.85499999999999,110
+Italy,Sicily,Nicosia,25,78.45,23
+Italy,Sicily,Niscemi,24,82.0,17
+Italy,Sicily,Nizza di Sicilia,26,111.58500000000001,24
+Italy,Sicily,Noto,1826,160.0,1620
+Italy,Sicily,Oliveri,70,121.2,63
+Italy,Sicily,Pace del Mela,14,95.25,10
+Italy,Sicily,Paceco,69,99.06,64
+Italy,Sicily,Pachino,633,145.41,564
+Italy,Sicily,Palazzolo Acreide,100,111.0,99
+Italy,Sicily,Palermo,7810,114.5,7279
+Italy,Sicily,Palma di Montechiaro,98,104.0,89
+Italy,Sicily,Pantelleria,568,184.5,506
+Italy,Sicily,Partanna,47,91.595,40
+Italy,Sicily,Partinico,215,192.5,194
+Italy,Sicily,Patern,34,95.0,33
+Italy,Sicily,Patti,148,123.5,136
+Italy,Sicily,Pedara,67,106.19,61
+Italy,Sicily,Petralia Soprana,26,85.88499999999999,20
+Italy,Sicily,Petralia Sottana,30,123.0,26
+Italy,Sicily,Petrosino,64,100.275,58
+Italy,Sicily,Pettineo,12,127.225,12
+Italy,Sicily,Piazza Armerina,129,75.795,126
+Italy,Sicily,Piedimonte Etneo,111,138.325,98
+Italy,Sicily,Pietraperzia,23,134.5,23
+Italy,Sicily,Piraino,77,134.72,72
+Italy,Sicily,Polizzi Generosa,51,125.7,46
+Italy,Sicily,Pollina,90,126.83500000000001,84
+Italy,Sicily,Porto Empedocle,228,106.0,201
+Italy,Sicily,Portopalo di Capo Passero,178,136.39,153
+Italy,Sicily,Pozzallo,325,149.0,287
+Italy,Sicily,Prizzi,12,68.535,12
+Italy,Sicily,Racalmuto,33,160.0,33
+Italy,Sicily,Ragalna,64,116.0,59
+Italy,Sicily,Ragusa,1376,141.67,1223
+Italy,Sicily,Randazzo,58,101.5,56
+Italy,Sicily,Ravanusa,11,88.5,11
+Italy,Sicily,Realmonte,227,115.73,205
+Italy,Sicily,Reitano,29,131.41500000000002,26
+Italy,Sicily,Ribera,90,143.405,76
+Italy,Sicily,Riposto,192,123.67,179
+Italy,Sicily,Roccalumera,59,110.12,55
+Italy,Sicily,Rod Milici,15,111.43,15
+Italy,Sicily,Rometta,24,96.71,21
+Italy,Sicily,Rosolini,95,114.12,81
+Italy,Sicily,Salemi,60,98.8,59
+Italy,Sicily,Sambuca di Sicilia,62,79.88,61
+Italy,Sicily,San Cataldo,34,64.455,30
+Italy,Sicily,San Filippo del Mela,17,83.815,16
+Italy,Sicily,San Giovanni Gemini,16,53.0,16
+Italy,Sicily,San Giovanni la Punta,31,106.275,26
+Italy,Sicily,San Gregorio di Catania,36,122.195,34
+Italy,Sicily,San Marco d'Alunzio,33,88.79499999999999,32
+Italy,Sicily,San Mauro Castelverde,14,59.370000000000005,14
+Italy,Sicily,San Pietro Clarenza,12,201.70999999999998,12
+Italy,Sicily,San Vito Lo Capo,1410,178.6,1285
+Italy,Sicily,Sant'Agata di Militello,80,106.31,78
+Italy,Sicily,Sant'Agata li Battiati,16,135.0,13
+Italy,Sicily,Sant'Alessio Siculo,95,122.245,90
+Italy,Sicily,Sant'Alfio,41,125.1,40
+Italy,Sicily,Sant'Angelo di Brolo,22,80.03,19
+Italy,Sicily,Santa Cristina Gela,10,135.0,10
+Italy,Sicily,Santa Croce Camerina,274,160.79500000000002,222
+Italy,Sicily,Santa Elisabetta,11,97.0,11
+Italy,Sicily,Santa Flavia,322,136.94,303
+Italy,Sicily,Santa Margherita di Belice,15,94.0,14
+Italy,Sicily,Santa Maria di Licodia,29,125.0,29
+Italy,Sicily,Santa Marina Salina,119,220.63,103
+Italy,Sicily,Santa Ninfa,14,78.0,12
+Italy,Sicily,Santa Teresa di Riva,103,119.225,94
+Italy,Sicily,Santa Venerina,72,173.5,67
+Italy,Sicily,Santo Stefano di Camastra,71,80.0,68
+Italy,Sicily,Savoca,35,121.91499999999999,32
+Italy,Sicily,Sciacca,606,116.0,567
+Italy,Sicily,Scicli,806,155.83499999999998,716
+Italy,Sicily,Scillato,10,63.05,10
+Italy,Sicily,Siculiana,92,118.25,86
+Italy,Sicily,Siracusa,3756,134.0,3410
+Italy,Sicily,Solarino,62,118.16499999999999,52
+Italy,Sicily,Sortino,30,68.33,28
+Italy,Sicily,Spadafora,33,103.0,29
+Italy,Sicily,Taormina,1315,199.13,1225
+Italy,Sicily,Terme Vigliatore,49,175.0,45
+Italy,Sicily,Termini Imerese,101,116.0,92
+Italy,Sicily,Terrasini,401,128.38,365
+Italy,Sicily,Torregrotta,26,185.0,23
+Italy,Sicily,Torrenova,43,111.33,38
+Italy,Sicily,Torretta,27,128.4,26
+Italy,Sicily,Trabia,156,131.29500000000002,138
+Italy,Sicily,Trapani,1232,110.0,1157
+Italy,Sicily,Trappeto,171,134.55,139
+Italy,Sicily,Trecastagni,145,141.91,126
+Italy,Sicily,Tremestieri Etneo,20,160.0,19
+Italy,Sicily,Tusa,60,118.33,59
+Italy,Sicily,Ustica,113,155.5,105
+Italy,Sicily,Valderice,194,126.0,184
+Italy,Sicily,Valverde,20,105.5,19
+Italy,Sicily,Venetico,22,91.875,16
+Italy,Sicily,Viagrande,71,163.5,66
+Italy,Sicily,Villafranca Tirrena,20,103.0,17
+Italy,Sicily,Vittoria,159,114.28999999999999,138
+Italy,Sicily,Zafferana Etnea,117,112.9,108
+Italy,Venice,Aeroporto,11,141.0,11
+Italy,Venice,Alberoni,61,137.0,33
+Italy,Venice,Altobello,38,134.09,29
+Italy,Venice,Bissuola,58,139.9,49
+Italy,Venice,Burano,39,171.0,38
+Italy,Venice,Campalto,20,137.0,19
+Italy,Venice,Campalto Gobbi,10,96.0,10
+Italy,Venice,Cannaregio,1566,217.0,1438
+Italy,Venice,Carpenedo,86,118.5,78
+Italy,Venice,Castello,1583,222.0,1492
+Italy,Venice,Chirignago,18,103.0,17
+Italy,Venice,Cipressina,14,115.7,14
+Italy,Venice,Dorsoduro,636,258.25,602
+Italy,Venice,Favaro,61,108.0,55
+Italy,Venice,Gazzera,13,128.5,12
+Italy,Venice,Giudecca,165,209.0,150
+Italy,Venice,La Favorita,10,126.575,10
+Italy,Venice,Lido,334,225.0,303
+Italy,Venice,Malamocco,12,208.5,11
+Italy,Venice,Malcontenta,15,86.16,15
+Italy,Venice,Marghera,191,114.31,182
+Italy,Venice,Marghera Catene,34,101.0,33
+Italy,Venice,Marghera Zona Industriale,12,112.78,12
+Italy,Venice,Murano,100,182.59,95
+Italy,Venice,Pellestrina,39,160.5,38
+Italy,Venice,Piave 1860,952,98.0,883
+Italy,Venice,San Lorenzo XXV Aprile,231,132.38,219
+Italy,Venice,San Marco,960,282.985,904
+Italy,Venice,San Polo,617,250.0,592
+Italy,Venice,Sant'Elena,51,192.25,48
+Italy,Venice,Santa Barbara,35,119.34,32
+Italy,Venice,Santa Croce,602,228.5,571
+Italy,Venice,Tessera,39,142.5,38
+Italy,Venice,Villaggio San Marco,32,163.885,30
+Italy,Venice,Zelarino,13,109.0,13
+Italy,Venice,Zona Commerciale via Torino,34,163.5,33
+Latvia,Riga,Avoti,503,74.0,446
+Latvia,Riga,BieriÅi,20,104.0,20
+Latvia,Riga,Brasa,88,69.0,75
+Latvia,Riga,Centrs,1207,88.25,1104
+Latvia,Riga,Dzirciems,14,61.0,12
+Latvia,Riga,GrÄ«ziÅkalns,175,57.0,145
+Latvia,Riga,Imanta,32,113.67,29
+Latvia,Riga,Maskavas forÅ¡tate,158,63.91,141
+Latvia,Riga,MÄ«lgrÄvis,12,87.0,11
+Latvia,Riga,PleskodÄle,50,64.0,45
+Latvia,Riga,Purvciems,45,81.0,43
+Latvia,Riga,PÄtersala-Andrejsala,38,79.0,34
+Latvia,Riga,Sarkandaugava,15,48.5,11
+Latvia,Riga,Skanste,12,94.0,11
+Latvia,Riga,Teika,66,60.0,60
+Latvia,Riga,TorÅakalns,64,63.0,59
+Latvia,Riga,VecmÄ«lgrÄvis,10,59.175,10
+Latvia,Riga,VecpilsÄta,665,97.93,630
+Latvia,Riga,VecÄÄ·i,16,125.165,16
+Latvia,Riga,Ziepniekkalns,21,85.0,18
+Latvia,Riga,ZolitÅ«de,16,83.0,11
+Latvia,Riga,Ägenskalns,114,75.0,105
+Latvia,Riga,Ä¶engarags,13,64.75,12
+Latvia,Riga,Ä¶Ä«psala,17,92.5,16
+Netherlands,Amsterdam,Bijlmer-Centrum,62,160.0,47
+Netherlands,Amsterdam,Bijlmer-Oost,39,120.305,24
+Netherlands,Amsterdam,Bos en Lommer,546,265.0,257
+Netherlands,Amsterdam,Buitenveldert - Zuidas,119,239.8,87
+Netherlands,Amsterdam,Centrum-Oost,921,287.78999999999996,666
+Netherlands,Amsterdam,Centrum-West,1191,297.52,851
+Netherlands,Amsterdam,De Aker - Nieuw Sloten,71,209.175,46
+Netherlands,Amsterdam,De Baarsjes - Oud-West,1818,330.49,1066
+Netherlands,Amsterdam,De Pijp - Rivierenbuurt,1195,335.555,696
+Netherlands,Amsterdam,Gaasperdam - Driemond,54,162.2,33
+Netherlands,Amsterdam,Geuzenveld - Slotermeer,141,232.75,94
+Netherlands,Amsterdam,IJburg - Zeeburgereiland,187,286.875,116
+Netherlands,Amsterdam,Noord-Oost,179,266.025,124
+Netherlands,Amsterdam,Noord-West,312,258.67,205
+Netherlands,Amsterdam,Oostelijk Havengebied - Indische Buurt,411,262.4,231
+Netherlands,Amsterdam,Osdorp,59,152.75,40
+Netherlands,Amsterdam,Oud-Noord,474,265.275,278
+Netherlands,Amsterdam,Oud-Oost,664,277.0,383
+Netherlands,Amsterdam,Slotervaart,219,238.625,118
+Netherlands,Amsterdam,Watergraafsmeer,296,285.56,178
+Netherlands,Amsterdam,Westerpark,717,287.5,402
+Netherlands,Amsterdam,Zuid,694,334.0,435
+Netherlands,Rotterdam,Agniesebuurt,17,105.315,16
+Netherlands,Rotterdam,Bergpolder,61,146.0,33
+Netherlands,Rotterdam,Blijdorp,68,185.5,35
+Netherlands,Rotterdam,Cool,90,181.82,82
+Netherlands,Rotterdam,Cs Kwartier,27,81.0,25
+Netherlands,Rotterdam,Delfshaven,21,200.0,13
+Netherlands,Rotterdam,Dijkzigt,13,205.5,11
+Netherlands,Rotterdam,Groot IJsselmonde,11,221.0,11
+Netherlands,Rotterdam,Hillegersberg Zuid,34,185.0,25
+Netherlands,Rotterdam,Katendrecht,15,130.0,12
+Netherlands,Rotterdam,Kop van Zuid,14,227.0,11
+Netherlands,Rotterdam,Kop van Zuid - Entrepot,40,107.18,37
+Netherlands,Rotterdam,Kralingen Oost,20,236.83,10
+Netherlands,Rotterdam,Kralingen West,41,195.26,34
+Netherlands,Rotterdam,Liskwartier,20,152.35500000000002,16
+Netherlands,Rotterdam,Middelland,83,148.0,62
+Netherlands,Rotterdam,Molenlaankwartier,15,178.93,10
+Netherlands,Rotterdam,Nieuwe Werk,22,302.75,20
+Netherlands,Rotterdam,Nieuwe Westen,78,178.5,58
+Netherlands,Rotterdam,Oosterflank,12,85.13499999999999,10
+Netherlands,Rotterdam,Oud Charlois,25,142.5,15
+Netherlands,Rotterdam,Oud Mathenesse,12,83.25,10
+Netherlands,Rotterdam,Oude Noorden,56,180.0,32
+Netherlands,Rotterdam,Oude Westen,60,113.0,51
+Netherlands,Rotterdam,Provenierswijk,37,218.0,25
+Netherlands,Rotterdam,Rubroek,16,201.0,12
+Netherlands,Rotterdam,Schiemond,14,138.0,11
+Netherlands,Rotterdam,Stadsdriehoek,108,191.5,84
+Netherlands,Rotterdam,Strand en Duin,25,187.535,22
+Netherlands,Rotterdam,Struisenburg,22,124.68,16
+Netherlands,Rotterdam,Tarwewijk,32,110.5,26
+Netherlands,The Hague,Archipelbuurt,30,298.87,22
+Netherlands,The Hague,Belgisch Park,82,269.92,62
+Netherlands,The Hague,Bezuidenhout-Midden,17,260.0,14
+Netherlands,The Hague,Bezuidenhout-Oost,29,171.275,18
+Netherlands,The Hague,Bloemenbuurt-Oost,18,266.75,14
+Netherlands,The Hague,Bomenbuurt,25,192.75,18
+Netherlands,The Hague,Duindorp,14,198.0,13
+Netherlands,The Hague,Geuzenkwartier,31,211.055,20
+Netherlands,The Hague,Haagse Bos,19,356.5,19
+Netherlands,The Hague,Heesterbuurt,20,199.96,15
+Netherlands,The Hague,Huygenspark,34,165.0,32
+Netherlands,The Hague,Koningsplein en omgeving,53,254.16500000000002,38
+Netherlands,The Hague,Kortenbos,56,138.0,47
+Netherlands,The Hague,Kraayenstein en Vroondaal,14,308.0,11
+Netherlands,The Hague,Ockenburgh,37,242.67,29
+Netherlands,The Hague,Oud Scheveningen,54,232.87,43
+Netherlands,The Hague,Rijslag,41,165.5,31
+Netherlands,The Hague,Rivierenbuurt-Noord,18,160.75,16
+Netherlands,The Hague,Scheveningen Badplaats,170,220.5,133
+Netherlands,The Hague,Statenkwartier,50,301.63,40
+Netherlands,The Hague,Sweelinckplein en omgeving,33,270.83500000000004,24
+Netherlands,The Hague,Valkenboskwartier,50,224.5,31
+Netherlands,The Hague,Visserijbuurt,47,232.76999999999998,34
+Netherlands,The Hague,Vissershaven,51,359.0,41
+Netherlands,The Hague,Vogelwijk,61,325.53499999999997,54
+Netherlands,The Hague,Voorhout,22,162.72,21
+Netherlands,The Hague,Vruchtenbuurt,18,226.0,13
+Netherlands,The Hague,Willemspark,26,198.25,26
+Netherlands,The Hague,Zeeheldenkwartier,57,229.33,43
+Netherlands,The Hague,Zuidwal,59,169.0,39
+Norway,Oslo,Alna,280,1255.5,207
+Norway,Oslo,Bjerke,334,1466.5,247
+Norway,Oslo,Frogner,1879,2102.75,1438
+Norway,Oslo,Gamle Oslo,2486,1874.88,1805
+Norway,Oslo,Grorud,95,1177.115,70
+Norway,Oslo,Grünerløkka,2551,1724.745,1798
+Norway,Oslo,Marka,62,1833.14,47
+Norway,Oslo,Nordre Aker,520,1816.4699999999998,392
+Norway,Oslo,Nordstrand,641,2641.165,494
+Norway,Oslo,Sagene,1465,1586.13,992
+Norway,Oslo,Sentrum,189,2221.0,167
+Norway,Oslo,St. Hanshaugen,1553,1826.0,1133
+Norway,Oslo,Stovner,53,1226.78,46
+Norway,Oslo,Søndre Nordstrand,149,1369.6,119
+Norway,Oslo,Ullern,372,1997.33,281
+Norway,Oslo,Vestre Aker,408,2139.08,318
+Norway,Oslo,Østensjø,354,1655.0,287
+Portugal,Lisbon,A dos Cunhados e Maceira,154,133.0,136
+Portugal,Lisbon,Abrigada e Cabanas de Torres,12,206.0,10
+Portugal,Lisbon,Agualva e Mira-Sintra,28,63.91,25
+Portugal,Lisbon,Ajuda,244,115.66,219
+Portugal,Lisbon,Alcabideche,191,154.5,171
+Portugal,Lisbon,Alcntara,285,124.0,253
+Portugal,Lisbon,Alenquer (Santo Estvo e Triana),43,166.16500000000002,36
+Portugal,Lisbon,Alfragide,13,124.86,11
+Portugal,Lisbon,"Algs, Linda-a-Velha e Cruz Quebrada-Dafundo",147,129.62,132
+Portugal,Lisbon,Algueiro-Mem Martins,51,77.3,44
+Portugal,Lisbon,"Almargem do Bispo, Pro Pinheiro e Montelavar",29,113.5,28
+Portugal,Lisbon,Alvalade,258,112.0,211
+Portugal,Lisbon,Alverca do Ribatejo e Sobralinho,14,125.8,13
+Portugal,Lisbon,Areeiro,466,80.0,395
+Portugal,Lisbon,Arroios,2154,103.0,1969
+Portugal,Lisbon,Avenidas Novas,863,82.3,743
+Portugal,Lisbon,Azueira e Sobral da Abelheira,20,156.0,18
+Portugal,Lisbon,Barcarena,20,140.0,19
+Portugal,Lisbon,Beato,131,93.305,122
+Portugal,Lisbon,Belm,281,140.16500000000002,258
+Portugal,Lisbon,Benfica,81,112.945,72
+Portugal,Lisbon,Cacm e So Marcos,21,96.16499999999999,14
+Portugal,Lisbon,Cadaval e Pro Moniz,18,219.54000000000002,10
+Portugal,Lisbon,"Camarate, Unhos e Apelao",18,75.32,15
+Portugal,Lisbon,Campo de Ourique,473,124.16,429
+Portugal,Lisbon,Campolide,313,115.0,277
+Portugal,Lisbon,Carcavelos e Parede,445,138.51999999999998,408
+Portugal,Lisbon,Carnaxide e Queijas,25,151.0,19
+Portugal,Lisbon,Carnide,33,114.33,27
+Portugal,Lisbon,Carregado e Cadafais,16,156.75,14
+Portugal,Lisbon,Carvoeira,113,150.0,101
+Portugal,Lisbon,Cascais e Estoril,1629,188.07,1473
+Portugal,Lisbon,Colares,487,205.33,447
+Portugal,Lisbon,Dois Portos e Runa,18,225.0,17
+Portugal,Lisbon,Encarnao,55,187.0,44
+Portugal,Lisbon,Encosta do Sol,34,78.0,31
+Portugal,Lisbon,"Enxara do Bispo, Gradil e Vila Franca do Rosrio",22,122.0,19
+Portugal,Lisbon,Ericeira,736,162.0,661
+Portugal,Lisbon,Estrela,974,132.62,894
+Portugal,Lisbon,Falagueira-Venda Nova,26,58.5,22
+Portugal,Lisbon,Igreja Nova e Cheleiros,18,166.57,16
+Portugal,Lisbon,Lamas e Cercal,23,94.5,22
+Portugal,Lisbon,Loures,29,94.0,27
+Portugal,Lisbon,Lourinh e Atalaia,364,151.43,331
+Portugal,Lisbon,Lumiar,138,102.5,117
+Portugal,Lisbon,Mafra,66,164.0,58
+Portugal,Lisbon,Marvila,106,112.4,87
+Portugal,Lisbon,Massam e Monte Abrao,49,106.945,44
+Portugal,Lisbon,Mina de gua,58,90.86,49
+Portugal,Lisbon,Misericrdia,2588,152.33,2418
+Portugal,Lisbon,Moscavide e Portela,111,99.86,99
+Portugal,Lisbon,Odivelas,78,119.91499999999999,68
+Portugal,Lisbon,"Oeiras e S.Julio da Barra, Pao de Arcos e Caxias",272,142.83499999999998,232
+Portugal,Lisbon,Olivais,197,92.0,174
+Portugal,Lisbon,Parque das Naes,335,153.75,288
+Portugal,Lisbon,Penha de Frana,640,99.10499999999999,564
+Portugal,Lisbon,Pontinha e Fames,33,47.93,29
+Portugal,Lisbon,Porto Salvo,12,109.0,10
+Portugal,Lisbon,Pvoa de Santa Iria e Forte da Casa,14,137.25,12
+Portugal,Lisbon,Pvoa de Santo Adrio e Olival de Basto,35,86.91499999999999,32
+Portugal,Lisbon,Queluz e Belas,61,112.5,53
+Portugal,Lisbon,Ramada e Caneas,23,62.5,22
+Portugal,Lisbon,Reguengo Grande,28,177.0,24
+Portugal,Lisbon,Ribafria e Pereiro de Palhacana,12,104.67,11
+Portugal,Lisbon,Ribamar,46,214.745,40
+Portugal,Lisbon,Rio de Mouro,52,93.5,45
+Portugal,Lisbon,"S.Maria, S.Miguel, S.Martinho, S.Pedro Penaferrim",655,132.0,609
+Portugal,Lisbon,"S.Pedro e Santiago, S.Maria e S.Miguel, e Mataces",38,92.5,36
+Portugal,Lisbon,Sacavm e Prior Velho,60,98.0,55
+Portugal,Lisbon,Santa Brbara,35,250.0,35
+Portugal,Lisbon,Santa Clara,37,64.5,34
+Portugal,Lisbon,"Santa Iria de Azoia, So Joo da Talha e Bobadela",40,119.5,38
+Portugal,Lisbon,Santa Maria Maior,3572,152.51999999999998,3360
+Portugal,Lisbon,Santo Antnio,1486,149.0,1375
+Portugal,Lisbon,Santo Antnio dos Cavaleiros e Frielas,37,106.0,33
+Portugal,Lisbon,Santo Isidoro,244,144.0,223
+Portugal,Lisbon,Santo Quintino,14,123.735,14
+Portugal,Lisbon,Silveira,132,130.33,126
+Portugal,Lisbon,So Bartolomeu dos Galegos e Moledo,44,95.5,43
+Portugal,Lisbon,So Domingos de Benfica,159,122.0,136
+Portugal,Lisbon,So Domingos de Rana,94,115.6,85
+Portugal,Lisbon,So Joo das Lampas e Terrugem,185,147.33,173
+Portugal,Lisbon,So Pedro da Cadeira,44,132.70999999999998,40
+Portugal,Lisbon,So Vicente,1250,127.33,1153
+Portugal,Lisbon,Venteira,83,68.5,77
+Portugal,Lisbon,Ventosa,11,164.4,11
+Portugal,Lisbon,Vila Franca de Xira,43,70.5,40
+Portugal,Lisbon,Vila Verde dos Francos,16,142.5,15
+Portugal,Lisbon,guas Livres,65,83.0,61
+Portugal,Porto,"AVer-o-Mar, Amorim e Terroso",71,125.0,65
+Portugal,Porto,Aguiar de Sousa,10,131.5,10
+Portugal,Porto,Aguçadoura e Navais,17,149.0,17
+Portugal,Porto,"Aldoar, Foz do Douro e Nevogilde",275,145.0,249
+Portugal,Porto,Alvarenga,30,150.5,30
+Portugal,Porto,Anta e Guetim,20,124.5,19
+Portugal,Porto,Arcozelo,82,143.0,74
+Portugal,Porto,Arouca e Burgo,47,105.5,44
+Portugal,Porto,Arões,15,141.0,15
+Portugal,Porto,Azurara,34,145.5,32
+Portugal,Porto,Bonfim,1549,105.24000000000001,1394
+Portugal,Porto,Campanhã,261,106.0,229
+Portugal,Porto,"Canedo, Vale e Vila Maior",14,188.44,12
+Portugal,Porto,Canelas e Espiunca,11,169.04500000000002,10
+Portugal,Porto,Canidelo,160,176.44,142
+Portugal,Porto,Castêlo da Maia,13,96.17,13
+Portugal,Porto,"Cedofeita, Ildefonso, Sé, Miragaia, Nicolau, Vitória",7706,119.0,6914
+Portugal,Porto,Cete,10,108.7,10
+Portugal,Porto,Cidade da Maia,33,106.5,31
+Portugal,Porto,"Custóias, Leça do Balio e Guifões",25,103.66499999999999,22
+Portugal,Porto,Ermesinde,11,88.24000000000001,10
+Portugal,Porto,Espinho,131,119.0,126
+Portugal,Porto,Foz do Sousa e Covelo,24,182.5,19
+Portugal,Porto,Fânzeres e São Pedro da Cova,12,78.5,10
+Portugal,Porto,"Gondomar (São Cosme), Valbom e Jovim",47,154.5,39
+Portugal,Porto,Grijó e Sermonde,11,107.5,10
+Portugal,Porto,Gulpilhares e Valadares,58,142.625,50
+Portugal,Porto,Labruge,30,114.5,30
+Portugal,Porto,"Lobão, Gião, Louredo e Guisande",12,92.875,10
+Portugal,Porto,Lordelo do Ouro e Massarelos,588,116.33,531
+Portugal,Porto,Macieira da Maia,17,55.0,17
+Portugal,Porto,Macieira de Cambra,10,103.0,10
+Portugal,Porto,Madalena,55,143.55,48
+Portugal,Porto,Mafamude e Vilar do Paraíso,306,86.0,269
+Portugal,Porto,Matosinhos e Leça da Palmeira,472,132.0,416
+Portugal,Porto,Melres e Medas,25,200.0,23
+Portugal,Porto,Mindelo,31,132.5,27
+Portugal,Porto,Monte Córdova,12,192.43,10
+Portugal,Porto,Moreira,44,86.0,43
+Portugal,Porto,Nogueira e Silva Escura,13,83.0,11
+Portugal,Porto,"O. Azeméis, Riba-Ul, Ul, Macinhata da Seixa, Madail",16,66.19,13
+Portugal,Porto,Oliveira do Douro,55,147.34,52
+Portugal,Porto,Parada de Todeia,16,159.39499999999998,16
+Portugal,Porto,Paranhos,519,86.0,457
+Portugal,Porto,Paredes,20,98.6,17
+Portugal,Porto,Pedroso e Seixezelo,10,211.58499999999998,10
+Portugal,Porto,"Perafita, Lavra e Santa Cruz do Bispo",71,137.0,61
+Portugal,Porto,"Póvoa de Varzim, Beiriz e Argivai",226,120.47999999999999,198
+Portugal,Porto,Ramalde,160,102.735,134
+Portugal,Porto,Rio Tinto,42,105.66499999999999,36
+Portugal,Porto,Roge,13,98.0,12
+Portugal,Porto,Romariz,10,80.0,10
+Portugal,Porto,"Sandim, Olival, Lever e Crestuma",28,190.0,26
+Portugal,Porto,"Santa Maria da Feira, Travanca, Sanfins e Espargo",22,100.0,19
+Portugal,Porto,Santa Marinha e São Pedro da Afurada,807,127.0,717
+Portugal,Porto,Silvalde,18,86.5,17
+Portugal,Porto,"St. Tirso, Couto (S. Cristina e S. Miguel) e Burgães",12,112.67,11
+Portugal,Porto,São Félix da Marinha,49,138.25,40
+Portugal,Porto,São João da Madeira,48,71.0,40
+Portugal,Porto,São Mamede de Infesta e Senhora da Hora,128,94.25,110
+Portugal,Porto,São Pedro de Castelões,14,189.54500000000002,14
+Portugal,Porto,Touguinha e Touguinhó,13,70.8,10
+Portugal,Porto,Urrô,12,126.0,11
+Portugal,Porto,Valongo,13,143.0,11
+Portugal,Porto,Vila Chã,28,170.0,25
+Portugal,Porto,Vila Nova do Campo,13,194.0,13
+Portugal,Porto,Vila do Conde,218,110.05,202
+Portugal,Porto,Vilar de Andorinho,15,109.0,13
+Portugal,Porto,Árvore,34,126.875,32
+Spain,Barcelona,Can Baró,34,158.5,27
+Spain,Barcelona,Diagonal Mar i el Front Marítim del Poblenou,119,325.0,104
+Spain,Barcelona,Hostafrancs,176,206.0,153
+Spain,Barcelona,Navas,61,82.25,45
+Spain,Barcelona,Pedralbes,28,149.0,24
+Spain,Barcelona,Porta,18,69.59,14
+Spain,Barcelona,Provençals del Poblenou,84,170.5,69
+Spain,Barcelona,Sant Andreu,73,64.27,64
+Spain,Barcelona,Sant Antoni,846,222.625,748
+Spain,Barcelona,Sant Gervasi - Galvany,448,163.19,406
+Spain,Barcelona,Sant Gervasi - la Bonanova,84,126.69,73
+Spain,Barcelona,Sant Martí de Provençals,35,66.26,31
+Spain,Barcelona,"Sant Pere, Santa Caterina i la Ribera",925,141.0,799
+Spain,Barcelona,Sants,266,182.225,238
+Spain,Barcelona,Sants - Badal,149,108.015,118
+Spain,Barcelona,Sarrià,67,121.82,54
+Spain,Barcelona,Vallcarca i els Penitents,77,109.09,66
+Spain,Barcelona,"Vallvidrera, el Tibidabo i les Planes",30,122.58000000000001,24
+Spain,Barcelona,Vilapicina i la Torre Llobeta,79,107.28,74
+Spain,Barcelona,el Baix Guinardó,89,167.74,69
+Spain,Barcelona,el Barri Gòtic,881,133.995,758
+Spain,Barcelona,el Besòs i el Maresme,100,152.20999999999998,80
+Spain,Barcelona,el Camp d'en Grassot i Gràcia Nova,257,193.20499999999998,220
+Spain,Barcelona,el Camp de l'Arpa del Clot,258,182.3,226
+Spain,Barcelona,el Carmel,64,83.6,58
+Spain,Barcelona,el Clot,80,96.75,62
+Spain,Barcelona,el Coll,27,131.0,25
+Spain,Barcelona,el Congrés i els Indians,41,85.34,34
+Spain,Barcelona,el Fort Pienc,424,247.5,373
+Spain,Barcelona,el Guinardó,102,120.0,81
+Spain,Barcelona,el Parc i la Llacuna del Poblenou,161,223.0,137
+Spain,Barcelona,el Poble Sec,650,206.0,587
+Spain,Barcelona,el Poblenou,437,219.0,379
+Spain,Barcelona,el Putxet i el Farró,203,147.5,174
+Spain,Barcelona,el Raval,1031,99.285,874
+Spain,Barcelona,el Turó de la Peira,15,22.33,11
+Spain,Barcelona,l'Antiga Esquerra de l'Eixample,850,200.0,745
+Spain,Barcelona,la Barceloneta,410,88.96,357
+Spain,Barcelona,la Bordeta,72,140.75,59
+Spain,Barcelona,la Dreta de l'Eixample,2145,234.0,1943
+Spain,Barcelona,la Font d'en Fargues,22,47.86,19
+Spain,Barcelona,la Font de la Guatlla,70,171.0,65
+Spain,Barcelona,la Guineueta,13,64.985,10
+Spain,Barcelona,la Marina de Port,62,64.1,53
+Spain,Barcelona,la Maternitat i Sant Ramon,70,160.78,59
+Spain,Barcelona,la Nova Esquerra de l'Eixample,660,214.91500000000002,580
+Spain,Barcelona,la Prosperitat,16,47.85,12
+Spain,Barcelona,la Sagrada Família,910,248.5,805
+Spain,Barcelona,la Sagrera,39,80.0,33
+Spain,Barcelona,la Salut,81,125.75,63
+Spain,Barcelona,la Teixonera,13,65.05,12
+Spain,Barcelona,la Verneda i la Pau,27,58.0,24
+Spain,Barcelona,la Vila Olímpica del Poblenou,135,272.46,123
+Spain,Barcelona,la Vila de Gràcia,924,198.4,823
+Spain,Barcelona,les Corts,229,177.32,189
+Spain,Barcelona,les Roquetes,13,70.0,13
+Spain,Barcelona,les Tres Torres,56,176.84500000000003,48
+Spain,Euskadi,Aia,29,256.5,26
+Spain,Euskadi,Astigarraga,17,161.0,14
+Spain,Euskadi,Azpeitia,20,147.0,19
+Spain,Euskadi,Bakio,65,208.815,56
+Spain,Euskadi,Barakaldo,87,151.75,80
+Spain,Euskadi,Barrika,23,259.0,19
+Spain,Euskadi,Basauri,24,162.0,21
+Spain,Euskadi,Berango,18,150.45,16
+Spain,Euskadi,Bermeo,187,160.0,178
+Spain,Euskadi,Berriatua,19,126.0,19
+Spain,Euskadi,Bilbao,1599,168.0,1492
+Spain,Euskadi,Busturia,31,276.41499999999996,22
+Spain,Euskadi,Deba,35,126.0,23
+Spain,Euskadi,Donostia-San SebastiÃ¡n,1612,331.0,1415
+Spain,Euskadi,Durango,15,142.0,14
+Spain,Euskadi,Ea,23,259.0,23
+Spain,Euskadi,Elantxobe,12,195.0,12
+Spain,Euskadi,Elgoibar,17,126.0,17
+Spain,Euskadi,Elorrio,13,100.0,13
+Spain,Euskadi,Erandio,21,149.0,19
+Spain,Euskadi,Errenteria,20,197.5,19
+Spain,Euskadi,Galdakao,10,80.75,10
+Spain,Euskadi,Gatika,15,297.0,15
+Spain,Euskadi,Gautegiz Arteaga,45,241.67,43
+Spain,Euskadi,Gernika-Lumo,49,145.0,47
+Spain,Euskadi,Getaria,50,218.0,45
+Spain,Euskadi,Getxo,134,213.33,127
+Spain,Euskadi,Gorliz,35,187.75,32
+Spain,Euskadi,Hernani,14,154.5,14
+Spain,Euskadi,Hondarribia,136,240.0,115
+Spain,Euskadi,Ibarrangelu,31,205.5,31
+Spain,Euskadi,Irun,55,172.25,51
+Spain,Euskadi,Ispaster,16,140.0,15
+Spain,Euskadi,Kanpezu,10,115.5,10
+Spain,Euskadi,Karrantza Harana,24,115.0,23
+Spain,Euskadi,Labastida,14,144.0,12
+Spain,Euskadi,Laguardia,43,199.5,40
+Spain,Euskadi,Lasarte-Oria,29,156.0,28
+Spain,Euskadi,Laukiz,20,200.0,13
+Spain,Euskadi,Leioa,19,223.8,19
+Spain,Euskadi,Lekeitio,65,185.41500000000002,60
+Spain,Euskadi,Lemoiz,23,222.0,22
+Spain,Euskadi,Markina-Xemein,33,121.045,32
+Spain,Euskadi,Mendexa,17,250.0,17
+Spain,Euskadi,Mundaka,74,200.0,73
+Spain,Euskadi,Mungai,41,212.0,37
+Spain,Euskadi,Mutriku,34,191.08499999999998,22
+Spain,Euskadi,Muxika,11,137.0,11
+Spain,Euskadi,Oiartzun,32,102.0,32
+Spain,Euskadi,Ondarroa,23,202.5,19
+Spain,Euskadi,Orio,42,199.71,33
+Spain,Euskadi,Ormaiztegi,14,127.0,11
+Spain,Euskadi,Ortuella,11,106.23,10
+Spain,Euskadi,Plentzia,33,184.16500000000002,30
+Spain,Euskadi,Portugalete,33,146.42,31
+Spain,Euskadi,Ribera Alta,11,53.855000000000004,10
+Spain,Euskadi,Samaniego,14,124.66499999999999,14
+Spain,Euskadi,Santurtzi,19,122.0,19
+Spain,Euskadi,Segura,12,116.0,12
+Spain,Euskadi,Sestao,17,117.75,16
+Spain,Euskadi,Sondika,20,127.5,19
+Spain,Euskadi,Sopelana,70,197.8,61
+Spain,Euskadi,Sukarrieta,15,184.0,14
+Spain,Euskadi,UrduÃ±a-OrduÃ±a,14,126.15,14
+Spain,Euskadi,ValdegovÃ­a,10,119.58500000000001,10
+Spain,Euskadi,Vitoria-Gasteiz,176,132.5,164
+Spain,Euskadi,Zarautz,176,271.5,149
+Spain,Euskadi,Zumaia,31,211.5,29
+Spain,Girona,Albons,25,268.0,21
+Spain,Girona,Alp,130,196.0,119
+Spain,Girona,Amer,17,166.0,16
+Spain,Girona,Anglès,18,118.1,18
+Spain,Girona,Arbúcies,46,173.25,42
+Spain,Girona,Banyoles,73,175.16500000000002,64
+Spain,Girona,Begur,931,376.5,706
+Spain,Girona,Bellcaire d'Empordà,21,236.14,17
+Spain,Girona,Besalú,51,143.0,48
+Spain,Girona,Blanes,518,201.0,425
+Spain,Girona,Bolvir,14,244.175,12
+Spain,Girona,Borrassà,12,234.0,11
+Spain,Girona,Breda,13,266.77,12
+Spain,Girona,Bàscara,24,575.75,20
+Spain,Girona,Cabanelles,14,571.0,13
+Spain,Girona,Cadaqués,519,248.75,456
+Spain,Girona,Caldes de Malavella,65,228.235,54
+Spain,Girona,Calonge,715,284.0,531
+Spain,Girona,Campelles,13,194.0,11
+Spain,Girona,Camprodon,110,165.75,100
+Spain,Girona,Capmany,22,226.7,20
+Spain,Girona,Cassà de la Selva,23,411.5,22
+Spain,Girona,Castell-Platja d'Aro,1198,216.33,937
+Spain,Girona,Castellfollit de la Roca,16,160.0,15
+Spain,Girona,Castelló d'Empúries,1485,197.0,1190
+Spain,Girona,Celrà,11,155.5,10
+Spain,Girona,Colera,43,178.5,37
+Spain,Girona,Cornellà del Terri,34,295.0,29
+Spain,Girona,Corçà,31,362.0,27
+Spain,Girona,Crespià,13,288.065,12
+Spain,Girona,"Cruïlles, Monells i Sant Sadurní de l'Heura",55,312.5,50
+Spain,Girona,Darnius,21,227.0,17
+Spain,Girona,Das,11,298.5,10
+Spain,Girona,El Port de la Selva,170,196.0,141
+Spain,Girona,Figueres,127,139.5,123
+Spain,Girona,Fontanals de Cerdanya,38,238.5,36
+Spain,Girona,Fontanilles,29,226.33,29
+Spain,Girona,Forallac,44,380.08500000000004,34
+Spain,Girona,Garriguella,21,190.75,20
+Spain,Girona,Ger,18,225.75,16
+Spain,Girona,Girona,589,158.57999999999998,534
+Spain,Girona,Gombrèn,15,144.0,15
+Spain,Girona,Gualta,15,336.895,14
+Spain,Girona,Guils de Cerdanya,16,291.32,16
+Spain,Girona,Hostalric,11,259.0,11
+Spain,Girona,Isòvol,15,227.0,13
+Spain,Girona,L'Armentera,28,172.5,25
+Spain,Girona,L'Escala,1318,206.68,974
+Spain,Girona,La Bisbal d'Emporda,27,187.2,23
+Spain,Girona,La Cellera de Ter,18,138.5,18
+Spain,Girona,La Selva de Mar,17,151.0,17
+Spain,Girona,La Tallada d'Empordà,13,288.0,12
+Spain,Girona,La Vall d'en Bas,28,358.0,26
+Spain,Girona,La Vall de Bianya,44,311.5,31
+Spain,Girona,Les Llosses,10,334.75,10
+Spain,Girona,Les Planes d'Hostoles,30,250.0,29
+Spain,Girona,Lladó,12,154.25,11
+Spain,Girona,Llagostera,46,280.0,39
+Spain,Girona,Llambilles,11,120.0,11
+Spain,Girona,Llanars,15,197.0,13
+Spain,Girona,Llançà,568,164.0,379
+Spain,Girona,Lloret de Mar,1712,248.29,1457
+Spain,Girona,Llívia,67,196.0,59
+Spain,Girona,Madremanya,19,267.165,14
+Spain,Girona,Maià de Montcal,38,102.5,34
+Spain,Girona,Maçanet de la Selva,107,366.8,71
+Spain,Girona,Molló,29,162.5,28
+Spain,Girona,Mont-ras,32,335.0,27
+Spain,Girona,Montagut i Oix,33,315.25,32
+Spain,Girona,Navata,42,326.16499999999996,28
+Spain,Girona,Olot,80,178.255,76
+Spain,Girona,Ordis,13,286.58500000000004,12
+Spain,Girona,Palafrugell,1056,292.5,833
+Spain,Girona,Palamós,600,208.0,495
+Spain,Girona,Palau-sator,34,223.0,31
+Spain,Girona,Palau-saverdera,47,251.75,34
+Spain,Girona,Pals,593,280.33,417
+Spain,Girona,Pardines,11,192.0,11
+Spain,Girona,Parlavà,11,388.2,10
+Spain,Girona,Pau,32,242.8,28
+Spain,Girona,Peralada,37,190.0,32
+Spain,Girona,Planoles,12,136.2,10
+Spain,Girona,Porqueres,31,321.33500000000004,30
+Spain,Girona,Portbou,33,152.41500000000002,30
+Spain,Girona,Puigcerdà,133,210.5,115
+Spain,Girona,Quart,16,125.53,13
+Spain,Girona,Rabós,18,173.1,16
+Spain,Girona,Ribes de Freser,44,135.75,40
+Spain,Girona,Ripoll,36,160.0,35
+Spain,Girona,Riumors,15,301.71000000000004,14
+Spain,Girona,Roses,2483,185.29,1781
+Spain,Girona,Rupià,13,468.0,13
+Spain,Girona,Sales de Llierca,19,234.14,19
+Spain,Girona,Sant Climent Sescebes,12,113.25,12
+Spain,Girona,Sant Feliu de Buixalleu,11,767.25,10
+Spain,Girona,Sant Feliu de Guíxols,572,229.0,447
+Spain,Girona,Sant Feliu de Pallerols,22,245.5,19
+Spain,Girona,Sant Ferriol,15,182.5,14
+Spain,Girona,Sant Gregori,26,588.915,16
+Spain,Girona,Sant Hilari Sacalm,35,202.5,35
+Spain,Girona,Sant Joan de les Abadesses,51,160.0,44
+Spain,Girona,Sant Joan les Fonts,18,242.0,15
+Spain,Girona,Sant Jordi Desvalls,23,186.5,22
+Spain,Girona,Sant Julià de Ramis,13,187.0,12
+Spain,Girona,Sant Martí de Llémena,10,168.08499999999998,10
+Spain,Girona,Sant Miquel de Campmajor,12,208.25,10
+Spain,Girona,Sant Pau de Segúries,11,236.5,10
+Spain,Girona,Sant Pere Pescador,63,256.71,39
+Spain,Girona,Santa Coloma de Farners,20,281.65999999999997,12
+Spain,Girona,Santa Cristina d'Aro,187,326.9,148
+Spain,Girona,Santa Pau,47,190.0,43
+Spain,Girona,Saus,38,296.0,32
+Spain,Girona,Serra de Daró,17,181.0,15
+Spain,Girona,Setcases,15,182.93,10
+Spain,Girona,Sils,39,361.5,31
+Spain,Girona,Siurana,17,195.0,17
+Spain,Girona,Susqueda,13,327.6,12
+Spain,Girona,Terrades,24,135.0,23
+Spain,Girona,Torroella de Fluvià,24,331.6,22
+Spain,Girona,Torroella de Montgrí,1090,194.0,761
+Spain,Girona,Toses,13,200.0,13
+Spain,Girona,Tossa de Mar,810,235.0,681
+Spain,Girona,Ullastret,21,345.0,18
+Spain,Girona,Ullà,16,216.98000000000002,16
+Spain,Girona,Ultramort,13,224.0,10
+Spain,Girona,Vall-llobrega,30,616.175,24
+Spain,Girona,Ventalló,43,263.0,40
+Spain,Girona,Vidreres,197,340.86,139
+Spain,Girona,Vidrà,23,183.0,19
+Spain,Girona,Viladamat,13,234.05,12
+Spain,Girona,Vilademuls,35,307.0,31
+Spain,Girona,Viladrau,22,188.0,21
+Spain,Girona,Vilallonga de Ter,23,154.41500000000002,20
+Spain,Girona,Vilamaniscle,15,121.5,13
+Spain,Girona,Vilaür,14,188.67,11
+Spain,Girona,Vilopriu,27,184.0,21
+Spain,Madrid,Abrantes,45,63.25,36
+Spain,Madrid,Acacias,198,114.33,151
+Spain,Madrid,Adelfas,130,117.75,108
+Spain,Madrid,Aeropuerto,11,69.0,11
+Spain,Madrid,Aguilas,49,52.85,40
+Spain,Madrid,Alameda de Osuna,33,82.0,28
+Spain,Madrid,Almagro,223,150.6,170
+Spain,Madrid,Almenara,185,108.5,165
+Spain,Madrid,Almendrales,105,71.5,94
+Spain,Madrid,Aluche,61,70.5,50
+Spain,Madrid,Ambroz,14,60.5,10
+Spain,Madrid,Amposta,13,63.0,11
+Spain,Madrid,Apostol Santiago,34,48.5,30
+Spain,Madrid,Arapiles,230,116.26,202
+Spain,Madrid,Aravaca,48,114.14,41
+Spain,Madrid,Arcos,46,70.0,41
+Spain,Madrid,Argüelles,325,125.35499999999999,250
+Spain,Madrid,Atocha,52,140.29,49
+Spain,Madrid,Bellas Vistas,235,112.5,199
+Spain,Madrid,Berruguete,222,96.5,208
+Spain,Madrid,Buenavista,49,65.0,40
+Spain,Madrid,Butarque,26,69.0,22
+Spain,Madrid,Campamento,25,50.5,20
+Spain,Madrid,Canillas,137,79.55,128
+Spain,Madrid,Canillejas,95,90.425,84
+Spain,Madrid,Casa de Campo,96,99.45,83
+Spain,Madrid,Casco Histórico de Barajas,49,116.0,44
+Spain,Madrid,Casco Histórico de Vallecas,93,108.33,77
+Spain,Madrid,Casco Histórico de Vicálvaro,51,70.0,41
+Spain,Madrid,Castellana,179,164.63,147
+Spain,Madrid,Castilla,85,117.27000000000001,70
+Spain,Madrid,Castillejos,287,107.56,243
+Spain,Madrid,Chopera,134,111.15,108
+Spain,Madrid,Ciudad Jardín,100,120.54499999999999,80
+Spain,Madrid,Ciudad Universitaria,80,92.0,55
+Spain,Madrid,Colina,23,117.71,21
+Spain,Madrid,Comillas,130,110.31,109
+Spain,Madrid,Concepción,86,114.25,70
+Spain,Madrid,Corralejos,16,112.51,13
+Spain,Madrid,Cortes,1030,159.0,904
+Spain,Madrid,Costillares,30,123.0,29
+Spain,Madrid,Cuatro Caminos,470,107.45,396
+Spain,Madrid,Cármenes,49,75.0,43
+Spain,Madrid,Delicias,172,110.33,117
+Spain,Madrid,El Plantío,19,80.0,17
+Spain,Madrid,El Viso,88,125.18,66
+Spain,Madrid,Embajadores,2453,125.78999999999999,2048
+Spain,Madrid,Entrevías,60,62.665,54
+Spain,Madrid,Estrella,36,128.0,26
+Spain,Madrid,Fontarrón,59,98.0,27
+Spain,Madrid,Fuente del Berro,142,127.8,109
+Spain,Madrid,Gaztambide,237,109.55,201
+Spain,Madrid,Goya,367,168.66500000000002,294
+Spain,Madrid,Guindalera,390,130.615,344
+Spain,Madrid,Hellín,13,84.5,10
+Spain,Madrid,Hispanoamérica,126,131.0,113
+Spain,Madrid,Ibiza,227,143.33,189
+Spain,Madrid,Imperial,180,125.46,154
+Spain,Madrid,Jerónimos,89,170.04,81
+Spain,Madrid,Justicia,1120,152.0,943
+Spain,Madrid,La Paz,26,109.55,23
+Spain,Madrid,Legazpi,44,126.045,38
+Spain,Madrid,Lista,206,142.23,163
+Spain,Madrid,Los Angeles,52,67.375,44
+Spain,Madrid,Los Rosales,46,92.07,36
+Spain,Madrid,Lucero,78,84.5,62
+Spain,Madrid,Marroquina,17,88.44,11
+Spain,Madrid,Media Legua,21,57.165,16
+Spain,Madrid,Mirasierra,20,125.75,15
+Spain,Madrid,Moscardó,132,95.87,105
+Spain,Madrid,Niño Jesús,61,146.0,57
+Spain,Madrid,Nueva España,164,124.535,140
+Spain,Madrid,Numancia,219,99.72,185
+Spain,Madrid,Opañel,146,111.27,123
+Spain,Madrid,Orcasitas,22,76.0,16
+Spain,Madrid,Orcasur,66,85.59,59
+Spain,Madrid,Pacífico,270,108.0,225
+Spain,Madrid,Palacio,1681,143.5,1469
+Spain,Madrid,Palomeras Bajas,46,93.075,38
+Spain,Madrid,Palomeras Sureste,49,86.0,37
+Spain,Madrid,Palos de Moguer,369,120.0,305
+Spain,Madrid,Peñagrande,59,103.0,45
+Spain,Madrid,Pilar,60,100.47,50
+Spain,Madrid,Pinar del Rey,131,119.41,120
+Spain,Madrid,Piovera,30,119.25,22
+Spain,Madrid,Portazgo,43,55.0,37
+Spain,Madrid,Pradolongo,52,91.5,47
+Spain,Madrid,Prosperidad,237,125.0,201
+Spain,Madrid,Pueblo Nuevo,220,103.47999999999999,190
+Spain,Madrid,Puerta Bonita,79,79.965,60
+Spain,Madrid,Puerta del Angel,242,99.5,196
+Spain,Madrid,Quintana,100,124.0,94
+Spain,Madrid,Recoletos,307,193.685,264
+Spain,Madrid,Rejas,144,113.0,122
+Spain,Madrid,Rios Rosas,251,120.5,204
+Spain,Madrid,Rosas,39,108.75,34
+Spain,Madrid,Salvador,20,94.215,16
+Spain,Madrid,San Andrés,97,79.0,85
+Spain,Madrid,San Cristobal,20,57.5,17
+Spain,Madrid,San Diego,244,96.14500000000001,194
+Spain,Madrid,San Fermín,50,70.0,43
+Spain,Madrid,San Isidro,191,93.58,159
+Spain,Madrid,San Juan Bautista,29,162.95499999999998,22
+Spain,Madrid,San Pascual,38,93.5,30
+Spain,Madrid,Simancas,98,111.0,81
+Spain,Madrid,Sol,1240,163.88,1125
+Spain,Madrid,Timón,61,120.0,49
+Spain,Madrid,Trafalgar,463,138.13,382
+Spain,Madrid,Universidad,1946,139.0,1658
+Spain,Madrid,Valdeacederas,224,104.325,204
+Spain,Madrid,Valdefuentes,144,133.5,126
+Spain,Madrid,Valdemarín,12,90.0,11
+Spain,Madrid,Valdezarza,71,99.3,62
+Spain,Madrid,Vallehermoso,109,106.25,90
+Spain,Madrid,Valverde,111,83.4,92
+Spain,Madrid,Ventas,216,104.83500000000001,180
+Spain,Madrid,Vinateros,34,37.0,16
+Spain,Madrid,Vista Alegre,110,84.5,82
+Spain,Madrid,Zofío,47,69.0,41
+Spain,Mallorca,Alaró,71,457.7,62
+Spain,Mallorca,Alcúdia,1372,426.53499999999997,1012
+Spain,Mallorca,Algaida,89,555.905,66
+Spain,Mallorca,Andratx,190,570.6,165
+Spain,Mallorca,Ariany,87,483.285,54
+Spain,Mallorca,Artà,432,407.43,259
+Spain,Mallorca,Banyalbufar,58,310.0,55
+Spain,Mallorca,Binissalem,79,420.97,48
+Spain,Mallorca,Bunyola,65,443.305,52
+Spain,Mallorca,Búger,137,378.83,89
+Spain,Mallorca,Calvià,368,481.5,336
+Spain,Mallorca,Campanet,142,415.4,97
+Spain,Mallorca,Campos,473,449.0,325
+Spain,Mallorca,Capdepera,522,383.0,319
+Spain,Mallorca,Consell,17,533.8,14
+Spain,Mallorca,Costitx,62,349.0,42
+Spain,Mallorca,Deyá,78,640.0,67
+Spain,Mallorca,Escorca,29,244.0,26
+Spain,Mallorca,Esporles,56,614.4,46
+Spain,Mallorca,Estellencs,11,209.2,10
+Spain,Mallorca,Felanitx,676,471.88,500
+Spain,Mallorca,Fornalutx,80,367.6,67
+Spain,Mallorca,Inca,219,452.0,157
+Spain,Mallorca,Lloret de Vistalegre,41,328.5,32
+Spain,Mallorca,Lloseta,49,430.0,37
+Spain,Mallorca,Llubí,98,342.75,70
+Spain,Mallorca,Llucmajor,515,438.21,405
+Spain,Mallorca,Manacor,800,350.8,608
+Spain,Mallorca,Mancor de la Vall,41,370.3,32
+Spain,Mallorca,Maria de la Salut,68,335.6,49
+Spain,Mallorca,Marratxí,101,745.2,69
+Spain,Mallorca,Montuïri,45,356.875,38
+Spain,Mallorca,Muro,347,416.28999999999996,232
+Spain,Mallorca,Palma de Mallorca,949,262.0,863
+Spain,Mallorca,Petra,168,368.815,110
+Spain,Mallorca,Pollença,2271,426.8,1579
+Spain,Mallorca,Porreres,78,318.71,55
+Spain,Mallorca,Puigpunyent,39,507.80999999999995,28
+Spain,Mallorca,Sa Pobla,238,381.105,174
+Spain,Mallorca,Sant Joan,45,282.0,31
+Spain,Mallorca,Sant Llorenç des Cardassar,289,308.2,218
+Spain,Mallorca,Santa Eugènia,12,612.3299999999999,10
+Spain,Mallorca,Santa Margalida,631,328.6,452
+Spain,Mallorca,Santa María del Camí,47,411.575,42
+Spain,Mallorca,Santanyí,1014,416.0,809
+Spain,Mallorca,Selva,273,386.0,193
+Spain,Mallorca,Sencelles,105,435.29,71
+Spain,Mallorca,Ses Salines,243,310.0,189
+Spain,Mallorca,Sineu,86,398.71,55
+Spain,Mallorca,Son Servera,312,386.9,222
+Spain,Mallorca,Sóller,455,349.5,397
+Spain,Mallorca,Valldemossa,105,355.83,91
+Spain,Mallorca,Vilafranc de Bonany,39,391.6,28
+Spain,Menorca,Alaior,629,331.4,521
+Spain,Menorca,Ciutadella de Menorca,1429,292.28499999999997,1266
+Spain,Menorca,Es Castell,46,269.59000000000003,44
+Spain,Menorca,Es Mercadal,707,280.0,633
+Spain,Menorca,Es Migjorn Gran,44,537.145,42
+Spain,Menorca,Ferreries,87,350.25,78
+Spain,Menorca,Mahón,154,466.9,132
+Spain,Menorca,Sant Lluís,524,521.17,427
+Spain,Valencia,AIORA,347,153.0,326
+Spain,Valencia,ALBORS,110,112.0,95
+Spain,Valencia,ARRANCAPINS,205,143.0,189
+Spain,Valencia,BENICALAP,119,122.0,105
+Spain,Valencia,BENIFERRI,11,145.5,10
+Spain,Valencia,BENIMACLET,83,146.8,73
+Spain,Valencia,BENIMAMET,52,107.705,46
+Spain,Valencia,BETERO,81,155.0,76
+Spain,Valencia,CABANYAL-CANYAMELAR,784,174.5,714
+Spain,Valencia,CAMI FONDO,39,145.66,34
+Spain,Valencia,CAMI REAL,19,144.0,19
+Spain,Valencia,CAMPANAR,42,118.18,39
+Spain,Valencia,CIUTAT DE LES ARTS I DE LES CIENCIES,90,163.4,89
+Spain,Valencia,CIUTAT FALLERA,20,160.0,19
+Spain,Valencia,CIUTAT JARDI,88,137.65,80
+Spain,Valencia,CIUTAT UNIVERSITARIA,15,149.0,12
+Spain,Valencia,EL BOTANIC,143,155.0,133
+Spain,Valencia,EL CALVARI,11,127.9,10
+Spain,Valencia,EL CARME,283,155.32,266
+Spain,Valencia,EL GRAU,273,160.0,249
+Spain,Valencia,EL MERCAT,310,176.88,297
+Spain,Valencia,EL PERELLONET,39,137.0,37
+Spain,Valencia,EL PILAR,153,152.75,140
+Spain,Valencia,EL PLA DEL REMEI,60,154.86,55
+Spain,Valencia,EL SALER,59,171.8,53
+Spain,Valencia,ELS ORRIOLS,65,102.09,64
+Spain,Valencia,EN CORTS,210,134.75,200
+Spain,Valencia,EXPOSICIO,27,151.25,16
+Spain,Valencia,FAITANAR,20,139.41500000000002,20
+Spain,Valencia,FAVARA,13,131.0,11
+Spain,Valencia,JAUME ROIG,24,135.25,22
+Spain,Valencia,L'AMISTAT,74,100.83500000000001,68
+Spain,Valencia,L'HORT DE SENABRE,44,75.03,43
+Spain,Valencia,L'ILLA PERDUDA,61,144.0,53
+Spain,Valencia,LA CARRASCA,69,127.94,60
+Spain,Valencia,LA CREU DEL GRAU,127,153.0,113
+Spain,Valencia,LA FONTETA S.LLUIS,13,157.5,13
+Spain,Valencia,LA GRAN VIA,72,139.58,69
+Spain,Valencia,LA MALVA-ROSA,258,170.91,233
+Spain,Valencia,LA PETXINA,130,154.54500000000002,122
+Spain,Valencia,LA PUNTA,46,150.49,45
+Spain,Valencia,LA RAIOSA,133,137.0,127
+Spain,Valencia,LA ROQUETA,176,164.53,167
+Spain,Valencia,LA SEU,197,175.0,185
+Spain,Valencia,LA VEGA BAIXA,57,71.61,53
+Spain,Valencia,LA XEREA,119,144.0,109
+Spain,Valencia,LES TENDETES,48,132.66500000000002,42
+Spain,Valencia,MALILLA,59,142.65,55
+Spain,Valencia,MARXALENES,48,149.67,43
+Spain,Valencia,MESTALLA,100,139.55,86
+Spain,Valencia,MONT-OLIVET,277,145.0,267
+Spain,Valencia,MORVEDRE,144,140.25,136
+Spain,Valencia,NA ROVELLA,62,137.48,57
+Spain,Valencia,NATZARET,109,118.0,103
+Spain,Valencia,NOU MOLES,171,126.25,159
+Spain,Valencia,PATRAIX,113,143.0,109
+Spain,Valencia,PENYA-ROJA,94,193.5,87
+Spain,Valencia,PINEDO,15,3000.0,13
+Spain,Valencia,RUSSAFA,538,165.75,486
+Spain,Valencia,SAFRANAR,32,117.0,29
+Spain,Valencia,SANT ANTONI,41,125.25,40
+Spain,Valencia,SANT FRANCESC,260,173.4,245
+Spain,Valencia,SANT LLORENS,24,119.0,23
+Spain,Valencia,SANT MARCEL.LI,31,95.215,28
+Spain,Valencia,SANT PAU,36,123.95,34
+Spain,Valencia,SOTERNES,19,163.5,19
+Spain,Valencia,TORMOS,48,136.7,45
+Spain,Valencia,TORREFIEL,76,103.0,71
+Spain,Valencia,TRES FORQUES,23,60.87,23
+Spain,Valencia,TRINITAT,45,156.67,45
+Spain,Valencia,VARA DE QUART,16,108.14500000000001,16
+Switzerland,Geneva,Bellevue,17,0.13,12
+Switzerland,Geneva,Carouge,98,0.13,65
+Switzerland,Geneva,Chêne-Bougeries,39,0.14,21
+Switzerland,Geneva,Chêne-Bourg,20,0.13,14
+Switzerland,Geneva,Collonge-Bellerive,21,0.11,15
+Switzerland,Geneva,Cologny,19,0.1,14
+Switzerland,Geneva,Commune de Genève,1785,0.15,1090
+Switzerland,Geneva,Grand-Saconnex,156,0.13,91
+Switzerland,Geneva,Lancy,50,0.17,30
+Switzerland,Geneva,Meyrin,34,0.135,22
+Switzerland,Geneva,Onex,18,0.13,14
+Switzerland,Geneva,Plan-les-Ouates,19,0.125,10
+Switzerland,Geneva,Pregny-Chambésy,20,0.12,16
+Switzerland,Geneva,Thônex,42,0.14,22
+Switzerland,Geneva,Vernier,77,0.14,42
+Switzerland,Geneva,Versoix,45,0.15,32
+Switzerland,Geneva,Veyrier,36,0.14,24
+Switzerland,Vaud,Avenches,26,0.25,19
+Switzerland,Vaud,Belmont-sur-Lausanne,16,0.10500000000000001,12
+Switzerland,Vaud,Bex,43,0.16,29
+Switzerland,Vaud,Blonay,34,0.15,23
+Switzerland,Vaud,Bourg-en-Lavaux,81,0.195,46
+Switzerland,Vaud,Bullet,20,0.165,14
+Switzerland,Vaud,Bussigny,21,0.15,16
+Switzerland,Vaud,Chardonne,54,0.23,29
+Switzerland,Vaud,Chavannes-près-Renens,33,0.07500000000000001,14
+Switzerland,Vaud,Cheseaux-Noréaz,13,0.19,11
+Switzerland,Vaud,Chexbres,20,0.14500000000000002,14
+Switzerland,Vaud,Château-d'Oex,121,0.09,76
+Switzerland,Vaud,Crissier,47,0.13,19
+Switzerland,Vaud,Cudrefin,17,0.16999999999999998,12
+Switzerland,Vaud,Ecublens (Vaud),36,0.17,10
+Switzerland,Vaud,Epalinges,48,0.25,25
+Switzerland,Vaud,Grandson,15,0.15,13
+Switzerland,Vaud,Gryon,228,0.15,166
+Switzerland,Vaud,La Tour-de-Peilz,41,0.13,25
+Switzerland,Vaud,Lausanne,1300,0.14,621
+Switzerland,Vaud,Lavey-Morcles,15,0.12,11
+Switzerland,Vaud,Le Chenit,20,0.13,17
+Switzerland,Vaud,Le Lieu,12,0.13,10
+Switzerland,Vaud,Le Mont-sur-Lausanne,41,0.14,22
+Switzerland,Vaud,Leysin,209,0.17,146
+Switzerland,Vaud,Lutry,81,0.14,45
+Switzerland,Vaud,Mont-sur-Rolle,16,0.14,13
+Switzerland,Vaud,Montreux,337,0.17,175
+Switzerland,Vaud,Morges,44,0.12,21
+Switzerland,Vaud,Nyon,95,0.13,41
+Switzerland,Vaud,Ollon,413,0.17,289
+Switzerland,Vaud,Ormont-Dessous,106,0.19,94
+Switzerland,Vaud,Ormont-Dessus,138,0.14,101
+Switzerland,Vaud,Prilly,69,0.15,40
+Switzerland,Vaud,Préverenges,18,0.16,13
+Switzerland,Vaud,Puidoux,18,0.24,11
+Switzerland,Vaud,Pully,76,0.17,33
+Switzerland,Vaud,Renens (Vaud),91,0.11,47
+Switzerland,Vaud,Rolle,17,0.13,12
+Switzerland,Vaud,Rossinière,23,0.065,18
+Switzerland,Vaud,Rougemont,56,0.06,45
+Switzerland,Vaud,Saint-Cergue,36,0.19,28
+Switzerland,Vaud,Saint-Légier-La Chiésaz,23,0.07,13
+Switzerland,Vaud,Saint-Prex,22,0.12000000000000001,14
+Switzerland,Vaud,Saint-Sulpice (Vaud),40,0.2,13
+Switzerland,Vaud,Sainte-Croix,43,0.185,28
+Switzerland,Vaud,Vevey,109,0.16,32
+Switzerland,Vaud,Veytaux,20,0.165,12
+Switzerland,Vaud,Villeneuve (Vaud),22,0.155,14
+Switzerland,Vaud,Vully-les-Lacs,40,0.17,28
+Switzerland,Vaud,Yverdon-les-Bains,34,0.67,21
+United Kingdom,Bristol,Ashley,324,130.0,243
+United Kingdom,Bristol,Avonmouth & Lawrence Weston,74,165.3,66
+United Kingdom,Bristol,Bedminster,69,111.25,50
+United Kingdom,Bristol,Bishopston & Ashley Down,74,107.5,48
+United Kingdom,Bristol,Bishopsworth,33,116.5,29
+United Kingdom,Bristol,Brislington East,39,119.0,32
+United Kingdom,Bristol,Brislington West,82,119.0,66
+United Kingdom,Bristol,Central,289,127.0,246
+United Kingdom,Bristol,Clifton,205,154.5,161
+United Kingdom,Bristol,Clifton Down,182,155.0,165
+United Kingdom,Bristol,Cotham,140,125.0,105
+United Kingdom,Bristol,Easton,124,118.5,88
+United Kingdom,Bristol,Eastville,87,116.0,63
+United Kingdom,Bristol,Filwood,37,67.0,32
+United Kingdom,Bristol,Frome Vale,64,141.0,49
+United Kingdom,Bristol,Hartcliffe & Withywood,19,90.0,18
+United Kingdom,Bristol,Henbury & Brentry,23,142.5,21
+United Kingdom,Bristol,Hengrove & Whitchurch Park,28,75.0,23
+United Kingdom,Bristol,Hillfields,37,111.5,32
+United Kingdom,Bristol,Horfield,84,90.0,73
+United Kingdom,Bristol,Hotwells & Harbourside,114,159.5,102
+United Kingdom,Bristol,Knowle,42,89.0,31
+United Kingdom,Bristol,Lawrence Hill,145,121.0,117
+United Kingdom,Bristol,Lockleaze,56,79.5,46
+United Kingdom,Bristol,Redland,83,153.5,66
+United Kingdom,Bristol,Southmead,56,100.065,42
+United Kingdom,Bristol,Southville,150,128.0,123
+United Kingdom,Bristol,St George Central,50,108.0,38
+United Kingdom,Bristol,St George Troopers Hill,25,82.0,21
+United Kingdom,Bristol,St George West,51,95.0,39
+United Kingdom,Bristol,Stockwood,15,185.695,10
+United Kingdom,Bristol,Stoke Bishop,42,139.0,37
+United Kingdom,Bristol,Westbury-on-Trym & Henleaze,71,110.0,58
+United Kingdom,Bristol,Windmill Hill,109,135.58499999999998,72
+United Kingdom,Edinburgh,Abbeyhill,106,221.25,94
+United Kingdom,Edinburgh,Baberton and Juniper Green,12,109.0,12
+United Kingdom,Edinburgh,Balerno and Bonnington Village,17,190.0,17
+United Kingdom,Edinburgh,Balgreen and Roseburn,39,210.25,30
+United Kingdom,Edinburgh,"Bingham, Magdalene and The Christians",22,126.0,22
+United Kingdom,Edinburgh,"Blackford, West Mains and Mayfield Road",60,160.0,57
+United Kingdom,Edinburgh,Blackhall,18,162.0,17
+United Kingdom,Edinburgh,Bonaly and The Pentlands,21,160.0,17
+United Kingdom,Edinburgh,Bonnington,41,194.0,39
+United Kingdom,Edinburgh,Boswall and Pilton,32,174.0,28
+United Kingdom,Edinburgh,Broughton North and Powderhall,94,199.5,83
+United Kingdom,Edinburgh,Broughton South,130,200.0,123
+United Kingdom,Edinburgh,Bruntsfield,86,244.0,77
+United Kingdom,Edinburgh,"Canongate, Southside and Dumbiedykes",204,286.0,187
+United Kingdom,Edinburgh,Canonmills and New Town North,90,270.0,83
+United Kingdom,Edinburgh,Carrick Knowe,14,150.0,12
+United Kingdom,Edinburgh,Clermiston and Drumbrae,13,145.5,11
+United Kingdom,Edinburgh,Clovenstone and Wester Hailes,13,32.95,13
+United Kingdom,Edinburgh,Colinton Mains and Firrhill,14,89.0,14
+United Kingdom,Edinburgh,Colinton and Kingsknowe,33,145.0,32
+United Kingdom,Edinburgh,Comely Bank,46,263.5,43
+United Kingdom,Edinburgh,Corstorphine,39,117.0,35
+United Kingdom,Edinburgh,Corstorphine South,19,168.33,15
+United Kingdom,Edinburgh,"Craigleith, Orchard Brae and Crewe Toll",26,175.0,21
+United Kingdom,Edinburgh,Craiglockhart,30,152.0,28
+United Kingdom,Edinburgh,Craigmillar,34,190.0,29
+United Kingdom,Edinburgh,Cramond,11,165.33499999999998,10
+United Kingdom,Edinburgh,"Dalmeny, Kirkliston and Newbridge",31,223.0,31
+United Kingdom,Edinburgh,Dalry and Fountainbridge,184,229.67,167
+United Kingdom,Edinburgh,Deans Village,374,261.5,348
+United Kingdom,Edinburgh,Drylaw,15,206.5,14
+United Kingdom,Edinburgh,Duddingston and Portobello South,25,195.0,23
+United Kingdom,Edinburgh,East Craigs South,19,154.15,18
+United Kingdom,Edinburgh,Easter Road and Hawkhill Avenue,77,211.01,64
+United Kingdom,Edinburgh,Fernieside and Moredun South,16,85.75,16
+United Kingdom,Edinburgh,Gilmerton South and the Murrays,98,137.0,50
+United Kingdom,Edinburgh,Gorgie East,44,193.67,41
+United Kingdom,Edinburgh,Gorgie West,40,172.5,37
+United Kingdom,Edinburgh,"Gracemount, Southhouse and Burdiehouse",20,186.7,20
+United Kingdom,Edinburgh,Granton West and Salvesen,33,154.52,31
+United Kingdom,Edinburgh,Granton and Royston Mains,35,185.0,34
+United Kingdom,Edinburgh,Great Junction Street,87,183.25,80
+United Kingdom,Edinburgh,Hillside and Calton Hill,215,242.5,191
+United Kingdom,Edinburgh,"Inverleith, Goldenacre and Warriston",39,207.5,30
+United Kingdom,Edinburgh,"Jewel, Brunstane and Newcraighall",10,184.0,10
+United Kingdom,Edinburgh,Joppa,26,198.0,23
+United Kingdom,Edinburgh,Leith (Albert Street),74,189.0,69
+United Kingdom,Edinburgh,Leith (Hermitage and Prospect Bank),41,129.5,34
+United Kingdom,Edinburgh,Liberton West and Braid Hills,20,147.0,17
+United Kingdom,Edinburgh,Longstone and Saughton,11,114.2,11
+United Kingdom,Edinburgh,Marchmont East and Sciennes,92,238.0,79
+United Kingdom,Edinburgh,Marchmont West,56,341.0,52
+United Kingdom,Edinburgh,Meadowbank and Abbeyhill North,105,218.75,94
+United Kingdom,Edinburgh,Meadows and Southside,155,267.75,140
+United Kingdom,Edinburgh,Merchiston and Greenhill,35,279.0,25
+United Kingdom,Edinburgh,Moredun and Craigour,12,125.0,11
+United Kingdom,Edinburgh,Morningside,31,219.25,26
+United Kingdom,Edinburgh,Morningside and Craighouse,19,248.75,18
+United Kingdom,Edinburgh,Muirhouse,33,97.0,31
+United Kingdom,Edinburgh,Murrayburn and Wester Hailes North,11,130.0,11
+United Kingdom,Edinburgh,Murrayfield and Ravelston,26,199.5,22
+United Kingdom,Edinburgh,New Town East and Gayfield,174,292.5,162
+United Kingdom,Edinburgh,New Town West,222,337.33,197
+United Kingdom,Edinburgh,Newington and Dalkeith Road,94,208.0,81
+United Kingdom,Edinburgh,Niddrie,19,252.0,18
+United Kingdom,Edinburgh,North Leith and Newhaven,69,171.5,61
+United Kingdom,Edinburgh,Northfield and Piershill,17,140.1,14
+United Kingdom,Edinburgh,"Old Town, Princes Street and Leith Street",747,288.15,679
+United Kingdom,Edinburgh,Parkhead and Sighthill,10,147.25,10
+United Kingdom,Edinburgh,Pilrig,72,207.5,67
+United Kingdom,Edinburgh,Polwarth,61,184.4,58
+United Kingdom,Edinburgh,Portobello,52,162.4,47
+United Kingdom,Edinburgh,Prestonfield,29,187.5,28
+United Kingdom,Edinburgh,Queensferry East,15,225.25,14
+United Kingdom,Edinburgh,"Ratho, Ingliston and Gogar",45,209.5,44
+United Kingdom,Edinburgh,Restalrig (Loganlea) and Craigentinny West,21,161.5,18
+United Kingdom,Edinburgh,Restalrig and Lochend,20,218.5,18
+United Kingdom,Edinburgh,Shandon,39,202.5,33
+United Kingdom,Edinburgh,Siverknowes and Davidson's Mains,17,185.0,17
+United Kingdom,Edinburgh,Slateford and Chesser,38,209.4,35
+United Kingdom,Edinburgh,South Gyle,22,180.5,21
+United Kingdom,Edinburgh,South Leith,107,200.0,97
+United Kingdom,Edinburgh,Stenhouse and Saughton Mains,35,195.25,32
+United Kingdom,Edinburgh,Stockbridge,130,272.3,114
+United Kingdom,Edinburgh,The Calders,20,54.0,18
+United Kingdom,Edinburgh,The Grange,65,170.25,56
+United Kingdom,Edinburgh,The Inch,20,165.66500000000002,18
+United Kingdom,Edinburgh,The Shore and Constitution Street,86,239.75,72
+United Kingdom,Edinburgh,Tollcross,341,274.5,314
+United Kingdom,Edinburgh,Trinity,29,173.25,24
+United Kingdom,Edinburgh,Trinity East and The Dudleys,21,229.25,17
+United Kingdom,Edinburgh,West Pilton,18,97.0,16
+United Kingdom,Edinburgh,Western Harbour and Leith Docks,71,225.75,64
+United Kingdom,Edinburgh,Willowbrae and Duddingston Village,29,232.5,25
+United Kingdom,Greater Manchester,Ancoats and Clayton,537,136.0,532
+United Kingdom,Greater Manchester,Ardwick,146,101.0,143
+United Kingdom,Greater Manchester,Baguley,16,124.5,16
+United Kingdom,Greater Manchester,Bolton District,248,96.32,246
+United Kingdom,Greater Manchester,Bradford,206,131.5,202
+United Kingdom,Greater Manchester,Brooklands,19,130.0,19
+United Kingdom,Greater Manchester,Burnage,27,119.025,26
+United Kingdom,Greater Manchester,Bury District,229,128.255,226
+United Kingdom,Greater Manchester,Charlestown,31,63.5,30
+United Kingdom,Greater Manchester,Cheetham,131,101.31,127
+United Kingdom,Greater Manchester,Chorlton,62,116.0,62
+United Kingdom,Greater Manchester,Chorlton Park,50,124.0,50
+United Kingdom,Greater Manchester,City Centre,469,155.07999999999998,464
+United Kingdom,Greater Manchester,Crumpsall,50,89.33,49
+United Kingdom,Greater Manchester,Didsbury East,36,123.0,35
+United Kingdom,Greater Manchester,Didsbury West,57,130.0,54
+United Kingdom,Greater Manchester,Fallowfield,75,84.0,72
+United Kingdom,Greater Manchester,Gorton North,65,98.5,64
+United Kingdom,Greater Manchester,Gorton South,67,69.5,65
+United Kingdom,Greater Manchester,Harpurhey,76,72.67,75
+United Kingdom,Greater Manchester,Higher Blackley,25,55.0,25
+United Kingdom,Greater Manchester,Hulme,172,127.0,171
+United Kingdom,Greater Manchester,Levenshulme,66,63.5,66
+United Kingdom,Greater Manchester,Longsight,55,58.0,54
+United Kingdom,Greater Manchester,Miles Platting and Newton Heath,110,117.0,106
+United Kingdom,Greater Manchester,Moss Side,167,64.0,165
+United Kingdom,Greater Manchester,Moston,26,118.0,25
+United Kingdom,Greater Manchester,Northenden,50,123.0,49
+United Kingdom,Greater Manchester,Old Moat,52,108.0,51
+United Kingdom,Greater Manchester,Oldham District,301,120.75,280
+United Kingdom,Greater Manchester,Rochdale District,163,86.0,159
+United Kingdom,Greater Manchester,Rusholme,74,80.0,70
+United Kingdom,Greater Manchester,Salford District,1293,118.93,1270
+United Kingdom,Greater Manchester,Sharston,31,116.75,28
+United Kingdom,Greater Manchester,Stockport District,399,120.0,386
+United Kingdom,Greater Manchester,Tameside District,267,99.0,261
+United Kingdom,Greater Manchester,Trafford District,665,114.5,653
+United Kingdom,Greater Manchester,Whalley Range,78,92.8,78
+United Kingdom,Greater Manchester,Wigan District,250,108.29,241
+United Kingdom,Greater Manchester,Withington,40,113.0,39
+United Kingdom,Greater Manchester,Woodhouse Park,49,135.0,49
+United Kingdom,London,Barking and Dagenham,689,98.55,544
+United Kingdom,London,Barnet,2367,137.0,1800
+United Kingdom,London,Bexley,632,92.6,529
+United Kingdom,London,Brent,2936,150.0,2125
+United Kingdom,London,Bromley,912,133.07,690
+United Kingdom,London,Camden,6199,219.0,4440
+United Kingdom,London,City of London,582,325.0,458
+United Kingdom,London,Croydon,1769,100.94,1336
+United Kingdom,London,Ealing,2418,111.0,1707
+United Kingdom,London,Enfield,889,115.0,706
+United Kingdom,London,Greenwich,1914,140.67,1323
+United Kingdom,London,Hackney,5756,167.19,2922
+United Kingdom,London,Hammersmith and Fulham,4057,199.5,2763
+United Kingdom,London,Haringey,2517,136.0,1542
+United Kingdom,London,Harrow,641,105.5,506
+United Kingdom,London,Havering,520,110.0,413
+United Kingdom,London,Hillingdon,967,100.0,752
+United Kingdom,London,Hounslow,1357,138.0,981
+United Kingdom,London,Islington,4750,186.42000000000002,2704
+United Kingdom,London,Kensington and Chelsea,6184,305.0,4569
+United Kingdom,London,Kingston upon Thames,703,125.25,480
+United Kingdom,London,Lambeth,4984,164.16500000000002,2954
+United Kingdom,London,Lewisham,2593,121.8,1570
+United Kingdom,London,Merton,1603,160.0,1093
+United Kingdom,London,Newham,2516,164.25,1776
+United Kingdom,London,Redbridge,993,104.0,779
+United Kingdom,London,Richmond upon Thames,1257,181.17,817
+United Kingdom,London,Southwark,5156,166.0,3163
+United Kingdom,London,Sutton,483,85.8,367
+United Kingdom,London,Tower Hamlets,6842,170.0,4069
+United Kingdom,London,Waltham Forest,1854,122.0,1180
+United Kingdom,London,Wandsworth,4722,194.29,2925
+United Kingdom,London,Westminster,10876,307.0,8257
