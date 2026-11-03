@@ -1,0 +1,46 @@
+﻿country,location,priced_listings,above_market_p99,median_price,max_price
+Austria,Vienna,10492,105,118.5,9999.0
+Belgium,Antwerp,2069,21,139.5,4565.0
+Belgium,Brussels,4378,44,123.25,3994.25
+Belgium,Ghent,1211,13,148.5,1157.0
+Czech Republic,Prague,10583,106,2473.64,1191906.33
+Denmark,Copenhagen,13860,139,1689.0,42931.33
+France,Bordeaux,8413,85,107.79,3358.32
+France,Lyon,5427,55,103.68,2420.0
+France,Paris,48402,485,205.5,97003.05
+Germany,Berlin,8441,85,130.67,10025.0
+Germany,Munich,4440,45,145.83499999999998,78531.24
+Greece,Athens,14199,142,105.0,46268.5
+Greece,Crete,25518,256,150.0,12781.18
+Greece,South Aegean,34348,344,206.0,106942.0
+Greece,Thessaloniki,4718,48,75.5,23465.0
+Ireland,Dublin,5578,56,182.62,19140.0
+Italy,Bergamo,3918,40,123.965,9890.0
+Italy,Bologna,4544,46,128.5,10000.0
+Italy,Florence,12448,123,166.0,14000.0
+Italy,Milan,22937,230,136.0,55090.0
+Italy,Naples,10898,109,107.27,75220.04
+Italy,Puglia,43387,434,139.58,17281.0
+Italy,Rome,34324,344,161.67,13728.5
+Italy,Sicily,51864,519,126.0,88494.55
+Italy,Venice,8177,82,202.46,14835.5
+Latvia,Riga,3149,32,82.0,57070.5
+Netherlands,Amsterdam,6377,64,291.0,11412.0
+Netherlands,Rotterdam,985,10,160.0,1850.68
+Netherlands,The Hague,1139,12,223.0,97240.86
+Norway,Oslo,9841,99,1819.0,91294.16
+Portugal,Lisbon,22636,227,136.0,16077.5
+Portugal,Porto,13686,137,118.0,10971.71
+Spain,Barcelona,13355,131,177.67,10542.22
+Spain,Euskadi,5676,57,196.0,9999.0
+Spain,Girona,16874,169,219.0,95042.0
+Spain,Madrid,19172,192,125.0,36883.0
+Spain,Mallorca,11057,111,397.57,22260.0
+Spain,Menorca,3143,32,320.0,5743.0
+Spain,Valencia,7267,73,150.64,9900.0
+Switzerland,Geneva,1587,16,0.14,0.99
+Switzerland,Vaud,3100,26,0.15,0.99
+United Kingdom,Bristol,2412,25,130.0,2238.0
+United Kingdom,Edinburgh,5610,57,230.5,12042.29
+United Kingdom,Greater Manchester,6783,67,116.0,3248.0
+United Kingdom,London,62240,623,180.0,527524.0

@@ -1,0 +1,62 @@
+{
+  "analysis_date": "2026-11-03",
+  "source_parquets": [
+    "listings_master.parquet",
+    "reviews_clean.parquet",
+    "listings_features.parquet"
+  ],
+  "model_candidate_file": "C:\\Users\\erins\\OneDrive\\Documents\\Airbnb_VSCode_Project\\Airbnb_EDACode_Project_\\data\\processed\\model_candidate.parquet",
+  "target": "price_numeric",
+  "price_units_verified": false,
+  "training_approved": false,
+  "candidate_predictors": [
+    "accommodates_clean",
+    "bedrooms_clean",
+    "beds_clean",
+    "bathrooms_numeric",
+    "minimum_nights_clean",
+    "amenities_count",
+    "has_wifi",
+    "has_air_conditioning",
+    "has_kitchen",
+    "has_parking",
+    "has_pool",
+    "has_workspace",
+    "is_superhost",
+    "competitors_500m",
+    "competitors_1km",
+    "competitors_2km",
+    "comparable_competitors_1km",
+    "country",
+    "location",
+    "room_type",
+    "property_type"
+  ],
+  "conditional_predictors_do_not_use_without_review": [
+    "reviews_last_90d",
+    "reviews_last_365d",
+    "days_since_last_review",
+    "availability_rate_365"
+  ],
+  "explicitly_excluded_from_X": [
+    "price_vs_neighbourhood_pct",
+    "market_median_price",
+    "neighbourhood_median_price",
+    "price_quote_numeric",
+    "id",
+    "price",
+    "price_numeric",
+    "price_per_guest"
+  ],
+  "critical_notes": [
+    "Confirm price target semantics, units and currency before pooling markets.",
+    "Investigate overlapping source regions and repeated global listing IDs.",
+    "Compute any supervised price aggregates inside training folds; not on full data.",
+    "Review dates must precede the predictor cutoff for historical evaluation.",
+    "Unavailable calendar nights are not confirmed bookings or occupancy.",
+    "Data splitting, imputation and encoding must be fit on training data only."
+  ],
+  "failed_quality_gates": [
+    "Price units manually verified"
+  ]
+}

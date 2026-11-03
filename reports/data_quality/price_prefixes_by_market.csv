@@ -1,0 +1,91 @@
+﻿country,location,source_price_prefix,listings
+Austria,Vienna,$,10492
+Austria,Vienna,,2791
+Belgium,Antwerp,$,2069
+Belgium,Antwerp,,466
+Belgium,Brussels,$,4378
+Belgium,Brussels,,700
+Belgium,Ghent,$,1211
+Belgium,Ghent,,172
+Czech Republic,Prague,$,10583
+Czech Republic,Prague,,1032
+Denmark,Copenhagen,$,13860
+Denmark,Copenhagen,,9284
+France,Bordeaux,$,8413
+France,Bordeaux,,3804
+France,Lyon,$,5427
+France,Lyon,,3890
+France,Paris,$,48402
+France,Paris,,29277
+Germany,Berlin,$,8441
+Germany,Berlin,,4335
+Germany,Munich,$,4440
+Germany,Munich,,2425
+Greece,Athens,$,14199
+Greece,Athens,,138
+Greece,Crete,$,25518
+Greece,Crete,,1815
+Greece,South Aegean,$,34348
+Greece,South Aegean,,2332
+Greece,Thessaloniki,$,4718
+Greece,Thessaloniki,,247
+Ireland,Dublin,$,5578
+Ireland,Dublin,,1388
+Italy,Bergamo,$,3918
+Italy,Bergamo,,319
+Italy,Bologna,$,4544
+Italy,Bologna,,404
+Italy,Florence,$,12448
+Italy,Florence,,1024
+Italy,Milan,$,22937
+Italy,Milan,,2813
+Italy,Naples,$,10898
+Italy,Naples,,677
+Italy,Puglia,$,43387
+Italy,Puglia,,5296
+Italy,Rome,$,34324
+Italy,Rome,,2760
+Italy,Sicily,$,51864
+Italy,Sicily,,5009
+Italy,Venice,$,8177
+Italy,Venice,,589
+Latvia,Riga,$,3149
+Latvia,Riga,,322
+Netherlands,Amsterdam,$,6377
+Netherlands,Amsterdam,,3992
+Netherlands,Rotterdam,$,985
+Netherlands,Rotterdam,,372
+Netherlands,The Hague,$,1139
+Netherlands,The Hague,,353
+Norway,Oslo,$,9841
+Norway,Oslo,,3550
+Portugal,Lisbon,$,22636
+Portugal,Lisbon,,2240
+Portugal,Porto,$,13686
+Portugal,Porto,,1592
+Spain,Barcelona,$,13355
+Spain,Barcelona,,1938
+Spain,Euskadi,$,5676
+Spain,Euskadi,,572
+Spain,Girona,$,16874
+Spain,Girona,,4383
+Spain,Madrid,$,19172
+Spain,Madrid,,3536
+Spain,Mallorca,$,11057
+Spain,Mallorca,,3760
+Spain,Menorca,$,3143
+Spain,Menorca,,477
+Spain,Valencia,$,7267
+Spain,Valencia,,584
+Switzerland,Geneva,$,1600
+Switzerland,Geneva,,993
+Switzerland,Vaud,$,3119
+Switzerland,Vaud,,2176
+United Kingdom,Bristol,$,2412
+United Kingdom,Bristol,,611
+United Kingdom,Edinburgh,$,5610
+United Kingdom,Edinburgh,,634
+United Kingdom,Greater Manchester,$,6783
+United Kingdom,Greater Manchester,,147
+United Kingdom,London,$,62240
+United Kingdom,London,,30398
