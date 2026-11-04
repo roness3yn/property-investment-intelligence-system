@@ -18,7 +18,7 @@ from src.models.intervals import fit_cqr
 from src.models.opportunities import (OpportunitySettings, assumption_sensitivity, bedroom_band,
                                       booked_nights, bootstrap_stability, cross_fitted_predictions,
                                       forward_check, listing_components, opportunity_table,
-                                      save_opportunities, segment_key)
+                                      ranking_criteria, save_opportunities, segment_key)
 from src.models.opportunity_tool import OpportunityTool
 from src.models.pipelines import make_model, make_preprocessor
 
@@ -129,6 +129,20 @@ def test_ranking_checks_run_and_are_sensible():
 
 
 # ------------------------------------------------------------------ the agent's tool
+def test_ranking_criteria_verdicts():
+    sens = pd.DataFrame({"review_rate": [0.5, 0.3, 0.7], "avg_stay_nights": [3.0, 2.0, 4.0],
+                         "occupancy_cap": [0.7] * 3, "base": [True, False, False],
+                         "top-10 overlap with base": [1.0, 0.8, 0.6]})
+    r = ranking_criteria({"mean top-10 overlap": 0.75, "n_boot": 200}, sens, top_n=10)
+    assert r["criterion_5"]["met"] and r["criterion_5"]["mean_top_overlap"] == 0.75
+    assert not r["criterion_6"]["met"]                       # the worst alternative decides
+    assert r["criterion_6"]["min_top_overlap"] == 0.6
+    assert r["criterion_6"]["worst_assumptions"]["avg_stay_nights"] == 4.0
+    assert r["criterion_6"]["alternatives"] == 2
+    r = ranking_criteria({"mean top-10 overlap": 0.69}, sens.assign(**{"top-10 overlap with base": [1, .9, .7]}))
+    assert not r["criterion_5"]["met"] and r["criterion_6"]["met"]   # 70% exactly passes
+
+
 def _tool(tmp: Path) -> OpportunityTool:
     lf = components(listings())
     save_opportunities(opportunity_table(lf, S), lf,

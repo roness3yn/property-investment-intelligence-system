@@ -42,8 +42,8 @@ Results for criteria 1–4 come from one run on the Amsterdam test set (1,266 li
 | 2 | Interval calibration | the 80% price range covers **77–83%** of test prices | `05_model_evaluation` (H3) | ✅ **met**: **80.8%** [78.7%, 82.9%] |
 | 3 | Segment safety | no room type or neighbourhood with **at least 100** test listings is worse than B1; no segment's coverage is **below 70%** | `05_model_evaluation` | ⚠️ **partly met**: no large room type or neighbourhood is worse than B1 ✅; coverage is below 70% in **2 segments** ❌, the cheapest 10% of listings (62.5%) and the most expensive 10% (49.6%) |
 | 4 | Speed | prediction tool **under 200 ms** per call | `05_model_evaluation` | ✅ **met**: **27.7 ms** (model + interval, median single call) |
-| 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | `06_experiments` §7.3 | pending |
-| 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under the alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | `06_experiments` §7.4 | pending |
+| 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | `06_experiments` §7.3 | ✅ Met 80% |
+| 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under the alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | `06_experiments` §7.4 | ✅ Met 80% |
 | 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | agent harness (Adir) | pending |
 | 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | agent harness (Adir, Ron) | pending |
 
