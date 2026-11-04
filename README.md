@@ -335,6 +335,34 @@ The gain came from the **type of model** (gradient boosting vs the baseline: −
 
 The success criteria above are binding. `CHARTER.md` and `evaluation/README.md` must state the same thresholds.
 
+## Questions and answers
+
+**The price is already listed in the ad. What does the model predict that the investor cannot see?**
+
+The ad shows what one host is asking. The model predicts what the market typically charges for a property like that (same neighbourhood, room type, size and amenities), learned from about 10,000 Amsterdam listings, with an 80% price range. This matters in three places:
+
+- **A property with no ad.** An investor considering a flat that is not listed enters its features and gets the expected nightly price and range (`predict_listing_price`). Values the investor did not give are filled in and reported as `assumptions`.
+- **Judging an existing ad.** The asking price is compared with the range: below, within or above comparable listings.
+- **The opportunity score.** Each opportunity needs one expected price and a measure of how certain it is. Both come from out-of-fold predictions, so no listing is priced by a model that saw its own price.
+
+On held-out listings the model is off by 75 EUR/night, against 112 EUR/night for the median price of similar listings in the same neighbourhood (33% lower; the 95% CI of the difference excludes 0). The data has asking prices, not booked prices, so the model predicts the typical asking price, not guaranteed income.
+
+**Without occupancy and without costs, why is the opportunity in first place better than the one in second place?**
+
+Occupancy is in the score, as a stated estimate of booked nights from review counts. Costs are not. "First place" therefore means the highest conservative annual **rental revenue**, not the highest profit:
+
+| | #1 Centrum-West, private room, 2 bedrooms | #2 Centrum-Oost, entire home, 2 bedrooms |
+| --- | --- | --- |
+| Booked nights per year (estimate) | 156 | 73 |
+| Expected nightly price | 389 EUR | 493 EUR |
+| Price certainty | 0.55 | 0.62 |
+| **Score** (nights × price × certainty) | **33,389 EUR/year** | **22,436 EUR/year** |
+| Inside Airbnb's own occupancy estimate | 226 nights | 31 nights |
+
+Number 1 is booked about twice as often, which outweighs its lower and less certain price. Inside Airbnb's independent occupancy estimate points the same way. It is a stronger revenue lead, not a better purchase. Without purchase prices and costs we do not claim profit, and the agent computes a return only from the investor's own figures. Number 1 also rests on 21 listings, close to the minimum of 20. Whether the order holds is tested by success criteria 5 (bootstrap stability) and 6 (alternative occupancy assumptions).
+
+*Figures: Amsterdam opportunity table `20261101_1724` (label PROVISIONAL, test listings not included).*
+
 ## Guardrails
 
 - The score is **conservative annual rental revenue potential** for a type of property in a place. It is not return on investment, profit or property value: the data has no purchase prices or operating costs.
