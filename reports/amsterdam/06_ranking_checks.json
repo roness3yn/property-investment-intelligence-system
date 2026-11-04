@@ -1,0 +1,53 @@
+{
+  "threshold": 0.7,
+  "top_n": 10,
+  "criterion_5": {
+    "name": "ranking stability",
+    "mean_top_overlap": 0.8,
+    "n_boot": 200,
+    "met": true
+  },
+  "criterion_6": {
+    "name": "ranking robustness",
+    "min_top_overlap": 0.8,
+    "worst_assumptions": {
+      "review_rate": 0.3,
+      "avg_stay_nights": 4.0,
+      "occupancy_cap": 0.7
+    },
+    "alternatives": 8,
+    "met": true
+  },
+  "city": "Amsterdam",
+  "label": "PROVISIONAL",
+  "table_version": "20261104_1753",
+  "settings": {
+    "min_listings": 20,
+    "review_rate": 0.5,
+    "avg_stay_nights": 3.0,
+    "occupancy_cap": 0.7,
+    "bedroom_bands": [
+      [
+        "0-1",
+        1
+      ],
+      [
+        "2",
+        2
+      ],
+      [
+        "3+",
+        null
+      ]
+    ],
+    "reviews_col": "number_of_reviews_ltm",
+    "min_nights_col": "minimum_nights"
+  },
+  "stability_summary": {
+    "n_boot": 200,
+    "top_n": 10,
+    "mean top-10 overlap": 0.8,
+    "median rank correlation": 0.9387854724213204,
+    "ranked segments": 46
+  }
+}

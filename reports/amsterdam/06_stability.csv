@@ -1,0 +1,47 @@
+segment_key,neighbourhood_cleansed,room_type,bedroom_band,rank,P(top 10),rank p05,rank p95,P(ranked)
+centrum_west__private_room__2,Centrum-West,Private room,2,1,0.56,1.0,1.0,0.56
+centrum_oost__entire_home_apt__2,Centrum-Oost,Entire home/apt,2,2,1.0,1.0,4.049999999999983,1.0
+centrum_west__entire_home_apt__2,Centrum-West,Entire home/apt,2,3,1.0,1.0,5.0,1.0
+centrum_west__entire_home_apt__0_1,Centrum-West,Entire home/apt,0-1,4,0.99,3.0,9.0,1.0
+centrum_west__private_room__0_1,Centrum-West,Private room,0-1,5,0.98,3.0,10.0,1.0
+de_baarsjes_oud_west__private_room__0_1,De Baarsjes - Oud-West,Private room,0-1,6,0.85,3.0,13.0,1.0
+de_pijp_rivierenbuurt__private_room__0_1,De Pijp - Rivierenbuurt,Private room,0-1,7,0.795,3.0,13.099999999999994,0.995
+oostelijk_havengebied_indische_buurt__private_room__0_1,Oostelijk Havengebied - Indische Buurt,Private room,0-1,8,0.54,3.0,16.099999999999994,0.695
+centrum_oost__entire_home_apt__3plus,Centrum-Oost,Entire home/apt,3+,9,0.62,2.0,22.049999999999983,1.0
+centrum_oost__entire_home_apt__0_1,Centrum-Oost,Entire home/apt,0-1,10,0.665,6.0,15.0,1.0
+centrum_west__entire_home_apt__3plus,Centrum-West,Entire home/apt,3+,11,0.425,4.950000000000001,21.0,1.0
+oud_oost__entire_home_apt__2,Oud-Oost,Entire home/apt,2,12,0.23,7.950000000000001,19.0,1.0
+centrum_oost__private_room__0_1,Centrum-Oost,Private room,0-1,13,0.185,9.0,19.0,1.0
+de_pijp_rivierenbuurt__entire_home_apt__2,De Pijp - Rivierenbuurt,Entire home/apt,2,14,0.06,10.0,21.049999999999983,1.0
+zuid__entire_home_apt__2,Zuid,Entire home/apt,2,15,0.075,10.0,25.049999999999983,1.0
+westerpark__entire_home_apt__2,Westerpark,Entire home/apt,2,16,0.095,9.950000000000001,25.0,1.0
+de_baarsjes_oud_west__entire_home_apt__3plus,De Baarsjes - Oud-West,Entire home/apt,3+,17,0.02,12.950000000000001,27.0,1.0
+oud_noord__entire_home_apt__0_1,Oud-Noord,Entire home/apt,0-1,18,0.005,12.950000000000001,29.0,1.0
+westerpark__entire_home_apt__3plus,Westerpark,Entire home/apt,3+,19,0.05,10.450000000000001,38.0,0.95
+oostelijk_havengebied_indische_buurt__entire_home_apt__0_1,Oostelijk Havengebied - Indische Buurt,Entire home/apt,0-1,20,0.005,15.950000000000001,30.049999999999983,1.0
+oostelijk_havengebied_indische_buurt__entire_home_apt__2,Oostelijk Havengebied - Indische Buurt,Entire home/apt,2,21,0.0,15.0,35.04999999999998,1.0
+westerpark__entire_home_apt__0_1,Westerpark,Entire home/apt,0-1,22,0.0,19.0,31.0,1.0
+noord_west__entire_home_apt__0_1,Noord-West,Entire home/apt,0-1,23,0.0,16.0,43.0,0.655
+de_baarsjes_oud_west__entire_home_apt__2,De Baarsjes - Oud-West,Entire home/apt,2,24,0.0,20.950000000000003,31.049999999999983,1.0
+bos_en_lommer__entire_home_apt__0_1,Bos en Lommer,Entire home/apt,0-1,25,0.0,20.0,36.0,1.0
+noord_west__entire_home_apt__2,Noord-West,Entire home/apt,2,26,0.0,16.0,41.0,1.0
+watergraafsmeer__entire_home_apt__0_1,Watergraafsmeer,Entire home/apt,0-1,27,0.005,17.0,42.14999999999998,0.99
+oud_noord__entire_home_apt__2,Oud-Noord,Entire home/apt,2,28,0.0,15.950000000000001,40.0,1.0
+de_pijp_rivierenbuurt__entire_home_apt__3plus,De Pijp - Rivierenbuurt,Entire home/apt,3+,29,0.0,18.0,40.0,1.0
+zuid__entire_home_apt__0_1,Zuid,Entire home/apt,0-1,30,0.0,20.0,38.04999999999998,1.0
+de_pijp_rivierenbuurt__entire_home_apt__0_1,De Pijp - Rivierenbuurt,Entire home/apt,0-1,31,0.0,26.950000000000003,37.04999999999998,1.0
+zuid__entire_home_apt__3plus,Zuid,Entire home/apt,3+,32,0.0,25.0,40.04999999999998,1.0
+oud_oost__entire_home_apt__3plus,Oud-Oost,Entire home/apt,3+,33,0.0,21.8,45.0,0.985
+oud_noord__entire_home_apt__3plus,Oud-Noord,Entire home/apt,3+,34,0.0,21.0,46.04999999999998,1.0
+oud_oost__entire_home_apt__0_1,Oud-Oost,Entire home/apt,0-1,35,0.0,27.0,42.0,1.0
+slotervaart__entire_home_apt__2,Slotervaart,Entire home/apt,2,36,0.0,26.0,43.5,0.855
+bos_en_lommer__entire_home_apt__2,Bos en Lommer,Entire home/apt,2,37,0.0,28.950000000000003,43.0,1.0
+de_baarsjes_oud_west__entire_home_apt__0_1,De Baarsjes - Oud-West,Entire home/apt,0-1,38,0.0,34.0,42.0,1.0
+ijburg_zeeburgereiland__entire_home_apt__2,IJburg - Zeeburgereiland,Entire home/apt,2,39,0.0,31.0,48.0,0.515
+noord_west__entire_home_apt__3plus,Noord-West,Entire home/apt,3+,40,0.0,32.0,46.0,1.0
+ijburg_zeeburgereiland__entire_home_apt__3plus,IJburg - Zeeburgereiland,Entire home/apt,3+,41,0.0,36.0,49.0,0.985
+slotervaart__entire_home_apt__0_1,Slotervaart,Entire home/apt,0-1,42,0.0,35.0,49.0,0.97
+watergraafsmeer__entire_home_apt__2,Watergraafsmeer,Entire home/apt,2,43,0.0,37.0,48.0,0.93
+oostelijk_havengebied_indische_buurt__entire_home_apt__3plus,Oostelijk Havengebied - Indische Buurt,Entire home/apt,3+,44,0.0,39.75,50.0,0.58
+watergraafsmeer__entire_home_apt__3plus,Watergraafsmeer,Entire home/apt,3+,45,0.0,39.95,49.0,1.0
+noord_oost__entire_home_apt__3plus,Noord-Oost,Entire home/apt,3+,46,0.0,42.0,50.0,1.0

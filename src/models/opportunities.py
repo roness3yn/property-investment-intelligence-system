@@ -356,6 +356,34 @@ def assumption_sensitivity(listing_frame: pd.DataFrame, settings: OpportunitySet
     return pd.DataFrame(rows)
 
 
+def ranking_criteria(stability_summary: dict, sensitivity: pd.DataFrame, top_n: int = 10,
+                     threshold: float = 0.70) -> dict:
+    """README success criteria 5 and 6, from bootstrap_stability and assumption_sensitivity.
+
+    Criterion 5 (stability): the mean top-`top_n` overlap under bootstrap is at least `threshold`.
+    Criterion 6 (robustness): under EVERY alternative occupancy assumption, the top `top_n`
+    keeps at least `threshold` of the base top `top_n`; the worst alternative decides.
+    """
+    overlap = float(stability_summary[f"mean top-{top_n} overlap"])
+    col = f"top-{top_n} overlap with base"
+    alt = sensitivity[~sensitivity["base"].astype(bool)]
+    worst = alt.loc[alt[col].idxmin()] if len(alt) else None
+    c6_value = float(worst[col]) if worst is not None else float("nan")
+    return {
+        "threshold": threshold, "top_n": top_n,
+        "criterion_5": {"name": "ranking stability", "mean_top_overlap": overlap,
+                        "n_boot": int(stability_summary.get("n_boot", 0)),
+                        "met": bool(overlap >= threshold)},
+        "criterion_6": {"name": "ranking robustness", "min_top_overlap": c6_value,
+                        "worst_assumptions": None if worst is None else
+                            {"review_rate": float(worst["review_rate"]),
+                             "avg_stay_nights": float(worst["avg_stay_nights"]),
+                             "occupancy_cap": float(worst["occupancy_cap"])},
+                        "alternatives": int(len(alt)),
+                        "met": bool(worst is not None and c6_value >= threshold)},
+    }
+
+
 def occupancy_agreement(listing_frame: pd.DataFrame, table: pd.DataFrame | None = None) -> dict:
     """Component 2 vs Inside Airbnb's own `estimated_occupancy_l365d`, when the column exists.
 
