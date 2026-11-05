@@ -14,7 +14,7 @@ The product estimates **rental revenue potential**, not return on investment: th
 - Data preparation, EDA and feature engineering run on all cities in the Inside Airbnb extract.
 - The nightly-price model, its evaluation and the agent's prediction tool are implemented per city (Amsterdam first).
 - The opportunity score is implemented (`06_experiments`, `src/models/opportunities.py`), and its agent tool is `src/models/opportunity_tool.py` ([docs/opportunity_tool.md](docs/opportunity_tool.md)).
-- The price model was scored on the held-out Amsterdam test set on 29 Oct 2026. It meets criteria 1, 2 and 4 and part of criterion 3 (see **Success criteria**). The ranking (criteria 5–6) and the agent (criteria 7–8) are not evaluated yet.
+- The price model was scored on the held-out Amsterdam test set on 29 Oct 2026. It meets criteria 1, 2 and 4 and part of criterion 3 (see **Success criteria**). the ranking meets criteria 5 and 6; the agent (criteria 7–8) is not evaluated yet.
 
 ## Data evidence (Amsterdam)
 
@@ -32,9 +32,9 @@ The product estimates **rental revenue potential**, not return on investment: th
 
 These thresholds are fixed **before** the test set is scored and the ranking is evaluated. A criterion that is not met is reported as **not met**; thresholds are not changed after the results are known. Criteria 1–4 are also coded in `05_model_evaluation`'s pre-registration (`PREREG`), so they are applied mechanically.
 
-**Approved by the team:** Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch, on ____ (pull request #____). The same thresholds are stated in [CHARTER.md](CHARTER.md), whose **Checkpoint updates** section, at its end, tracks progress against them.
+**Approved by the team:** Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch, on 29/10/2026. The same thresholds are stated in [CHARTER.md](CHARTER.md), whose **Checkpoint updates** section, at its end, tracks progress against them.
 
-Results for criteria 1–4 come from one run on the Amsterdam test set (1,266 listings, 29 Oct 2026). That run is labelled **exploratory**, not confirmatory: the thresholds below were fixed in the design document and in the notebook's code before the run, and nothing was changed after it, but the pre-registration commit hash was not recorded (see Evaluation).
+Results for these criteria come from one run on the Amsterdam test set (1,266 listings, 29 Oct 2026). That run is labelled **exploratory**, not confirmatory: the thresholds below were fixed in the notebook's code before the run, and nothing was changed after it, but the pre-registration commit hash was not recorded (see Evaluation).
 
 | # | Criterion | Committed threshold | Measured in | Result |
 | --- | --- | --- | --- | --- |
@@ -43,9 +43,9 @@ Results for criteria 1–4 come from one run on the Amsterdam test set (1,266 li
 | 3 | Segment safety | no room type or neighbourhood with **at least 100** test listings is worse than B1; no segment's coverage is **below 70%** | `05_model_evaluation` | ⚠️ **partly met**: no large room type or neighbourhood is worse than B1 ✅; coverage is below 70% in **2 segments** ❌, the cheapest 10% of listings (62.5%) and the most expensive 10% (49.6%) |
 | 4 | Speed | prediction tool **under 200 ms** per call | `05_model_evaluation` | ✅ **met**: **27.7 ms** (model + interval, median single call) |
 | 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | `06_experiments` §7.3 | ✅ Met 80% |
-| 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under the alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | `06_experiments` §7.4 | ✅ Met 80% |
-| 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | agent harness (Adir) | pending |
-| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | agent harness (Adir, Ron) | pending |
+| 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under the alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | `06_experiments` §7.4 | ✅ Met 80% - lowest 80% (review rate 30%, 4-night stays) |
+| 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | agent harness | pending |
+| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | agent harness | pending |
 
 ## Architecture
 
@@ -156,7 +156,7 @@ Everyone contributes code and presents.
 | Path | Contents |
 | --- | --- |
 | `CHARTER.md` | Business problem, committed success criteria, data evidence, Plan B, risks, milestones and checkpoint updates |
-| `data/raw/`, `data/processed/` | Local datasets, excluded from Git |
+| `data/raw/`, `data/processed/` | Local datasets |
 | `data/data_dictionary.md` | Planned schema; replace with inspected source schema |
 | `data/sources.md` | Source provenance per city: URL, download date, snapshot, rows, price coverage, license, checksum |
 | `notebooks/` | Ordered EDA, preprocessing, modelling, evaluation and experiments |
@@ -178,7 +178,7 @@ Run the notebooks in order. Each reads the previous step's output from `data/pro
 | `01_Data_Preparation` | Erin | raw CSVs in `data/listings/`, `data/reviews/` | `listings_master.parquet`, `reviews_clean.parquet` |
 | `02_EDA` | Erin | the files above | charts and maps in `reports/` |
 | `03_Feature_Engineering` | Erin | the files above | `listings_features.parquet` (listings + engineered columns) |
-| `04_modeling` | Idan | `listings_features.parquet`, `evaluation/splits/split_v1_<city>.json` | models in `models/` (not in Git) |
+| `04_modeling` | Idan | `listings_features.parquet`, `evaluation/splits/split_v1_<city>.json` | models in `models/` |
 | `05_model_evaluation` | Idan | the same data and split, the saved models | `reports/<city>/`, `evaluation/test_runs.jsonl` |
 | `06_experiments` | Idan | `listings_features.parquet`, the selected model and interval model, the split | `reports/<city>/opportunities.csv`, `opportunity_listings.csv`, `opportunities.json`; the ranking checks |
 
@@ -208,7 +208,7 @@ source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.
 python -m pip install -r requirements.txt
 ```
 
-`requirements.txt` pins the libraries the notebooks and `src/` use. In VS Code, select the project's `.venv` as the kernel of **every** notebook; packages installed elsewhere are not visible to it. Shared code lives in `src/` (`src/models/` for modelling, evaluation and the prediction tool). The dashboard and LLM provider are chosen later.
+`requirements.txt` pins the libraries the notebooks and `src/` use. In VS Code, select the project's `.venv` as the kernel of **every** notebook; packages installed elsewhere are not visible to it. Shared code lives in `src/` (`src/models/` for modelling, evaluation and the prediction tool). 
 
 ## Data and reproducibility
 
@@ -228,7 +228,7 @@ The product is evaluated at three levels, each tied to the **Success criteria** 
 | --- | --- | --- |
 | 1. Expected nightly price | MAE (EUR/night) vs the baseline on held-out listings (criterion 1) | test: **75.0 vs 112.0 EUR/night (−33.0%)**, criterion met |
 | 1/3. 80% price range | coverage (criterion 2: 77–83%), width, interval score | test coverage **80.8%** (met); mean width 242 EUR, median 74% of the predicted price; interval score 369 EUR |
-| 2. Booked nights | agreement with Inside Airbnb's `estimated_occupancy_l365d`; sensitivity of the ranking to the assumptions (criterion 6) | implemented in `06_experiments` |
+| 2. Booked nights | agreement with Inside Airbnb's `estimated_occupancy_l365d`; sensitivity of the ranking to the assumptions (criterion 6) | implemented in `06_experiments` , agreement with Inside Airbnb’s estimate on 5,049 listings: rank correlation 0.998 per listing and 0.87 per opportunity; median 24 vs 31 nights (ours is lower, by design conservative). Agreement shows the approximation is implemented consistently, not that it equals real bookings. Ranking robustness to the assumptions: criterion 6 met |
 
 All alternatives use the same held-out cases and split.
 
@@ -359,7 +359,7 @@ Occupancy is in the score, as a stated estimate of booked nights from review cou
 | **Score** (nights × price × certainty) | **33,389 EUR/year** | **22,436 EUR/year** |
 | Inside Airbnb's own occupancy estimate | 226 nights | 31 nights |
 
-Number 1 is booked about twice as often, which outweighs its lower and less certain price. Inside Airbnb's independent occupancy estimate points the same way. It is a stronger revenue lead, not a better purchase. Without purchase prices and costs we do not claim profit, and the agent computes a return only from the investor's own figures. Number 1 also rests on 21 listings, close to the minimum of 20. Whether the order holds is tested by success criteria 5 (bootstrap stability) and 6 (alternative occupancy assumptions).
+Number 1 is booked about twice as often, which outweighs its lower and less certain price. Inside Airbnb's independent occupancy estimate points the same way. It is a stronger revenue lead, not a better purchase. Without purchase prices and costs we do not claim profit, and the agent computes a return only from the investor's own figures. Number 1 also rests on 21 listings, close to the minimum of 20. Criteria 5 and 6 are met (the top 10 keeps 80%), but #1 is fragile: in 44% of bootstrap resamples it has too few listings to be ranked, while #2 stays in the top 10 every time.
 
 *Figures: Amsterdam opportunity table `20261101_1724` (label PROVISIONAL, test listings not included).*
 
