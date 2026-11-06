@@ -1,0 +1,7 @@
+date,person,opportunity_rank,neighbourhood,room_type,bedrooms,search_dates,guests,minutes,completed,notes
+,,1,Centrum-West,Private room,2,,,,,
+,,5,Centrum-West,Private room,0-1,,,,,
+,,10,Centrum-Oost,Entire home/apt,0-1,,,,,
+,,20,Oostelijk Havengebied - Indische Buurt,Entire home/apt,0-1,,,,,
+,,30,Zuid,Entire home/apt,0-1,,,,,
+,,40,Noord-West,Entire home/apt,3+,,,,,
