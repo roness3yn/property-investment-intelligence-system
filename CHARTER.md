@@ -7,7 +7,7 @@
 
 **User:** a small private investor (one to five properties) deciding **what to buy and where** for short-term rental in a European city, without a professional analyst. Example: an investor choosing between a 2-bedroom flat in De Pijp and a studio in Centrum-West in Amsterdam.
 
-**Pain, measured:** before deciding, such an investor compares neighbourhoods, property types, nightly prices, booking activity and competitors by hand, listing by listing. A team member timed this manual research: an evidence brief for one opportunity (comparable listings, their prices, review activity, competitors) took a median of **___ minutes** over **___ opportunities**, so screening a city's top 10 takes about **___ hours**. This timing is also the manual reference for criterion 8.
+**Pain, measured:** before deciding, such an investor compares neighbourhoods, property types, nightly prices, booking activity and competitors by hand, listing by listing. A team member timed this manual research: an evidence brief for one opportunity (comparable listings, their prices, review activity, competitors) took a median of **___ minutes** over **___ opportunities**, so screening a city's top 10 takes about **___ hours**. This timing is also the manual reference for criterion 8. How it was measured: [manual reference protocol](evaluation/manual_reference_protocol.md), with the recorded times in [`evaluation/manual_reference_times.csv`](evaluation/manual_reference_times.csv).
 
 The system **ranks opportunities** and explains why the top-ranked ones warrant investigation.
 
@@ -34,7 +34,7 @@ These thresholds are fixed before the corresponding results exist and are not ch
 | 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | met: 80% (200 resamples, 4 Nov 2026) |
 | 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | met: lowest 80% (review rate 30%, 4-night stays) |
 | 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | pending: frozen cases and harness built (`evaluation/eval_sets/agent_cases_v1.jsonl`, `agents/harness.py`), not run yet |
-| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | pending: manual reference ___ minutes per brief (see Problem and user); cost limit ___ per brief |
+| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | pending: manual reference ___ minutes per brief (see Problem and user and the [protocol](evaluation/manual_reference_protocol.md)); cost limit ___ per brief |
 
 Criteria 1–4 are coded in `05_model_evaluation`'s pre-registration, so they are applied mechanically. The first held-out run (Amsterdam, 29 Oct 2026) is labelled **exploratory**: the thresholds were fixed before it and nothing was changed after it, but the pre-registration commit was not recorded. The test set is not scored again; a confirmatory test needs a later snapshot. Small samples in criteria 7–8 are reported as exploratory, with participant and task counts.
 
@@ -89,19 +89,19 @@ If only two weeks remain, deliver one-city ingestion, a dictionary, the median b
 
 ## Milestones and ownership
 
-Status is the actual state, with the date it was reached; "late" means the target date was missed.
+Status is the actual state, with the date it was reached.
 
 | Deliverable | Date | Owner | Status (6 Nov 2026) |
 | --- | --- | --- | --- |
-| Data and features, original team target | 30 Sep 2026 | Erin | done ___ (late): Amsterdam pipeline (01–03); extended to 45 cities with price-quality checks and a modelling hand-off, 3–5 Nov |
-| Charter and inspected-data evidence | 4 Oct 2026 | Team / Erin | charter submitted 4 Oct; data evidence added 28 Oct (late) |
-| Modelling, original team target | 7 Oct 2026 | Idan | done (late): models trained 24 Oct (04), held-out evaluation 29 Oct (05) |
-| Agent integration, original team target | 14 Oct 2026 | Adir | done ___ (late): router, opportunity investigator, price analyst and data-enrichment agents use both model tools; output guard checks every number |
-| End-to-end baseline checkpoint | 18 Oct 2026 | Team | done ___ (late): data → model → opportunity table → investor output runs for Amsterdam, with and without the agent |
-| Product/output, original team target | 24 Oct 2026 | Ron | done ___: investor web app (ranked table, map, Hebrew agent chat) |
+| Data and features, original team target | 30 Sep 2026 | Erin | done : Amsterdam pipeline (01–03); extended to 45 cities with price-quality checks and a modelling hand-off, 3–5 Nov |
+| Charter and inspected-data evidence | 4 Oct 2026 | Team / Erin | charter submitted 4 Oct; data evidence added 28 Oct  |
+| Modelling, original team target | 7 Oct 2026 | Idan | done : models trained 24 Oct (04), held-out evaluation 29 Oct (05) |
+| Agent integration, original team target | 14 Oct 2026 | Adir | done : router, opportunity investigator, price analyst and data-enrichment agents use both model tools; output guard checks every number |
+| End-to-end baseline checkpoint | 18 Oct 2026 | Team | done : data → model → opportunity table → investor output runs for Amsterdam, with and without the agent |
+| Product/output, original team target | 24 Oct 2026 | Ron | done : investor web app (ranked table, map, Hebrew agent chat) |
 | Opportunity score and ranking checks | 28 Oct 2026 | Idan | done: score implemented 30 Oct (06); criteria 5–6 met 4 Nov |
-| Agent checkpoint and one-minute demo | 30 Oct 2026 | Adir / Ron | ___ |
-| Pre-mentoring repository freeze | 1 Nov 2026 | Team | done 3 Nov (late): models, processed data and reports committed, so the system runs from a clone |
+| Agent checkpoint and one-minute demo | 30 Oct 2026 | Adir / Ron |  |
+| Pre-mentoring repository freeze | 1 Nov 2026 | Team | done 3 Nov : models, processed data and reports committed, so the system runs from a clone |
 | Internal final-version target from charter | 2 Nov 2026 | Team | not met: criteria 7–8 open |
 | Mentoring with working system and draft slides | 4 Nov 2026 | Team | ___ |
 | Final repository and slides freeze | 12 Nov 2026 | Team | |
