@@ -1,11 +1,15 @@
 # Project Charter — Property Investment Intelligence System
 
 **Team:** Erin Schaverien (Data), Idan Gilad (Model), Adir Libovitch (Agent), Ron Ness (Product).
-**Charter submission:** 4 October 2026. **Revised:** 30 October 2026, after the professor's remarks: the ranked unit and score are defined, the success criteria are committed with numbers, the data is verified, and Plan B is a second Inside Airbnb city. The [README](README.md) holds the full definitions and results; this charter states the commitments, and the two must agree.
+**Charter submission:** 4 October 2026. **Revised:** 30 October 2026, after the professor's remarks: the ranked unit and score are defined, the success criteria are committed with numbers, the data is verified, and Plan B is a second Inside Airbnb city. **Updated:** 6 November 2026: a specific user and a measured pain, the agent's seat tested against a fixed workflow, ranking results (criteria 5–6) and the status of every past milestone. The [README](README.md) holds the full definitions and results; this charter states the commitments, and the two must agree.
 
 ## Problem and user
 
-Short-term-rental investors spend time manually comparing neighbourhoods, property types, nightly prices, activity indicators and competitors before deciding what to buy and where. The system **ranks opportunities** and explains why the top-ranked ones warrant investigation.
+**User:** a small private investor (one to five properties) deciding **what to buy and where** for short-term rental in a European city, without a professional analyst. Example: an investor choosing between a 2-bedroom flat in De Pijp and a studio in Centrum-West in Amsterdam.
+
+**Pain, measured:** before deciding, such an investor compares neighbourhoods, property types, nightly prices, booking activity and competitors by hand, listing by listing. A team member timed this manual research: an evidence brief for one opportunity (comparable listings, their prices, review activity, competitors) took a median of **___ minutes** over **___ opportunities**, so screening a city's top 10 takes about **___ hours**. This timing is also the manual reference for criterion 8.
+
+The system **ranks opportunities** and explains why the top-ranked ones warrant investigation.
 
 An **opportunity** is a combination of a neighbourhood, a room type and a number of bedrooms (0–1, 2, 3+), with at least 20 priced listings. Its score is a **conservative annual rental revenue**:
 
@@ -19,16 +23,18 @@ The product estimates rental revenue potential, **not return on investment**: th
 
 These thresholds are fixed before the corresponding results exist and are not changed afterwards. A criterion that is not met is reported as not met. The README's **Success criteria** table records the results.
 
-| # | Criterion | Committed threshold | Status (30 Oct 2026) |
+**Approved by the team:** Erin Schaverien, Ron Ness, Idan Gilad and Adir Libovitch, on 29 October 2026. They are commitments, not proposals.
+
+| # | Criterion | Committed threshold | Status (6 Nov 2026) |
 | --- | --- | --- | --- |
 | 1 | Price accuracy | held-out MAE **at least 10% below** the baseline (training-only median by neighbourhood × room type, with room-type and global fallback), and the 95% CI of the difference excludes 0 | met: −33.0% (exploratory run) |
 | 2 | Interval calibration | the 80% price range covers **77–83%** of held-out prices | met: 80.8% |
 | 3 | Segment safety | no room type or neighbourhood with at least 100 held-out listings is worse than the baseline; no segment's coverage is below 70% | partly met: coverage below 70% for the cheapest and most expensive 10% of listings |
 | 4 | Speed | prediction tool under **200 ms** per call | met: 27.7 ms |
-| 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | pending |
-| 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | pending |
-| 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | pending |
-| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | pending |
+| 5 | Ranking stability | the top 10 keeps **at least 70%** of its opportunities under bootstrap resampling of the listings | met: 80% (200 resamples, 4 Nov 2026) |
+| 6 | Ranking robustness | the top 10 keeps **at least 70%** of its opportunities under alternative occupancy assumptions (review rate 30–70%, average stay 2–4 nights) | met: lowest 80% (review rate 30%, 4-night stays) |
+| 7 | Agent groundedness | **at least 95%** of the numbers the agent cites match the tool evidence log, on **20 frozen investigation cases**, with correct insufficient-evidence behaviour in every missing-data case | pending: frozen cases and harness built (`evaluation/eval_sets/agent_cases_v1.jsonl`, `agents/harness.py`), not run yet |
+| 8 | Time saved | **at least 25% median reduction** in time per evidence brief versus the manual reference, at no more than an agreed cost per brief | pending: manual reference ___ minutes per brief (see Problem and user); cost limit ___ per brief |
 
 Criteria 1–4 are coded in `05_model_evaluation`'s pre-registration, so they are applied mechanically. The first held-out run (Amsterdam, 29 Oct 2026) is labelled **exploratory**: the thresholds were fixed before it and nothing was changed after it, but the pre-registration commit was not recorded. The test set is not scored again; a confirmatory test needs a later snapshot. Small samples in criteria 7–8 are reported as exploratory, with participant and task counts.
 
@@ -56,6 +62,14 @@ Inside Airbnb → validation → features → nightly-price model (expected pric
 
 Code performs cleaning, filtering, calculations, prediction and scoring. The agent chooses which opportunities and comparables to examine, weighs contextual signals, investigates contradictions and explains the evidence. Its tools are read-only: `predict_listing_price` (price, range and drivers for one listing) and `rank_opportunities` (top opportunities, score breakdowns, the listings behind each), plus listing details, neighbourhood statistics and data-quality checks.
 
+**Why an agent and not a fixed workflow.** A fixed workflow runs the same steps on every opportunity and stops there; the deterministic opportunity table already does that, and code keeps all calculations. What the agent adds is that **its next step depends on what it finds**:
+- when our booked-nights estimate and Inside Airbnb's own occupancy estimate disagree for an opportunity, it examines that opportunity's listings and reviews to find out why;
+- when an opportunity rests on thin evidence, it checks robustness before presenting it (the current #1 has 21 listings and falls below the minimum in 44% of bootstrap resamples, while #2 stays in the top 10 in all of them);
+- when the price range is wide or an asking price is far from the expected price, it looks for the cause in the listings behind it;
+- when the investor asks about a property with no listing, it maps the description to features, prices it and places it in the ranking.
+
+A fixed script would either run every check on every opportunity, which costs the investor's time to read, or miss these cases. **This is tested, not assumed:** criteria 7 and 8 compare the agent with the deterministic table on the same frozen cases. If the table alone is as grounded and as fast, the agent has not earned its seat, and the product falls back to the table.
+
 Agent failure returns the deterministic opportunity table and an explicit insufficient-evidence or tool-failure status. No fabricated values or unsupported financial calculations.
 
 ## Risks and cut scope
@@ -75,19 +89,21 @@ If only two weeks remain, deliver one-city ingestion, a dictionary, the median b
 
 ## Milestones and ownership
 
-| Deliverable | Date | Owner | Status (30 Oct 2026) |
+Status is the actual state, with the date it was reached; "late" means the target date was missed.
+
+| Deliverable | Date | Owner | Status (6 Nov 2026) |
 | --- | --- | --- | --- |
-| Data and features, original team target | 30 Sep 2026 | Erin | Amsterdam pipeline runs (notebooks 01–03) |
-| Charter and inspected-data evidence | 4 Oct 2026 | Team / Erin | charter submitted; data evidence added 28 Oct |
-| Modelling, original team target | 7 Oct 2026 | Idan | done: models trained (04), held-out evaluation run 29 Oct (05) |
-| Agent integration, original team target | 14 Oct 2026 | Adir | *owner to update*; tools ready for integration |
-| End-to-end baseline checkpoint | 18 Oct 2026 | Team | *team to update* |
-| Product/output, original team target | 24 Oct 2026 | Ron | *owner to update* |
-| Opportunity score and ranking checks | 28 Oct 2026 | Idan | implemented (06); real-data ranking checks pending |
-| Agent checkpoint and one-minute demo | 30 Oct 2026 | Adir / Ron | *owner to update* |
-| Pre-mentoring repository freeze | 1 Nov 2026 | Team | |
-| Internal final-version target from charter | 2 Nov 2026 | Team | |
-| Mentoring with working system and draft slides | 4 Nov 2026 | Team | |
+| Data and features, original team target | 30 Sep 2026 | Erin | done ___ (late): Amsterdam pipeline (01–03); extended to 45 cities with price-quality checks and a modelling hand-off, 3–5 Nov |
+| Charter and inspected-data evidence | 4 Oct 2026 | Team / Erin | charter submitted 4 Oct; data evidence added 28 Oct (late) |
+| Modelling, original team target | 7 Oct 2026 | Idan | done (late): models trained 24 Oct (04), held-out evaluation 29 Oct (05) |
+| Agent integration, original team target | 14 Oct 2026 | Adir | done ___ (late): router, opportunity investigator, price analyst and data-enrichment agents use both model tools; output guard checks every number |
+| End-to-end baseline checkpoint | 18 Oct 2026 | Team | done ___ (late): data → model → opportunity table → investor output runs for Amsterdam, with and without the agent |
+| Product/output, original team target | 24 Oct 2026 | Ron | done ___: investor web app (ranked table, map, Hebrew agent chat) |
+| Opportunity score and ranking checks | 28 Oct 2026 | Idan | done: score implemented 30 Oct (06); criteria 5–6 met 4 Nov |
+| Agent checkpoint and one-minute demo | 30 Oct 2026 | Adir / Ron | ___ |
+| Pre-mentoring repository freeze | 1 Nov 2026 | Team | done 3 Nov (late): models, processed data and reports committed, so the system runs from a clone |
+| Internal final-version target from charter | 2 Nov 2026 | Team | not met: criteria 7–8 open |
+| Mentoring with working system and draft slides | 4 Nov 2026 | Team | ___ |
 | Final repository and slides freeze | 12 Nov 2026 | Team | |
 | Presentation, allocated session | 15 or 18 Nov 2026 | Team | |
 
@@ -103,5 +119,12 @@ At each checkpoint record: what runs end to end; metric versus target; decisions
 - **Decisions:** the opportunity unit and score; occupancy inside the score as a stated approximation; Plan B a second Inside Airbnb city; default gradient boosting selected over the tuned model (no measurable gain).
 - **Blockers:** the held-out run is exploratory (the pre-registration commit was missed); the agent harness for criteria 7–8 is not built yet.
 - **Next three steps:** run the ranking checks on real data (criteria 5–6); integrate the tools into the agent and build the harness (criteria 7–8); fix the cost-per-brief limit for criterion 8.
+
+**Checkpoint, 6 Nov 2026**
+- **Runs end to end (Amsterdam):** the full pipeline, the investor web app and the agents with both model tools. The repository includes the models, processed data and reports, so it runs from a clone.
+- **Metrics versus target:** criteria 1, 2, 4, 5 and 6 met; criterion 3 partly met; criteria 7–8 pending (harness built, not run).
+- **Decisions:** relative error measures added alongside MAE (typical relative error 24.6% vs 39.5% for the baseline; MAPE reported with a caveat); the data owner's new multi-city columns audited, and cities with unusable prices (Switzerland) refused by the model pipeline; test listings stay out of the opportunity table (label `PROVISIONAL`) until a confirmatory test.
+- **Blockers:** no confirmatory test until a later Amsterdam snapshot; the manual-research timing and the cost limit for criterion 8 are not fixed yet.
+- **Next three steps:** run the agent harness for criteria 7–8 (Adir); time the manual reference and fix the cost limit (team); finish the slides and demo for the 12 November freeze.
 
 **Source basis:** uploaded DS23 Final Project Guidelines (sections 3–6), Property Investment Intelligence System Project Charter (sections 1–6), team row 11 of the charter workbook, the professor's remarks of October 2026, and the Airbnb-only architecture image.
