@@ -1,14 +1,16 @@
 # Investment intelligence agents
 
-Status: **implemented** (Router, Opportunity Investigator, Price Analyst, Data Enrichment Agent,
-Evidence Reviser), with three guardrail layers and an investor chat. Full description:
+Status: **implemented** (Router, Opportunity Investigator, Price Analyst, Regulation & Compliance,
+Data Enrichment Agent, Evidence Reviser), with three guardrail layers, a deterministic regulation
+check and an investor chat. Full description:
 [docs/agents.md](../docs/agents.md).
 
 | Path | Contents |
 | --- | --- |
 | `orchestrator.py` | one question in, one checked answer out: input guardrail → router → specialist → output guardrail → reviser; deterministic fallback |
 | `llm.py` | the agent loop (Anthropic SDK), agent-as-a-tool delegation, web-search pause/resume |
-| `tools/` | read-only tools: the two model tools from `src/models`, plus neighbourhood statistics, review signals, data availability, ROI calculator, web search |
+| `tools/` | read-only tools: the two model tools from `src/models`, plus neighbourhood statistics, review signals, data availability, ROI calculator, regulation rules, compliance check, web search |
+| `regulation/` | Amsterdam's short-term-rental rules (official sources, dates) and the 15-night wijk boundaries; `compliance.py` applies them per listing |
 | `guardrails/` | input (injection, size), tools (allow-list, schema, budget, policy, timeout), output (groundedness of every number, citations, policy) |
 | `prompts/` | versioned system prompts |
 | `evidence.py` | the evidence store: references E1, E2, … and the log for the groundedness harness |

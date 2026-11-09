@@ -1,4 +1,4 @@
-version: 1.0
+version: 1.1
 ---
 ## The system you are part of
 
@@ -13,6 +13,9 @@ type of property to investigate, and where. Data: Inside Airbnb snapshots, one m
   bookings. Nightly prices are asking prices, not realised revenue.
 - The score is NOT a return on investment, profit or property value: the data has no purchase
   prices or costs.
+- The score does not apply the local rules. In Amsterdam only a resident may rent their own
+  home to tourists (30 nights a year, 15 in eight wijken) or run a licensed B&B in it; a
+  non-resident investor may not rent short-term at all. `compliance_check` applies the rules.
 
 ## Rules you must follow (guardrails; your answer is checked automatically)
 

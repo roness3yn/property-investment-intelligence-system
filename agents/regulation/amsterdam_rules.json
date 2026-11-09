@@ -1,0 +1,161 @@
+{
+  "city": "Amsterdam",
+  "version": "2026-11-09",
+  "verified_on": "2026-11-09",
+  "scope": "Short-term rental to tourists of homes in Amsterdam: holiday rental of a whole home (vakantieverhuur) and bed & breakfast (a room in the home the host lives in). Not legal advice: rules change, and the official texts decide.",
+  "sources": {
+    "HVV2024": {
+      "title": "Huisvestingsverordening Amsterdam 2024 (in force from 1 January 2026 version)",
+      "publisher": "Gemeente Amsterdam",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR706038/",
+      "official": true
+    },
+    "AANWIJZING15": {
+      "title": "Eerste aanwijzingsbesluit 15-nachtencriterium vakantieverhuur Amsterdam",
+      "publisher": "College van B&W, Gemeente Amsterdam",
+      "url": "https://repository.officiele-overheidspublicaties.nl/externebijlagen/exb-2026-11475/1/bijlage/exb-2026-11475.pdf",
+      "official": true
+    },
+    "ESCALATIE": {
+      "title": "Beleidsregel escalatieladder vakantieverhuur Amsterdam",
+      "publisher": "Gemeente Amsterdam",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR746103/",
+      "official": true
+    },
+    "NHNIEUWS2026": {
+      "title": "Regels vakantieverhuur in Amsterdam vanaf nu strenger: dit verandert er (1 April 2026)",
+      "publisher": "NH Nieuws",
+      "url": "https://www.nhnieuws.nl/nieuws/358522/regels-vakantieverhuur-in-amsterdam-vanaf-nu-strenger-dit-verandert-er",
+      "official": false
+    },
+    "AIRROI": {
+      "title": "Amsterdam short-term rental regulations (secondary summary of the city's fines table and tourist tax)",
+      "publisher": "AirROI",
+      "url": "https://www.airroi.com/airbnb-data/netherlands/north-holland/amsterdam/regulations",
+      "official": false
+    }
+  },
+  "rules": [
+    {
+      "id": "R1",
+      "topic": "who_may_rent",
+      "applies_to": ["Entire home/apt"],
+      "title": "Holiday rental only of your own main residence",
+      "rule": "Holiday rental (renting out the whole home while the resident is away) needs a permit, and the applicant must be registered at the address in the population register (BRP) and have the centre of their life there. A main residence is where someone stayed at least 183 nights in the last twelve months. A second home or an investment property does not qualify.",
+      "rule_he": "השכרת דירה שלמה לתיירים (vakantieverhuur) מותרת רק בדירה שהיא מקום המגורים העיקרי של המשכיר: רשום בכתובת במרשם האוכלוסין וגר בה לפחות 183 לילות ב-12 החודשים האחרונים. דירה שנייה או נכס להשקעה לא עומדים בתנאי.",
+      "investor_impact": "A non-resident investor cannot legally rent a whole home to tourists in Amsterdam.",
+      "articles": "HVV2024 art. 1 (j: hoofdverblijf, jj: vakantieverhuur), art. 3.7.4, art. 3.9.5 lid 1a and lid 2a",
+      "source": "HVV2024",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R2",
+      "topic": "night_cap",
+      "applies_to": ["Entire home/apt"],
+      "title": "At most 30 nights per calendar year",
+      "rule": "A home may be used for holiday rental for at most thirty nights per calendar year.",
+      "rule_he": "השכרה לתיירים של דירה שלמה: עד 30 לילות בשנה קלנדרית.",
+      "value": 30,
+      "unit": "nights per calendar year",
+      "articles": "HVV2024 art. 3.7.3 lid 1",
+      "source": "HVV2024",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R3",
+      "topic": "night_cap",
+      "applies_to": ["Entire home/apt"],
+      "title": "15 nights in eight wijken from 1 April 2026",
+      "rule": "From 1 April 2026 the cap is 15 nights per calendar year in Burgwallen-Nieuwe Zijde, De Weteringschans, Grachtengordel-West, Grachtengordel-Zuid, Haarlemmerbuurt, Jordaan, Nieuwmarkt/Lastage and Oude Pijp, where more than 30% of households report nuisance from holiday rental. A home already rented 15 nights or more in 2026 before 1 April may not be rented again in 2026.",
+      "rule_he": "מ-1.4.2026 התקרה היא 15 לילות בשנה בשמונה רבעים: Burgwallen-Nieuwe Zijde, De Weteringschans, Grachtengordel-West, Grachtengordel-Zuid, Haarlemmerbuurt, Jordaan, Nieuwmarkt/Lastage ו-Oude Pijp.",
+      "value": 15,
+      "unit": "nights per calendar year",
+      "wijken": ["Burgwallen-Nieuwe Zijde", "De Weteringschans", "Grachtengordel-West", "Grachtengordel-Zuid", "Haarlemmerbuurt", "Jordaan", "Nieuwmarkt/Lastage", "Oude Pijp"],
+      "inside_airbnb_neighbourhoods": ["Centrum-West", "Centrum-Oost", "De Pijp - Rivierenbuurt"],
+      "articles": "AANWIJZING15 under HVV2024 art. 3.7.3 lid 3 and 3.9.5 lid 3; ESCALATIE",
+      "source": "AANWIJZING15",
+      "effective_from": "2026-04-01"
+    },
+    {
+      "id": "R4",
+      "topic": "escalation",
+      "applies_to": ["Entire home/apt"],
+      "title": "Further step: a temporary stop on holiday rental",
+      "rule": "The escalation ladder's next step, if nuisance stays above the threshold in a wijk, is a temporary stop on holiday rental there. Burgwallen-Oude Zijde is not on the 15-night list but gets more intensive enforcement.",
+      "rule_he": "השלב הבא בסולם ההסלמה, אם המטרד נמשך, הוא הפסקה זמנית של השכרה לתיירים ברובע. Burgwallen-Oude Zijde לא ברשימת 15 הלילות אבל באכיפה מוגברת.",
+      "articles": "ESCALATIE; AANWIJZING15",
+      "source": "ESCALATIE",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R5",
+      "topic": "guests",
+      "applies_to": ["Entire home/apt", "Private room", "Shared room"],
+      "title": "At most four guests",
+      "rule": "Holiday rental and B&B may accommodate at most four people at a time (a B&B has at most four beds).",
+      "rule_he": "עד 4 אורחים בו-זמנית, גם בהשכרת דירה שלמה וגם ב-B&B.",
+      "value": 4,
+      "unit": "guests",
+      "articles": "HVV2024 art. 3.9.5 lid 2d; art. 3.9.6 lid 1c and lid 2c",
+      "source": "HVV2024",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R6",
+      "topic": "registration",
+      "applies_to": ["Entire home/apt", "Private room", "Shared room"],
+      "title": "Registration number in every advert, and notice of every stay",
+      "rule": "Every advert must show the home's registration number, and the nights of every holiday rental must be notified electronically to the city before the guests arrive.",
+      "rule_he": "כל מודעה חייבת להציג מספר רישום, וכל השכרה מדווחת מראש לעירייה (לילות ואורחים) לפני הגעת האורחים.",
+      "articles": "HVV2024 art. 3.7.2; art. 3.7.3 lid 2",
+      "source": "HVV2024",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R7",
+      "topic": "bed_and_breakfast",
+      "applies_to": ["Private room", "Shared room"],
+      "title": "B&B: a permit, the host lives and sleeps there",
+      "rule": "Renting a room to tourists is a bed & breakfast and needs a permit. The operator must have the home as main residence, run the B&B personally and sleep in the home while guests stay. The B&B may use at most 40% of the home's floor area, up to 61 m2. Permits are issued within a quota per wijk and run until 1 July 2028 at the latest. There is no night cap.",
+      "rule_he": "השכרת חדר לתיירים היא B&B ודורשת היתר. המפעיל חייב לגור בדירה כמקום מגורים עיקרי, להפעיל בעצמו ולישון בדירה בזמן שהאורחים שם. עד 40% משטח הדירה ועד 61 מ\"ר. ההיתרים מוגבלים במכסה לכל רובע, ותקפים עד 1.7.2028 לכל המאוחר. אין תקרת לילות.",
+      "investor_impact": "A non-resident investor cannot run a B&B; a resident needs a permit within a wijk quota that may be full.",
+      "articles": "HVV2024 art. 3.7.5; art. 3.9.4 lid 1; art. 3.9.6",
+      "source": "HVV2024",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R8",
+      "topic": "fines",
+      "applies_to": ["Entire home/apt", "Private room", "Shared room"],
+      "title": "Fines (secondary source)",
+      "rule": "First fines for private hosts reported by a secondary source: EUR 1,500 for renting without a registration number, permit or notice; EUR 2,500 for up to 5 nights over the cap and EUR 5,000 for 5 or more; EUR 9,000 for renting a home the host does not live in. Higher for business hosts and repeat offences.",
+      "rule_he": "קנסות ראשונים למארח פרטי (מקור משני): 1,500 אירו בלי מספר רישום, היתר או דיווח; 2,500 אירו עד 5 לילות מעל התקרה ו-5,000 אירו מ-5 לילות ומעלה; 9,000 אירו על השכרת דירה שהמארח לא גר בה.",
+      "articles": "HVV2024 annex 3 (bestuurlijke boetes), as summarised by AIRROI",
+      "source": "AIRROI",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R9",
+      "topic": "tax",
+      "applies_to": ["Entire home/apt", "Private room", "Shared room"],
+      "title": "Tourist tax 12.5% (secondary source)",
+      "rule": "Tourist tax is 12.5% of the overnight price excluding VAT, charged to guests who are not Amsterdam residents; the coalition plans to raise it from 2027 (not yet adopted).",
+      "rule_he": "מס תיירים 12.5% ממחיר הלינה ללא מע\"מ, משולם על ידי האורחים. יש תוכנית להעלות מ-2027 (טרם אושרה).",
+      "value": 12.5,
+      "unit": "% of the overnight price",
+      "articles": "Verordening toeristenbelasting, as summarised by AIRROI",
+      "source": "AIRROI",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "id": "R10",
+      "topic": "data_timing",
+      "applies_to": ["Entire home/apt", "Private room", "Shared room"],
+      "title": "The data predates part of the rules",
+      "rule": "The Inside Airbnb snapshot is 15 June 2026 and booked nights are estimated from reviews of the previous twelve months, mostly before the 15-night cap started on 1 April 2026. Observed nights above a cap describe past behaviour (and possibly unlicensed renting), not what is allowed now.",
+      "rule_he": "הנתונים מ-15.6.2026, והלילות מוערכים מביקורות של 12 החודשים הקודמים, רובם לפני 1.4.2026. לילות מעל התקרה מתארים התנהגות עבר (ואולי השכרה לא חוקית), לא את מה שמותר היום.",
+      "source": "AANWIJZING15",
+      "effective_from": "2026-04-01"
+    }
+  ]
+}

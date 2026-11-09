@@ -237,15 +237,19 @@ def test_investigator_flow_is_grounded_and_traced():
     r = o.handle("מהן ההזדמנויות המובילות באמסטרדם?")
     assert r.mode == "agent" and r.agent == "investigator" and r.intent == "investigate"
     assert r.verification["passed"] and r.verification["groundedness"] == 1
-    assert [e["tool"] for e in r.events if e["type"] == "tool_result"] == \
+    assert [e["tool"] for e in r.events if e["type"] == "tool_result" and e["agent"] == "investigator"] == \
         ["rank_opportunities", "rank_opportunities", "review_signals"]
     assert any(e["type"] == "tool_cached" for e in r.events)
     assert r.usage["llm_calls"] == 6
+    # the agent did not check the regulation, so the system did, for the top 3 it presented
+    checks = [e for e in r.events if e["type"] == "tool_result" and e["agent"] == "regulation_check"]
+    assert [e["tool"] for e in checks] == ["regulation_rules"] + ["compliance_check"] * 3
+    assert "בדיקת רגולציה אוטומטית" in r.answer and "לילות מותרים" in r.answer
     # the specialist got only its own tools, plus the enrichment agent as a tool
     names = {t["name"] for t in llm.requests[1]["tools"]}
     assert names == {"rank_opportunities", "segment_profile", "listing_profile", "model_card",
                      "neighbourhood_stats", "review_signals", "predict_listing_price",
-                     "ask_data_enrichment_agent"}
+                     "compliance_check", "regulation_rules", "ask_data_enrichment_agent"}
     assert "This deployment" in llm.requests[1]["system"] and "SYNTHETIC" in llm.requests[1]["system"]
 
 
@@ -345,7 +349,70 @@ def test_harness_scores_cases():
 
 
 def test_heuristic_router():
+    assert heuristic_route("כמה לילות מותר להשכיר דירה באמסטרדם?")["intent"] == "regulation"
+    assert heuristic_route("Is a B&B permit needed?")["intent"] == "regulation"
     assert heuristic_route("כמה מחיר ללילה ב-De Pijp?")["intent"] == "price"
     assert heuristic_route("איזה ערים יש בנתונים?")["intent"] == "data"
     assert heuristic_route("top opportunities in Amsterdam")["city"] == "Amsterdam"
     assert heuristic_route("שלום")["intent"] == "help"
+
+
+# ---------------------------------------------------------------------- regulation
+def test_night_caps_by_location():
+    from agents.regulation import night_caps
+    caps = night_caps("Amsterdam",
+                      [52.3740, 52.3726, 52.3537, 52.3524, 52.3600],
+                      [4.8830, 4.8966, 4.8920, 4.8960, 4.8700],
+                      ["Centrum-West", "Centrum-West", "De Pijp - Rivierenbuurt", "De Pijp - Rivierenbuurt", "Westerpark"])
+    # Jordaan, Burgwallen-Oude Zijde (not designated), Oude Pijp, Nieuwe Pijp, another district
+    assert list(caps["night_cap"]) == [15, 30, 15, 30, 30]
+    assert caps["wijk_15_nights"][0] == "Jordaan" and caps["wijk_15_nights"][2] == "Oude Pijp"
+    # a 15-night wijk never leaks into a neighbourhood that does not contain one
+    leak = night_caps("Amsterdam", [52.3740], [4.8830], ["Westerpark"])
+    assert leak["night_cap"][0] == 30
+    # missing coordinates inside a 15-night neighbourhood: unknown, not guessed
+    assert night_caps("Amsterdam", [None], [None], ["Centrum-Oost"])["night_cap"][0] is None
+
+
+def test_compliance_check_regimes_and_cap():
+    reg = build_registry(ToolContext(config()))
+    rules = reg["regulation_rules"].handler({"city": "Amsterdam", "topic": "night_cap"})
+    assert rules["status"] == "ok" and {r["id"] for r in rules["results"]} == {"R2", "R3"}
+    assert rules["sources"]["HVV2024"]["official"] and rules["verified_on"]
+    assert reg["regulation_rules"].handler({"city": "Barcelona"})["status"] == "not_found"
+    ranking = reg["compliance_check"].handler({"action": "ranking", "city": "Amsterdam", "n": 50})
+    assert ranking["status"] == "ok" and ranking["results"]
+    for x in ranking["results"]:
+        assert x["investor_permitted"] is False
+        assert x["score_within_cap"] <= x["score_in_table"] + 1
+        if x["regime"] == "holiday_rental":
+            assert x["legal_nights"] <= 30 and x["legal_nights"] <= x["booked_nights_in_score"] + 0.1
+        else:
+            assert x["legal_nights"] == x["booked_nights_in_score"]          # B&B: no night cap
+    one = reg["compliance_check"].handler({"action": "opportunity", "city": "Amsterdam", "rank": 1})
+    assert one["status"] == "ok" and one["evidence_id"].startswith("reg:amsterdam:")
+    assert "R10" in one["results"][0]["rule_ids"]
+    bad = reg["compliance_check"].handler({"action": "opportunity", "city": "Amsterdam"})
+    assert bad["status"] == "invalid_input"
+
+
+def test_regulation_question_routes_to_the_compliance_agent():
+    llm = FakeLLM([
+        route("regulation"),
+        [tool_use("c1", "regulation_rules", {"city": "Amsterdam", "topic": "night_cap"})],
+        lambda kw: [text("דירה שלמה: עד 30 לילות בשנה, ו-15 בשמונה רבעים [E1].")],
+    ])
+    o = Orchestrator(config(), llm=llm)
+    r = o.handle("כמה לילות מותר להשכיר דירה באמסטרדם?")
+    assert r.agent == "compliance" and r.intent == "regulation" and r.verification["passed"]
+    names = {t["name"] for t in llm.requests[1]["tools"]}
+    assert {"regulation_rules", "compliance_check", "ask_data_enrichment_agent"} <= names
+    assert "roi_calculator" not in names and "web_search" not in names     # least privilege
+    assert "בדיקת רגולציה אוטומטית" not in r.answer        # the specialist itself covers regulation
+
+
+def test_fallback_applies_the_regulation():
+    r = Orchestrator(config(), llm=None).handle("כמה לילות מותר להשכיר באמסטרדם?")
+    assert r.mode == "fallback" and r.intent == "regulation"
+    assert "R2" in r.answer and "ציון בתקרה" in r.answer
+    assert r.verification["groundedness"] == 1

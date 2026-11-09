@@ -14,6 +14,7 @@ full system (router, specialists, tools, guardrails) and reports, per case and o
 
     python -m agents.harness                      # all cases, writes evaluation/agent_results/
     python -m agents.harness --cases C01 C08      # a subset
+    python -m agents.harness --set regulation     # the regulation cases (agent_cases_regulation_v1.jsonl)
 
 It needs ANTHROPIC_API_KEY. Set PIIS_DATA_ROOT to the data bundle (or a demo repository).
 The cases are frozen: change them only in a new file (agent_cases_v2.jsonl) and say so.
@@ -91,8 +92,11 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Run the frozen agent cases (criteria 7-8).")
     ap.add_argument("--cases", nargs="*", help="case ids, e.g. C01 C08")
     ap.add_argument("--out", default=str(REPO_ROOT / "evaluation" / "agent_results"))
+    ap.add_argument("--set", default="v1", choices=["v1", "regulation"],
+                    help="v1: the 22 frozen cases (criteria 7-8); regulation: the 5 regulation cases")
     a = ap.parse_args()
-    cases = [json.loads(l) for l in CASES.read_text(encoding="utf-8").splitlines() if l.strip()]
+    cases_file = CASES if a.set == "v1" else CASES.with_name("agent_cases_regulation_v1.jsonl")
+    cases = [json.loads(l) for l in cases_file.read_text(encoding="utf-8").splitlines() if l.strip()]
     if a.cases:
         cases = [c for c in cases if c["id"] in set(a.cases)]
     cfg = AgentConfig()
@@ -111,7 +115,7 @@ def main() -> None:
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     stamp = time.strftime("%Y%m%d_%H%M")
-    meta = {"run": stamp, "cases_file": CASES.name, "agent_model": cfg.agent_model,
+    meta = {"run": stamp, "cases_file": cases_file.name, "agent_model": cfg.agent_model,
             "router_model": cfg.router_model, "data_root": str(cfg.data_root),
             "labels": {c: t["label"] for c, t in orch.ctx.status()["opportunity_tables"].items()}}
     (out / f"run_{stamp}.json").write_text(json.dumps({"meta": meta, "summary": summary, "cases": rows},

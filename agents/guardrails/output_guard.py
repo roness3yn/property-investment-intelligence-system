@@ -24,7 +24,7 @@ from agents.evidence import NUMBER_RE, EvidenceStore, numbers_in_text, parse_num
 
 REF_RE = re.compile(r"\[(E\d+(?:\s*,\s*E\d+)*)\]")
 DATE_RE = re.compile(r"\b\d{4}-\d{2}-\d{2}\b|\b\d{1,2}[./]\d{1,2}[./]\d{2,4}\b")
-EVID_RE = re.compile(r"`[^`]*`|\b(?:opp|pred|nbh|rev|avail|roi|opp-listing):[\w:.\-+]+")
+EVID_RE = re.compile(r"`[^`]*`|\b(?:opp|pred|nbh|rev|avail|roi|opp-listing|reg|rules|card|seg|lst):[\w:./\-+]+")
 
 POLICY_RULES = [
     ("buy_instruction", r"\b(you should|i recommend|we recommend) (buy|purchase|invest)|\bbuy (it|this|now)\b"

@@ -72,7 +72,9 @@ The agent selects investigations, compares contextual evidence and explains cont
 
 ## Agents and investor chat
 
-Four agents investigate the ranked opportunities over read-only tools: a **Router**, an **Opportunity Investigator** (evidence briefs: for, against, cross-checks such as booked nights vs Inside Airbnb's occupancy estimate, model reliability for the segment, registration status; what to check next), a **Price Analyst** (what-if prices; ROI only from the user's own numbers) and a **Data Enrichment Agent** (cities without a model, guest reviews, outside context from the web), which the other two call as a tool. Three guardrail layers are deterministic code: input (prompt injection), tools (allow-list, schema, budget, policy, timeout) and output (every number in an answer must match a tool result and be cited, checked before it is shown). Details: [docs/agents.md](docs/agents.md).
+Five agents investigate the ranked opportunities over read-only tools: a **Router**, an **Opportunity Investigator** (evidence briefs: for, against, cross-checks such as booked nights vs Inside Airbnb's occupancy estimate, model reliability for the segment, registration status, regulation; what to check next), a **Price Analyst** (what-if prices; ROI only from the user's own numbers), a **Regulation & Compliance** agent (Amsterdam's short-term-rental rules from the official texts: who may rent, 30 nights a year and 15 in eight wijken from 1 April 2026, B&B permits; the score within the legal night cap) and a **Data Enrichment Agent** (cities without a model, guest reviews, outside context from the web), which the others call as a tool. Every opportunity an answer presents is checked against the rules in code, even if the agent did not do it. Three guardrail layers are deterministic code: input (prompt injection), tools (allow-list, schema, budget, policy, timeout) and output (every number in an answer must match a tool result and be cited, checked before it is shown). Details: [docs/agents.md](docs/agents.md).
+
+Requires **Python 3.12+**.
 
 ```bash
 python -m pip install -r requirements-app.txt
@@ -81,7 +83,7 @@ streamlit run src/app/streamlit_app.py     # or ./run_app.sh / run_app.bat
 python -m agents.harness                   # criteria 7-8: the frozen investigation cases
 ```
 
-The chat is in Hebrew. Without an API key it shows the deterministic opportunity table; without the data bundle it can build a synthetic demo repository, labelled as such.
+The chat is in Hebrew. Without an API key it still answers, from the deterministic opportunity table with legal nights and the rules; without the data bundle it can build a synthetic demo repository, labelled as such. The **איך זה עובד** tab shows each agent's model, tools and full system prompt, and the guardrails.
 
 ## Opportunity definition and score
 
@@ -375,6 +377,7 @@ Number 1 is booked about twice as often, which outweighs its lower and less cert
 - Ground claims in tool outputs with source dates and evidence identifiers.
 - Return insufficient evidence when data is missing or contradictory.
 - The product supports investigation; it does not issue buy/no-buy instructions.
+- **Regulation.** In Amsterdam a whole home may be rented to tourists only by a resident in their main residence, at most 30 nights a year (15 in eight wijken from 1 April 2026), and a room only as a licensed B&B by a resident host. A non-resident investor may not rent short-term at all. The score does not apply these limits; `compliance_check` shows the score within the cap next to it (see [docs/agents.md](docs/agents.md#regulation-amsterdam)).
 
 ## Course deadlines
 
