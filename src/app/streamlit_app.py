@@ -8,8 +8,12 @@ Layout (tab "סוכן המחקר"):
   each tool call; under each answer, the path it took and the evidence behind every [E#];
 * a context panel beside it: the ranked opportunities (with "investigate" buttons that hand an
   opportunity to the agents), a map of Amsterdam, and how reliable the price model is.
-Other tabs: the full opportunity table (works without the agents) and the evidence log
-(criterion 7). Settings and data status live in the sidebar.
+* every opportunity shows what the local rules allow (regime, night cap, score within the cap),
+  and the context panel has a regulation tab with the rules and their official sources.
+Other tabs: the full opportunity table (works without the agents), the evidence log
+(criterion 7), and "איך זה עובד": every agent's model, tools and full system prompt, and the
+guardrails with their settings. Without an API key the chat still answers, from the
+deterministic table with the regulation applied. Settings and data status live in the sidebar.
 """
 from __future__ import annotations
 
@@ -168,6 +172,21 @@ td,th{border:1px solid var(--line)!important; padding:.35rem .6rem!important; un
 .kv span:nth-child(odd){color:var(--muted);} .kv span:nth-child(even){font-weight:600; direction:ltr; text-align:left; font-variant-numeric:tabular-nums;}
 .callout{border:1px solid #FEDF89; background:var(--warn-soft); color:var(--warn); border-radius:8px; padding:.5rem .7rem; font-size:.82rem; margin-top:.8rem; direction:rtl;}
 
+/* regulation */
+.reg{display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; font-size:.72rem; margin:-.2rem 0 .45rem 0; direction:rtl;}
+.reg .tag{border-radius:4px; padding:.02rem .4rem; border:1px solid #D9D6FE; background:#F4F3FF; color:#5925DC;}
+.reg .tag.cut{border-color:#FECDCA; background:var(--bad-soft); color:var(--bad);}
+.reg b{direction:ltr; unicode-bidi:isolate; font-variant-numeric:tabular-nums;}
+.rule{border:1px solid var(--line); border-radius:8px; padding:.5rem .7rem; margin:.45rem 0; background:#fff; direction:rtl; font-size:.84rem; line-height:1.6;}
+.rule .id{font-weight:700; color:#5925DC; margin-left:.35rem;}
+.rule .src{display:block; font-size:.74rem; color:var(--muted); margin-top:.2rem;}
+.rule .src a{color:var(--accent);}
+.arch{border:1px solid var(--line); border-radius:10px; background:#fff; padding:.7rem .9rem; margin:.5rem 0; direction:rtl;}
+.arch h4{margin:0 0 .3rem 0; font-size:1rem;}
+.arch .m{font-size:.8rem; color:var(--muted);}
+.arch .tools{display:flex; gap:.3rem; flex-wrap:wrap; margin-top:.4rem;}
+.arch .tools span{font-size:.74rem; border:1px solid var(--accent-line); background:var(--accent-soft); color:var(--accent); border-radius:4px; padding:.02rem .4rem; direction:ltr;}
+
 /* misc */
 .stButton>button{border-radius:8px;}
 .stButton>button:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px;}
@@ -188,12 +207,15 @@ SUGGESTIONS = [
     ("סתירה במקום הראשון", "למה חדר פרטי ב-Centrum-West נמצא במקום הראשון? מה הראיות בעד ונגד?"),
     ("הערכת מחיר", "כמה תכניס ללילה דירה שלמה עם 2 חדרי שינה ב-De Pijp ל-4 אורחים, וכמה לסמוך על ההערכה?"),
     ("אמינות המודל", "עד כמה מודל המחיר אמין, ובאילו מקרים הוא חלש?"),
+    ("רגולציה ודירוג", "איך כללי ההשכרה של אמסטרדם משנים את דירוג ההזדמנויות, ומה מותר למשקיע?"),
+    ("תקרת לילות", "כמה לילות בשנה מותר להשכיר דירה שלמה ב-Centrum-West, ומה זה עושה להכנסה?"),
 ]
 TOOL_HE = {"rank_opportunities": "דירוג הזדמנויות", "predict_listing_price": "מודל מחיר",
            "neighbourhood_stats": "סטטיסטיקת שכונה", "review_signals": "ביקורות אורחים",
            "data_availability": "זמינות נתונים", "roi_calculator": "מחשבון תשואה",
            "web_search": "חיפוש ברשת", "web_source": "מקור מהרשת", "model_card": "אמינות המודל",
-           "segment_profile": "פרופיל הקטע", "listing_profile": "פרופיל נכסים"}
+           "segment_profile": "פרופיל הקטע", "listing_profile": "פרופיל נכסים",
+           "regulation_rules": "כללי רגולציה", "compliance_check": "בדיקת ציות"}
 GUARD_HE = {"input": "חסימת קלט", "allow_list": "כלי לא מורשה", "schema": "קלט לא תקין לכלי",
             "budget": "תקציב קריאות", "policy": "מדיניות", "max_rounds": "מגבלת סבבים",
             "agent_unavailable": "סוכן לא זמין"}
@@ -288,6 +310,20 @@ def model_summary(data_root: str) -> dict:
 
 
 card = model_summary(ss.data_root)
+
+
+@st.cache_data(show_spinner=False)
+def regulation_view(data_root: str, city_name: str | None) -> tuple[dict, dict]:
+    """(compliance by rank, the city's rules) for the panel; empty if the city has no rules."""
+    if not city_name or orch.capabilities.get("compliance_check"):
+        return {}, {}
+    comp = orch.registry["compliance_check"].handler({"action": "ranking", "city": city_name, "n": 50})
+    rules = orch.registry["regulation_rules"].handler({"city": city_name})
+    by_rank = {x["rank"]: x for x in comp.get("results", [])} if comp.get("status") == "ok" else {}
+    return by_rank, (rules if rules.get("status") == "ok" else {})
+
+
+reg_by_rank, reg_rules = regulation_view(ss.data_root, city)
 
 
 def money(v) -> str:
@@ -570,10 +606,111 @@ def opportunity_row(r):
             f'<div class="sc">{money(r["score"])}<small>בשנה, שמרני</small></div></div>'
             f'<div class="mini"><span>מחיר <b>{money(r["expected_price"])}</b></span>'
             f'<span>לילות <b>{r["booked_nights"]:.0f}</b></span><span>ודאות <b>{r["price_certainty"]:.2f}</b></span>'
-            f'{"".join(f"<span class=flag>{f}</span>" for f in flags)}</div>', unsafe_allow_html=True)
+            f'{"".join(f"<span class=flag>{f}</span>" for f in flags)}</div>' + regulation_tags(r),
+            unsafe_allow_html=True)
         if orch.llm is not None and st.button("חקור עם הסוכנים", key=f"inv_{r['segment_key']}"):
             ss.pending = investigate_prompt(r)
             st.rerun()
+
+
+def regulation_tags(r) -> str:
+    c = reg_by_rank.get(int(r["rank"]))
+    if not c:
+        return ""
+    if c["regime"] == "holiday_rental":
+        share = c.get("share_in_15_night_wijken") or 0
+        cap = "15" if share >= 0.5 else "30" if share == 0 else "15–30"
+        return (f'<div class="reg"><span class="tag">⚖️ תקרה {cap} לילות</span>'
+                f'<span class="tag cut">בתקרה <b>{money(c["score_within_cap"])}</b> '
+                f'(<b>{c["legal_nights"]:.0f}</b> לילות)</span><span>רק לתושב בדירתו</span></div>')
+    if c["regime"] == "bed_and_breakfast":
+        return ('<div class="reg"><span class="tag">⚖️ B&amp;B: ללא תקרת לילות</span>'
+                '<span>דורש היתר במכסה, והמארח גר בדירה</span></div>')
+    return ""
+
+
+def regulation_panel():
+    if not reg_rules:
+        st.markdown('<div class="pane-hint">אין כללי רגולציה מאומתים לעיר הזו. הסוכנים ישתמשו בחיפוש ברשת.</div>',
+                    unsafe_allow_html=True)
+        return
+    st.markdown(f'<div class="pane-hint">כללי ההשכרה לטווח קצר ב-{html.escape(reg_rules["city"])}, מתוך הטקסטים הרשמיים. '
+                f'אומתו ב-{reg_rules["verified_on"]}. לא ייעוץ משפטי.</div>'
+                '<div class="callout">משקיע שלא גר בנכס לא יכול להשכיר אותו לתיירים: דירה שלמה רק בדירת המגורים '
+                'העיקרית (עד 30 לילות, 15 בשמונה רבעים), וחדר רק כ-B&amp;B כשהמארח גר בדירה.</div>',
+                unsafe_allow_html=True)
+    from agents.regulation import load_rules
+    he = {r["id"]: r.get("rule_he") for r in load_rules(reg_rules["city"])["rules"]}
+    for r in reg_rules["results"]:
+        src = reg_rules["sources"].get(r["source"], {})
+        kind = "מקור רשמי" if src.get("official") else "מקור משני"
+        st.markdown(f'<div class="rule"><span class="id">{r["id"]}</span>{html.escape(he.get(r["id"]) or r["rule"])}'
+                    f'<span class="src">{kind}: <a href="{html.escape(src.get("url", "#"))}" target="_blank">'
+                    f'{html.escape(src.get("title", r["source"]))}</a> · בתוקף מ-{r.get("effective_from")}'
+                    f'{" · " + html.escape(r["articles"]) if r.get("articles") else ""}</span></div>',
+                    unsafe_allow_html=True)
+    if reg_by_rank:
+        top = sorted(reg_by_rank.values(), key=lambda x: x["rank_within_cap"])[:8]
+        st.markdown("**הדירוג בתקרה החוקית** (תושב שמשכיר את דירתו, או B&B מורשה)")
+        st.dataframe(pd.DataFrame({
+            "בתקרה": [x["rank_within_cap"] for x in top], "במקור": [x["rank"] for x in top],
+            "שכונה": [x["neighbourhood"] for x in top], "סוג": [ROOM_HE.get(x["room_type"], x["room_type"]) for x in top],
+            "ציון בתקרה": [money(x["score_within_cap"]) for x in top]}), hide_index=True, width="stretch")
+
+
+def how_it_works():
+    """Everything a reviewer needs to see: the agents, their models, tools and full system
+    prompts, and the guardrails with their settings."""
+    from agents import prompts
+    from agents.orchestrator import AGENT_TOOLS, INTENT_AGENT
+    cfg = orch.config
+    st.markdown("#### מה קורה לכל שאלה")
+    st.markdown(
+        "1. **שער קלט** (קוד): זיהוי הזרקת פרומפט בעברית ובאנגלית, הודעה ריקה או ארוכה מדי.\n"
+        f"2. **נתב** (`{cfg.router_model}`, קריאת כלי כפויה `route_request`): בוחר כוונה ועיר.\n"
+        f"3. **סוכן מתמחה** (`{cfg.agent_model}`) בלולאת tool-use שכתבנו בעצמנו, עם הכלים שלו בלבד.\n"
+        "4. **שער כלים** (קוד) על כל קריאה: רשימת היתרים, JSON schema, תקציב, מדיניות, מניעת כפילויות, זמן.\n"
+        "5. **שער פלט** (קוד): כל מספר נבדק מול תוצאות הכלים, ציטוטים ומדיניות. נכשל? **מתקן** (מודל קטן) ובדיקה חוזרת.\n"
+        "6. **בדיקת רגולציה** (קוד): כל הזדמנות שבתשובה ושהסוכן לא בדק, נבדקת מול כללי העיר ומתווספת לתשובה.\n"
+        "7. **בלי מפתח או בתקלה**: תשובה דטרמיניסטית מהטבלה, עם הרגולציה.")
+    st.markdown("#### הסוכנים")
+    for agent, spec in orch.specs.items():
+        intents = [i for i, a in INTENT_AGENT.items() if a == agent]
+        tools = spec.tools + list(spec.delegates)
+        missing = [t for t in AGENT_TOOLS[agent] if t not in spec.tools]
+        st.markdown(f'<div class="arch"><h4>{html.escape(spec.title_he)} <span class="m">({agent})</span></h4>'
+                    f'<div class="m">מודל <code>{cfg.agent_model}</code> · פרומפט <code>{spec.prompt_version}</code>'
+                    f'{" · כוונות: " + ", ".join(intents) if intents else ""}</div>'
+                    f'<div class="tools">{"".join(f"<span>{t}</span>" for t in tools)}</div>'
+                    + (f'<div class="m">כבויים בפריסה הזו: {", ".join(missing)}</div>' if missing else "")
+                    + '</div>', unsafe_allow_html=True)
+        with st.expander(f"System prompt: {spec.title_he}"):
+            st.code(spec.system, language="markdown", wrap_lines=True)
+    for name, title in [("router", "נתב"), ("reviser", "מתקן ראיות")]:
+        text, version = prompts.system_prompt(name, with_common=False)
+        st.markdown(f'<div class="arch"><h4>{title} <span class="m">({name})</span></h4>'
+                    f'<div class="m">מודל <code>{cfg.router_model}</code> · פרומפט <code>{name}-{version}</code></div></div>',
+                    unsafe_allow_html=True)
+        with st.expander(f"System prompt: {title}"):
+            st.code(text, language="markdown", wrap_lines=True)
+    st.markdown("#### Guardrails והגדרות")
+    from agents.guardrails.output_guard import POLICY_RULES
+    st.dataframe(pd.DataFrame([
+        ("קלט", "אורך מקסימלי להודעה", f"{cfg.max_input_chars:,} תווים", "agents/guardrails/input_guard.py"),
+        ("קלט", "הזרקת פרומפט (עברית ואנגלית)", "חסימה לפני קריאה למודל", "agents/guardrails/injection.py"),
+        ("כלים", "רשימת היתרים לכל סוכן", "least privilege", "agents/orchestrator.py: AGENT_TOOLS"),
+        ("כלים", "תקציב קריאות", f"{cfg.max_tool_calls_per_agent} לסוכן, {cfg.max_tool_calls_per_turn} לתור", "agents/guardrails/tool_guard.py"),
+        ("כלים", "סבבי מודל לסוכן", f"{cfg.max_llm_rounds_per_agent}", "agents/llm.py"),
+        ("כלים", "זמן מקסימלי לכלי", f"{cfg.tool_timeout_s:.0f} שניות", "agents/guardrails/tool_guard.py"),
+        ("כלים", "JSON schema לכל קריאה", "jsonschema Draft 2020-12", "agents/guardrails/tool_guard.py"),
+        ("כלים", "מחשבון תשואה", "רק עם מחיר ועלויות שהמשתמש נתן", "agents/guardrails/tool_guard.py"),
+        ("כלים", "חיפוש ברשת", f"עד {cfg.web_search_max_uses} חיפושים, מסומן חיצוני", "agents/tools/__init__.py"),
+        ("נתונים", "טקסט לא מאומת (כותרות, ביקורות)", "קיצור, בלי שמות, הסגר להוראות", "agents/guardrails/injection.py"),
+        ("פלט", "כל מספר מול תוצאות הכלים", "עיגול מותר; לא מבוסס ← מתקן ← ⚠️", "agents/guardrails/output_guard.py"),
+        ("פלט", "מדיניות", ", ".join(r[0] for r in POLICY_RULES) + ", ROI בלי מחשבון", "agents/guardrails/output_guard.py"),
+        ("פלט", "רגולציה", "בדיקת ציות לכל הזדמנות שמוצגת", "agents/orchestrator.py: attach_regulation"),
+    ], columns=["שכבה", "בדיקה", "הגדרה", "קובץ"]), hide_index=True, width="stretch")
+    st.caption("כל ההגדרות ב-agents/config.py, וכל אחת ניתנת לשינוי במשתנה סביבה. הטסטים: tests/test_agents.py.")
 
 
 def model_panel():
@@ -601,14 +738,14 @@ def model_panel():
 
 
 # ---------------------------------------------------------------------- layout
-tab_chat, tab_table, tab_log = st.tabs(["סוכן המחקר", "טבלת הזדמנויות", "יומן ראיות"])
+tab_chat, tab_table, tab_log, tab_how = st.tabs(["סוכן המחקר", "טבלת הזדמנויות", "יומן ראיות", "איך זה עובד"])
 
 with tab_chat:
     col_chat, col_ctx = st.columns([1.7, 1], gap="large")
 
     with col_ctx:
         with st.container(key="ctx"):
-            sub_opps, sub_map, sub_model = st.tabs(["הזדמנויות", "מפה", "אמינות המודל"])
+            sub_opps, sub_map, sub_reg, sub_model = st.tabs(["הזדמנויות", "מפה", "רגולציה", "אמינות המודל"])
             with sub_opps:
                 if ct is None:
                     st.markdown('<div class="pane-hint">אין טבלת הזדמנויות בתיקיית הנתונים.</div>',
@@ -637,6 +774,8 @@ with tab_chat:
                         draw_map()
                     except Exception as e:
                         st.caption(f"המפה לא זמינה: {e}")
+            with sub_reg:
+                regulation_panel()
             with sub_model:
                 model_panel()
 
@@ -649,14 +788,14 @@ with tab_chat:
                             'מהמודלים ומהנתונים, וכל מספר בתשובה נבדק מול המקור שלו.</p></div>',
                             unsafe_allow_html=True)
                 if orch.llm is None:
-                    st.markdown('<div class="notice">הסוכנים כבויים כי לא הוגדר מפתח API. פתחו את סרגל ההגדרות '
-                                '(החץ בפינה העליונה) והדביקו מפתח. טבלת ההזדמנויות זמינה גם בלעדיו.</div>',
+                    st.markdown('<div class="notice">הסוכנים כבויים כי לא הוגדר מפתח API, אבל אפשר לשאול: '
+                                'התשובות יגיעו מהטבלה הדטרמיניסטית ומכללי הרגולציה. לחקירה מלאה עם סוכנים, '
+                                'פתחו את סרגל ההגדרות (החץ בפינה העליונה) והדביקו מפתח.</div>',
                                 unsafe_allow_html=True)
                 c1, c2 = st.columns(2, gap="small")
                 for i, (title, q) in enumerate(SUGGESTIONS):
                     with (c1 if i % 2 == 0 else c2):
-                        if st.button(f"**{title}**  \n{q}", key=f"sug_{i}", width="stretch",
-                                     disabled=orch.llm is None):
+                        if st.button(f"**{title}**  \n{q}", key=f"sug_{i}", width="stretch"):
                             ss.pending = q
                             st.rerun()
             for m in ss.messages:
@@ -665,7 +804,11 @@ with tab_chat:
                         st.markdown(f'<span class="umsg"></span>{html.escape(m["content"])}', unsafe_allow_html=True)
                     else:
                         render_turn(m["result"])
-        prompt = st.chat_input("שאלו את סוכן המחקר…", key="chat", disabled=orch.llm is None)
+        prompt = st.chat_input("שאלו את סוכן המחקר…" if orch.llm is not None else
+                               "שאלו (מצב ללא סוכן: תשובות מהטבלה ומהרגולציה)…", key="chat")
+        if prompt and not ss.messages:       # first question: clear the welcome screen first
+            ss.pending = prompt
+            st.rerun()
         prompt = prompt or ss.pending
         ss.pending = None
         if prompt:
@@ -690,6 +833,12 @@ with tab_table:
             "חדרי שינה": f["bedroom_band"], f"ציון ({cur}/שנה)": f["score"].round(0),
             f"מחיר צפוי ({cur}/לילה)": f["expected_price"].round(0), "לילות מוזמנים": f["booked_nights"].round(0),
             "ודאות": f["price_certainty"].round(2), "נכסים": f["n_listings"], "סטטוס": f["status"]})
+        if reg_by_rank:
+            rk = f["rank"].map(lambda v: reg_by_rank.get(int(v)) if pd.notna(v) else None)
+            view["משטר"] = rk.map(lambda c: {"holiday_rental": "דירה שלמה: תקרת לילות",
+                                             "bed_and_breakfast": "B&B: מארח גר בדירה"}.get(c["regime"], "") if c else "")
+            view["לילות מותרים"] = rk.map(lambda c: round(c["legal_nights"]) if c else None)
+            view[f"ציון בתקרה ({cur}/שנה)"] = rk.map(lambda c: c["score_within_cap"] if c else None)
         st.caption(f"{ct.meta.get('ranked_segments')} הזדמנויות מדורגות, תמונת מצב {ct.meta.get('snapshot_date')}, "
                    f"תווית {ct.meta.get('label')}. ציון = לילות × מחיר צפוי × ודאות; הכנסה שמרנית מהשכרה, לא תשואה.")
         st.dataframe(view, hide_index=True, width="stretch", height=640,
@@ -714,3 +863,6 @@ with tab_log:
                 for r in turns for e in r["evidence"]]
         st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
         st.caption("כל תוצאה נשמרת גם בקובץ evaluation/agent_evidence.jsonl לבדיקת ה-groundedness.")
+
+with tab_how:
+    how_it_works()

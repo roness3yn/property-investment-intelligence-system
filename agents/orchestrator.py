@@ -3,16 +3,19 @@
     user message
         -> input guardrail          (deterministic: injection, size)
         -> Router agent             (fast model, forced tool call: intent + city)
-        -> specialist agent         Opportunity Investigator | Price Analyst | Data Enrichment
-                                    (each with its own tools; the first two can delegate to the
-                                    Enrichment agent as a tool)
+        -> specialist agent         Opportunity Investigator | Price Analyst | Regulation &
+                                    Compliance | Data Enrichment (each with its own tools; the
+                                    first three can delegate to the Enrichment agent as a tool)
         -> output guardrail         (deterministic: groundedness of every number, citations, policy)
         -> Reviser agent            (only if the check failed; then checked again)
+        -> regulation check         (deterministic: every opportunity in the answer that the
+                                    agent did not check gets compliance_check, appended)
         -> answer + trace + evidence + verification report
 
 Without an API key, or if the language model fails, the orchestrator falls back to the
 deterministic path the charter requires: the opportunity table and the data status, with an
-explicit "agent unavailable" status. The investor is never left without the analytical output.
+explicit "agent unavailable" status, with the regulation applied. The investor is never left
+without the analytical output.
 """
 from __future__ import annotations
 
@@ -29,7 +32,7 @@ from agents.guardrails.output_guard import VerificationReport
 from agents.llm import AgentResult, AgentSpec, AnthropicLLM, ask_once, make_delegate, run_agent
 from agents.tools import ToolContext, build_registry
 
-INTENTS = ["investigate", "price", "data", "help", "out_of_scope"]
+INTENTS = ["investigate", "price", "regulation", "data", "help", "out_of_scope"]
 ROUTE_TOOL = {
     "name": "route_request",
     "description": "Route the user's message to the right specialist.",
@@ -41,14 +44,20 @@ ROUTE_TOOL = {
 }
 AGENT_TOOLS = {   # what each specialist may use; tools whose data is missing are removed at start-up
     "investigator": ["rank_opportunities", "segment_profile", "listing_profile", "model_card",
-                     "neighbourhood_stats", "review_signals", "predict_listing_price"],
+                     "neighbourhood_stats", "review_signals", "predict_listing_price",
+                     "compliance_check", "regulation_rules"],
     "price_analyst": ["predict_listing_price", "rank_opportunities", "model_card", "segment_profile",
-                      "neighbourhood_stats", "roi_calculator"],
+                      "neighbourhood_stats", "roi_calculator", "compliance_check", "regulation_rules"],
+    "compliance": ["regulation_rules", "compliance_check", "rank_opportunities", "segment_profile"],
     "enrichment": ["data_availability", "neighbourhood_stats", "segment_profile", "model_card",
-                   "review_signals", "web_search"],
+                   "review_signals", "regulation_rules", "web_search"],
 }
+SPECIALISTS = ["investigator", "price_analyst", "compliance", "enrichment"]
+INTENT_AGENT = {"investigate": "investigator", "price": "price_analyst", "regulation": "compliance",
+                "data": "enrichment"}
 TITLES = {"router": "נתב", "investigator": "חוקר הזדמנויות", "price_analyst": "אנליסט מחירים",
-          "enrichment": "סוכן העשרת נתונים", "verifier": "מאמת ראיות", "reviser": "מתקן ראיות",
+          "compliance": "סוכן רגולציה וציות", "enrichment": "סוכן העשרת נתונים",
+          "verifier": "מאמת ראיות", "reviser": "מתקן ראיות", "regulation_check": "בדיקת רגולציה",
           "fallback": "מצב ללא סוכן"}
 
 HELP_HE = """אני מערכת סוכנים לחקר הזדמנויות השקעה בהשכרה לטווח קצר, על נתוני Inside Airbnb.
@@ -57,11 +66,12 @@ HELP_HE = """אני מערכת סוכנים לחקר הזדמנויות השקע
 - **דירוג וחקירה**: "מהן 5 ההזדמנויות המובילות באמסטרדם ולמה?", "מה הסיכונים בהזדמנות הראשונה?"
 - **מחיר ו-what-if**: "כמה תכניס דירת 2 חדרי שינה ב-De Pijp ל-4 אורחים?", "האם listing 28871 מתומחר נמוך?"
 - **תשואה**: "אם אקנה ב-450,000 EUR עם עלויות 9,000 בשנה, מה התשואה?" (רק עם המספרים שלך)
-- **נתונים והקשר**: "אילו ערים יש בנתונים?", "מה המצב בברצלונה?", "מה הרגולציה על Airbnb באמסטרדם?"
+- **רגולציה**: "כמה לילות מותר להשכיר באמסטרדם?", "איך הרגולציה משנה את הדירוג?", "האם משקיע יכול להשכיר דירה לתיירים?"
+- **נתונים והקשר**: "אילו ערים יש בנתונים?", "מה המצב בברצלונה?"
 
-**איך זה עובד:** נתב מעביר את השאלה לסוכן מתמחה (חוקר הזדמנויות, אנליסט מחירים או סוכן העשרה). הסוכן קורא לכלים קריאה-בלבד, וכל מספר בתשובה נבדק אוטומטית מול תוצאות הכלים ומצוטט [E#].
+**איך זה עובד:** נתב מעביר את השאלה לסוכן מתמחה (חוקר הזדמנויות, אנליסט מחירים, סוכן רגולציה או סוכן העשרה). הסוכן קורא לכלים קריאה-בלבד, וכל מספר בתשובה נבדק אוטומטית מול תוצאות הכלים ומצוטט [E#]. כל הזדמנות שמוצגת עוברת גם בדיקת רגולציה.
 
-**מה הציון אומר:** הכנסה שנתית שמרנית מהשכרה (לילות מוזמנים × מחיר צפוי × ודאות). זו **לא** תשואה על השקעה ולא המלצת קנייה."""
+**מה הציון אומר:** הכנסה שנתית שמרנית מהשכרה (לילות מוזמנים × מחיר צפוי × ודאות). זו **לא** תשואה על השקעה ולא המלצת קנייה, והיא לא מגבילה את הלילות לתקרה החוקית: את זה עושה בדיקת הרגולציה."""
 OUT_OF_SCOPE_HE = ("השאלה מחוץ לתחום של המערכת. אני עוזר לחקור הזדמנויות השקעה בהשכרה לטווח קצר: "
                    "דירוג הזדמנויות, מחירים צפויים, נתוני שכונות וביקורות, והקשר רגולטורי. "
                    "למשל: \"מהן ההזדמנויות המובילות באמסטרדם?\"")
@@ -129,7 +139,7 @@ class Orchestrator:
 
     def _build_specs(self) -> dict[str, AgentSpec]:
         specs = {}
-        for name in ["investigator", "price_analyst", "enrichment"]:
+        for name in SPECIALISTS:
             system, version = prompts.system_prompt(name)
             specs[name] = AgentSpec(name=name, title_he=TITLES[name],
                                     system=f"{system}\n\n{self.deployment}",
@@ -140,7 +150,7 @@ class Orchestrator:
             "statistics for a city without a model, or outside context (regulation, licences, "
             "taxes) from the web. It answers with findings that cite evidence references.",
             self._run_enrichment_for)
-        for name in ["investigator", "price_analyst"]:
+        for name in ["investigator", "price_analyst", "compliance"]:
             specs[name].delegates = {"ask_data_enrichment_agent": delegate}
         return specs
 
@@ -200,12 +210,14 @@ class Orchestrator:
         if self.llm is None:
             return self.fallback(check.text, intent, city, state, result, "no API key")
 
-        agent = {"investigate": "investigator", "price": "price_analyst", "data": "enrichment"}[intent]
+        agent = INTENT_AGENT[intent]
         task = check.text if not city else f"{check.text}\n\n(City in context: {city})"
         try:
             res = run_agent(self.specs[agent], task, llm=self.llm, guard=self.guard, state=state,
                             config=self.config, history=history)
             answer, report = self.verify_and_revise(res.text, state)
+            if agent != "compliance":
+                answer, report = self.attach_regulation(answer, report, state, city)
         except Exception as e:
             state.emit("error", agent, error=f"{type(e).__name__}: {e}")
             return self.fallback(check.text, intent, city, state, result, f"{type(e).__name__}: {e}")
@@ -239,33 +251,166 @@ class Orchestrator:
                             "(מסומן ⚠️). התייחס אליו בזהירות.")
         return revised, report2
 
+    # ------------------------------------------------------------------ regulation, by construction
+    def system_tool(self, name: str, args: dict, state: TurnState) -> tuple[dict, str]:
+        """A tool call made by the system itself (not by a model): same evidence store and
+        trace, no allow-list or budget, since no model chose it."""
+        state.emit("tool_call", "regulation_check", tool=name, args=args)
+        try:
+            result = self.registry[name].handler(args)
+        except Exception as e:                       # tools should not raise; be safe
+            result = {"tool": name, "status": "tool_failure", "status_reason": f"{type(e).__name__}: {e}"}
+        rec = state.store.register(name, "regulation_check", args, result)
+        state.emit("tool_result", "regulation_check", tool=name, ref=rec.ref, status=result.get("status"),
+                   evidence_id=result.get("evidence_id"))
+        return result, rec.ref
+
+    def _opportunities_in_turn(self, state: TurnState) -> tuple[str | None, list[dict], set[str]]:
+        """The opportunities this turn presented (from rank_opportunities results) and the ones
+        compliance_check already covered."""
+        city, shown, checked, seen = None, [], set(), set()
+        for r in state.store.records.values():
+            res = r.result or {}
+            if r.tool == "compliance_check" and res.get("status") == "ok":
+                if res.get("action") == "ranking":
+                    checked |= {f"rank:{x['rank']}" for x in res.get("results", [])}
+                elif res.get("opportunity"):
+                    checked.add(f"rank:{res['opportunity']['rank']}")
+            if r.tool != "rank_opportunities" or res.get("status") != "ok":
+                continue
+            if res.get("action") not in ("top", "breakdown"):
+                continue
+            city = city or res.get("city")
+            rows = res.get("results", [])[: 3 if res.get("action") == "top" else 1]
+            for x in rows:
+                if x.get("rank") and x["rank"] not in seen:
+                    seen.add(x["rank"])
+                    shown.append(x)
+        return city, shown, checked
+
+    def attach_regulation(self, answer: str, report: VerificationReport, state: TurnState,
+                          city: str | None) -> tuple[str, VerificationReport]:
+        """Every opportunity the answer presents gets the regulation check, whether or not the
+        agent remembered to call it: a deterministic step after the agent, cited like the rest."""
+        opp_city, shown, checked = self._opportunities_in_turn(state)
+        todo = [x for x in shown if f"rank:{x['rank']}" not in checked]
+        if not todo or self.capabilities.get("compliance_check"):
+            return answer, report
+        rules, rref = self.system_tool("regulation_rules", {"city": opp_city or city or ""}, state)
+        if rules.get("status") != "ok":
+            return answer, report
+        state.emit("agent_start", "regulation_check", title=TITLES["regulation_check"], tools=["compliance_check"])
+        rows = []
+        for x in todo:
+            res, ref = self.system_tool("compliance_check", {"action": "opportunity", "city": opp_city,
+                                                             "rank": int(x["rank"])}, state)
+            if res.get("status") == "ok":
+                rows.append((res, ref))
+        if not rows:
+            return answer, report
+        block = regulation_block(rows, rules, rref)
+        final = f"{answer}\n\n{block}"
+        report2 = verify(final, state.store, state.user_text)
+        state.emit("verify", "verifier", title=TITLES["verifier"], after_regulation=True, **_short(report2))
+        return final, report2
+
     # ------------------------------------------------------------------ deterministic fallback
     def fallback(self, text, intent, city, state, result, why):
         state.emit("guardrail", "fallback", guard="agent_unavailable", reason=why)
         allowed = {"rank_opportunities", "data_availability"}
         top, ref = self.guard.execute("fallback", allowed, "rank_opportunities",
                                       {"action": "top", "n": 10, **({"city": city} if city else {})}, state)
-        lines = [f"> **מצב ללא סוכן** ({why}). מוצגת הטבלה הדטרמיניסטית, כפי שהאמנה מחייבת.", ""]
+        lines = [f"> **מצב ללא סוכן** ({why}). מוצגת הטבלה הדטרמיניסטית, כפי שהאמנה מחייבת, "
+                 "עם בדיקת הרגולציה.", ""]
         tables = {}
         if top.get("status") == "ok":
             cur = top.get("currency") or ""
-            lines += [f"**10 ההזדמנויות המובילות ב-{top.get('city')}** (תווית: {top.get('label')}) [{ref}]", "",
-                      f"| דירוג | שכונה | סוג | חדרי שינה | ציון ({cur}/שנה) | מחיר ללילה | לילות | ודאות |",
-                      "|---|---|---|---|---|---|---|---|"]
+            caps, cref = ({}, None)
+            if not self.capabilities.get("compliance_check"):
+                comp, cref = self.system_tool("compliance_check", {"action": "ranking", "city": top.get("city"),
+                                                                   "n": 50}, state)
+                caps = {x["rank"]: x for x in comp.get("results", [])} if comp.get("status") == "ok" else {}
+            rref = None
+            if caps:
+                rules, rref = self.system_tool("regulation_rules", {"city": top.get("city")}, state)
+                if intent == "regulation":
+                    lines += regulation_summary_he(rules, rref)
+            lines += [f"**10 ההזדמנויות המובילות ב-{top.get('city')}** (תווית: {top.get('label')}) [{ref}]"
+                      + (f", ובתקרת הלילות החוקית [{cref}]" if caps else ""), ""]
+            head = f"| דירוג | שכונה | סוג | חדרי שינה | ציון ({cur}/שנה) | מחיר ללילה | לילות | ודאות |"
+            sep = "|---|---|---|---|---|---|---|---|"
+            if caps:
+                head += " לילות חוקיים | ציון בתקרה |"
+                sep += "---|---|"
+            lines += [head, sep]
             for r in top["results"]:
-                lines.append(f"| {r['rank']} | {r['neighbourhood']} | {r['room_type']} | {r['bedrooms']} | "
-                             f"{r['score_conservative_annual_revenue']:,.0f} | {r['expected_nightly_price']:,.0f} | "
-                             f"{r['expected_booked_nights']:,.0f} | {r['price_certainty']:.2f} |")
+                line = (f"| {r['rank']} | {r['neighbourhood']} | {r['room_type']} | {r['bedrooms']} | "
+                        f"{r['score_conservative_annual_revenue']:,.0f} | {r['expected_nightly_price']:,.0f} | "
+                        f"{r['expected_booked_nights']:,.0f} | {r['price_certainty']:.2f} |")
+                if caps:
+                    c = caps.get(r["rank"]) or {}
+                    line += (f" {c.get('legal_nights', 0):,.0f} | {c.get('score_within_cap', 0):,.0f} |"
+                             if c else " - | - |")
+                lines.append(line)
             lines += ["", "הציון הוא הכנסה שנתית שמרנית מהשכרה, לא תשואה על השקעה ולא המלצת קנייה."]
+            if caps:
+                lines += ["**רגולציה:** \"ציון בתקרה\" הוא אותה נוסחה עם הלילות שמותר להשכיר לפי מיקום כל נכס "
+                          "(30 בשנה, 15 בשמונה רבעים). חדר פרטי הוא B&B: אין תקרת לילות, אבל נדרש היתר והמארח "
+                          f"חייב לגור בדירה. משקיע שלא גר בנכס לא יכול להשכיר לתיירים כלל [{cref}, {rref}]."]
             tables["top"] = top["results"]
         else:
             avail, aref = self.guard.execute("fallback", allowed, "data_availability", {}, state)
             lines += [f"אין טבלת הזדמנויות זמינה: {top.get('status_reason')}.",
                       f"ערים בנתונים: {', '.join(c['city'] for c in avail.get('cities', [])) or 'אין'} [{aref}]"]
-        lines += ["", "כדי לקבל חקירה מלאה עם סוכנים, הגדר `ANTHROPIC_API_KEY` (בסרגל הצד או בקובץ `.env`)."]
+        lines += ["", "כדי לקבל חקירה מלאה עם סוכנים, הגדר `ANTHROPIC_API_KEY` (בסרגל הצד, בקובץ `.env` "
+                  "או ב-Secrets של Streamlit)."]
         answer = "\n".join(lines)
         report = verify(answer, state.store, state.user_text)
         return result(answer, intent, "fallback", "fallback", city, report.as_dict(), why, tables)
+
+
+REGIME_HE = {"holiday_rental": "דירה שלמה: השכרה לתיירים", "bed_and_breakfast": "חדר: B&B",
+             "not_covered": "מחוץ לכללים"}
+
+
+def regulation_block(rows: list[tuple[dict, str]], rules: dict, rules_ref: str) -> str:
+    """The deterministic regulation section appended to an answer. Every number comes from a
+    compliance_check result and carries its reference."""
+    cur = rows[0][0].get("currency") or ""
+    out = ["---", f"**⚖️ בדיקת רגולציה אוטומטית** ({rules.get('city')}, כללים שאומתו ב-{rules.get('verified_on')})", "",
+           "השכרה לתיירים מותרת רק לתושב, בדירה שהיא מקום המגורים העיקרי שלו; משקיע שלא גר בנכס לא יכול "
+           f"להשכיר אותו לטווח קצר [{rules_ref}].", "",
+           f"| הזדמנות | משטר | לילות בציון | לילות מותרים | ציון בטבלה ({cur}) | ציון בתקרה ({cur}) | מקור |",
+           "|---|---|---|---|---|---|---|"]
+    notes = []
+    for res, ref in rows:
+        o, c = res["opportunity"], res["results"][0]
+        w, nc = c.get("within_cap") or {}, c.get("night_cap") or {}
+        legal = f"{w.get('legal_nights', 0):,.0f}" if c["regime"] == "holiday_rental" else "ללא תקרה"
+        out.append(f"| #{o['rank']} {o['neighbourhood']}, {o['room_type']}, {o['bedrooms']} | {REGIME_HE[c['regime']]} | "
+                   f"{w.get('booked_nights_in_score', 0):,.0f} | {legal} | {w.get('score_in_table', 0):,.0f} | "
+                   f"{w.get('score_within_cap', 0):,.0f} | [{ref}] |")
+        if c["regime"] == "holiday_rental" and nc.get("share_in_15_night_wijken") is not None:
+            notes.append(f"#{o['rank']}: {100 * nc['share_in_15_night_wijken']:.0f}% מהנכסים ברבעים עם תקרת 15 לילות [{ref}]")
+        elif c["regime"] == "bed_and_breakfast":
+            notes.append(f"#{o['rank']}: B&B דורש היתר במכסה לרובע, והמארח גר בדירה [{ref}]")
+    out += [""] + [f"- {n}" for n in notes]
+    out.append("- הלילות בציון נמדדו ברובם לפני תקרת 15 הלילות (1.4.2026), ולכן הם מתארים את העבר ולא את "
+               f"המותר היום [{rules_ref}]. זה לא ייעוץ משפטי.")
+    return "\n".join(out)
+
+
+def regulation_summary_he(rules: dict, ref: str) -> list[str]:
+    if rules.get("status") != "ok":
+        return []
+    from agents.regulation import load_rules
+    he = {r["id"]: r.get("rule_he") for r in load_rules(rules["city"])["rules"]}
+    lines = [f"**כללי ההשכרה לטווח קצר ב-{rules['city']}** (אומתו ב-{rules['verified_on']}) [{ref}]", ""]
+    for r in rules["results"]:
+        src = rules["sources"].get(r["source"], {})
+        lines.append(f"- **{r['id']}**: {he.get(r['id']) or r['rule']} "
+                     f"({'מקור רשמי' if src.get('official') else 'מקור משני'}: {src.get('title', r['source'])})")
+    return lines + [""]
 
 
 def _short(report: VerificationReport) -> dict:
@@ -290,8 +435,11 @@ def heuristic_route(text: str) -> dict:
     city = city or ("Amsterdam" if "אמסטרדם" in text else "Barcelona" if "ברצלונה" in text else None)
     if re.search(r"^(hi|hello|help|שלום|היי|עזרה)\b|what can you do|מה אתה יודע|איך זה עובד", t):
         return {"intent": "help", "city": city, "reason": "keywords: help"}
+    if re.search(r"regulat|licen[cs]e|permit|allowed|legal|b&b|night cap|tourist tax|רגולצי|רישיון|היתר|"
+                 r"חוק|מותר|אסור|תקרת|ימים בשנה|לילות בשנה|מס תיירים|קנס", t):
+        return {"intent": "regulation", "city": city, "reason": "keywords: regulation"}
     if re.search(r"listing|\bprice\b|nightly|per night|מחיר|ללילה|כמה (תכניס|יכניס|עולה)|roi|תשואה|what.?if", t):
         return {"intent": "price", "city": city, "reason": "keywords: price"}
-    if re.search(r"data|cities|regulat|licen|tax|נתונים|ערים|רגולציה|רישיון|מס\b|חוק", t):
+    if re.search(r"data|cities|tax|נתונים|ערים|מס\b", t):
         return {"intent": "data", "city": city, "reason": "keywords: data"}
     return {"intent": "investigate", "city": city, "reason": "default: investigation"}

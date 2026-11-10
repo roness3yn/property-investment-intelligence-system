@@ -1,0 +1,5 @@
+{"id": "G01", "question": "כמה לילות בשנה מותר להשכיר דירה שלמה לתיירים באמסטרדם?", "intent": "regulation", "tools_any": ["regulation_rules"], "kind": "rules"}
+{"id": "G02", "question": "איך כללי ההשכרה של אמסטרדם משנים את דירוג ההזדמנויות, ומה מותר למשקיע שלא גר בנכס?", "intent": "regulation", "tools_any": ["compliance_check"], "kind": "ranking_within_cap"}
+{"id": "G03", "question": "What does the 15-night rule do to the opportunity ranked second in Amsterdam?", "intent": "regulation", "tools_any": ["compliance_check"], "kind": "opportunity_within_cap"}
+{"id": "G04", "question": "מהן 3 ההזדמנויות המובילות באמסטרדם? תכלול את מה שהרגולציה מאפשרת.", "intent": "investigate", "tools_any": ["rank_opportunities"], "kind": "brief_with_regulation"}
+{"id": "G05", "question": "What are the short-term rental rules in Barcelona?", "intent": "regulation", "tools_any": ["regulation_rules", "ask_data_enrichment_agent"], "kind": "no_curated_rules"}

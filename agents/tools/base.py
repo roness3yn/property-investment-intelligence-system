@@ -165,6 +165,8 @@ class ToolContext:
             "review_signals": None if self.reviews_file() else
                 "guest review text is not in the repository (reviews_clean.parquet is too large for Git)",
             "roi_calculator": None, "web_search": None,
+            "regulation_rules": None,
+            "compliance_check": None if opp else "no opportunity table to check against the rules",
         }
 
     def status(self) -> dict:

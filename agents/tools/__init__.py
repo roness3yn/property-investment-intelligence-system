@@ -8,6 +8,7 @@ from agents.tools.data_tools import (data_availability_tool, neighbourhood_stats
 from agents.tools.evidence_tools import (listing_profile_tool, model_card_tool,
                                          segment_profile_tool)
 from agents.tools.model_tools import predict_listing_price_tool, rank_opportunities_tool
+from agents.tools.regulation_tools import compliance_check_tool, regulation_rules_tool
 from agents.tools.roi import roi_calculator_tool
 
 
@@ -23,7 +24,8 @@ def build_registry(ctx: ToolContext) -> dict[str, ToolSpec]:
     specs = [rank_opportunities_tool(ctx), predict_listing_price_tool(ctx), model_card_tool(ctx),
              segment_profile_tool(ctx), listing_profile_tool(ctx),
              neighbourhood_stats_tool(ctx), review_signals_tool(ctx),
-             data_availability_tool(ctx), roi_calculator_tool(), web_search_spec(ctx.config)]
+             data_availability_tool(ctx), roi_calculator_tool(), regulation_rules_tool(ctx),
+             compliance_check_tool(ctx), web_search_spec(ctx.config)]
     return {s.name: s for s in specs}
 
 
