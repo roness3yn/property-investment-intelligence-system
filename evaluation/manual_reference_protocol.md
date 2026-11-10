@@ -41,21 +41,13 @@ Start the stopwatch when the browser is opened.
 5. **Work out the typical price.** Compute the **median** of the 10 nightly prices, and note the cheapest and the most expensive.
 6. **Judge how busy they are.** Of the 10 listings, count how many have a review in the last 3 months, and note the typical number of reviews. Optional: open the calendars of 3 listings and count the blocked (booked) days in the next 30 days.
 7. **Count the competition.** Remove the type and bedroom filters, keeping the dates and the map area, and note how many listings of any kind the area shows.
-8. **Write the brief** (4–5 lines, template below).
 
-Stop the stopwatch, and record the minutes in `manual_reference_times.csv`.
 
-## Brief template
+Stop the stopwatch.
 
-```
-Opportunity: De Pijp – Rivierenbuurt, entire home, 2 bedrooms
-Comparable listings in the area: ___
-Typical price per night: median ___ EUR (range ___–___)
-Activity: ___ of 10 reviewed in the last 3 months; typical ___ reviews
-Competition: ___ listings of all types in the area
-For: ___
-Against: ___
-```
+
+
+
 
 ## Filling the charter
 

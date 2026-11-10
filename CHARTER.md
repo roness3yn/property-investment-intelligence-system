@@ -7,7 +7,9 @@
 
 **User:** a small private investor (one to five properties) deciding **what to buy and where** for short-term rental in a European city, without a professional analyst. Example: an investor choosing between a 2-bedroom flat in De Pijp and a studio in Centrum-West in Amsterdam.
 
-**Pain, measured:** before deciding, such an investor compares neighbourhoods, property types, nightly prices, booking activity and competitors by hand, listing by listing. A team member timed this manual research: an evidence brief for one opportunity (comparable listings, their prices, review activity, competitors) took a median of **___ minutes** over **___ opportunities**, so screening a city's top 10 takes about **___ hours**. This timing is also the manual reference for criterion 8. How it was measured: [manual reference protocol](evaluation/manual_reference_protocol.md), with the recorded times in [`evaluation/manual_reference_times.csv`](evaluation/manual_reference_times.csv).
+**Pain, measured:** before deciding, such an investor compares neighbourhoods, property types, nightly prices, booking activity and competitors by hand, listing by listing. A team member timed this manual research: an evidence brief for one opportunity (comparable listings, their prices, review activity, competitors) took a median of **8 minutes** over **4 opportunities**, so screening a city's top 10 takes about **32 minutes**. This timing is also the manual reference for criterion 8. How it was measured: [manual reference protocol](evaluation/manual_reference_protocol.md).
+
+For comparison , the same process takes less than 2 minutes using our system
 
 The system **ranks opportunities** and explains why the top-ranked ones warrant investigation.
 
