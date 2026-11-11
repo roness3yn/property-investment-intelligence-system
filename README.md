@@ -138,6 +138,7 @@ Occupancy is **inside the score, as a stated approximation**. Reviews are only a
 | Occupancy | inside the score, stated approximation | outside the ranking, as context |
 | Third component | price certainty | competition (listings within 1 km of the same room type) |
 | Inactive listings | 0 booked nights (conservative) | left out of the average |
+| Listings without a price (38.5%) | excluded: an empty price usually means the listing was not bookable at scrape time, and a model price for it cannot be verified | included with model prices; **deferred** to a later version, because it changes what the score describes and every ranking result would have to be re-evaluated |
 | Plan B | a second Inside Airbnb city | Zillow Research (different source and target) |
 
 ## Team
@@ -266,6 +267,26 @@ Values in brackets are 95% cluster-bootstrap confidence intervals (2,000 resampl
 - **Robustness (criterion 6):** rerun the score with review rates of 30%, 50% and 70% and average stays of 2, 3 and 4 nights. The top 10 must keep at least 70% of its opportunities.
 - **Forward check** (needs a later snapshot of the same city, not a criterion yet): did the top-ranked opportunities keep higher prices and review activity than the rest?
 
+**Results** (table `20261104_1753`, 46 ranked opportunities):
+- **Stability (criterion 5): met.** Over 200 bootstrap resamples, the top 10 keeps **80%** of its opportunities on average (median rank correlation 0.94).
+- **Robustness (criterion 6): met.** Under the 8 alternative assumptions, the top 10 keeps **80–100%**, lowest at a review rate of 30% with 4-night stays.
+- **Fragile leader:** #1 (Centrum-West, private room, 2 bedrooms) is always first when it is ranked, but it rests on 21 listings and falls below the 20-listing minimum in 44% of resamples. #2 is in the top 10 in every resample.
+
+**Comparison with simpler rankings** (`06_experiments` §7.4c; nothing retrained, no test listings):
+
+| Ranking | How it is built | Top 10 shared with ours | Rank correlation with ours | #1 |
+| --- | --- | --- | --- | --- |
+| **Ours** | booked nights × model price × certainty | — | — | Centrum-West, private room, 2 bedrooms |
+| **Naive** | median asking price per opportunity | 3 / 10 | 0.00 | Centrum-West, entire home, 3+ bedrooms |
+| **Inside Airbnb** | Inside Airbnb's occupancy estimate × median asking price (its revenue method) | 8 / 10 | 0.87 | same as ours |
+| Median price instead of the model | booked nights × median asking price × certainty | 9 / 10 | 0.99 | same as ours |
+| Booked nights only | no price | 9 / 10 | 0.89 | same as ours |
+
+- **Price alone gives a very different shortlist**, because it ignores how often a property is booked. That is why occupancy is in the score.
+- **Inside Airbnb's revenue method agrees with ours on 8 of the top 10.** Both estimate occupancy from reviews, so the agreement shows consistency, not accuracy. Inside Airbnb's estimate is higher for private rooms, so our ranking is the more conservative of the two.
+- **The ranking hardly depends on the price model.** At the level of an opportunity, the model's expected price and the median asking price differ by only **3.2%**, and booked nights vary twice as much as price across opportunities (coefficient of variation 0.78 vs 0.37). The ranking is driven mostly by booked nights, which also means model errors do not distort it. The model's value is elsewhere: pricing a property that has no listing (the investor's own), judging an individual asking price with an 80% range, and the certainty component.
+- Without observed revenue, these comparisons show agreement, not accuracy. The forward check on the next snapshot is what will show which ranking better anticipates later activity.
+
 ### 3. Investigation task (criteria 7–8)
 
 **Task:** produce an evidence brief for each of the top 10 opportunities in a city: the score breakdown, comparable listings, review signals and contradictions, with every number cited.
@@ -359,9 +380,9 @@ Occupancy is in the score, as a stated estimate of booked nights from review cou
 | **Score** (nights × price × certainty) | **33,389 EUR/year** | **22,436 EUR/year** |
 | Inside Airbnb's own occupancy estimate | 226 nights | 31 nights |
 
-Number 1 is booked about twice as often, which outweighs its lower and less certain price. Inside Airbnb's independent occupancy estimate points the same way. It is a stronger revenue lead, not a better purchase. Without purchase prices and costs we do not claim profit, and the agent computes a return only from the investor's own figures. Number 1 also rests on 21 listings, close to the minimum of 20. Criteria 5 and 6 are met (the top 10 keeps 80%), but #1 is fragile: in 44% of bootstrap resamples it has too few listings to be ranked, while #2 stays in the top 10 every time.
+Number 1 is booked about twice as often, which outweighs its lower and less certain price. Inside Airbnb's own occupancy estimate points the same way. It is a stronger revenue lead, not a better purchase. Without purchase prices and costs we do not claim profit, and the agent computes a return only from the investor's own figures. Number 1 also rests on 21 listings, close to the minimum of 20. Criteria 5 and 6 are met (the top 10 keeps 80%), but #1 is fragile: in 44% of bootstrap resamples it has too few listings to be ranked, while #2 stays in the top 10 every time.
 
-*Figures: Amsterdam opportunity table `20261101_1724` (label PROVISIONAL, test listings not included).*
+*Figures: Amsterdam opportunity table `20261104_1753` (label PROVISIONAL, test listings not included).*
 
 ## Guardrails
 
