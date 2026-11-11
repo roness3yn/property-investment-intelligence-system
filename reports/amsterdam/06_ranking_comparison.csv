@@ -1,0 +1,5 @@
+ranking,top-10 shared with ours,rank correlation,#1
+Naive: median asking price,3,-0.001,Centrum-West / Entire home/apt / 3+
+Inside Airbnb: its occupancy estimate x median asking price,8,0.869,Centrum-West / Private room / 2
+Median price instead of the model (booked nights x median asking price x certainty),9,0.992,Centrum-West / Private room / 2
+Booked nights only,9,0.893,Centrum-West / Private room / 2
